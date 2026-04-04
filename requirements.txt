@@ -1,0 +1,16 @@
+pandas
+openpyxl
+chromadb
+sentence-transformers
+rank-bm25
+transformers
+torch
+google-generativeai
+openai
+httpx
+pyyaml
+tqdm
+asyncio
+aiohttp
+tenacity
+pytest

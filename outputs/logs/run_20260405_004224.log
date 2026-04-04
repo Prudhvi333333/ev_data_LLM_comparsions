@@ -1,0 +1,11 @@
+[2026-04-05 00:42:55] [INFO] [kb_loader] Loaded 205 KB documents from GNEM - Auto Landscape Lat Long Updated.xlsx
+[2026-04-05 00:42:55] [WARNING] [indexer] sentence-transformers unavailable; using local TF-IDF hash embeddings.
+[2026-04-05 00:42:55] [WARNING] [indexer] chromadb unavailable; using local pickle vector store.
+[2026-04-05 00:42:55] [WARNING] [retriever] CrossEncoder unavailable; using lexical rerank fallback.
+[2026-04-05 00:42:55] [INFO] [main] Running pipeline qwen_rag
+[2026-04-05 00:44:38] [INFO] [reporter] Saved report outputs\reports\qwen_rag_report.xlsx
+[2026-04-05 00:44:38] [INFO] [main] Report saved: outputs\reports\qwen_rag_report.xlsx
+[2026-04-05 00:44:38] [INFO] [summary_reporter] Saved cross-pipeline summary outputs\reports\FINAL_COMPARISON.xlsx
+[2026-04-05 00:44:38] [INFO] [main] Final comparison saved: outputs\reports\FINAL_COMPARISON.xlsx
+[2026-04-05 00:44:38] [INFO] [main] Final pipeline summary
+[2026-04-05 00:44:38] [INFO] [main] qwen_rag | questions_answered=1 | timeouts=0 | mean_final_score=0.7420 | elapsed=103.03s

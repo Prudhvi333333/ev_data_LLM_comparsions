@@ -1,0 +1,21 @@
+[2026-04-04 22:00:56] [INFO] [kb_loader] Loaded 205 KB documents from data/kb/gnem_auto_landscape.xlsx
+[2026-04-04 22:00:56] [WARNING] [indexer] sentence-transformers unavailable; using local hash embeddings.
+[2026-04-04 22:00:56] [WARNING] [indexer] chromadb unavailable; using local pickle vector store.
+[2026-04-04 22:00:56] [WARNING] [retriever] CrossEncoder unavailable; using lexical rerank fallback.
+[2026-04-04 22:00:56] [INFO] [main] Running pipeline qwen_rag
+[2026-04-04 22:00:59] [WARNING] [generator] Ollama generation failed for qwen2.5:14b: Server error '500 Internal Server Error' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+[2026-04-04 22:01:00] [WARNING] [generator] Ollama generation failed for qwen2.5:14b: Server error '500 Internal Server Error' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+[2026-04-04 22:01:01] [WARNING] [generator] Ollama generation failed for qwen2.5:14b: Server error '500 Internal Server Error' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+[2026-04-04 22:01:01] [WARNING] [generator] Ollama generation failed for qwen2.5:14b: Server error '500 Internal Server Error' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+[2026-04-04 22:01:02] [WARNING] [generator] Ollama generation failed for qwen2.5:14b: Server error '500 Internal Server Error' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+[2026-04-04 22:01:02] [INFO] [reporter] Saved report outputs\reports\qwen_rag_report.xlsx
+[2026-04-04 22:01:02] [INFO] [main] Report saved: outputs\reports\qwen_rag_report.xlsx
+[2026-04-04 22:01:02] [INFO] [summary_reporter] Saved cross-pipeline summary outputs\reports\FINAL_COMPARISON.xlsx
+[2026-04-04 22:01:02] [INFO] [main] Final comparison saved: outputs\reports\FINAL_COMPARISON.xlsx
+[2026-04-04 22:01:02] [INFO] [main] Final pipeline summary
+[2026-04-04 22:01:02] [INFO] [main] qwen_rag | questions_answered=50 | timeouts=0 | mean_final_score=0.5783 | elapsed=5.92s

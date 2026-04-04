@@ -1,0 +1,40 @@
+[2026-04-04 21:59:55] [INFO] [kb_loader] Loaded 205 KB documents from data/kb/gnem_auto_landscape.xlsx
+[2026-04-04 21:59:55] [WARNING] [indexer] sentence-transformers unavailable; using local hash embeddings.
+[2026-04-04 21:59:55] [WARNING] [indexer] chromadb unavailable; using local pickle vector store.
+[2026-04-04 21:59:55] [INFO] [indexer] Embedding docs 1-32
+[2026-04-04 21:59:55] [INFO] [indexer] Embedding docs 33-64
+[2026-04-04 21:59:55] [INFO] [indexer] Embedding docs 65-96
+[2026-04-04 21:59:55] [INFO] [indexer] Embedding docs 97-128
+[2026-04-04 21:59:55] [INFO] [indexer] Embedding docs 129-160
+[2026-04-04 21:59:55] [INFO] [indexer] Embedding docs 161-192
+[2026-04-04 21:59:55] [INFO] [indexer] Embedding docs 193-205
+[2026-04-04 21:59:55] [WARNING] [indexer] rank-bm25 unavailable; using local BM25 implementation.
+[2026-04-04 21:59:55] [INFO] [indexer] Indexed 205 documents
+[2026-04-04 21:59:55] [WARNING] [retriever] CrossEncoder unavailable; using lexical rerank fallback.
+[2026-04-04 21:59:55] [INFO] [main] Running pipeline qwen_rag
+[2026-04-04 21:59:55] [WARNING] [retriever] No retrieval candidates for query 'Which companies supply thermal management systems to Kia?'; returning first KB document.
+[2026-04-04 21:59:55] [WARNING] [retriever] No retrieval candidates for query 'Which companies supply thermal management systems to Kia? Focus on batch 8.'; returning first KB document.
+[2026-04-04 21:59:55] [WARNING] [retriever] No retrieval candidates for query 'Which companies supply thermal management systems to Kia? Focus on batch 13.'; returning first KB document.
+[2026-04-04 21:59:55] [WARNING] [retriever] No retrieval candidates for query 'Which companies supply thermal management systems to Kia? Focus on batch 18.'; returning first KB document.
+[2026-04-04 21:59:55] [WARNING] [retriever] No retrieval candidates for query 'Which companies supply thermal management systems to Kia? Focus on batch 23.'; returning first KB document.
+[2026-04-04 21:59:55] [WARNING] [retriever] No retrieval candidates for query 'Which companies supply thermal management systems to Kia? Focus on batch 28.'; returning first KB document.
+[2026-04-04 21:59:55] [WARNING] [retriever] No retrieval candidates for query 'Which companies supply thermal management systems to Kia? Focus on batch 33.'; returning first KB document.
+[2026-04-04 21:59:55] [WARNING] [retriever] No retrieval candidates for query 'Which companies supply thermal management systems to Kia? Focus on batch 38.'; returning first KB document.
+[2026-04-04 21:59:55] [WARNING] [retriever] No retrieval candidates for query 'Which companies supply thermal management systems to Kia? Focus on batch 43.'; returning first KB document.
+[2026-04-04 21:59:55] [WARNING] [retriever] No retrieval candidates for query 'Which companies supply thermal management systems to Kia? Focus on batch 48.'; returning first KB document.
+[2026-04-04 22:00:00] [WARNING] [generator] Ollama generation failed for qwen2.5:14b: Server error '500 Internal Server Error' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+[2026-04-04 22:00:04] [WARNING] [generator] Ollama generation failed for qwen2.5:14b: Server error '500 Internal Server Error' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+[2026-04-04 22:00:07] [WARNING] [generator] Ollama generation failed for qwen2.5:14b: Server error '500 Internal Server Error' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+[2026-04-04 22:00:08] [WARNING] [generator] Ollama generation failed for qwen2.5:14b: Server error '500 Internal Server Error' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+[2026-04-04 22:00:09] [WARNING] [generator] Ollama generation failed for qwen2.5:14b: Server error '500 Internal Server Error' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+[2026-04-04 22:00:09] [INFO] [reporter] Saved report outputs\reports\qwen_rag_report.xlsx
+[2026-04-04 22:00:09] [INFO] [main] Report saved: outputs\reports\qwen_rag_report.xlsx
+[2026-04-04 22:00:09] [INFO] [summary_reporter] Saved cross-pipeline summary outputs\reports\FINAL_COMPARISON.xlsx
+[2026-04-04 22:00:09] [INFO] [main] Final comparison saved: outputs\reports\FINAL_COMPARISON.xlsx
+[2026-04-04 22:00:09] [INFO] [main] Final pipeline summary
+[2026-04-04 22:00:09] [INFO] [main] qwen_rag | questions_answered=50 | timeouts=0 | mean_final_score=0.5278 | elapsed=14.04s

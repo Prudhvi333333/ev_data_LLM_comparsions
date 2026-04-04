@@ -1,0 +1,15 @@
+[2026-04-04 23:52:22] [INFO] [kb_loader] Loaded 205 KB documents from GNEM - Auto Landscape Lat Long Updated.xlsx
+[2026-04-04 23:52:22] [WARNING] [indexer] sentence-transformers unavailable; using local hash embeddings.
+[2026-04-04 23:52:22] [WARNING] [indexer] chromadb unavailable; using local pickle vector store.
+[2026-04-04 23:52:22] [INFO] [indexer] Embedding docs 1-32
+[2026-04-04 23:52:22] [INFO] [indexer] Embedding docs 33-64
+[2026-04-04 23:52:22] [INFO] [indexer] Embedding docs 65-96
+[2026-04-04 23:52:22] [INFO] [indexer] Embedding docs 97-128
+[2026-04-04 23:52:22] [INFO] [indexer] Embedding docs 129-160
+[2026-04-04 23:52:22] [INFO] [indexer] Embedding docs 161-192
+[2026-04-04 23:52:22] [INFO] [indexer] Embedding docs 193-205
+[2026-04-04 23:52:22] [WARNING] [indexer] rank-bm25 unavailable; using local BM25 implementation.
+[2026-04-04 23:52:22] [INFO] [indexer] Indexed 205 documents
+[2026-04-04 23:52:22] [WARNING] [retriever] CrossEncoder unavailable; using lexical rerank fallback.
+[2026-04-04 23:52:24] [WARNING] [evaluator] Judge response parse failed for faithfulness: No JSON object found in judge response
+[2026-04-04 23:52:24] [INFO] [reporter] Saved report outputs\reports\qwen_rag_report.xlsx
