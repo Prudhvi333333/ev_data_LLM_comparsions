@@ -162,6 +162,34 @@ def _build_structured_context(question: str, docs: list[dict[str, Any]]) -> str:
     question_lower = question.lower()
     snippets: list[str] = []
 
+    if (
+        "tier 1/2" in question_lower
+        and any(marker in question_lower for marker in ("show all", "list", "map all", "name all"))
+        and "ev supply chain role" in question_lower
+        and any(marker in question_lower for marker in ("product / service", "product and service", "product"))
+    ):
+        seen_companies: set[str] = set()
+        lines: list[str] = []
+        for doc in docs:
+            metadata = doc.get("metadata", {})
+            company = " ".join(str(metadata.get("Company", "")).split()).strip()
+            if not company:
+                continue
+            lowered_company = company.lower()
+            if lowered_company in seen_companies:
+                continue
+            seen_companies.add(lowered_company)
+            tier = " ".join(str(metadata.get("Category", "")).split()).strip()
+            role = " ".join(str(metadata.get("EV Supply Chain Role", "")).split()).strip()
+            product = " ".join(str(metadata.get("Product / Service", "")).split()).strip()
+            lines.append(f"- {company} | {tier} | {role} | {product}")
+        if lines:
+            snippets.append(
+                "STRUCTURED SUPPLIER ROLE-PRODUCT LIST (computed from retrieved rows):\n"
+                f"Total Companies: {len(lines)}\n"
+                + "\n".join(lines)
+            )
+
     if any(
         marker in question_lower
         for marker in (
@@ -298,9 +326,24 @@ async def _process_question_row(
                     "combined employment",
                     "across all companies",
                     "vehicle assembly oem",
+                    "tier 1/2 suppliers",
                 )
             ):
                 context_budget = max(context_budget, 1800)
+            if any(
+                marker in question_lower
+                for marker in (
+                    "show all",
+                    "list every",
+                    "map all",
+                    "full set",
+                    "what locations does",
+                    "location does",
+                    "primary facility type",
+                    "facility types",
+                )
+            ):
+                context_budget = max(context_budget, 2400)
             context = compressor.compress(
                 question,
                 [doc["text"] for doc in docs],
@@ -315,6 +358,7 @@ async def _process_question_row(
                         "combined employment",
                         "across all companies",
                         "vehicle assembly oem",
+                        "tier 1/2 suppliers",
                     )
                 ):
                     context = structured_block
@@ -335,9 +379,13 @@ async def _process_question_row(
             context = ""
 
         async with generation_semaphore:
+            generation_guard_timeout = max(
+                float(config.generation.timeout_seconds) + 60.0,
+                float(config.generation.timeout_seconds) * 2.5,
+            )
             answer = await create_timeout_guard(
                 generator.generate(question, context if mode == "rag" else None),
-                timeout_sec=float(config.generation.timeout_seconds),
+                timeout_sec=generation_guard_timeout,
                 fallback_value="GENERATION_TIMEOUT",
             )
         logger.info(

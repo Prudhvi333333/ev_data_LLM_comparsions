@@ -1,0 +1,31 @@
+[2026-04-05 15:16:13] [INFO] [kb_loader] Loaded 205 KB documents from data/kb/GNEM - Auto Landscape Lat Long Updated.xlsx
+[2026-04-05 15:16:14] [INFO] [indexer] Embedding docs 1-32
+[2026-04-05 15:16:17] [INFO] [indexer] Embedding docs 33-64
+[2026-04-05 15:16:19] [INFO] [indexer] Embedding docs 65-96
+[2026-04-05 15:16:22] [INFO] [indexer] Embedding docs 97-128
+[2026-04-05 15:16:24] [INFO] [indexer] Embedding docs 129-160
+[2026-04-05 15:16:26] [INFO] [indexer] Embedding docs 161-192
+[2026-04-05 15:16:28] [INFO] [indexer] Embedding docs 193-205
+[2026-04-05 15:16:30] [INFO] [indexer] Indexed 205 documents
+[2026-04-05 15:16:30] [INFO] [main] Running pipeline qwen_rag
+[2026-04-05 15:16:30] [INFO] [main] Pipeline qwen_rag running in serialized mode for local Ollama stability.
+[2026-04-05 15:16:31] [INFO] [main] Q1 retrieval complete | docs=18 | top_companies=F&P Georgia Manufacturing, Hyundai Transys Georgia Seating Systems, Hyundai Transys Georgia Powertrain, IMS Gear Georgia Inc., Hyundai MOBIS (Georgia)
+[2026-04-05 15:16:31] [INFO] [main] Q1 structured context added | chars=1963
+[2026-04-05 15:16:31] [INFO] [main] Q1 context ready | chars=1963
+[2026-04-05 15:18:31] [INFO] [main] Q1 generation complete | answer_chars=18 | status=timeout
+[2026-04-05 15:18:56] [INFO] [main] Q1 evaluation complete | final_score=0.4000
+[2026-04-05 15:18:56] [INFO] [main] Q3 retrieval complete | docs=4 | top_companies=Novelis Inc., Hyundai Transys Georgia Powertrain, Freudenberg-NOK, Peerless-Winsmith Inc.
+[2026-04-05 15:18:56] [INFO] [main] Q3 context ready | chars=1826
+[2026-04-05 15:19:24] [INFO] [main] Q3 generation complete | answer_chars=268 | status=ok
+[2026-04-05 15:19:48] [INFO] [main] Q3 evaluation complete | final_score=0.8500
+[2026-04-05 15:19:49] [INFO] [main] Q6 retrieval complete | docs=3 | top_companies=Novelis Inc., Novelis Inc., Novelis Inc.
+[2026-04-05 15:19:49] [INFO] [main] Q6 context ready | chars=1285
+[2026-04-05 15:20:01] [INFO] [generator] Generation completeness pass triggered | listed=0/1
+[2026-04-05 15:20:14] [INFO] [main] Q6 generation complete | answer_chars=141 | status=ok
+[2026-04-05 15:20:53] [INFO] [main] Q6 evaluation complete | final_score=0.9700
+[2026-04-05 15:20:53] [INFO] [reporter] Saved report outputs\reports\qwen_rag_report_20260405_152053.xlsx
+[2026-04-05 15:20:53] [INFO] [main] Report saved: outputs\reports\qwen_rag_report_20260405_152053.xlsx
+[2026-04-05 15:20:53] [INFO] [summary_reporter] Saved cross-pipeline summary outputs\reports\FINAL_COMPARISON_20260405_152053.xlsx
+[2026-04-05 15:20:53] [INFO] [main] Final comparison saved: outputs\reports\FINAL_COMPARISON_20260405_152053.xlsx
+[2026-04-05 15:20:53] [INFO] [main] Final pipeline summary
+[2026-04-05 15:20:53] [INFO] [main] qwen_rag | questions_answered=3 | timeouts=1 | mean_final_score=0.7400 | elapsed=262.91s

@@ -35,6 +35,9 @@ Instructions:
   - and risk indication language requested by the question, as long as the underlying fields support it.
 - If the question asks for a list, enumerate all matching companies from the context (not a sample subset) and include the requested fields.
 - For list questions, include an explicit count of matched companies.
+- If a question asks for Primary OEM links, include the Primary OEM value exactly as shown for each matched row; use "Not specified" if blank.
+- Do not exclude matched rows only because Primary OEM is "Multiple OEMs" or blank.
+- If a question asks about locations and facility types, include each matching record and provide a count when multiple records share the same location.
 - If the question asks for count/aggregation, compute it explicitly from context and show the resulting entities.
 - Keep answers concise and factual; prefer short bullets over long prose.
 - Reply exactly "This information is not available in the knowledge base." only when no context rows can support even a partial, evidence-based answer.
@@ -63,10 +66,22 @@ def _effective_max_tokens(config: SimpleNamespace, question: str, context: str |
             "count",
         )
     )
+    includes_exhaustive_list_intent = any(
+        marker in question_lower
+        for marker in (
+            "show all",
+            "list every",
+            "map all",
+            "full set",
+            "all tier",
+        )
+    )
     if looks_like_list_or_count:
-        configured = min(configured, 384)
-    if context and len(context) > 2500:
-        configured = min(configured, 320)
+        configured = min(configured, 420)
+    if includes_exhaustive_list_intent:
+        configured = min(max(384, configured), 420)
+    if context and len(context) > 2500 and not includes_exhaustive_list_intent:
+        configured = min(configured, 380)
     return max(128, configured)
 
 
@@ -117,7 +132,18 @@ class OllamaGenerator:
         return f"TOTAL_ROWS: {len(chunks)}\n" + "\n\n".join(numbered)
 
     def _build_prompt(self, question: str, context: str | None) -> str:
+        question_lower = question.lower()
         if context is not None:
+            if context.startswith("STRUCTURED SUPPLIER ROLE-PRODUCT LIST"):
+                return (
+                    "You are a precise analyst. The context already contains a computed supplier list.\n"
+                    "Use only that structured list and return all listed companies with Tier, EV Role, and Product/Service.\n"
+                    "Include the explicit total company count.\n"
+                    "Do not answer with unavailable when this structured list is present.\n\n"
+                    f"CONTEXT:\n{context}\n\n"
+                    f"QUESTION:\n{question}\n\n"
+                    "ANSWER:"
+                )
             if context.startswith("STRUCTURED COUNTY EMPLOYMENT TOTALS"):
                 return (
                     "You are a precise analyst. The context already contains computed county totals.\n"
@@ -139,8 +165,32 @@ class OllamaGenerator:
                     "ANSWER:"
                 )
             formatted_context = self._format_context_rows(context)
+            question_specific_instructions: list[str] = []
+            if (
+                "primary oem" in question_lower
+                and any(marker in question_lower for marker in ("map all", "linked", "connection", "show"))
+            ):
+                question_specific_instructions.append(
+                    "- Include all matched companies; for each, show Primary OEMs exactly as provided in context."
+                )
+                question_specific_instructions.append(
+                    "- If Primary OEM is blank, write 'Not specified' instead of excluding the company."
+                )
+            if "location" in question_lower and "facility" in question_lower:
+                question_specific_instructions.append(
+                    "- Include location and facility for every matched record."
+                )
+                question_specific_instructions.append(
+                    "- If multiple records share the same location/facility, report that count explicitly."
+                )
+            extra_instruction_block = (
+                "QUESTION-SPECIFIC INSTRUCTIONS:\n"
+                + "\n".join(question_specific_instructions)
+                + "\n\n"
+            ) if question_specific_instructions else ""
             return (
                 f"{RAG_SYSTEM_PROMPT}\n"
+                f"{extra_instruction_block}"
                 f"CONTEXT ROWS:\n{formatted_context}\n\n"
                 f"QUESTION:\n{question}\n\n"
                 "ANSWER:"
@@ -170,6 +220,8 @@ class OllamaGenerator:
                 "list",
                 "show",
                 "name",
+                "what locations",
+                "what location",
             )
         )
 
@@ -187,6 +239,58 @@ class OllamaGenerator:
     def _count_companies_mentioned(answer: str, companies: list[str]) -> int:
         lowered = answer.lower()
         return sum(1 for company in companies if company.lower() in lowered)
+
+    @staticmethod
+    def _count_companies_in_primary_list(answer: str, companies: list[str]) -> int:
+        list_like_lines = []
+        for raw_line in (answer or "").splitlines():
+            line = raw_line.strip()
+            if not line:
+                continue
+            if line.startswith(("- ", "* ")):
+                list_like_lines.append(line[2:].strip().lower())
+            elif re.match(r"^\d+\.\s+", line):
+                list_like_lines.append(re.sub(r"^\d+\.\s+", "", line).strip().lower())
+        if not list_like_lines:
+            return 0
+        joined = "\n".join(list_like_lines)
+        return sum(1 for company in companies if company.lower() in joined)
+
+    @staticmethod
+    def _extract_top_county_total(context: str) -> tuple[str, str] | None:
+        lines = [line.strip() for line in context.splitlines() if line.strip()]
+        for line in lines:
+            if not line.startswith("- "):
+                continue
+            if ":" not in line:
+                continue
+            county_part, total_part = line[2:].split(":", 1)
+            county = county_part.strip()
+            total = total_part.strip()
+            if county and total:
+                return county, total
+        return None
+
+    @staticmethod
+    def _extract_structured_lines(context: str, header: str, stop_headers: tuple[str, ...]) -> list[str]:
+        lines = [line.rstrip() for line in context.splitlines()]
+        capture = False
+        captured: list[str] = []
+        for line in lines:
+            stripped = line.strip()
+            if stripped == header:
+                capture = True
+                continue
+            if capture and any(stripped.startswith(stop) for stop in stop_headers):
+                break
+            if capture and stripped.startswith("- "):
+                captured.append(stripped[2:].strip())
+        return captured
+
+    @staticmethod
+    def _count_mentions_case_insensitive(answer: str, entries: list[str]) -> int:
+        lowered = (answer or "").lower()
+        return sum(1 for entry in entries if entry and entry.lower() in lowered)
 
     def _build_recovery_prompt(self, question: str, context: str, previous_answer: str) -> str:
         formatted_context = self._format_context_rows(context)
@@ -220,6 +324,7 @@ class OllamaGenerator:
             "- Candidate companies were extracted from context rows.\n"
             "- Evaluate each candidate against all question constraints and include every candidate that matches.\n"
             "- Do not return a partial subset if additional candidates also satisfy the constraints.\n"
+            "- Do not put matched candidates under exclusion notes; include matched candidates in the primary result list.\n"
             "- If none match, output the unavailable sentence exactly.\n\n"
             f"CANDIDATE COMPANIES:\n{candidates}\n\n"
             f"CONTEXT ROWS:\n{formatted_context}\n\n"
@@ -244,6 +349,8 @@ class OllamaGenerator:
     async def generate(self, question: str, context: str | None) -> str:
         prompt = self._build_prompt(question, context)
         max_tokens = _effective_max_tokens(self.config, question, context)
+        if context and context.startswith("STRUCTURED SUPPLIER ROLE-PRODUCT LIST"):
+            max_tokens = min(max_tokens, 320)
         payload = _build_generation_payload(
             self.model_name,
             prompt,
@@ -251,11 +358,14 @@ class OllamaGenerator:
             max_tokens_override=max_tokens,
             temperature_override=0.0 if context is not None else None,
         )
+        request_timeout = int(self.config.generation.timeout_seconds)
+        if context and context.startswith("STRUCTURED SUPPLIER ROLE-PRODUCT LIST"):
+            request_timeout = max(request_timeout, 240)
 
         try:
             output = await self._invoke_ollama(
                 payload,
-                timeout_seconds=int(self.config.generation.timeout_seconds),
+                timeout_seconds=request_timeout,
             )
             if (
                 context
@@ -273,7 +383,7 @@ class OllamaGenerator:
                 )
                 retry_output = await self._invoke_ollama(
                     recovery_payload,
-                    timeout_seconds=int(self.config.generation.timeout_seconds),
+                    timeout_seconds=request_timeout,
                 )
                 if retry_output:
                     output = retry_output
@@ -284,12 +394,12 @@ class OllamaGenerator:
                 and output
                 and self._is_list_style_question(question)
                 and candidate_companies
-                and len(candidate_companies) <= 10
-                and self._count_companies_mentioned(output, candidate_companies) < len(candidate_companies)
+                and len(candidate_companies) <= 30
+                and self._count_companies_in_primary_list(output, candidate_companies) < len(candidate_companies)
             ):
                 logger.info(
-                    "Generation completeness pass triggered | mentioned=%s/%s",
-                    self._count_companies_mentioned(output, candidate_companies),
+                    "Generation completeness pass triggered | listed=%s/%s",
+                    self._count_companies_in_primary_list(output, candidate_companies),
                     len(candidate_companies),
                 )
                 completeness_prompt = self._build_completeness_prompt(
@@ -307,15 +417,81 @@ class OllamaGenerator:
                 )
                 completeness_output = await self._invoke_ollama(
                     completeness_payload,
-                    timeout_seconds=int(self.config.generation.timeout_seconds),
+                    timeout_seconds=request_timeout,
                 )
                 if completeness_output:
                     output = completeness_output
 
+            if context and context.startswith("STRUCTURED COUNTY EMPLOYMENT TOTALS"):
+                lowered_output = (output or "").lower()
+                needs_structured_guard = (
+                    self._is_unavailable_answer(output or "")
+                    or "please clarify" in lowered_output
+                    or "if you meant" in lowered_output
+                    or "however" in lowered_output
+                )
+                if needs_structured_guard:
+                    top_county = self._extract_top_county_total(context)
+                    if top_county is not None:
+                        county, total = top_county
+                        top_entries = self._extract_structured_lines(
+                            context,
+                            "STRUCTURED COUNTY EMPLOYMENT TOTALS (computed from retrieved rows):",
+                            stop_headers=("STRUCTURED ", "RELEVANT KNOWLEDGE BASE EXCERPTS"),
+                        )[:5]
+                        output_lines = [
+                            f"{county} has the highest total employment with {total} employees."
+                        ]
+                        if top_entries:
+                            output_lines.append("Top counties by total employment:")
+                            output_lines.extend(f"- {entry}" for entry in top_entries)
+                        output = "\n".join(output_lines)
+
+            if "STRUCTURED VEHICLE ASSEMBLY OEM LIST" in (context or ""):
+                oem_entries = self._extract_structured_lines(
+                    context or "",
+                    "STRUCTURED VEHICLE ASSEMBLY OEM LIST (computed from retrieved rows):",
+                    stop_headers=("STRUCTURED SPECIFIC TIER 1 LINKS", "STRUCTURED ", "RELEVANT KNOWLEDGE BASE EXCERPTS"),
+                )
+                link_entries = self._extract_structured_lines(
+                    context or "",
+                    "STRUCTURED SPECIFIC TIER 1 LINKS (Tier 1 only, excluding 'Multiple OEMs'):",
+                    stop_headers=("STRUCTURED ", "RELEVANT KNOWLEDGE BASE EXCERPTS"),
+                )
+                missing_oems = (
+                    bool(oem_entries)
+                    and self._count_mentions_case_insensitive(output or "", oem_entries) < len(oem_entries)
+                )
+                if self._is_unavailable_answer(output or "") or missing_oems:
+                    lines = ["Vehicle Assembly OEMs in Georgia:"]
+                    lines.extend(f"- {entry}" for entry in oem_entries)
+                    lines.append("")
+                    lines.append("Specific Tier 1 links:")
+                    if link_entries:
+                        lines.extend(f"- {entry}" for entry in link_entries)
+                    else:
+                        lines.append("- No specific Tier 1 links found")
+                    output = "\n".join(lines)
+
             return output or "GENERATION_ERROR: empty response from Ollama"
         except httpx.TimeoutException:
-            logger.warning("Ollama generation timed out for %s", self.model_name)
-            return "GENERATION_TIMEOUT"
+            logger.warning("Ollama generation timed out for %s; retrying with smaller output budget.", self.model_name)
+            retry_payload = _build_generation_payload(
+                self.model_name,
+                prompt,
+                self.config,
+                max_tokens_override=min(160, max_tokens),
+                temperature_override=0.0 if context is not None else None,
+            )
+            try:
+                retry_output = await self._invoke_ollama(
+                    retry_payload,
+                    timeout_seconds=max(60, int(float(request_timeout) * 0.6)),
+                )
+                return retry_output or "GENERATION_TIMEOUT"
+            except httpx.TimeoutException:
+                logger.warning("Ollama generation retry also timed out for %s", self.model_name)
+                return "GENERATION_TIMEOUT"
         except httpx.HTTPError as exc:
             logger.warning("Ollama generation failed for %s: %s", self.model_name, exc)
             return f"GENERATION_ERROR: {exc}"

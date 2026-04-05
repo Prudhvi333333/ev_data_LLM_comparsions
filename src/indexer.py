@@ -102,7 +102,7 @@ def _field_matches(actual_value: Any, expected: Any) -> bool:
         if "$in" in expected:
             return any(str(option).lower() in actual for option in expected["$in"])
         if "$eq" in expected:
-            return str(expected["$eq"]).lower() in actual
+            return actual == str(expected["$eq"]).lower()
     return str(expected).lower() in actual
 
 
@@ -244,12 +244,21 @@ class KBIndexer:
         if SentenceTransformer is None:
             logger.warning("sentence-transformers unavailable; using local TF-IDF hash embeddings.")
             return _LocalTfidfEmbeddingModel()
+        model_name = self.config.retrieval.embedding_model
+        # Prefer local cache first to avoid network dependency at runtime.
         try:
-            return SentenceTransformer(self.config.retrieval.embedding_model)
+            return SentenceTransformer(model_name, local_files_only=True)
+        except TypeError:
+            # Older sentence-transformers versions may not support local_files_only.
+            pass
+        except Exception as exc:
+            logger.info("Local cache load failed for %s: %s", model_name, exc)
+        try:
+            return SentenceTransformer(model_name)
         except Exception as exc:
             logger.warning(
                 "Failed to load %s (%s); using local TF-IDF hash embeddings.",
-                self.config.retrieval.embedding_model,
+                model_name,
                 exc,
             )
             return _LocalTfidfEmbeddingModel()
@@ -265,6 +274,15 @@ class KBIndexer:
             logger.warning("Failed to initialize ChromaDB (%s); using local pickle vector store.", exc)
             self.chroma_client = None
             self.collection = None
+
+    def _reset_chroma_collection(self) -> None:
+        if self.chroma_client is None:
+            return
+        try:
+            self.chroma_client.delete_collection(self.collection_name)
+        except Exception:
+            pass
+        self.collection = self.chroma_client.get_or_create_collection(self.collection_name)
 
     @property
     def use_chroma(self) -> bool:
@@ -336,14 +354,28 @@ class KBIndexer:
             self.embeddings.extend(self._embed_texts(batch_texts, batch_size=batch_size))
 
         if self.use_chroma:
-            for start in range(0, len(self.texts), batch_size):
-                end = start + batch_size
-                self.collection.upsert(
-                    ids=self.doc_ids[start:end],
-                    embeddings=self.embeddings[start:end],
-                    documents=self.texts[start:end],
-                    metadatas=self.metadatas[start:end],
-                )
+            def _upsert_all() -> None:
+                for start in range(0, len(self.texts), batch_size):
+                    end = start + batch_size
+                    self.collection.upsert(
+                        ids=self.doc_ids[start:end],
+                        embeddings=self.embeddings[start:end],
+                        documents=self.texts[start:end],
+                        metadatas=self.metadatas[start:end],
+                    )
+
+            try:
+                _upsert_all()
+            except Exception as exc:
+                if "dimension" in str(exc).lower():
+                    logger.warning(
+                        "Chroma dimension mismatch detected (%s). Resetting collection and retrying upsert.",
+                        exc,
+                    )
+                    self._reset_chroma_collection()
+                    _upsert_all()
+                else:
+                    raise
         else:
             self._save_local_store()
 
@@ -435,6 +467,8 @@ def get_or_build_index(
             indexer.local_store_path.unlink()
         if indexer.bm25_path.exists():
             indexer.bm25_path.unlink()
+        if indexer.use_chroma:
+            indexer._reset_chroma_collection()
 
     if indexer.is_indexed() and not force_reindex:
         indexer.load_existing()

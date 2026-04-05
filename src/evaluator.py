@@ -150,7 +150,7 @@ class RAGASEvaluator:
                 "num_predict": 220,
             },
         }
-        timeout = float(self.config.evaluation.timeout_seconds)
+        timeout = min(45.0, float(self.config.evaluation.timeout_seconds))
         async with httpx.AsyncClient(timeout=timeout) as client:
             response = await client.post(self.ollama_url, json=payload)
             response.raise_for_status()
@@ -184,8 +184,9 @@ class RAGASEvaluator:
     ) -> dict[str, Any]:
         prompt = self._build_prompt(metric, question, golden, answer, context)
         last_error: Exception | None = None
+        max_attempts = 2 if self.provider == "ollama" else 3
 
-        for attempt in range(3):
+        for attempt in range(max_attempts):
             try:
                 raw_text = await self._call_judge_api(prompt)
                 return self._parse_judge_response(raw_text)

@@ -29,17 +29,14 @@ class _CandidateDoc:
 
 class HybridRetriever:
     _reranker = None
-    _RELATION_MARKERS = (
-        "provide",
-        "suppl",
-        "connected to",
-        "connection",
-        "linked to",
-        "serving",
-        "serve",
-        "materials to",
-        "customers",
-        "to each",
+    _RELATION_PATTERNS = (
+        r"connected to",
+        r"\bconnection\b",
+        r"linked to",
+        r"\bprovid(?:e|es|ed|ing)\b.+\bto\b",
+        r"\bserv(?:e|es|ed|ing)\b.+\bto\b",
+        r"materials to",
+        r"\bto each\b",
     )
     _BATTERY_CUSTOMER_ROLES = ("battery cell", "battery pack")
     _BATTERY_MATERIAL_TERMS = (
@@ -162,11 +159,22 @@ class HybridRetriever:
         if CrossEncoder is None:
             logger.warning("CrossEncoder unavailable; using lexical rerank fallback.")
             return None
+        reranker_model = self.config.retrieval.reranker_model
         try:
-            HybridRetriever._reranker = CrossEncoder(self.config.retrieval.reranker_model)
+            HybridRetriever._reranker = CrossEncoder(reranker_model, local_files_only=True)
+        except TypeError:
+            try:
+                HybridRetriever._reranker = CrossEncoder(reranker_model)
+            except Exception as exc:
+                logger.warning("Failed to load reranker (%s); using lexical fallback.", exc)
+                HybridRetriever._reranker = None
         except Exception as exc:
-            logger.warning("Failed to load reranker (%s); using lexical fallback.", exc)
-            HybridRetriever._reranker = None
+            logger.info("Local cache load failed for reranker %s: %s", reranker_model, exc)
+            try:
+                HybridRetriever._reranker = CrossEncoder(reranker_model)
+            except Exception as nested_exc:
+                logger.warning("Failed to load reranker (%s); using lexical fallback.", nested_exc)
+                HybridRetriever._reranker = None
         return HybridRetriever._reranker
 
     @staticmethod
@@ -253,7 +261,10 @@ class HybridRetriever:
             term in query_lower for term in self._LIGHTWEIGHT_MATERIAL_TERMS
         )
         is_recycling_query = any(term in query_lower for term in self._RECYCLING_TERMS)
-        is_relation_query = any(marker in query_lower for marker in self._RELATION_MARKERS)
+        is_relation_query = any(
+            re.search(pattern, query_lower) is not None
+            for pattern in self._RELATION_PATTERNS
+        )
         is_explicit_vehicle_oem_query = bool(
             re.search(r"\bvehicle assembly\s+oems?\b", query_lower)
             or re.search(r"\ball\s+vehicle assembly\s+oems?\b", query_lower)
@@ -274,7 +285,15 @@ class HybridRetriever:
             and ("tier 1" in query_lower or "tier1" in query_lower)
         )
 
-        tier_values = self._match_known_values(query_lower, self.tier_values)
+        explicit_tier_1_2 = bool(
+            re.search(r"\btier\s*1\s*/\s*2\b", query_lower)
+            or re.search(r"\btier\s*1-2\b", query_lower)
+            or re.search(r"\btier\s*1\s+and\s+2\b", query_lower)
+        )
+        if explicit_tier_1_2 and "Tier 1/2" in self.tier_values:
+            tier_values = ["Tier 1/2"]
+        else:
+            tier_values = self._match_known_values(query_lower, self.tier_values)
         if "OEM" in tier_values and not is_explicit_vehicle_oem_query:
             tier_values = [value for value in tier_values if value != "OEM"]
         if is_explicit_vehicle_oem_query:
@@ -349,7 +368,7 @@ class HybridRetriever:
         elif relation_target_roles and is_explicit_vehicle_oem_query:
             source_role_values = []
 
-        if is_battery_material_query and not relation_target_roles:
+        if is_battery_material_query and not relation_target_roles and not role_values:
             source_role_values = [
                 role
                 for role in self.role_values
@@ -363,20 +382,20 @@ class HybridRetriever:
                     )
                 )
             ] or source_role_values
-        elif is_power_component_query and not relation_target_roles:
+        elif is_power_component_query and not relation_target_roles and not role_values:
             if " role" not in query_lower and " roles" not in query_lower:
                 source_role_values = [
                     role
                     for role in self.role_values
                     if any(marker in role.lower() for marker in ("power electronics", "general automotive"))
                 ] or source_role_values
-        elif is_lightweight_material_query and not relation_target_roles:
+        elif is_lightweight_material_query and not relation_target_roles and not role_values:
             source_role_values = [
                 role
                 for role in self.role_values
                 if any(marker in role.lower() for marker in ("material", "general automotive"))
             ] or source_role_values
-        elif is_recycling_query and not relation_target_roles:
+        elif is_recycling_query and not relation_target_roles and not role_values:
             source_role_values = [
                 role
                 for role in self.role_values
@@ -486,6 +505,7 @@ class HybridRetriever:
                     "ev drivetrains",
                 ]
             ) or is_battery_material_query,
+            "requires_supplier_classification": bool(re.search(r"\bsuppliers?\b", query_lower)),
             "ev_relevance_values": ev_relevance_values,
             "is_battery_material_query": is_battery_material_query,
             "is_power_component_query": is_power_component_query,
@@ -531,9 +551,9 @@ class HybridRetriever:
         tier_values = intent.get("tier_values") or []
         if intent.get("has_tier_filter") and tier_values:
             if len(tier_values) == 1:
-                clauses.append({"Category": tier_values[0]})
+                clauses.append({"Category": {"$eq": tier_values[0]}})
             else:
-                clauses.append({"$or": [{"Category": value} for value in tier_values]})
+                clauses.append({"$or": [{"Category": {"$eq": value}} for value in tier_values]})
 
         role_values = intent.get("role_values") or []
         if intent.get("has_role_filter") and role_values:
@@ -591,6 +611,15 @@ class HybridRetriever:
                         ]
                     }
                 )
+        if intent.get("requires_supplier_classification"):
+            clauses.append(
+                {
+                    "$or": [
+                        {"Classification Method": {"$eq": "Supplier"}},
+                        {"Supplier or Affiliation Type": {"$eq": "Automotive supply chain participant"}},
+                    ]
+                }
+            )
 
         if not clauses:
             return {}
@@ -673,6 +702,13 @@ class HybridRetriever:
             location_blob = f"{metadata.get('Updated Location', '')} {metadata.get('Location', '')}".lower()
             if str(intent["location_value"]).lower() in location_blob:
                 metadata_bonus += 0.15
+        if intent.get("requires_supplier_classification"):
+            classification_method = str(metadata.get("Classification Method", "")).strip().lower()
+            supplier_type = str(metadata.get("Supplier or Affiliation Type", "")).strip().lower()
+            if classification_method == "supplier" or "supply chain participant" in supplier_type:
+                metadata_bonus += 0.20
+            else:
+                metadata_bonus -= 0.10
 
         if intent.get("requires_ev_relevant"):
             ev_flag = str(metadata.get("EV / Battery Relevant", "")).strip().lower()
@@ -794,11 +830,19 @@ class HybridRetriever:
         if intent.get("is_employment_rank_query"):
             top_k = max(top_k, int(self.config.retrieval.top_k) * 5)
             candidate_pool = max(candidate_pool, int(self.config.retrieval.candidate_pool) * 5)
+        needs_wide_relation_recall = bool(
+            intent.get("is_relation_query")
+            and (
+                intent.get("relation_target_roles")
+                or intent.get("is_vehicle_oem_mapping_query")
+                or intent.get("is_battery_material_query")
+            )
+        )
         if (
             intent.get("is_innovation_query")
             or intent.get("is_dual_platform_query")
             or intent.get("is_recycling_query")
-            or intent.get("is_relation_query")
+            or needs_wide_relation_recall
         ):
             top_k = max(top_k, int(self.config.retrieval.top_k) * 5)
             candidate_pool = max(candidate_pool, len(self.indexer.doc_ids))
