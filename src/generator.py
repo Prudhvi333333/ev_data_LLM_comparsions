@@ -410,6 +410,44 @@ class OllamaGenerator:
                 lines.append(f"Total companies: {len(entries)}")
                 output = "\n".join(lines)
 
+        if (context or "").startswith("STRUCTURED NON-EV MANUFACTURING AREAS"):
+            entries = self._extract_structured_lines(
+                context or "",
+                "STRUCTURED NON-EV MANUFACTURING AREAS (computed from retrieved rows):",
+                stop_headers=("STRUCTURED ", "RELEVANT KNOWLEDGE BASE EXCERPTS"),
+            )
+            total_areas = None
+            for raw_line in (context or "").splitlines():
+                line = raw_line.strip()
+                if line.lower().startswith("total areas:"):
+                    try:
+                        total_areas = int(line.split(":", 1)[1].strip().replace(",", ""))
+                    except Exception:
+                        total_areas = None
+                    break
+
+            output_lower = (output or "").lower()
+            has_wrong_short_count = bool(
+                total_areas is not None
+                and re.search(r"\btotal count:\s*(\d+)", output_lower)
+                and int(re.search(r"\btotal count:\s*(\d+)", output_lower).group(1)) != total_areas
+            )
+            missing_entries = (
+                bool(entries)
+                and self._count_mentions_case_insensitive(output or "", entries) < len(entries)
+            )
+            if self._is_unavailable_answer(output or "") or missing_entries or has_wrong_short_count:
+                lines = []
+                if total_areas is not None:
+                    lines.append(
+                        f"There are {total_areas:,} Georgia areas with manufacturing plant facilities and no EV-specific production presence."
+                    )
+                lines.append("Top concentrated areas from retrieved evidence:")
+                lines.extend(f"- {entry}" for entry in entries)
+                if total_areas is not None:
+                    lines.append(f"Total Areas: {total_areas:,}")
+                output = "\n".join(lines).strip()
+
         if (context or "").startswith("STRUCTURED "):
             generic_entries = [
                 line.strip()[2:].strip()

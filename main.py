@@ -441,7 +441,17 @@ def _build_structured_context(question: str, docs: list[dict[str, Any]]) -> str:
             if not company or company.lower() in seen_companies:
                 continue
             seen_companies.add(company.lower())
-            lines.append(f"- {company} | Product: {products}")
+            if "dc-to-dc" in products.lower() or "dc to dc" in products.lower():
+                signal = "DC-to-DC converters"
+            elif "high-voltage" in products.lower():
+                signal = "high-voltage systems"
+            elif "motor controller" in products.lower():
+                signal = "motor controller"
+            elif "inverter" in products.lower():
+                signal = "inverter"
+            else:
+                signal = "powertrain electronics keyword match"
+            lines.append(f"- {company} | Signal: {signal}")
         if lines:
             snippets.append(
                 "STRUCTURED POWERTRAIN ELECTRONICS SIGNALS (computed from retrieved rows):\n"
@@ -845,21 +855,25 @@ async def _process_question_row(
             docs = []
             context = ""
 
-        async with generation_semaphore:
-            generation_guard_timeout = max(
-                float(config.generation.timeout_seconds) + 60.0,
-                float(config.generation.timeout_seconds) * 2.5,
-            )
-            answer = await create_timeout_guard(
-                generator.generate(question, context if mode == "rag" else None),
-                timeout_sec=generation_guard_timeout,
-                fallback_value="GENERATION_TIMEOUT",
-            )
-        generation_status = "ok"
-        if answer == "GENERATION_TIMEOUT":
-            generation_status = "timeout"
-        elif str(answer).startswith("GENERATION_ERROR"):
-            generation_status = "error"
+        if mode == "rag" and not docs:
+            answer = "No matching records were found in the knowledge base for the requested criteria."
+            generation_status = "empty_retrieval"
+        else:
+            async with generation_semaphore:
+                generation_guard_timeout = max(
+                    float(config.generation.timeout_seconds) + 60.0,
+                    float(config.generation.timeout_seconds) * 2.5,
+                )
+                answer = await create_timeout_guard(
+                    generator.generate(question, context if mode == "rag" else None),
+                    timeout_sec=generation_guard_timeout,
+                    fallback_value="GENERATION_TIMEOUT",
+                )
+            generation_status = "ok"
+            if answer == "GENERATION_TIMEOUT":
+                generation_status = "timeout"
+            elif str(answer).startswith("GENERATION_ERROR"):
+                generation_status = "error"
         if mode == "rag" and generation_status in {"timeout", "error"} and context.startswith("STRUCTURED "):
             fallback_answer = _structured_generation_fallback_answer(question, context)
             if fallback_answer:
