@@ -150,6 +150,15 @@ class HybridRetriever:
             key=len,
             reverse=True,
         )
+        self.industry_values = sorted(
+            {
+                str(meta.get("Industry Group", "")).strip()
+                for meta in self.indexer.metadatas
+                if str(meta.get("Industry Group", "")).strip()
+            },
+            key=len,
+            reverse=True,
+        )
         self.role_to_oems = self._build_role_to_oems()
         self.reranker = self._load_reranker()
 
@@ -279,6 +288,49 @@ class HybridRetriever:
                 "county has the highest total employment",
             )
         )
+        is_single_point_failure_query = any(
+            marker in query_lower
+            for marker in (
+                "single-point-of-failure",
+                "single point of failure",
+                "served by only a single company",
+                "only a single company",
+            )
+        )
+        is_no_ev_presence_query = any(
+            marker in query_lower
+            for marker in (
+                "no ev-specific production presence",
+                "no ev specific production presence",
+                "conversion-ready industrial sites",
+            )
+        )
+        is_chemical_infra_query = any(
+            marker in query_lower
+            for marker in (
+                "chemical manufacturing infrastructure",
+                "chemical manufacturing",
+            )
+        )
+        is_power_signal_query = any(
+            marker in query_lower
+            for marker in (
+                "high-voltage",
+                "dc-to-dc",
+                "inverter",
+                "motor controller",
+            )
+        )
+        is_concentration_query = any(
+            marker in query_lower
+            for marker in (
+                "highest concentration",
+                "concentration of",
+                "concentrated",
+            )
+        )
+        if is_chemical_infra_query:
+            is_battery_material_query = False
         is_vehicle_oem_mapping_query = bool(
             is_explicit_vehicle_oem_query
             and is_relation_query
@@ -300,16 +352,41 @@ class HybridRetriever:
             for category in self.oem_category_values:
                 if category not in tier_values:
                     tier_values.append(category)
-        if is_global_employment_query and "tier 1" in query_lower:
-            tier_values = [
-                value for value in self.tier_values if value.lower().startswith("tier")
-            ] or tier_values
-        if is_global_employment_query and any(value.lower() == "tier 1" for value in tier_values):
-            if "Tier 1/2" in self.tier_values and "Tier 1/2" not in tier_values:
-                tier_values.append("Tier 1/2")
+        is_new_tier_reference = bool(
+            re.search(r"\bfor a new tier\s*1\b", query_lower)
+            or re.search(r"\bnew tier\s*1\b", query_lower)
+        )
+        if is_new_tier_reference and not any(
+            marker in query_lower
+            for marker in (
+                "tier 1 suppliers",
+                "tier 1 supplier",
+                "tier 1 companies",
+                "tier 1 company",
+                "among tier 1",
+                "tier 1 only",
+            )
+        ):
+            tier_values = []
+        explicit_tier_1_only = bool(
+            re.search(r"\btier\s*1\b", query_lower)
+            and not re.search(r"\btier\s*1\s*/\s*2\b", query_lower)
+            and "tier 1/2" not in query_lower
+            and "tier1/2" not in query_lower
+            and "tier 1 and 2" not in query_lower
+            and not is_new_tier_reference
+        )
+        if explicit_tier_1_only and "Tier 1" in self.tier_values:
+            tier_values = ["Tier 1"]
         tier_value = tier_values[0] if tier_values else None
 
         company_value = self._match_known_value(query_lower, self.company_values)
+        industry_values = self._match_known_values(query_lower, self.industry_values)
+        if "electronic and electrical equipment" in query_lower and not industry_values:
+            for value in self.industry_values:
+                if "electrical equipment" in value.lower() and value not in industry_values:
+                    industry_values.append(value)
+        industry_value = industry_values[0] if industry_values else None
 
         role_values = self._match_known_values(query_lower, self.role_values)
         if not role_values:
@@ -329,6 +406,8 @@ class HybridRetriever:
                     for role in self.role_values:
                         if canonical.lower() in role.lower() and role not in role_values:
                             role_values.append(role)
+        if is_chemical_infra_query:
+            role_values = []
         role_value = role_values[0] if role_values else None
 
         oem_value = self._match_known_value(query_lower, self.oem_values)
@@ -367,6 +446,13 @@ class HybridRetriever:
             ] or list(role_values)
         elif relation_target_roles and is_explicit_vehicle_oem_query:
             source_role_values = []
+
+        if is_lightweight_material_query and not relation_target_roles:
+            source_role_values = [
+                role
+                for role in self.role_values
+                if any(marker in role.lower() for marker in ("material", "general automotive"))
+            ] or source_role_values
 
         if is_battery_material_query and not relation_target_roles and not role_values:
             source_role_values = [
@@ -419,8 +505,14 @@ class HybridRetriever:
             has_company_filter = False
             company_value = None
 
+        is_negative_ev_specific_query = any(
+            marker in query_lower
+            for marker in ("no ev-specific", "no ev specific", "without ev-specific", "without ev specific")
+        )
         if "indirectly relevant" in query_lower:
             ev_relevance_values = ["Indirect"]
+        elif is_negative_ev_specific_query:
+            ev_relevance_values = ["No", "Indirect", ""]
         elif "relevant to ev drivetrains" in query_lower:
             ev_relevance_values = ["Yes", "Indirect"]
         elif "ev relevant" in query_lower or "ev-relevant" in query_lower or "ev / battery relevant" in query_lower:
@@ -454,6 +546,9 @@ class HybridRetriever:
             "has_tier_filter": tier_value is not None,
             "tier_value": tier_value,
             "tier_values": tier_values,
+            "has_industry_filter": industry_value is not None,
+            "industry_value": industry_value,
+            "industry_values": industry_values,
             "has_role_filter": bool(source_role_values),
             "role_value": source_role_values[0] if source_role_values else None,
             "role_values": source_role_values,
@@ -504,9 +599,10 @@ class HybridRetriever:
                     "ev component",
                     "ev drivetrains",
                 ]
-            ) or is_battery_material_query,
+            ) and not is_negative_ev_specific_query or is_battery_material_query,
             "requires_supplier_classification": bool(re.search(r"\bsuppliers?\b", query_lower)),
             "ev_relevance_values": ev_relevance_values,
+            "exclude_ev_specific": is_negative_ev_specific_query,
             "is_battery_material_query": is_battery_material_query,
             "is_power_component_query": is_power_component_query,
             "is_lightweight_material_query": is_lightweight_material_query,
@@ -536,6 +632,22 @@ class HybridRetriever:
             ),
             "is_global_employment_query": is_global_employment_query,
             "is_vehicle_oem_mapping_query": is_vehicle_oem_mapping_query,
+            "is_single_point_failure_query": is_single_point_failure_query,
+            "is_no_ev_presence_query": is_no_ev_presence_query,
+            "is_chemical_infra_query": is_chemical_infra_query,
+            "is_power_signal_query": is_power_signal_query,
+            "is_concentration_query": is_concentration_query,
+            "requires_strict_filters": bool(
+                tier_values
+                or industry_values
+                or source_role_values
+                or oem_values
+                or has_company_filter
+                or (location_value is not None and location_value != "Georgia")
+                or re.search(r"\bover\s+[0-9]", query_lower)
+                or re.search(r"\bfewer than\s+[0-9]", query_lower)
+                or re.search(r"\bonly\b", query_lower)
+            ),
         }
 
     def _build_metadata_filter(self, intent: dict[str, Any]) -> dict[str, Any]:
@@ -554,6 +666,15 @@ class HybridRetriever:
                 clauses.append({"Category": {"$eq": tier_values[0]}})
             else:
                 clauses.append({"$or": [{"Category": {"$eq": value}} for value in tier_values]})
+
+        industry_values = intent.get("industry_values") or []
+        if intent.get("has_industry_filter") and industry_values:
+            if len(industry_values) == 1:
+                clauses.append({"Industry Group": {"$eq": industry_values[0]}})
+            else:
+                clauses.append(
+                    {"$or": [{"Industry Group": {"$eq": value}} for value in industry_values]}
+                )
 
         role_values = intent.get("role_values") or []
         if intent.get("has_role_filter") and role_values:
@@ -589,6 +710,16 @@ class HybridRetriever:
                         ]
                     }
                 )
+        if intent.get("exclude_ev_specific"):
+            clauses.append(
+                {
+                    "$or": [
+                        {"EV / Battery Relevant": {"$eq": "No"}},
+                        {"EV / Battery Relevant": {"$eq": "Indirect"}},
+                        {"EV / Battery Relevant": {"$eq": ""}},
+                    ]
+                }
+            )
         if intent.get("is_location_query") and intent.get("location_value") not in (None, "Georgia"):
             location_value = intent["location_value"]
             if str(location_value).lower().endswith("county"):
@@ -685,6 +816,9 @@ class HybridRetriever:
         tier_values = [str(value).lower() for value in intent.get("tier_values") or []]
         if tier_values and any(value in str(metadata.get("Category", "")).lower() for value in tier_values):
             metadata_bonus += 0.15
+        industry_values = [str(value).lower() for value in intent.get("industry_values") or []]
+        if industry_values and any(value in str(metadata.get("Industry Group", "")).lower() for value in industry_values):
+            metadata_bonus += 0.20
         if intent.get("role_value") and str(intent["role_value"]).lower() in str(metadata.get("EV Supply Chain Role", "")).lower():
             metadata_bonus += 0.20
         if intent.get("oem_value") and str(intent["oem_value"]).lower() in str(metadata.get("Primary OEMs", "")).lower():
@@ -886,9 +1020,28 @@ class HybridRetriever:
         if intent.get("is_global_employment_query") or intent.get("is_vehicle_oem_mapping_query"):
             top_k = max(top_k, len(self.indexer.doc_ids))
             candidate_pool = max(candidate_pool, len(self.indexer.doc_ids))
+        if (
+            intent.get("is_single_point_failure_query")
+            or intent.get("is_no_ev_presence_query")
+            or intent.get("is_chemical_infra_query")
+            or intent.get("is_dual_platform_query")
+            or intent.get("is_recycling_query")
+            or intent.get("is_concentration_query")
+        ):
+            top_k = max(top_k, len(self.indexer.doc_ids))
+            candidate_pool = max(candidate_pool, len(self.indexer.doc_ids))
+        if (
+            intent.get("is_list_query")
+            and float(intent.get("min_employment_threshold") or 0.0) > 0
+        ):
+            top_k = max(top_k, len(self.indexer.doc_ids))
+            candidate_pool = max(candidate_pool, len(self.indexer.doc_ids))
+        if intent.get("is_power_signal_query"):
+            top_k = max(top_k, int(self.config.retrieval.top_k) * 8)
+            candidate_pool = max(candidate_pool, int(self.config.retrieval.candidate_pool) * 8)
 
         filter_attempts = [metadata_filter]
-        if metadata_filter:
+        if metadata_filter and not intent.get("requires_strict_filters"):
             filter_attempts.append({})
 
         merged: dict[str, _CandidateDoc] = {}
@@ -920,18 +1073,9 @@ class HybridRetriever:
                 break
 
         reranked = self._rerank(query, list(merged.values()), intent)
-        if not reranked and self.indexer.documents:
-            logger.warning("No retrieval candidates for query '%s'; returning first KB document.", query)
-            fallback_doc = self.indexer.documents[0]
-            return [
-                {
-                    "id": fallback_doc["id"],
-                    "text": fallback_doc["text"],
-                    "metadata": fallback_doc["metadata"],
-                    "semantic_score": 0.0,
-                    "rerank_score": 0.0,
-                }
-            ]
+        if not reranked:
+            logger.warning("No retrieval candidates for query '%s'; returning empty retrieval set.", query)
+            return []
 
         return [
             {

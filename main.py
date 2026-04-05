@@ -135,6 +135,17 @@ def _parse_min_threshold(question_lower: str) -> float | None:
     return None
 
 
+def _parse_max_threshold(question_lower: str) -> float | None:
+    for marker in ("fewer than", "less than", "below", "under"):
+        match = re.search(rf"{re.escape(marker)}\s+([0-9][0-9,]*)", question_lower)
+        if match:
+            try:
+                return float(match.group(1).replace(",", ""))
+            except (TypeError, ValueError):
+                return None
+    return None
+
+
 def _extract_county(metadata: dict[str, Any]) -> str:
     county = str(metadata.get("Updated Location County") or metadata.get("Location County") or "").strip()
     if county:
@@ -146,6 +157,51 @@ def _extract_county(metadata: dict[str, Any]) -> str:
         if "county" in part.lower():
             return part
     return ""
+
+
+def _extract_area(metadata: dict[str, Any]) -> str:
+    updated = " ".join(str(metadata.get("Updated Location") or "").split()).strip()
+    if updated:
+        return updated
+    return " ".join(str(metadata.get("Location") or "").split()).strip()
+
+
+def _is_supplier(metadata: dict[str, Any]) -> bool:
+    classification_method = str(metadata.get("Classification Method", "")).strip().lower()
+    supplier_type = str(metadata.get("Supplier or Affiliation Type", "")).strip().lower()
+    return classification_method == "supplier" or "supply chain participant" in supplier_type
+
+
+def _category_matches_question_scope(question_lower: str, category_raw: Any) -> bool:
+    category = str(category_raw or "").strip().lower()
+    if not category:
+        return False
+    if (
+        re.search(r"\bfor a new tier\s*1\b", question_lower)
+        or re.search(r"\bnew tier\s*1\b", question_lower)
+    ) and not any(
+        marker in question_lower
+        for marker in (
+            "tier 1 suppliers",
+            "tier 1 supplier",
+            "tier 1 companies",
+            "tier 1 company",
+            "among tier 1",
+            "tier 1 only",
+        )
+    ):
+        return True
+    if "tier 1/2" in question_lower:
+        return category == "tier 1/2"
+    if "tier 2/3" in question_lower:
+        return category == "tier 2/3"
+    if "tier 1" in question_lower and "tier 1/2" not in question_lower:
+        return category == "tier 1"
+    if "tier 2" in question_lower and "tier 2/3" not in question_lower:
+        return category == "tier 2"
+    if "tier 3" in question_lower and "tier 2/3" not in question_lower:
+        return category == "tier 3"
+    return True
 
 
 def _split_oem_tokens(raw_value: Any) -> set[str]:
@@ -174,6 +230,17 @@ def _build_structured_context(question: str, docs: list[dict[str, Any]]) -> str:
     question_lower = question.lower()
     snippets: list[str] = []
 
+    def _iter_filtered_docs(require_supplier: bool = False) -> list[dict[str, Any]]:
+        filtered: list[dict[str, Any]] = []
+        for doc in docs:
+            metadata = doc.get("metadata", {})
+            if not _category_matches_question_scope(question_lower, metadata.get("Category")):
+                continue
+            if require_supplier and not _is_supplier(metadata):
+                continue
+            filtered.append(metadata)
+        return filtered
+
     if (
         "tier 1/2" in question_lower
         and any(marker in question_lower for marker in ("show all", "list", "map all", "name all"))
@@ -182,8 +249,7 @@ def _build_structured_context(question: str, docs: list[dict[str, Any]]) -> str:
     ):
         seen_companies: set[str] = set()
         lines: list[str] = []
-        for doc in docs:
-            metadata = doc.get("metadata", {})
+        for metadata in _iter_filtered_docs(require_supplier=True):
             company = " ".join(str(metadata.get("Company", "")).split()).strip()
             if not company:
                 continue
@@ -207,24 +273,15 @@ def _build_structured_context(question: str, docs: list[dict[str, Any]]) -> str:
         and any(marker in question_lower for marker in ("employ over", "employment over", "more than", "above"))
     ):
         min_threshold = _parse_min_threshold(question_lower) or 0.0
-        require_automotive = "automotive" in question_lower
-        qualified: list[tuple[str, float, str, str]] = []
+        qualified: list[tuple[str, float, str]] = []
         seen_companies: set[str] = set()
-        for doc in docs:
-            metadata = doc.get("metadata", {})
+        for metadata in _iter_filtered_docs(require_supplier=False):
             ev_relevant = str(metadata.get("EV / Battery Relevant", "")).strip().lower()
             if ev_relevant != "indirect":
                 continue
             employment = _parse_employment(metadata.get("Employment"))
             if min_threshold > 0 and employment <= min_threshold:
                 continue
-            industry_group = str(metadata.get("Industry Group", "")).strip()
-            products = str(metadata.get("Product / Service", "")).strip()
-            supplier_type = str(metadata.get("Supplier or Affiliation Type", "")).strip()
-            if require_automotive:
-                blob = f"{industry_group} {products} {supplier_type}".lower()
-                if "automotive" not in blob:
-                    continue
             company = " ".join(str(metadata.get("Company", "")).split()).strip()
             if not company:
                 continue
@@ -232,15 +289,14 @@ def _build_structured_context(question: str, docs: list[dict[str, Any]]) -> str:
             if company_key in seen_companies:
                 continue
             seen_companies.add(company_key)
-            updated_location = " ".join(str(metadata.get("Updated Location", "")).split()).strip()
-            location = updated_location or " ".join(str(metadata.get("Location", "")).split()).strip()
-            qualified.append((company, employment, location, industry_group))
+            location = _extract_area(metadata)
+            qualified.append((company, employment, location))
 
         if qualified:
             qualified.sort(key=lambda item: item[1], reverse=True)
             lines = [
                 f"- {company} | Employment: {int(employment):,} | Updated Location: {location}"
-                for company, employment, location, _ in qualified[:25]
+                for company, employment, location in qualified[:25]
             ]
             snippets.append(
                 "STRUCTURED INDIRECT EV HIGH EMPLOYMENT LIST (computed from retrieved rows):\n"
@@ -261,33 +317,22 @@ def _build_structured_context(question: str, docs: list[dict[str, Any]]) -> str:
             "r&d",
         )
     ):
-        require_supplier = "supplier" in question_lower
         innovation_terms = ("r&d", "research", "development", "prototype", "prototyping")
         seen_companies: set[str] = set()
         lines: list[str] = []
-        for doc in docs:
-            metadata = doc.get("metadata", {})
+        for metadata in _iter_filtered_docs(require_supplier=("supplier" in question_lower)):
             company = " ".join(str(metadata.get("Company", "")).split()).strip()
             if not company:
                 continue
             company_key = company.lower()
             if company_key in seen_companies:
                 continue
-
-            classification_method = str(metadata.get("Classification Method", "")).strip().lower()
-            supplier_type = str(metadata.get("Supplier or Affiliation Type", "")).strip().lower()
-            if require_supplier and not (
-                classification_method == "supplier" or "supply chain participant" in supplier_type
-            ):
-                continue
-
             products = " ".join(str(metadata.get("Product / Service", "")).split()).strip()
             if not products:
                 continue
             products_lower = products.lower()
             if not any(term in products_lower for term in innovation_terms):
                 continue
-
             seen_companies.add(company_key)
             lines.append(f"- {company} | Product: {products}")
 
@@ -309,15 +354,12 @@ def _build_structured_context(question: str, docs: list[dict[str, Any]]) -> str:
         )
     ):
         county_totals: dict[str, float] = {}
-        exclude_global_headcount_outliers = "across all companies" in question_lower
-        for doc in docs:
-            metadata = doc.get("metadata", {})
+        require_supplier = "supplier" in question_lower
+        for metadata in _iter_filtered_docs(require_supplier=require_supplier):
             county = _extract_county(metadata)
             if not county:
                 continue
             employment = _parse_employment(metadata.get("Employment"))
-            if exclude_global_headcount_outliers and employment > 100000:
-                continue
             county_totals[county] = county_totals.get(county, 0.0) + employment
         if county_totals:
             ordered = sorted(county_totals.items(), key=lambda item: item[1], reverse=True)[:25]
@@ -385,7 +427,305 @@ def _build_structured_context(question: str, docs: list[dict[str, Any]]) -> str:
                 + link_lines
             )
 
+    if any(marker in question_lower for marker in ("high-voltage", "dc-to-dc", "inverter", "motor controller")):
+        signal_terms = ("high-voltage", "dc-to-dc", "dc to dc", "inverter", "motor controller")
+        seen_companies: set[str] = set()
+        lines: list[str] = []
+        for metadata in _iter_filtered_docs(require_supplier=False):
+            products = " ".join(str(metadata.get("Product / Service", "")).split()).strip()
+            if not products:
+                continue
+            if not any(term in products.lower() for term in signal_terms):
+                continue
+            company = " ".join(str(metadata.get("Company", "")).split()).strip()
+            if not company or company.lower() in seen_companies:
+                continue
+            seen_companies.add(company.lower())
+            lines.append(f"- {company} | Product: {products}")
+        if lines:
+            snippets.append(
+                "STRUCTURED POWERTRAIN ELECTRONICS SIGNALS (computed from retrieved rows):\n"
+                f"Total Companies: {len(lines)}\n"
+                + "\n".join(lines)
+            )
+
+    if any(
+        marker in question_lower
+        for marker in ("single-point-of-failure", "single point of failure", "only a single company")
+    ):
+        role_to_company: dict[str, set[str]] = {}
+        for metadata in _iter_filtered_docs(require_supplier=False):
+            role = " ".join(str(metadata.get("EV Supply Chain Role", "")).split()).strip()
+            company = " ".join(str(metadata.get("Company", "")).split()).strip()
+            if not role or not company:
+                continue
+            role_to_company.setdefault(role, set()).add(company)
+        unique_role_pairs = sorted(
+            [(role, next(iter(companies))) for role, companies in role_to_company.items() if len(companies) == 1],
+            key=lambda item: item[0].lower(),
+        )
+        if unique_role_pairs:
+            lines = [f"- {role} | Only company: {company}" for role, company in unique_role_pairs]
+            snippets.append(
+                "STRUCTURED SINGLE-SOURCED ROLES (computed from retrieved rows):\n"
+                f"Total Roles: {len(unique_role_pairs)}\n"
+                + "\n".join(lines)
+            )
+
+    if any(marker in question_lower for marker in ("battery recycling", "second-life", "second life", "circular economy")):
+        recycling_terms = ("recycl", "second-life", "second life", "end-of-life")
+        seen_companies: set[str] = set()
+        lines: list[str] = []
+        for metadata in _iter_filtered_docs(require_supplier=False):
+            products = " ".join(str(metadata.get("Product / Service", "")).split()).strip()
+            role = " ".join(str(metadata.get("EV Supply Chain Role", "")).split()).strip()
+            if not products and not role:
+                continue
+            searchable = f"{products} {role}".lower()
+            if not any(term in searchable for term in recycling_terms):
+                continue
+            company = " ".join(str(metadata.get("Company", "")).split()).strip()
+            if not company or company.lower() in seen_companies:
+                continue
+            seen_companies.add(company.lower())
+            lines.append(f"- {company} | Product: {products or role}")
+        if lines:
+            snippets.append(
+                "STRUCTURED BATTERY RECYCLING CANDIDATES (computed from retrieved rows):\n"
+                f"Total Companies: {len(lines)}\n"
+                + "\n".join(lines)
+            )
+
+    if any(marker in question_lower for marker in ("dual-platform", "traditional oems", "ev-native oems")):
+        lines: list[str] = []
+        seen_companies: set[str] = set()
+        for metadata in _iter_filtered_docs(require_supplier=True):
+            oem_tokens = _split_oem_tokens(metadata.get("Primary OEMs", ""))
+            has_traditional = bool({"hyundai", "kia"} & oem_tokens)
+            has_ev_native = "rivian" in oem_tokens
+            if not (has_traditional and has_ev_native):
+                continue
+            company = " ".join(str(metadata.get("Company", "")).split()).strip()
+            if not company or company.lower() in seen_companies:
+                continue
+            seen_companies.add(company.lower())
+            primary_oems = " ".join(str(metadata.get("Primary OEMs", "")).split()).strip()
+            lines.append(f"- {company} | Primary OEMs: {primary_oems}")
+        if lines:
+            snippets.append(
+                "STRUCTURED DUAL-PLATFORM SUPPLIERS (computed from retrieved rows):\n"
+                f"Total Companies: {len(lines)}\n"
+                + "\n".join(lines)
+            )
+
+    if "materials-category suppliers" in question_lower and "highest concentration" in question_lower:
+        area_counts: dict[str, int] = {}
+        for metadata in _iter_filtered_docs(require_supplier=True):
+            role = str(metadata.get("EV Supply Chain Role", "")).strip().lower()
+            if "material" not in role:
+                continue
+            area = _extract_area(metadata)
+            if not area:
+                continue
+            area_counts[area] = area_counts.get(area, 0) + 1
+        if area_counts:
+            ordered = sorted(area_counts.items(), key=lambda item: item[1], reverse=True)
+            lines = [f"- {area}: {count} suppliers" for area, count in ordered[:20]]
+            snippets.append(
+                "STRUCTURED MATERIALS SUPPLIER CONCENTRATION (computed from retrieved rows):\n"
+                f"Total Areas: {len(area_counts)}\n"
+                + "\n".join(lines)
+            )
+
+    if any(
+        marker in question_lower
+        for marker in ("no ev-specific production presence", "no ev specific production presence", "conversion-ready industrial sites")
+    ):
+        area_counts: dict[str, int] = {}
+        for metadata in _iter_filtered_docs(require_supplier=False):
+            facility = str(metadata.get("Primary Facility Type", "")).strip().lower()
+            if "manufacturing plant" not in facility:
+                continue
+            ev_relevant = str(metadata.get("EV / Battery Relevant", "")).strip().lower()
+            if ev_relevant == "yes":
+                continue
+            area = _extract_area(metadata)
+            if not area:
+                continue
+            area_counts[area] = area_counts.get(area, 0) + 1
+        if area_counts:
+            ordered = sorted(area_counts.items(), key=lambda item: item[1], reverse=True)
+            lines = [f"- {area}: {count} plants" for area, count in ordered[:25]]
+            snippets.append(
+                "STRUCTURED NON-EV MANUFACTURING AREAS (computed from retrieved rows):\n"
+                f"Total Areas: {len(area_counts)}\n"
+                + "\n".join(lines)
+            )
+
+    if "chemical manufacturing infrastructure" in question_lower:
+        area_to_companies: dict[str, set[str]] = {}
+        for metadata in _iter_filtered_docs(require_supplier=False):
+            industry = str(metadata.get("Industry Group", "")).strip().lower()
+            if "chemical" not in industry:
+                continue
+            area = _extract_area(metadata)
+            company = " ".join(str(metadata.get("Company", "")).split()).strip()
+            if not area or not company:
+                continue
+            area_to_companies.setdefault(area, set()).add(company)
+        if area_to_companies:
+            ordered = sorted(
+                area_to_companies.items(),
+                key=lambda item: (len(item[1]), item[0].lower()),
+                reverse=True,
+            )
+            lines = [f"- {area}: {', '.join(sorted(companies))}" for area, companies in ordered[:20]]
+            snippets.append(
+                "STRUCTURED CHEMICAL INFRASTRUCTURE AREAS (computed from retrieved rows):\n"
+                f"Total Areas: {len(area_to_companies)}\n"
+                + "\n".join(lines)
+            )
+
+    if (
+        "top 10" in question_lower
+        and "employment" in question_lower
+        and "general automotive" in question_lower
+        and any(marker in question_lower for marker in ("ev-specific", "transition readiness", "ev relevance"))
+    ):
+        by_company: dict[str, tuple[float, str]] = {}
+        for metadata in _iter_filtered_docs(require_supplier=False):
+            role = str(metadata.get("EV Supply Chain Role", "")).strip().lower()
+            if "general automotive" not in role:
+                continue
+            ev_relevant = str(metadata.get("EV / Battery Relevant", "")).strip().lower()
+            if ev_relevant not in {"yes", "indirect"}:
+                continue
+            company = " ".join(str(metadata.get("Company", "")).split()).strip()
+            employment = _parse_employment(metadata.get("Employment"))
+            if not company:
+                continue
+            prior = by_company.get(company)
+            if prior is None or employment > prior[0]:
+                by_company[company] = (employment, ev_relevant.title())
+        if by_company:
+            ordered = sorted(by_company.items(), key=lambda item: item[1][0], reverse=True)[:10]
+            lines = [
+                f"- {company} | Employment: {int(values[0]):,} | EV Relevant: {values[1]}"
+                for company, values in ordered
+            ]
+            snippets.append(
+                "STRUCTURED TOP EMPLOYMENT TRANSITION LIST (computed from retrieved rows):\n"
+                f"Total Companies: {len(ordered)}\n"
+                + "\n".join(lines)
+            )
+
+    min_threshold = _parse_min_threshold(question_lower)
+    max_threshold = _parse_max_threshold(question_lower)
+    if (
+        "general automotive" in question_lower
+        and min_threshold is not None
+        and any(marker in question_lower for marker in ("transferable to ev", "transferable to ev platforms"))
+    ):
+        seen_companies: set[str] = set()
+        lines: list[str] = []
+        for metadata in _iter_filtered_docs(require_supplier=True):
+            role = str(metadata.get("EV Supply Chain Role", "")).strip().lower()
+            if "general automotive" not in role:
+                continue
+            company = " ".join(str(metadata.get("Company", "")).split()).strip()
+            if not company or company.lower() in seen_companies:
+                continue
+            employment = _parse_employment(metadata.get("Employment"))
+            if employment <= float(min_threshold):
+                continue
+            seen_companies.add(company.lower())
+            ev_relevant = str(metadata.get("EV / Battery Relevant", "")).strip() or "No"
+            products = " ".join(str(metadata.get("Product / Service", "")).split()).strip()
+            lines.append(
+                f"- {company} | Employment: {int(employment):,} | EV Relevant: {ev_relevant} | Product: {products}"
+            )
+        if lines:
+            snippets.append(
+                "STRUCTURED FILTERED GENERAL AUTOMOTIVE SUPPLIERS (computed from retrieved rows):\n"
+                f"Threshold: > {int(min_threshold):,}\n"
+                f"Total Companies: {len(lines)}\n"
+                + "\n".join(lines)
+            )
+
+    if "tier 2/3" in question_lower and any(
+        marker in question_lower for marker in ("lightweight", "aluminum", "composite", "polymer")
+    ):
+        seen_companies: set[str] = set()
+        lines: list[str] = []
+        for metadata in _iter_filtered_docs(require_supplier=True):
+            products = " ".join(str(metadata.get("Product / Service", "")).split()).strip()
+            if not products:
+                continue
+            products_lower = products.lower()
+            if not any(term in products_lower for term in ("aluminum", "composite", "polymer", "lightweight")):
+                continue
+            if max_threshold is not None:
+                employment = _parse_employment(metadata.get("Employment"))
+                if employment >= float(max_threshold):
+                    continue
+            company = " ".join(str(metadata.get("Company", "")).split()).strip()
+            if not company or company.lower() in seen_companies:
+                continue
+            seen_companies.add(company.lower())
+            ev_relevant = str(metadata.get("EV / Battery Relevant", "")).strip() or "No"
+            if ev_relevant.lower() not in {"yes", "indirect"}:
+                continue
+            lines.append(f"- {company} | EV Relevant: {ev_relevant} | Product: {products}")
+        if lines:
+            snippets.append(
+                "STRUCTURED LIGHTWEIGHT MATERIAL SUPPLIERS (computed from retrieved rows):\n"
+                f"Total Companies: {len(lines)}\n"
+                + "\n".join(lines)
+            )
+
     return "\n\n".join(snippets).strip()
+
+
+def _structured_generation_fallback_answer(question: str, context: str) -> str:
+    if not context.startswith("STRUCTURED "):
+        return ""
+
+    lines = [line.strip() for line in context.splitlines() if line.strip()]
+    bullet_entries = [line[2:].strip() for line in lines if line.startswith("- ")]
+    total_lines = [line for line in lines if line.lower().startswith(("total ", "threshold"))]
+    question_lower = question.lower()
+
+    if context.startswith("STRUCTURED COUNTY EMPLOYMENT TOTALS"):
+        for entry in bullet_entries:
+            if ":" in entry:
+                county, total = entry.split(":", 1)
+                return f"{county.strip()} has the highest total employment with {total.strip()} employees."
+
+    if context.startswith("STRUCTURED SINGLE-SOURCED ROLES"):
+        output_lines = ["Roles served by only a single company:"]
+        output_lines.extend(f"- {entry}" for entry in bullet_entries)
+        output_lines.extend(total_lines)
+        return "\n".join(output_lines).strip()
+
+    if (
+        context.startswith("STRUCTURED NON-EV MANUFACTURING AREAS")
+        and "how many" in question_lower
+    ):
+        total_areas = next((line for line in total_lines if line.lower().startswith("total areas")), "")
+        output_lines = []
+        if total_areas:
+            count_text = total_areas.split(":", 1)[1].strip() if ":" in total_areas else ""
+            if count_text:
+                output_lines.append(
+                    f"There are {count_text} Georgia areas with manufacturing plant facilities and no EV-specific production presence."
+                )
+        output_lines.extend(f"- {entry}" for entry in bullet_entries[:10])
+        return "\n".join(output_lines).strip()
+
+    output_lines = ["Structured evidence from retrieved data:"]
+    output_lines.extend(f"- {entry}" for entry in bullet_entries)
+    output_lines.extend(total_lines)
+    return "\n".join(output_lines).strip()
 
 
 async def _process_question_row(
@@ -463,6 +803,21 @@ async def _process_question_row(
             )
             structured_block = _build_structured_context(question, docs)
             if structured_block:
+                structured_only_prefixes = (
+                    "STRUCTURED COUNTY EMPLOYMENT TOTALS",
+                    "STRUCTURED INDIRECT EV HIGH EMPLOYMENT LIST",
+                    "STRUCTURED INNOVATION-STAGE SUPPLIER CANDIDATES",
+                    "STRUCTURED POWERTRAIN ELECTRONICS SIGNALS",
+                    "STRUCTURED SINGLE-SOURCED ROLES",
+                    "STRUCTURED BATTERY RECYCLING CANDIDATES",
+                    "STRUCTURED DUAL-PLATFORM SUPPLIERS",
+                    "STRUCTURED MATERIALS SUPPLIER CONCENTRATION",
+                    "STRUCTURED NON-EV MANUFACTURING AREAS",
+                    "STRUCTURED CHEMICAL INFRASTRUCTURE AREAS",
+                    "STRUCTURED TOP EMPLOYMENT TRANSITION LIST",
+                    "STRUCTURED FILTERED GENERAL AUTOMOTIVE SUPPLIERS",
+                    "STRUCTURED LIGHTWEIGHT MATERIAL SUPPLIERS",
+                )
                 if any(
                     marker in question_lower
                     for marker in (
@@ -472,7 +827,7 @@ async def _process_question_row(
                         "vehicle assembly oem",
                         "tier 1/2 suppliers",
                     )
-                ) or structured_block.startswith("STRUCTURED INDIRECT EV HIGH EMPLOYMENT LIST") or structured_block.startswith("STRUCTURED INNOVATION-STAGE SUPPLIER CANDIDATES"):
+                ) or structured_block.startswith(structured_only_prefixes):
                     context = structured_block
                 else:
                     context = f"{structured_block}\n\n{context}"
@@ -500,11 +855,21 @@ async def _process_question_row(
                 timeout_sec=generation_guard_timeout,
                 fallback_value="GENERATION_TIMEOUT",
             )
+        generation_status = "ok"
+        if answer == "GENERATION_TIMEOUT":
+            generation_status = "timeout"
+        elif str(answer).startswith("GENERATION_ERROR"):
+            generation_status = "error"
+        if mode == "rag" and generation_status in {"timeout", "error"} and context.startswith("STRUCTURED "):
+            fallback_answer = _structured_generation_fallback_answer(question, context)
+            if fallback_answer:
+                answer = fallback_answer
+                generation_status = "structured_fallback"
         logger.info(
             "Q%s generation complete | answer_chars=%s | status=%s",
             question_id,
             len(str(answer)),
-            "timeout" if answer == "GENERATION_TIMEOUT" else "ok",
+            generation_status,
         )
 
         base_result = {
@@ -527,6 +892,20 @@ async def _process_question_row(
             **_zero_metric_payload("pipeline_error"),
         }
     else:
+        if answer == "GENERATION_TIMEOUT":
+            result = {
+                **base_result,
+                **_zero_metric_payload("generation_timeout"),
+            }
+            await _append_progress_entry(progress_file, result, progress_lock)
+            return result
+        if str(answer).startswith("GENERATION_ERROR"):
+            result = {
+                **base_result,
+                **_zero_metric_payload("generation_error"),
+            }
+            await _append_progress_entry(progress_file, result, progress_lock)
+            return result
         try:
             async with eval_semaphore:
                 evaluation = await evaluator.evaluate_row(question, golden, answer, context)

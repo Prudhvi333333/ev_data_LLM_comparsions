@@ -183,6 +183,17 @@ class OllamaGenerator:
                     f"QUESTION:\n{question}\n\n"
                     "ANSWER:"
                 )
+            if context.startswith("STRUCTURED "):
+                return (
+                    "You are a precise analyst. The context is already a computed structured result.\n"
+                    "Use only this structured evidence and reproduce all relevant entries faithfully.\n"
+                    "Honor constraints in the question (tier, thresholds, EV relevance, location).\n"
+                    "Include explicit total count when the context provides one.\n"
+                    "Do not answer with unavailable when structured entries exist.\n\n"
+                    f"CONTEXT:\n{context}\n\n"
+                    f"QUESTION:\n{question}\n\n"
+                    "ANSWER:"
+                )
             formatted_context = self._format_context_rows(context)
             question_specific_instructions: list[str] = []
             if (
@@ -311,6 +322,117 @@ class OllamaGenerator:
         lowered = (answer or "").lower()
         return sum(1 for entry in entries if entry and entry.lower() in lowered)
 
+    def _apply_structured_guards(self, output: str, context: str | None) -> str:
+        if context and context.startswith("STRUCTURED COUNTY EMPLOYMENT TOTALS"):
+            lowered_output = (output or "").lower()
+            needs_structured_guard = (
+                self._is_unavailable_answer(output or "")
+                or "please clarify" in lowered_output
+                or "if you meant" in lowered_output
+                or "however" in lowered_output
+            )
+            if needs_structured_guard:
+                top_county = self._extract_top_county_total(context)
+                if top_county is not None:
+                    county, total = top_county
+                    top_entries = self._extract_structured_lines(
+                        context,
+                        "STRUCTURED COUNTY EMPLOYMENT TOTALS (computed from retrieved rows):",
+                        stop_headers=("STRUCTURED ", "RELEVANT KNOWLEDGE BASE EXCERPTS"),
+                    )[:5]
+                    output_lines = [
+                        f"{county} has the highest total employment with {total} employees."
+                    ]
+                    if top_entries:
+                        output_lines.append("Top counties by total employment:")
+                        output_lines.extend(f"- {entry}" for entry in top_entries)
+                    output = "\n".join(output_lines)
+
+        if "STRUCTURED VEHICLE ASSEMBLY OEM LIST" in (context or ""):
+            oem_entries = self._extract_structured_lines(
+                context or "",
+                "STRUCTURED VEHICLE ASSEMBLY OEM LIST (computed from retrieved rows):",
+                stop_headers=("STRUCTURED SPECIFIC TIER 1 LINKS", "STRUCTURED ", "RELEVANT KNOWLEDGE BASE EXCERPTS"),
+            )
+            link_entries = self._extract_structured_lines(
+                context or "",
+                "STRUCTURED SPECIFIC TIER 1 LINKS (Tier 1 only, excluding 'Multiple OEMs'):",
+                stop_headers=("STRUCTURED ", "RELEVANT KNOWLEDGE BASE EXCERPTS"),
+            )
+            missing_oems = (
+                bool(oem_entries)
+                and self._count_mentions_case_insensitive(output or "", oem_entries) < len(oem_entries)
+            )
+            if self._is_unavailable_answer(output or "") or missing_oems:
+                lines = ["Vehicle Assembly OEMs in Georgia:"]
+                lines.extend(f"- {entry}" for entry in oem_entries)
+                lines.append("")
+                lines.append("Specific Tier 1 links:")
+                if link_entries:
+                    lines.extend(f"- {entry}" for entry in link_entries)
+                else:
+                    lines.append("- No specific Tier 1 links found")
+                output = "\n".join(lines)
+
+        if (context or "").startswith("STRUCTURED INDIRECT EV HIGH EMPLOYMENT LIST"):
+            entries = self._extract_structured_lines(
+                context or "",
+                "STRUCTURED INDIRECT EV HIGH EMPLOYMENT LIST (computed from retrieved rows):",
+                stop_headers=("STRUCTURED ", "RELEVANT KNOWLEDGE BASE EXCERPTS"),
+            )
+            missing_entries = (
+                bool(entries)
+                and self._count_mentions_case_insensitive(output or "", entries) < max(1, len(entries) // 2)
+            )
+            if self._is_unavailable_answer(output or "") or missing_entries:
+                lines = [
+                    "Indirectly EV-relevant companies above the employment threshold:",
+                ]
+                lines.extend(f"- {entry}" for entry in entries)
+                lines.append(f"Total companies: {len(entries)}")
+                output = "\n".join(lines)
+
+        if (context or "").startswith("STRUCTURED INNOVATION-STAGE SUPPLIER CANDIDATES"):
+            entries = self._extract_structured_lines(
+                context or "",
+                "STRUCTURED INNOVATION-STAGE SUPPLIER CANDIDATES (computed from retrieved rows):",
+                stop_headers=("STRUCTURED ", "RELEVANT KNOWLEDGE BASE EXCERPTS"),
+            )
+            missing_entries = (
+                bool(entries)
+                and self._count_mentions_case_insensitive(output or "", entries) < max(1, len(entries) // 2)
+            )
+            if self._is_unavailable_answer(output or "") or missing_entries:
+                lines = [
+                    "Innovation-stage supplier candidates in Georgia:",
+                ]
+                lines.extend(f"- {entry}" for entry in entries)
+                lines.append(f"Total companies: {len(entries)}")
+                output = "\n".join(lines)
+
+        if (context or "").startswith("STRUCTURED "):
+            generic_entries = [
+                line.strip()[2:].strip()
+                for line in (context or "").splitlines()
+                if line.strip().startswith("- ")
+            ]
+            missing_entries = (
+                bool(generic_entries)
+                and self._count_mentions_case_insensitive(output or "", generic_entries) < len(generic_entries)
+            )
+            if self._is_unavailable_answer(output or "") or missing_entries:
+                total_lines = [
+                    line.strip()
+                    for line in (context or "").splitlines()
+                    if line.strip().lower().startswith(("total ", "threshold"))
+                ]
+                lines = ["Structured evidence from retrieved data:"]
+                lines.extend(f"- {entry}" for entry in generic_entries)
+                lines.extend(total_lines)
+                output = "\n".join(lines).strip()
+
+        return output
+
     def _build_recovery_prompt(self, question: str, context: str, previous_answer: str) -> str:
         formatted_context = self._format_context_rows(context)
         return (
@@ -366,6 +488,17 @@ class OllamaGenerator:
         return str(data.get("response", "")).strip()
 
     async def generate(self, question: str, context: str | None) -> str:
+        if context is not None:
+            normalized_context = context.strip()
+            if normalized_context == "RELEVANT KNOWLEDGE BASE EXCERPTS:":
+                return "This information is not available in the knowledge base."
+            if (
+                normalized_context.startswith("RELEVANT KNOWLEDGE BASE EXCERPTS:")
+                and "Company:" not in context
+                and not normalized_context.startswith("STRUCTURED ")
+            ):
+                return "This information is not available in the knowledge base."
+
         prompt = self._build_prompt(question, context)
         max_tokens = _effective_max_tokens(self.config, question, context)
         if context and context.startswith("STRUCTURED SUPPLIER ROLE-PRODUCT LIST"):
@@ -446,92 +579,7 @@ class OllamaGenerator:
                 if completeness_output:
                     output = completeness_output
 
-            if context and context.startswith("STRUCTURED COUNTY EMPLOYMENT TOTALS"):
-                lowered_output = (output or "").lower()
-                needs_structured_guard = (
-                    self._is_unavailable_answer(output or "")
-                    or "please clarify" in lowered_output
-                    or "if you meant" in lowered_output
-                    or "however" in lowered_output
-                )
-                if needs_structured_guard:
-                    top_county = self._extract_top_county_total(context)
-                    if top_county is not None:
-                        county, total = top_county
-                        top_entries = self._extract_structured_lines(
-                            context,
-                            "STRUCTURED COUNTY EMPLOYMENT TOTALS (computed from retrieved rows):",
-                            stop_headers=("STRUCTURED ", "RELEVANT KNOWLEDGE BASE EXCERPTS"),
-                        )[:5]
-                        output_lines = [
-                            f"{county} has the highest total employment with {total} employees."
-                        ]
-                        if top_entries:
-                            output_lines.append("Top counties by total employment:")
-                            output_lines.extend(f"- {entry}" for entry in top_entries)
-                        output = "\n".join(output_lines)
-
-            if "STRUCTURED VEHICLE ASSEMBLY OEM LIST" in (context or ""):
-                oem_entries = self._extract_structured_lines(
-                    context or "",
-                    "STRUCTURED VEHICLE ASSEMBLY OEM LIST (computed from retrieved rows):",
-                    stop_headers=("STRUCTURED SPECIFIC TIER 1 LINKS", "STRUCTURED ", "RELEVANT KNOWLEDGE BASE EXCERPTS"),
-                )
-                link_entries = self._extract_structured_lines(
-                    context or "",
-                    "STRUCTURED SPECIFIC TIER 1 LINKS (Tier 1 only, excluding 'Multiple OEMs'):",
-                    stop_headers=("STRUCTURED ", "RELEVANT KNOWLEDGE BASE EXCERPTS"),
-                )
-                missing_oems = (
-                    bool(oem_entries)
-                    and self._count_mentions_case_insensitive(output or "", oem_entries) < len(oem_entries)
-                )
-                if self._is_unavailable_answer(output or "") or missing_oems:
-                    lines = ["Vehicle Assembly OEMs in Georgia:"]
-                    lines.extend(f"- {entry}" for entry in oem_entries)
-                    lines.append("")
-                    lines.append("Specific Tier 1 links:")
-                    if link_entries:
-                        lines.extend(f"- {entry}" for entry in link_entries)
-                    else:
-                        lines.append("- No specific Tier 1 links found")
-                    output = "\n".join(lines)
-
-            if (context or "").startswith("STRUCTURED INDIRECT EV HIGH EMPLOYMENT LIST"):
-                entries = self._extract_structured_lines(
-                    context or "",
-                    "STRUCTURED INDIRECT EV HIGH EMPLOYMENT LIST (computed from retrieved rows):",
-                    stop_headers=("STRUCTURED ", "RELEVANT KNOWLEDGE BASE EXCERPTS"),
-                )
-                missing_entries = (
-                    bool(entries)
-                    and self._count_mentions_case_insensitive(output or "", entries) < max(1, len(entries) // 2)
-                )
-                if self._is_unavailable_answer(output or "") or missing_entries:
-                    lines = [
-                        "Indirectly EV-relevant companies above the employment threshold:",
-                    ]
-                    lines.extend(f"- {entry}" for entry in entries)
-                    lines.append(f"Total companies: {len(entries)}")
-                    output = "\n".join(lines)
-
-            if (context or "").startswith("STRUCTURED INNOVATION-STAGE SUPPLIER CANDIDATES"):
-                entries = self._extract_structured_lines(
-                    context or "",
-                    "STRUCTURED INNOVATION-STAGE SUPPLIER CANDIDATES (computed from retrieved rows):",
-                    stop_headers=("STRUCTURED ", "RELEVANT KNOWLEDGE BASE EXCERPTS"),
-                )
-                missing_entries = (
-                    bool(entries)
-                    and self._count_mentions_case_insensitive(output or "", entries) < max(1, len(entries) // 2)
-                )
-                if self._is_unavailable_answer(output or "") or missing_entries:
-                    lines = [
-                        "Innovation-stage supplier candidates in Georgia:",
-                    ]
-                    lines.extend(f"- {entry}" for entry in entries)
-                    lines.append(f"Total companies: {len(entries)}")
-                    output = "\n".join(lines)
+            output = self._apply_structured_guards(output or "", context)
 
             return output or "GENERATION_ERROR: empty response from Ollama"
         except httpx.TimeoutException:
@@ -553,6 +601,30 @@ class OllamaGenerator:
                 logger.warning("Ollama generation retry also timed out for %s", self.model_name)
                 return "GENERATION_TIMEOUT"
         except httpx.HTTPError as exc:
+            status_code = exc.response.status_code if isinstance(exc, httpx.HTTPStatusError) else None
+            if status_code is not None and status_code >= 500:
+                logger.warning(
+                    "Ollama generation failed for %s with %s; retrying once.",
+                    self.model_name,
+                    status_code,
+                )
+                await asyncio.sleep(1.0)
+                retry_payload = _build_generation_payload(
+                    self.model_name,
+                    prompt,
+                    self.config,
+                    max_tokens_override=min(192, max_tokens),
+                    temperature_override=0.0 if context is not None else None,
+                )
+                try:
+                    retry_output = await self._invoke_ollama(
+                        retry_payload,
+                        timeout_seconds=max(60, int(float(request_timeout) * 0.7)),
+                    )
+                    if retry_output:
+                        return self._apply_structured_guards(retry_output, context)
+                except httpx.HTTPError as nested_exc:
+                    logger.warning("Ollama retry failed for %s: %s", self.model_name, nested_exc)
             logger.warning("Ollama generation failed for %s: %s", self.model_name, exc)
             return f"GENERATION_ERROR: {exc}"
 
