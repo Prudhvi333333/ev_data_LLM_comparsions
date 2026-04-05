@@ -12,3 +12,20 @@
 [2026-04-05 16:02:13] [INFO] [main] Q1 retrieval complete | docs=18 | top_companies=F&P Georgia Manufacturing, Hyundai Transys Georgia Seating Systems, Hyundai Transys Georgia Powertrain, IMS Gear Georgia Inc., Hyundai MOBIS (Georgia)
 [2026-04-05 16:02:13] [INFO] [main] Q1 structured context added | chars=1963
 [2026-04-05 16:02:13] [INFO] [main] Q1 context ready | chars=1963
+[2026-04-05 16:04:20] [INFO] [main] Q1 generation complete | answer_chars=1360 | status=ok
+[2026-04-05 16:04:42] [INFO] [main] Q1 evaluation complete | final_score=0.8020
+[2026-04-05 16:04:42] [ERROR] [main] Retrieval/generation failed for question 2: Error getting collection: Collection [b90fa7c2-01f3-4efd-bfed-6376af4d81ab] does not exist.
+[2026-04-05 16:04:42] [ERROR] [main] Retrieval/generation failed for question 3: Error getting collection: Collection [b90fa7c2-01f3-4efd-bfed-6376af4d81ab] does not exist.
+[2026-04-05 16:04:42] [ERROR] [main] Retrieval/generation failed for question 4: Error getting collection: Collection [b90fa7c2-01f3-4efd-bfed-6376af4d81ab] does not exist.
+[2026-04-05 16:04:43] [ERROR] [main] Retrieval/generation failed for question 5: Error getting collection: Collection [b90fa7c2-01f3-4efd-bfed-6376af4d81ab] does not exist.
+[2026-04-05 16:04:43] [ERROR] [main] Retrieval/generation failed for question 6: Error getting collection: Collection [b90fa7c2-01f3-4efd-bfed-6376af4d81ab] does not exist.
+[2026-04-05 16:04:43] [ERROR] [main] Retrieval/generation failed for question 7: Error getting collection: Collection [b90fa7c2-01f3-4efd-bfed-6376af4d81ab] does not exist.
+[2026-04-05 16:04:43] [ERROR] [main] Retrieval/generation failed for question 8: Error getting collection: Collection [b90fa7c2-01f3-4efd-bfed-6376af4d81ab] does not exist.
+[2026-04-05 16:04:44] [ERROR] [main] Retrieval/generation failed for question 9: Error getting collection: Collection [b90fa7c2-01f3-4efd-bfed-6376af4d81ab] does not exist.
+[2026-04-05 16:04:44] [ERROR] [main] Retrieval/generation failed for question 10: Error getting collection: Collection [b90fa7c2-01f3-4efd-bfed-6376af4d81ab] does not exist.
+[2026-04-05 16:04:44] [INFO] [reporter] Saved report outputs\reports\qwen_rag_report_20260405_160444.xlsx
+[2026-04-05 16:04:44] [INFO] [main] Report saved: outputs\reports\qwen_rag_report_20260405_160444.xlsx
+[2026-04-05 16:04:44] [INFO] [summary_reporter] Saved cross-pipeline summary outputs\reports\FINAL_COMPARISON_20260405_160444.xlsx
+[2026-04-05 16:04:44] [INFO] [main] Final comparison saved: outputs\reports\FINAL_COMPARISON_20260405_160444.xlsx
+[2026-04-05 16:04:44] [INFO] [main] Final pipeline summary
+[2026-04-05 16:04:44] [INFO] [main] qwen_rag | questions_answered=10 | timeouts=0 | mean_final_score=0.0802 | elapsed=151.89s
