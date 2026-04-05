@@ -27,6 +27,15 @@ def _clip_score(score: float) -> float:
     return max(0.0, min(1.0, float(score)))
 
 
+def _trim_text(value: str, max_chars: int) -> str:
+    text = str(value or "")
+    if len(text) <= max_chars:
+        return text
+    head = text[: max_chars // 2]
+    tail = text[-(max_chars // 2) :]
+    return f"{head}\n...[truncated]...\n{tail}"
+
+
 class RAGASEvaluator:
     def __init__(self, config: SimpleNamespace) -> None:
         self.config = config
@@ -59,6 +68,10 @@ class RAGASEvaluator:
         answer: str,
         context: str,
     ) -> str:
+        question = _trim_text(question, 800)
+        golden = _trim_text(golden, 2400)
+        answer = _trim_text(answer, 2400)
+        context = _trim_text(context, 4000)
         context_block = (
             f"RETRIEVED CONTEXT: {context}\n"
             if metric in {"faithfulness", "context_precision", "context_recall"}
@@ -130,9 +143,11 @@ class RAGASEvaluator:
             "model": self.model,
             "prompt": prompt,
             "stream": False,
+            "format": "json",
+            "think": False,
             "options": {
                 "temperature": 0,
-                "num_predict": 300,
+                "num_predict": 220,
             },
         }
         timeout = float(self.config.evaluation.timeout_seconds)
@@ -140,7 +155,19 @@ class RAGASEvaluator:
             response = await client.post(self.ollama_url, json=payload)
             response.raise_for_status()
             body = response.json()
-        return str(body.get("response", "")).strip()
+        response_text = str(body.get("response", "") or "").strip()
+        if response_text:
+            return response_text
+        thinking_text = str(body.get("thinking", "") or "").strip()
+        if thinking_text:
+            logger.warning("Judge response empty; falling back to thinking text")
+            return thinking_text
+        logger.warning(
+            "Judge returned empty response and thinking fields; done_reason=%s eval_count=%s",
+            body.get("done_reason"),
+            body.get("eval_count"),
+        )
+        return ""
 
     async def _call_judge_api(self, prompt: str) -> str:
         if self.provider == "ollama":
@@ -196,20 +223,36 @@ class RAGASEvaluator:
         context: str,
     ) -> dict[str, Any]:
         metric_names = list(METRIC_DEFINITIONS)
+        metric_results: dict[str, dict[str, Any]] = {}
         if self.provider == "ollama":
-            scored = []
             for metric in metric_names:
-                scored.append(
-                    await self.score_metric(metric, question, golden, answer, context)
-                )
+                try:
+                    metric_results[metric] = await self.score_metric(
+                        metric, question, golden, answer, context
+                    )
+                except Exception as exc:
+                    logger.error("Metric failed (%s): %s", metric, exc)
+                    metric_results[metric] = {
+                        "score": 0.0,
+                        "reasoning": f"metric_error: {exc}",
+                    }
         else:
             scored = await asyncio.gather(
                 *[
                     self.score_metric(metric, question, golden, answer, context)
                     for metric in metric_names
-                ]
+                ],
+                return_exceptions=True,
             )
-        metric_results = dict(zip(metric_names, scored))
+            for metric, result in zip(metric_names, scored):
+                if isinstance(result, Exception):
+                    logger.error("Metric failed (%s): %s", metric, result)
+                    metric_results[metric] = {
+                        "score": 0.0,
+                        "reasoning": f"metric_error: {result}",
+                    }
+                else:
+                    metric_results[metric] = result
 
         weighted_score = 0.0
         for metric, result in metric_results.items():

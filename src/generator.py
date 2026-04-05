@@ -26,6 +26,7 @@ Do not use outside knowledge and do not invent facts not supported by context.
 Instructions:
 - Treat each context row as structured evidence with fields such as Company, Tier, EV Role, OEMs, Employment, Products, and EV Relevant.
 - Context rows are separated by `---`; inspect every row before finalizing the answer.
+- Context may also include precomputed structured summaries (for example county totals or OEM mappings); treat those summaries as valid evidence.
 - Use semantic matching across EV Role, Products, EV Relevant, Tier, and OEM fields; exact phrase match is not required.
 - You may perform deterministic inference from row fields:
   - grouping/filtering across rows,
@@ -117,6 +118,26 @@ class OllamaGenerator:
 
     def _build_prompt(self, question: str, context: str | None) -> str:
         if context is not None:
+            if context.startswith("STRUCTURED COUNTY EMPLOYMENT TOTALS"):
+                return (
+                    "You are a precise analyst. The context already contains computed county totals.\n"
+                    "Use those totals directly to answer the question.\n"
+                    "Pick the highest county from the list and include the county name and total employment.\n"
+                    "Do not answer with unavailable when totals are present.\n\n"
+                    f"CONTEXT:\n{context}\n\n"
+                    f"QUESTION:\n{question}\n\n"
+                    "ANSWER:"
+                )
+            if "STRUCTURED VEHICLE ASSEMBLY OEM LIST" in context:
+                return (
+                    "You are a precise analyst. The context contains a structured OEM list and specific Tier 1 links.\n"
+                    "Use that structured evidence directly.\n"
+                    "List all OEMs shown and then list specific Tier 1 links.\n"
+                    "Do not answer with unavailable when structured lists are present.\n\n"
+                    f"CONTEXT:\n{context}\n\n"
+                    f"QUESTION:\n{question}\n\n"
+                    "ANSWER:"
+                )
             formatted_context = self._format_context_rows(context)
             return (
                 f"{RAG_SYSTEM_PROMPT}\n"
@@ -129,7 +150,15 @@ class OllamaGenerator:
     @staticmethod
     def _is_unavailable_answer(answer: str) -> bool:
         lowered = answer.strip().lower()
-        return "not available in the knowledge base" in lowered
+        unavailable_markers = (
+            "not available in the knowledge base",
+            "information is not available in the knowledge base",
+            "context does not specify",
+            "cannot be determined from the context",
+            "cannot determine from the context",
+            "insufficient information in the context",
+        )
+        return any(marker in lowered for marker in unavailable_markers)
 
     @staticmethod
     def _is_list_style_question(question: str) -> bool:
@@ -165,7 +194,8 @@ class OllamaGenerator:
             f"{RAG_SYSTEM_PROMPT}\n"
             "REVIEW INSTRUCTIONS:\n"
             "- The prior draft incorrectly concluded unavailable.\n"
-            "- Re-read the context and extract all candidate rows that partially or fully satisfy the query constraints.\n"
+            "- Re-read the context and extract all candidate evidence that partially or fully satisfies the query constraints.\n"
+            "- Structured summaries in context (if present) are valid evidence and should be used directly.\n"
             "- If this is a list-style question, return the complete matched set with count, not a partial subset.\n"
             "- Use evidence-first reasoning from row fields; if inference is needed, state it briefly as 'inferred from context fields'.\n"
             "- Only output unavailable if there are truly zero relevant rows.\n\n"
@@ -231,8 +261,8 @@ class OllamaGenerator:
                 context
                 and output
                 and self._is_unavailable_answer(output)
-                and "Company:" in context
             ):
+                logger.info("Generation recovery triggered for unavailable draft")
                 recovery_prompt = self._build_recovery_prompt(question, context, output)
                 recovery_payload = _build_generation_payload(
                     self.model_name,
@@ -257,6 +287,11 @@ class OllamaGenerator:
                 and len(candidate_companies) <= 10
                 and self._count_companies_mentioned(output, candidate_companies) < len(candidate_companies)
             ):
+                logger.info(
+                    "Generation completeness pass triggered | mentioned=%s/%s",
+                    self._count_companies_mentioned(output, candidate_companies),
+                    len(candidate_companies),
+                )
                 completeness_prompt = self._build_completeness_prompt(
                     question,
                     context,

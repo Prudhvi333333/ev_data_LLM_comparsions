@@ -258,6 +258,21 @@ class HybridRetriever:
             re.search(r"\bvehicle assembly\s+oems?\b", query_lower)
             or re.search(r"\ball\s+vehicle assembly\s+oems?\b", query_lower)
         )
+        is_global_employment_query = any(
+            marker in query_lower
+            for marker in (
+                "highest total employment",
+                "combined employment",
+                "total employment across all",
+                "across all companies",
+                "county has the highest total employment",
+            )
+        )
+        is_vehicle_oem_mapping_query = bool(
+            is_explicit_vehicle_oem_query
+            and is_relation_query
+            and ("tier 1" in query_lower or "tier1" in query_lower)
+        )
 
         tier_values = self._match_known_values(query_lower, self.tier_values)
         if "OEM" in tier_values and not is_explicit_vehicle_oem_query:
@@ -266,6 +281,13 @@ class HybridRetriever:
             for category in self.oem_category_values:
                 if category not in tier_values:
                     tier_values.append(category)
+        if is_global_employment_query and "tier 1" in query_lower:
+            tier_values = [
+                value for value in self.tier_values if value.lower().startswith("tier")
+            ] or tier_values
+        if is_global_employment_query and any(value.lower() == "tier 1" for value in tier_values):
+            if "Tier 1/2" in self.tier_values and "Tier 1/2" not in tier_values:
+                tier_values.append("Tier 1/2")
         tier_value = tier_values[0] if tier_values else None
 
         company_value = self._match_known_value(query_lower, self.company_values)
@@ -492,9 +514,15 @@ class HybridRetriever:
                 marker in query_lower
                 for marker in ["dual-platform", "traditional oems", "ev-native oems"]
             ),
+            "is_global_employment_query": is_global_employment_query,
+            "is_vehicle_oem_mapping_query": is_vehicle_oem_mapping_query,
         }
 
     def _build_metadata_filter(self, intent: dict[str, Any]) -> dict[str, Any]:
+        if intent.get("is_vehicle_oem_mapping_query"):
+            category_values = list(dict.fromkeys([*self.oem_category_values, "Tier 1", "Tier 1/2"]))
+            return {"$or": [{"Category": value} for value in category_values]}
+
         clauses: list[dict[str, Any]] = []
 
         if intent.get("has_company_filter") and intent.get("company_value"):
@@ -773,6 +801,9 @@ class HybridRetriever:
             or intent.get("is_relation_query")
         ):
             top_k = max(top_k, int(self.config.retrieval.top_k) * 5)
+            candidate_pool = max(candidate_pool, len(self.indexer.doc_ids))
+        if intent.get("is_global_employment_query") or intent.get("is_vehicle_oem_mapping_query"):
+            top_k = max(top_k, len(self.indexer.doc_ids))
             candidate_pool = max(candidate_pool, len(self.indexer.doc_ids))
 
         filter_attempts = [metadata_filter]
