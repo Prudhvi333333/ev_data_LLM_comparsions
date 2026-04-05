@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
+import re
 from pathlib import Path
 from statistics import mean
 from time import perf_counter
@@ -123,6 +124,17 @@ def _parse_employment(raw_value: Any) -> float:
         return 0.0
 
 
+def _parse_min_threshold(question_lower: str) -> float | None:
+    for marker in ("over", "more than", "above"):
+        match = re.search(rf"{re.escape(marker)}\s+([0-9][0-9,]*)", question_lower)
+        if match:
+            try:
+                return float(match.group(1).replace(",", ""))
+            except (TypeError, ValueError):
+                return None
+    return None
+
+
 def _extract_county(metadata: dict[str, Any]) -> str:
     county = str(metadata.get("Updated Location County") or metadata.get("Location County") or "").strip()
     if county:
@@ -186,6 +198,102 @@ def _build_structured_context(question: str, docs: list[dict[str, Any]]) -> str:
         if lines:
             snippets.append(
                 "STRUCTURED SUPPLIER ROLE-PRODUCT LIST (computed from retrieved rows):\n"
+                f"Total Companies: {len(lines)}\n"
+                + "\n".join(lines)
+            )
+
+    if (
+        ("indirectly relevant" in question_lower)
+        and any(marker in question_lower for marker in ("employ over", "employment over", "more than", "above"))
+    ):
+        min_threshold = _parse_min_threshold(question_lower) or 0.0
+        require_automotive = "automotive" in question_lower
+        qualified: list[tuple[str, float, str, str]] = []
+        seen_companies: set[str] = set()
+        for doc in docs:
+            metadata = doc.get("metadata", {})
+            ev_relevant = str(metadata.get("EV / Battery Relevant", "")).strip().lower()
+            if ev_relevant != "indirect":
+                continue
+            employment = _parse_employment(metadata.get("Employment"))
+            if min_threshold > 0 and employment <= min_threshold:
+                continue
+            industry_group = str(metadata.get("Industry Group", "")).strip()
+            products = str(metadata.get("Product / Service", "")).strip()
+            supplier_type = str(metadata.get("Supplier or Affiliation Type", "")).strip()
+            if require_automotive:
+                blob = f"{industry_group} {products} {supplier_type}".lower()
+                if "automotive" not in blob:
+                    continue
+            company = " ".join(str(metadata.get("Company", "")).split()).strip()
+            if not company:
+                continue
+            company_key = company.lower()
+            if company_key in seen_companies:
+                continue
+            seen_companies.add(company_key)
+            updated_location = " ".join(str(metadata.get("Updated Location", "")).split()).strip()
+            location = updated_location or " ".join(str(metadata.get("Location", "")).split()).strip()
+            qualified.append((company, employment, location, industry_group))
+
+        if qualified:
+            qualified.sort(key=lambda item: item[1], reverse=True)
+            lines = [
+                f"- {company} | Employment: {int(employment):,} | Updated Location: {location}"
+                for company, employment, location, _ in qualified[:25]
+            ]
+            snippets.append(
+                "STRUCTURED INDIRECT EV HIGH EMPLOYMENT LIST (computed from retrieved rows):\n"
+                f"Threshold: > {int(min_threshold):,}\n"
+                f"Total Companies: {len(qualified)}\n"
+                + "\n".join(lines)
+            )
+
+    if any(
+        marker in question_lower
+        for marker in (
+            "innovation-stage",
+            "innovation stage",
+            "research",
+            "development",
+            "prototyping",
+            "prototype",
+            "r&d",
+        )
+    ):
+        require_supplier = "supplier" in question_lower
+        innovation_terms = ("r&d", "research", "development", "prototype", "prototyping")
+        seen_companies: set[str] = set()
+        lines: list[str] = []
+        for doc in docs:
+            metadata = doc.get("metadata", {})
+            company = " ".join(str(metadata.get("Company", "")).split()).strip()
+            if not company:
+                continue
+            company_key = company.lower()
+            if company_key in seen_companies:
+                continue
+
+            classification_method = str(metadata.get("Classification Method", "")).strip().lower()
+            supplier_type = str(metadata.get("Supplier or Affiliation Type", "")).strip().lower()
+            if require_supplier and not (
+                classification_method == "supplier" or "supply chain participant" in supplier_type
+            ):
+                continue
+
+            products = " ".join(str(metadata.get("Product / Service", "")).split()).strip()
+            if not products:
+                continue
+            products_lower = products.lower()
+            if not any(term in products_lower for term in innovation_terms):
+                continue
+
+            seen_companies.add(company_key)
+            lines.append(f"- {company} | Product: {products}")
+
+        if lines:
+            snippets.append(
+                "STRUCTURED INNOVATION-STAGE SUPPLIER CANDIDATES (computed from retrieved rows):\n"
                 f"Total Companies: {len(lines)}\n"
                 + "\n".join(lines)
             )
@@ -327,6 +435,10 @@ async def _process_question_row(
                     "across all companies",
                     "vehicle assembly oem",
                     "tier 1/2 suppliers",
+                    "indirectly relevant",
+                    "innovation-stage",
+                    "prototyping",
+                    "research",
                 )
             ):
                 context_budget = max(context_budget, 1800)
@@ -360,7 +472,7 @@ async def _process_question_row(
                         "vehicle assembly oem",
                         "tier 1/2 suppliers",
                     )
-                ):
+                ) or structured_block.startswith("STRUCTURED INDIRECT EV HIGH EMPLOYMENT LIST") or structured_block.startswith("STRUCTURED INNOVATION-STAGE SUPPLIER CANDIDATES"):
                     context = structured_block
                 else:
                     context = f"{structured_block}\n\n{context}"
