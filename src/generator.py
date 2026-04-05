@@ -144,6 +144,25 @@ class OllamaGenerator:
                     f"QUESTION:\n{question}\n\n"
                     "ANSWER:"
                 )
+            if context.startswith("STRUCTURED INDIRECT EV HIGH EMPLOYMENT LIST"):
+                return (
+                    "You are a precise analyst. The context already contains a computed list of indirectly EV-relevant companies above an employment threshold.\n"
+                    "Use this structured list directly.\n"
+                    "Return all listed companies with employment and location, plus total count.\n"
+                    "Do not answer with unavailable when this structured list is present.\n\n"
+                    f"CONTEXT:\n{context}\n\n"
+                    f"QUESTION:\n{question}\n\n"
+                    "ANSWER:"
+                )
+            if context.startswith("STRUCTURED INNOVATION-STAGE SUPPLIER CANDIDATES"):
+                return (
+                    "You are a precise analyst. The context already contains innovation-stage supplier candidates derived from product descriptions.\n"
+                    "Use that structured evidence directly and list the companies with the matching product phrase.\n"
+                    "Include total count and do not answer with unavailable when structured candidates are present.\n\n"
+                    f"CONTEXT:\n{context}\n\n"
+                    f"QUESTION:\n{question}\n\n"
+                    "ANSWER:"
+                )
             if context.startswith("STRUCTURED COUNTY EMPLOYMENT TOTALS"):
                 return (
                     "You are a precise analyst. The context already contains computed county totals.\n"
@@ -361,6 +380,11 @@ class OllamaGenerator:
         request_timeout = int(self.config.generation.timeout_seconds)
         if context and context.startswith("STRUCTURED SUPPLIER ROLE-PRODUCT LIST"):
             request_timeout = max(request_timeout, 240)
+        if context and (
+            context.startswith("STRUCTURED INDIRECT EV HIGH EMPLOYMENT LIST")
+            or context.startswith("STRUCTURED INNOVATION-STAGE SUPPLIER CANDIDATES")
+        ):
+            request_timeout = max(request_timeout, 180)
 
         try:
             output = await self._invoke_ollama(
@@ -471,6 +495,42 @@ class OllamaGenerator:
                         lines.extend(f"- {entry}" for entry in link_entries)
                     else:
                         lines.append("- No specific Tier 1 links found")
+                    output = "\n".join(lines)
+
+            if (context or "").startswith("STRUCTURED INDIRECT EV HIGH EMPLOYMENT LIST"):
+                entries = self._extract_structured_lines(
+                    context or "",
+                    "STRUCTURED INDIRECT EV HIGH EMPLOYMENT LIST (computed from retrieved rows):",
+                    stop_headers=("STRUCTURED ", "RELEVANT KNOWLEDGE BASE EXCERPTS"),
+                )
+                missing_entries = (
+                    bool(entries)
+                    and self._count_mentions_case_insensitive(output or "", entries) < max(1, len(entries) // 2)
+                )
+                if self._is_unavailable_answer(output or "") or missing_entries:
+                    lines = [
+                        "Indirectly EV-relevant companies above the employment threshold:",
+                    ]
+                    lines.extend(f"- {entry}" for entry in entries)
+                    lines.append(f"Total companies: {len(entries)}")
+                    output = "\n".join(lines)
+
+            if (context or "").startswith("STRUCTURED INNOVATION-STAGE SUPPLIER CANDIDATES"):
+                entries = self._extract_structured_lines(
+                    context or "",
+                    "STRUCTURED INNOVATION-STAGE SUPPLIER CANDIDATES (computed from retrieved rows):",
+                    stop_headers=("STRUCTURED ", "RELEVANT KNOWLEDGE BASE EXCERPTS"),
+                )
+                missing_entries = (
+                    bool(entries)
+                    and self._count_mentions_case_insensitive(output or "", entries) < max(1, len(entries) // 2)
+                )
+                if self._is_unavailable_answer(output or "") or missing_entries:
+                    lines = [
+                        "Innovation-stage supplier candidates in Georgia:",
+                    ]
+                    lines.extend(f"- {entry}" for entry in entries)
+                    lines.append(f"Total companies: {len(entries)}")
                     output = "\n".join(lines)
 
             return output or "GENERATION_ERROR: empty response from Ollama"

@@ -799,18 +799,51 @@ class HybridRetriever:
         if not candidates:
             return []
 
+        lexical_scores = [
+            self._lexical_rerank_score(query, candidate, intent)
+            for candidate in candidates
+        ]
+
+        def _minmax(values: list[float]) -> list[float]:
+            if not values:
+                return []
+            low = min(values)
+            high = max(values)
+            if abs(high - low) < 1e-9:
+                return [0.5 for _ in values]
+            return [(value - low) / (high - low) for value in values]
+
+        lexical_norm = _minmax(lexical_scores)
+
         if self.reranker is not None:
             try:
-                scores = self.reranker.predict([(query, candidate.text) for candidate in candidates])
-                for candidate, score in zip(candidates, scores):
-                    candidate.rerank_score = float(score)
+                ce_scores = [
+                    float(score)
+                    for score in self.reranker.predict(
+                        [(query, candidate.text) for candidate in candidates]
+                    )
+                ]
+                ce_norm = _minmax(ce_scores)
+
+                if intent.get("is_employment_rank_query") or intent.get("is_innovation_query"):
+                    ce_weight = 0.40
+                    lexical_weight = 0.60
+                elif intent.get("requires_ev_relevant") or intent.get("has_tier_filter"):
+                    ce_weight = 0.50
+                    lexical_weight = 0.50
+                else:
+                    ce_weight = 0.65
+                    lexical_weight = 0.35
+
+                for candidate, ce_value, lex_value in zip(candidates, ce_norm, lexical_norm):
+                    candidate.rerank_score = (ce_weight * ce_value) + (lexical_weight * lex_value)
             except Exception as exc:
                 logger.warning("Cross-encoder rerank failed (%s); using lexical fallback.", exc)
-                for candidate in candidates:
-                    candidate.rerank_score = self._lexical_rerank_score(query, candidate, intent)
+                for candidate, lexical_value in zip(candidates, lexical_norm):
+                    candidate.rerank_score = lexical_value
         else:
-            for candidate in candidates:
-                candidate.rerank_score = self._lexical_rerank_score(query, candidate, intent)
+            for candidate, lexical_value in zip(candidates, lexical_norm):
+                candidate.rerank_score = lexical_value
 
         candidates.sort(key=lambda item: item.rerank_score, reverse=True)
         return candidates
@@ -846,6 +879,10 @@ class HybridRetriever:
         ):
             top_k = max(top_k, int(self.config.retrieval.top_k) * 5)
             candidate_pool = max(candidate_pool, len(self.indexer.doc_ids))
+        if intent.get("is_innovation_query") or (
+            intent.get("is_employment_rank_query") and float(intent.get("min_employment_threshold") or 0.0) > 0
+        ):
+            top_k = max(top_k, 60)
         if intent.get("is_global_employment_query") or intent.get("is_vehicle_oem_mapping_query"):
             top_k = max(top_k, len(self.indexer.doc_ids))
             candidate_pool = max(candidate_pool, len(self.indexer.doc_ids))
