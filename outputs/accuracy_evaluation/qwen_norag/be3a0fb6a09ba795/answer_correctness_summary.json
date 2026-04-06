@@ -1,0 +1,10 @@
+{
+  "pipeline_name": "qwen_norag",
+  "total_rows": 50,
+  "rows_evaluated": 50,
+  "mean_answer_correctness_score": 0.308,
+  "correct_count": 0,
+  "partially_correct_count": 37,
+  "incorrect_count": 13,
+  "failed_evaluation_rows": 0
+}

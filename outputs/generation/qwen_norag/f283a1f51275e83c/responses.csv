@@ -1,0 +1,1252 @@
+question_id,question,reference_answer,pipeline_name,model_name,rag_enabled,prompt_version,system_prompt,user_prompt,retrieved_context_exact,retrieved_chunks,retrieved_chunk_ids,retrieved_metadata,reranked_chunk_ids,structured_ops_used,structured_ops_outputs,final_context_presented_to_model,query_route_name,ontology_buckets,generated_answer,raw_generated_answer,answer_sanitized,answer_sanitizer_notes,answer_status,error_message,latency_seconds,input_tokens,output_tokens,total_tokens,timestamp_utc,attempt_count,retrieval_diagnostics,generation_metadata
+1,"Show all ""Tier 1/2"" suppliers in Georgia, list their EV Supply Chain Role and Product / Service.","There are 18 Tier 1/2 companies in Georgia (using Updated Location). F&P Georgia Manufacturing [Tier 1/2] | Role: Battery Pack | Product: Lithium-ion battery recycler and raw materials provider Fouts Brothers Fire Equipment [Tier 1/2] | Role: General Automotive | Product: Automotive body parts and electronics Cylinder-head and specialty gaskets, housing modules and shielding systems for engines, transmissions, exhaust systems and auxiliary units Hitachi Astemo [Tier 1/2] | Role: General Automotive | Product: Car audio systems Hitachi Astemo Americas Inc. [Tier 1/2] | Role: Battery Cell | Product: Battery cells for electric mobility Hollingsworth & Vose Co. [Tier 1/2] | Role: Battery Pack | Product: Lithium-ion battery materials Honda Development & Manufacturing [Tier 1/2] | Role: Battery Cell | Product: Battery cells for electric mobility Hwashin [Tier 1/2] | Role: General Automotive | Product: Modules and storage systems Hyundai & LG Energy Solution (LGES) [Tier 1/2] | Role: General Automotive | Product: Storage batteries Hyundai Industrial Co. [Tier 1/2] | Role: General Automotive | Product: Automotive batteries Hyundai MOBIS (Georgia) [Tier 1/2] | Role: General Automotive | Product: Capacitors, electronic automotive components Hyundai Motor Group [Tier 1/2] | Role: Battery Pack | Product: Battery parts for electric vehicles Hyundai Transys Georgia Powertrain [Tier 1/2] | Role: Thermal Management | Product: Electrical heaters, control units, and actuators Hyundai Transys Georgia Seating Systems [Tier 1/2] | Role: General Automotive | Product: Automotive electronics, resonators, capacitors, resistors, electronics and electronic parts IMMI [Tier 1/2] | Role: Battery Pack | Product: Battery electrolyte IMS Gear Georgia Inc. [Tier 1/2] | Role: General Automotive | Product: Car audio systems Inalfa Roof Systems Inc. [Tier 1/2] | Role: General Automotive | Product: Automotive electronic safety systems JAC Products Inc. [Tier 1/2] | Role: General Automotive | Product: Switches, resistors and related products Jefferson Southern Corp. [Tier 1/2] | Role: General Automotive | Product: High current switches and resistors for automotive HVAC systems",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Show all ""Tier 1/2"" suppliers in Georgia, list their EV Supply Chain Role and Product / Service.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, providing an exhaustive list of all Tier 1 and Tier 2 suppliers in Georgia that are involved in the EV supply chain along with their specific roles and products/services is not feasible without access to detailed industry reports or databases. However, I can provide a general idea of what such information might include:
+- **Tier 1 Suppliers**: These companies typically supply directly to automakers and may produce components like batteries, electric motors, power electronics, and charging systems.
+- **Tier 2 Suppliers**: These companies supply parts and materials to Tier 1 suppliers. They might specialize in battery cells, motor windings, or other critical EV components.
+For example:
+- A Tier 1 supplier might be involved in manufacturing battery packs and could provide products like lithium-ion batteries for electric vehicles.
+- A Tier 2 supplier might focus on producing battery cell components or materials used in the production of these cells.
+To get specific names and detailed roles, one would need to consult industry directories, company websites, or specialized reports focusing on the automotive supply chain in Georgia.","To my knowledge, providing an exhaustive list of all Tier 1 and Tier 2 suppliers in Georgia that are involved in the EV supply chain along with their specific roles and products/services is not feasible without access to detailed industry reports or databases. However, I can provide a general idea of what such information might include:
+
+- **Tier 1 Suppliers**: These companies typically supply directly to automakers and may produce components like batteries, electric motors, power electronics, and charging systems.
+- **Tier 2 Suppliers**: These companies supply parts and materials to Tier 1 suppliers. They might specialize in battery cells, motor windings, or other critical EV components.
+
+For example:
+- A Tier 1 supplier might be involved in manufacturing battery packs and could provide products like lithium-ion batteries for electric vehicles.
+- A Tier 2 supplier might focus on producing battery cell components or materials used in the production of these cells.
+
+To get specific names and detailed roles, one would need to consult industry directories, company websites, or specialized reports focusing on the automotive supply chain in Georgia.",True,[],success,,6.482862978009507,268,214,482,2026-04-06T14:28:53+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 6450019603, ""eval_duration"": 3301464345}"
+2,"Which Georgia companies are classified under Battery Cell or Battery Pack roles, and what tier is each assigned?",There are 6 companies found with Battery Cell or Battery Pack roles. F&P Georgia Manufacturing [Tier 1/2] | Role: Battery Pack Hitachi Astemo Americas Inc. [Tier 1/2] | Role: Battery Cell Hollingsworth & Vose Co. [Tier 1/2] | Role: Battery Pack Honda Development & Manufacturing [Tier 1/2] | Role: Battery Cell Hyundai Motor Group [Tier 1/2] | Role: Battery Pack IMMI [Tier 1/2] | Role: Battery Pack,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which Georgia companies are classified under Battery Cell or Battery Pack roles, and what tier is each assigned?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, specific classifications and tiers for Georgia companies in the battery cell or battery pack roles within the automotive supply chain are not universally documented or standardized. This information typically varies by automaker and can change over time. However, some notable companies in Georgia that are involved in the EV battery supply chain include:
+- Kandi Technologies Group has a presence in Georgia but is more broadly known for its operations in China.
+- There are likely smaller, local suppliers and startups in Georgia that focus on components or services related to EV batteries, but detailed tier classifications for these companies are not widely publicized.
+For precise tier assignments and roles, one would need to consult specific automaker supplier lists or industry reports.","To my knowledge, specific classifications and tiers for Georgia companies in the battery cell or battery pack roles within the automotive supply chain are not universally documented or standardized. This information typically varies by automaker and can change over time. However, some notable companies in Georgia that are involved in the EV battery supply chain include:
+
+- Kandi Technologies Group has a presence in Georgia but is more broadly known for its operations in China.
+- There are likely smaller, local suppliers and startups in Georgia that focus on components or services related to EV batteries, but detailed tier classifications for these companies are not widely publicized.
+
+For precise tier assignments and roles, one would need to consult specific automaker supplier lists or industry reports.",True,[],success,,24.956674535991624,264,141,405,2026-04-06T14:29:18+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 24928374632, ""eval_duration"": 2201671866}"
+3,Map all Thermal Management suppliers in Georgia and show which Primary OEMs they are linked to.,There are 5 Thermal Management companies in Georgia. ZF Gainesville LLC | OEMs: Multiple OEMs Freudenberg-NOK | OEMs: Multiple OEMs Hyundai Transys Georgia Powertrain | OEMs: Hyundai Kia Rivian Novelis Inc. | OEMs: Multiple OEMs Peerless-Winsmith Inc. | OEMs: Multiple OEMs,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Map all Thermal Management suppliers in Georgia and show which Primary OEMs they are linked to.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"The exact list of thermal management suppliers in Georgia and their links to primary OEMs cannot be provided from closed-book knowledge alone. However, thermal management suppliers typically include companies that specialize in battery cooling systems, heat exchangers, and other components crucial for managing temperature in electric vehicles. These suppliers often have partnerships with major automotive manufacturers such as Tesla, General Motors, and Ford, among others. To determine the specific suppliers in Georgia and their connections to OEMs, one would need detailed industry reports or supplier directories that list these relationships.","The exact list of thermal management suppliers in Georgia and their links to primary OEMs cannot be provided from closed-book knowledge alone. However, thermal management suppliers typically include companies that specialize in battery cooling systems, heat exchangers, and other components crucial for managing temperature in electric vehicles. These suppliers often have partnerships with major automotive manufacturers such as Tesla, General Motors, and Ford, among others. To determine the specific suppliers in Georgia and their connections to OEMs, one would need detailed industry reports or supplier directories that list these relationships.",False,[],success,,16.446522475918755,262,107,369,2026-04-06T14:29:35+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 16418655746, ""eval_duration"": 1676473760}"
+4,"List every Georgia company classified under Power Electronics or Charging Infrastructure, along with their Employment size.","There are 4 companies strictly classified under Power Electronics or Charging Infrastructure: GSC Steel Stamping LLC | Role: Power Electronics | Employment: 350 Morgan Corp. | Role: Charging Infrastructure | Employment: 320 Yazaki North America | Role: Power electronics, sensors, and EV systems | Employment: 230000 ZF Gainesville LLC has a combined role (EV thermal management and power electronics) | Employment: 17500",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+List every Georgia company classified under Power Electronics or Charging Infrastructure, along with their Employment size.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, I don't have specific data on every Georgia company classified under Power Electronics or Charging Infrastructure, along with their employment size. However, such companies typically include manufacturers, suppliers, and service providers involved in the production of electric vehicle components and charging solutions. These businesses can range from small startups to larger established firms, and their employment sizes would vary accordingly.","To my knowledge, I don't have specific data on every Georgia company classified under Power Electronics or Charging Infrastructure, along with their employment size. However, such companies typically include manufacturers, suppliers, and service providers involved in the production of electric vehicle components and charging solutions. These businesses can range from small startups to larger established firms, and their employment sizes would vary accordingly.",False,[],success,,21.69723126012832,262,74,336,2026-04-06T14:29:56+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 21663637852, ""eval_duration"": 1168634900}"
+5,"Which companies are classified as Direct Manufacturer, and what EV Supply Chain Roles do they cover?",Original Equipment Manufacturer companies (11): Kia Georgia Inc. | EV Supply Chain Role: Vehicle Assembly Minebea AccessSolutions USA Inc. | EV Supply Chain Role: General Automotive Superior Essex Inc. | EV Supply Chain Role: Vehicle Assembly Suzuki Manufacturing of America Corp. | EV Supply Chain Role: Vehicle Assembly TCI Powder Coatings | EV Supply Chain Role: Vehicle Assembly TDK Components USA Inc. | EV Supply Chain Role: Vehicle Assembly TE Connectivity | EV Supply Chain Role: Vehicle Assembly Teklas USA | EV Supply Chain Role: Vehicle Assembly Textron Specialized Vehicles | EV Supply Chain Role: Vehicle Assembly Thermal Ceramics Inc. | EV Supply Chain Role: Vehicle Assembly Thomson Plastics Inc. | EV Supply Chain Role: Vehicle Assembly,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which companies are classified as Direct Manufacturer, and what EV Supply Chain Roles do they cover?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"Direct manufacturers in the context of electric vehicles (EVs) are companies that produce EVs themselves rather than supplying components to other manufacturers. These companies typically cover roles such as vehicle design, manufacturing, and assembly. Examples of direct manufacturers include Tesla, Volkswagen, General Motors, and Nissan. These companies also often engage in battery production or have partnerships with battery suppliers to ensure a steady supply for their vehicles. The specific roles each company covers can vary, but they generally handle the entire process from concept development to market distribution.","Direct manufacturers in the context of electric vehicles (EVs) are companies that produce EVs themselves rather than supplying components to other manufacturers. These companies typically cover roles such as vehicle design, manufacturing, and assembly. Examples of direct manufacturers include Tesla, Volkswagen, General Motors, and Nissan. These companies also often engage in battery production or have partnerships with battery suppliers to ensure a steady supply for their vehicles. The specific roles each company covers can vary, but they generally handle the entire process from concept development to market distribution.",False,[],success,,21.810893525136635,262,104,366,2026-04-06T14:30:18+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 21780374250, ""eval_duration"": 1647259245}"
+6,"What locations does Novelis Inc. operate in, and what primary facility types are associated with each location?","Novelis Inc. has three operating entries in Georgia, and all three are located in Atlanta, Fulton County, with each one classified as a Manufacturing Plant as its primary facility type.",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+What locations does Novelis Inc. operate in, and what primary facility types are associated with each location?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"Novelis Inc., a leading global supplier of aluminum rolled products, operates in multiple countries with various facility types including rolling mills, can plants, and recycling facilities. Key locations include North America (the United States and Canada), South America (Brazil), Europe (countries like the UK, Germany, and Italy), and Asia (India and China). Each location typically supports manufacturing, recycling, and customer service activities tailored to local automotive and beverage can markets. For precise details on each facility type within these locations, specific operational data would be required.","Novelis Inc., a leading global supplier of aluminum rolled products, operates in multiple countries with various facility types including rolling mills, can plants, and recycling facilities. Key locations include North America (the United States and Canada), South America (Brazil), Europe (countries like the UK, Germany, and Italy), and Asia (India and China). Each location typically supports manufacturing, recycling, and customer service activities tailored to local automotive and beverage can markets. For precise details on each facility type within these locations, specific operational data would be required.",False,[],success,,20.060549290152267,265,109,374,2026-04-06T14:30:38+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 20030632176, ""eval_duration"": 1725402945}"
+7,"In Gwinnett County, which company has the highest Employment and what is its EV Supply Chain Role?",WIKA USA has the highest employment in Gwinnett County (Employment: 250000; Role: HV and LV wiring harnesses for EVs and ICE vehicles).,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+In Gwinnett County, which company has the highest Employment and what is its EV Supply Chain Role?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"Without specific data for Gwinnett County, it's not possible to definitively state which company has the highest employment and its role in the EV supply chain. However, companies like Kia and Mercedes-Benz have significant operations in Georgia, including Gwinnett County. If one of these companies has a major facility there, it would likely have a high number of employees and play a substantial role in the automotive supply chain, which could include EV components depending on their current production focus.","Without specific data for Gwinnett County, it's not possible to definitively state which company has the highest employment and its role in the EV supply chain. However, companies like Kia and Mercedes-Benz have significant operations in Georgia, including Gwinnett County. If one of these companies has a major facility there, it would likely have a high number of employees and play a substantial role in the automotive supply chain, which could include EV components depending on their current production focus.",False,[],success,,17.781969583127648,265,96,361,2026-04-06T14:30:56+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 17751187561, ""eval_duration"": 1522488123}"
+8,Which county have the highest total Employment among Tier 1 suppliers only?,"Troup County has the highest total Employment among Tier 1 suppliers with a total of 2,435 employees",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which county have the highest total Employment among Tier 1 suppliers only?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"The exact county with the highest total employment among Tier 1 suppliers cannot be determined without specific data. However, typically such a county would likely be found in regions with a high concentration of automotive manufacturing plants and related industries, such as areas around Detroit in the United States or parts of Germany like Stuttgart. These regions often attract numerous Tier 1 suppliers due to their proximity to major automakers.","The exact county with the highest total employment among Tier 1 suppliers cannot be determined without specific data. However, typically such a county would likely be found in regions with a high concentration of automotive manufacturing plants and related industries, such as areas around Detroit in the United States or parts of Germany like Stuttgart. These regions often attract numerous Tier 1 suppliers due to their proximity to major automakers.",False,[],success,,13.61192536400631,258,79,337,2026-04-06T14:31:10+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 13580443458, ""eval_duration"": 1246918121}"
+9,"Which county has the highest total employment across all companies, and what is the combined employment in that county?",Gwinnett County has the highest total employment across all companies: 253022.,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which county has the highest total employment across all companies, and what is the combined employment in that county?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"Without specific data, it's impossible to identify which county has the highest total employment across all companies and to state the exact number of employees in that county. However, typically such information would be derived from labor statistics reported by government agencies or private research firms. The answer would depend on the geographical region and the time period being considered.","Without specific data, it's impossible to identify which county has the highest total employment across all companies and to state the exact number of employees in that county. However, typically such information would be derived from labor statistics reported by government agencies or private research firms. The answer would depend on the geographical region and the time period being considered.",False,[],success,,14.40856394218281,265,67,332,2026-04-06T14:31:24+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 14377888409, ""eval_duration"": 1060934912}"
+10,Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility.,There are 10 Vehicle Assembly OEMs along with their Primary OEMs are: Kia Georgia Inc. | Primary OEMs: Club Car LLC Superior Essex Inc. | Primary OEMs: Hyundai Motor Group Suzuki Manufacturing of America Corp. | Primary OEMs: Rivian Automotive TCI Powder Coatings | Primary OEMs: Kia Georgia Inc. TDK Components USA Inc. | Primary OEMs: Mercedes-Benz USA LLC TE Connectivity | Primary OEMs: Blue Bird Corp. Teklas USA | Primary OEMs: Yamaha Motor Manufacturing Corp. Textron Specialized Vehicles | Primary OEMs: Textron Specialized Vehicles Thermal Ceramics Inc. | Primary OEMs: SK Battery America Thomson Plastics Inc. | Primary OEMs: Archer Aviation Inc.,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, there are a few notable vehicle assembly facilities in Georgia:
+1. Mercedes-Benz US International LLC (MBUSI) in Vance, Alabama - Although this is not in Georgia, it's close to the border and often mentioned in discussions about automotive manufacturing in the Southeastern United States. The primary OEM associated with this facility is Mercedes-Benz.
+2. Kia Motors Manufacturing Georgia Inc. in West Point, Georgia - The primary OEM associated with this facility is Kia Motors.
+There might be other smaller facilities or parts manufacturing plants in Georgia, but these are the major vehicle assembly plants I can confidently mention based on my knowledge.","To my knowledge, there are a few notable vehicle assembly facilities in Georgia:
+
+1. Mercedes-Benz US International LLC (MBUSI) in Vance, Alabama - Although this is not in Georgia, it's close to the border and often mentioned in discussions about automotive manufacturing in the Southeastern United States. The primary OEM associated with this facility is Mercedes-Benz.
+
+2. Kia Motors Manufacturing Georgia Inc. in West Point, Georgia - The primary OEM associated with this facility is Kia Motors.
+
+There might be other smaller facilities or parts manufacturing plants in Georgia, but these are the major vehicle assembly plants I can confidently mention based on my knowledge.",True,[],success,,16.063195715192705,263,127,390,2026-04-06T14:31:40+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 16032099848, ""eval_duration"": 2006871525}"
+11,Identify the primary products and services associated with Sewon America Inc. across its different operational sites in Georgia.,"Sewon America Inc. has three operating entries in Georgia and all three are located in LaGrange, Troup County, Georgia. Sewon America Inc. | Product: Motor vehicle engines and parts Sewon America Inc. | Product: Fire truck bodies Sewon America Inc. | Product: Automotive aftermarket parts",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Identify the primary products and services associated with Sewon America Inc. across its different operational sites in Georgia.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, Sewon America Inc. operates in the automotive supply chain, likely focusing on manufacturing components for electric vehicles and traditional automobiles. Without specific details about their operations in Georgia, I can infer that their primary products and services might include the production of automotive parts such as batteries, motors, or other electrical components relevant to EVs. The exact nature of these products and services would depend on Sewon America Inc.'s specific role within the broader automotive supply chain and their strategic focus on electric vehicle technology.","To my knowledge, Sewon America Inc. operates in the automotive supply chain, likely focusing on manufacturing components for electric vehicles and traditional automobiles. Without specific details about their operations in Georgia, I can infer that their primary products and services might include the production of automotive parts such as batteries, motors, or other electrical components relevant to EVs. The exact nature of these products and services would depend on Sewon America Inc.'s specific role within the broader automotive supply chain and their strategic focus on electric vehicle technology.",False,[],success,,13.542394613847136,266,103,369,2026-04-06T14:31:54+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 13514448673, ""eval_duration"": 1630221009}"
+12,List all Tier 2/3 companies in Georgia with primary involvement in the electric vehicle or battery supply chain and specify their respective roles.,There are 3 companies with primary involvement in the electric vehicle or battery supply chain. Duckyang | Role: General Automotive GSC Steel Stamping LLC | Role: Power Electronics Enchem America Inc. | Role: General Automotive,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+List all Tier 2/3 companies in Georgia with primary involvement in the electric vehicle or battery supply chain and specify their respective roles.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"The exact list of Tier 2/3 companies in Georgia with primary involvement in the electric vehicle (EV) or battery supply chain is not readily available from my internal knowledge. However, such companies typically include suppliers that manufacture components like batteries, motors, inverters, and other electrical systems for EVs. They also include companies that provide raw materials and parts used in the production of these components. To identify specific companies, one would need to look at local business directories, industry reports, or company websites focusing on automotive and EV supply chain activities in Georgia.","The exact list of Tier 2/3 companies in Georgia with primary involvement in the electric vehicle (EV) or battery supply chain is not readily available from my internal knowledge. However, such companies typically include suppliers that manufacture components like batteries, motors, inverters, and other electrical systems for EVs. They also include companies that provide raw materials and parts used in the production of these components. To identify specific companies, one would need to look at local business directories, industry reports, or company websites focusing on automotive and EV supply chain activities in Georgia.",False,[],success,,14.14553860295564,271,112,383,2026-04-06T14:32:08+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 14112794331, ""eval_duration"": 1777276953}"
+13,"Show the full supplier network linked to Rivian Automotive in Georgia, broken down by tier and EV Supply Chain Role.",Rivian-linked suppliers in GA (by Primary OEMs column): Duckyang [Tier 2/3] | Role: General Automotive | Primary OEMs: Hyundai Kia Rivian Enchem America Inc. [Tier 2/3] | Role: General Automotive | Primary OEMs: Hyundai Kia Rivian GSC Steel Stamping LLC [Tier 2/3] | Role: Power Electronics | Primary OEMs: Hyundai Kia Rivian Hyundai Transys Georgia Powertrain [Tier 1/2] | Role: Thermal Management | Primary OEMs: Hyundai Kia Rivian Racemark International LLC [Tier 1] | Role: General Automotive | Primary OEMs: Hyundai Kia Rivian Suzuki Manufacturing of America Corp. [OEM] | Role: Vehicle Assembly | Primary OEMs: Rivian Automotive,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Show the full supplier network linked to Rivian Automotive in Georgia, broken down by tier and EV Supply Chain Role.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"The full supplier network for Rivian Automotive in Georgia, broken down by tier and EV Supply Chain Role, is not directly accessible from my internal knowledge. However, I can describe what such a network typically includes:
+1. **Tier 1 Suppliers**: These are the direct suppliers to Rivian Automotive. They provide major components and systems such as batteries, electric motors, power electronics, and chassis parts.
+2. **Tier 2 Suppliers**: These supply components and materials to Tier 1 suppliers. Examples include battery cell manufacturers, motor component makers, and material suppliers for plastics and metals.
+3. **Tier 3 Suppliers**: These provide raw materials and subcomponents to Tier 2 suppliers. This includes companies that produce base metals, chemicals, and other foundational materials.
+The EV Supply Chain Roles can be categorized as follows:
+- **Battery Technology**: Includes suppliers of battery cells, modules, and packs.
+- **Electric Drivetrain**: Suppliers of electric motors, inverters, and gearboxes.
+- **Chassis and Body**: Companies providing structural components, frames, and body parts.
+- **Electronics and Software**: Suppliers of electronic control units (ECUs), sensors, and software solutions.
+- **Materials and Manufacturing**: Providers of raw materials and manufacturing services.
+Each tier in the supply chain plays a crucial role in the production and assembly of electric vehicles, with Rivian relying on a complex network of suppliers to ensure the availability of components and systems necessary for vehicle production.","The full supplier network for Rivian Automotive in Georgia, broken down by tier and EV Supply Chain Role, is not directly accessible from my internal knowledge. However, I can describe what such a network typically includes:
+
+1. **Tier 1 Suppliers**: These are the direct suppliers to Rivian Automotive. They provide major components and systems such as batteries, electric motors, power electronics, and chassis parts.
+
+2. **Tier 2 Suppliers**: These supply components and materials to Tier 1 suppliers. Examples include battery cell manufacturers, motor component makers, and material suppliers for plastics and metals.
+
+3. **Tier 3 Suppliers**: These provide raw materials and subcomponents to Tier 2 suppliers. This includes companies that produce base metals, chemicals, and other foundational materials.
+
+The EV Supply Chain Roles can be categorized as follows:
+
+- **Battery Technology**: Includes suppliers of battery cells, modules, and packs.
+- **Electric Drivetrain**: Suppliers of electric motors, inverters, and gearboxes.
+- **Chassis and Body**: Companies providing structural components, frames, and body parts.
+- **Electronics and Software**: Suppliers of electronic control units (ECUs), sensors, and software solutions.
+- **Materials and Manufacturing**: Providers of raw materials and manufacturing services.
+
+Each tier in the supply chain plays a crucial role in the production and assembly of electric vehicles, with Rivian relying on a complex network of suppliers to ensure the availability of components and systems necessary for vehicle production.",True,[],success,,24.432430599816144,267,296,563,2026-04-06T14:32:32+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 24400976310, ""eval_duration"": 4700736514}"
+14,"Which Georgia companies produce battery materials such as anodes, cathodes, electrolytes, or copper foil, and what tier are they classified as?","There are 4 Georgia companies producing battery materials such as anodes, cathodes, electrolytes, or copper foil. Duckyang [Tier 2/3] | Produce: High-quality electrodeposited (ED) copper foil for electric vehicles F&P Georgia Manufacturing [Tier 1/2] | Produce: Lithium-ion battery recycler and raw materials provider Hollingsworth & Vose Co. [Tier 1/2] | Produce: Lithium-ion battery materials IMMI [Tier 1/2] | Produce: Battery electrolyte",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which Georgia companies produce battery materials such as anodes, cathodes, electrolytes, or copper foil, and what tier are they classified as?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, there are no major battery material producers based in Georgia that are widely recognized for manufacturing anodes, cathodes, electrolytes, or copper foil specifically for electric vehicle batteries. However, the automotive supply chain is complex and constantly evolving, so new players could emerge. Typically, companies producing these materials would be classified as Tier 2 or Tier 3 suppliers, depending on their direct relationship with battery manufacturers or automakers.","To my knowledge, there are no major battery material producers based in Georgia that are widely recognized for manufacturing anodes, cathodes, electrolytes, or copper foil specifically for electric vehicle batteries. However, the automotive supply chain is complex and constantly evolving, so new players could emerge. Typically, companies producing these materials would be classified as Tier 2 or Tier 3 suppliers, depending on their direct relationship with battery manufacturers or automakers.",False,[],success,,24.45525135099888,273,88,361,2026-04-06T14:32:57+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 24428228674, ""eval_duration"": 1403795229}"
+15,Identify all Georgia companies with an EV Supply Chain Role related to wiring harnesses and show their Primary OEMs.,There are 2 Georgia companies with an EV Supply Chain Role related to wiring harnesses: WIKA USA | Primary OEMs: n/a Woodbridge Foam Corp. | Primary OEMs: n/a,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Identify all Georgia companies with an EV Supply Chain Role related to wiring harnesses and show their Primary OEMs.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"Based on my knowledge, identifying specific Georgia companies involved in the EV supply chain for wiring harnesses and their primary Original Equipment Manufacturers (OEMs) requires detailed industry data that I don't have access to. However, companies in this sector typically include suppliers that specialize in electrical systems and components for automotive manufacturers. These companies often work closely with major automakers such as Tesla, General Motors, Ford, and others who are active in electric vehicle production. To find the exact Georgia-based companies and their primary OEMs, one would need to consult industry directories or supplier lists provided by automotive manufacturers.","Based on my knowledge, identifying specific Georgia companies involved in the EV supply chain for wiring harnesses and their primary Original Equipment Manufacturers (OEMs) requires detailed industry data that I don't have access to. However, companies in this sector typically include suppliers that specialize in electrical systems and components for automotive manufacturers. These companies often work closely with major automakers such as Tesla, General Motors, Ford, and others who are active in electric vehicle production. To find the exact Georgia-based companies and their primary OEMs, one would need to consult industry directories or supplier lists provided by automotive manufacturers.",False,[],success,,18.141801449935883,267,119,386,2026-04-06T14:33:15+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 18114486866, ""eval_duration"": 1905455985}"
+16,Find Georgia-based Tier 1 or Tier 1/2 suppliers capable of producing battery electrolytes or lithium-ion battery materials with existing OEM contracts.,The Georgia-based suppliers that match battery electrolytes or lithium-ion battery materials and also have existing OEM contracts are: Hollingsworth & Vose Co. [Tier 1/2] | OEMs: Hyundai Kia | Produces: Lithium-ion battery materials IMMI [Tier 1/2] | OEMs: Hyundai Kia | Produces: Battery electrolyte,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Find Georgia-based Tier 1 or Tier 1/2 suppliers capable of producing battery electrolytes or lithium-ion battery materials with existing OEM contracts.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, specific Georgia-based Tier 1 or Tier 1/2 suppliers with existing OEM contracts for producing battery electrolytes or lithium-ion battery materials are not readily identifiable from closed-book knowledge alone. However, companies in this sector often collaborate with major automotive manufacturers and battery producers. Such suppliers would likely be part of a larger network of battery material and component providers that have established relationships with Original Equipment Manufacturers (OEMs) for electric vehicles. The exact names and details of these suppliers would depend on the current partnerships and supply chain dynamics within the EV industry in Georgia.","To my knowledge, specific Georgia-based Tier 1 or Tier 1/2 suppliers with existing OEM contracts for producing battery electrolytes or lithium-ion battery materials are not readily identifiable from closed-book knowledge alone. However, companies in this sector often collaborate with major automotive manufacturers and battery producers. Such suppliers would likely be part of a larger network of battery material and component providers that have established relationships with Original Equipment Manufacturers (OEMs) for electric vehicles. The exact names and details of these suppliers would depend on the current partnerships and supply chain dynamics within the EV industry in Georgia.",False,[],success,,19.361841396894306,273,116,389,2026-04-06T14:33:34+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 19332264069, ""eval_duration"": 1842008691}"
+17,Which Georgia companies manufacture high-voltage wiring harnesses or EV electrical distribution components suitable for BEV platforms?,There are 2 Georgia companies manufacturing high-voltage wiring harnesses or EV electrical distribution components suitable for BEV platforms WIKA USA | Role: HV and LV wiring harnesses for EVs and ICE vehicles | Product: Vehicle power & data solutions; wiring harnesses and connectors | Ev Relevant: Yes Woodbridge Foam Corp. | Role: EV wiring harnesses and power distribution | Product: Automotive wiring harnesses & electrical distribution systems | Ev Relevant: Yes,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which Georgia companies manufacture high-voltage wiring harnesses or EV electrical distribution components suitable for BEV platforms?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, specific Georgia-based companies that manufacture high-voltage wiring harnesses or EV electrical distribution components suitable for BEV platforms are not widely publicized in general automotive industry discussions. Such information is typically proprietary and company-specific. However, it's likely that some companies in Georgia involved in the automotive supply chain could have the capability to produce such components, especially if they serve major automotive manufacturers with operations in the state. Companies in this sector often specialize in various parts of the electrical system for vehicles, including wiring harnesses.","To my knowledge, specific Georgia-based companies that manufacture high-voltage wiring harnesses or EV electrical distribution components suitable for BEV platforms are not widely publicized in general automotive industry discussions. Such information is typically proprietary and company-specific. However, it's likely that some companies in Georgia involved in the automotive supply chain could have the capability to produce such components, especially if they serve major automotive manufacturers with operations in the state. Companies in this sector often specialize in various parts of the electrical system for vehicles, including wiring harnesses.",False,[],success,,16.677221757825464,265,106,371,2026-04-06T14:33:51+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 16647674755, ""eval_duration"": 1691512878}"
+18,Identify Georgia Tier 2/3 companies in the Electronic and Electrical Equipment industry group that could be upgraded to supply EV power electronics.,There are no Georgia Tier 2/3 companies listed under the Electronic and Other Electrical Equipment and Components industry group. So none can be upgraded to supply EV power electronics based on the provided evidence.,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Identify Georgia Tier 2/3 companies in the Electronic and Electrical Equipment industry group that could be upgraded to supply EV power electronics.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To identify Georgia Tier 2/3 companies in the Electronic and Electrical Equipment industry group that could be upgraded to supply EV power electronics, we need to consider companies with expertise in electronic components, manufacturing capabilities, and a focus on quality and reliability. These companies likely have experience with high-frequency switching, thermal management, and semiconductor technologies, which are crucial for EV power electronics.
+Without specific data on Georgia-based companies, I can suggest that such companies would typically be involved in the production of components like inverters, converters, battery management systems, and other critical electronic subsystems. They might also have a history of supplying to automotive or industrial sectors, indicating their capability to meet stringent quality standards.
+To find these companies, one would look for firms with relevant technical expertise, manufacturing facilities, and a track record in the electronics industry, particularly those that are already part of the automotive supply chain or are looking to enter it.","To identify Georgia Tier 2/3 companies in the Electronic and Electrical Equipment industry group that could be upgraded to supply EV power electronics, we need to consider companies with expertise in electronic components, manufacturing capabilities, and a focus on quality and reliability. These companies likely have experience with high-frequency switching, thermal management, and semiconductor technologies, which are crucial for EV power electronics.
+
+Without specific data on Georgia-based companies, I can suggest that such companies would typically be involved in the production of components like inverters, converters, battery management systems, and other critical electronic subsystems. They might also have a history of supplying to automotive or industrial sectors, indicating their capability to meet stringent quality standards.
+
+To find these companies, one would look for firms with relevant technical expertise, manufacturing facilities, and a track record in the electronics industry, particularly those that are already part of the automotive supply chain or are looking to enter it.",True,[],success,,17.610404551960528,271,183,454,2026-04-06T14:34:09+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 17582355130, ""eval_duration"": 2913830939}"
+19,Find Georgia-based companies that manufacture copper foil or electrodeposited materials suitable for EV battery current collectors.,There is 1 company in Georgia specifically identified for the manufacture of materials suitable for EV battery current collectors: Duckyang | Produce: High-quality electrodeposited (ED) copper foil for electric vehicles,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Find Georgia-based companies that manufacture copper foil or electrodeposited materials suitable for EV battery current collectors.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, specific Georgia-based companies manufacturing copper foil or electrodeposited materials for EV battery current collectors are not widely publicized in general information sources. However, such companies likely exist as part of the broader automotive and electronics supply chain. The exact names would depend on detailed industry reports or direct company disclosures.","To my knowledge, specific Georgia-based companies manufacturing copper foil or electrodeposited materials for EV battery current collectors are not widely publicized in general information sources. However, such companies likely exist as part of the broader automotive and electronics supply chain. The exact names would depend on detailed industry reports or direct company disclosures.",False,[],success,,16.553058569086716,264,63,327,2026-04-06T14:34:25+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 16525205206, ""eval_duration"": 1007677535}"
+20,"Which Georgia Tier 1/2 companies produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components?","No Georgia Tier 1/2 companies are explicitly identified as producing engineered plastics, polymers, or composite materials applicable to EV structural or thermal components.",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which Georgia Tier 1/2 companies produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, Georgia hosts several automotive suppliers that produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components. However, without specific data, I cannot name exact Tier 1 or Tier 2 companies. Generally, such companies might be involved in manufacturing lightweight materials for battery enclosures, underbody shields, or heat management systems in electric vehicles.","To my knowledge, Georgia hosts several automotive suppliers that produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components. However, without specific data, I cannot name exact Tier 1 or Tier 2 companies. Generally, such companies might be involved in manufacturing lightweight materials for battery enclosures, underbody shields, or heat management systems in electric vehicles.",False,[],success,,14.911534040002152,270,76,346,2026-04-06T14:34:40+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 14883610008, ""eval_duration"": 1211127271}"
+21,Find Georgia suppliers with existing Hyundai Kia contracts that could be expanded to support Hyundai Metaplant's EV battery production ramp-up.,There are 11 companies with existing Hyundai Kia contracts that could be expanded to support Hyundai Metaplant's EV battery production ramp-up. F&P Georgia Manufacturing Duckyang GSC Steel Stamping LLC Hitachi Astemo Americas Inc. Hollingsworth & Vose Co. Honda Development & Manufacturing Hyundai Motor Group Hyundai Transys Georgia Powertrain IMMI Enchem America Inc. Racemark International LLC,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Find Georgia suppliers with existing Hyundai Kia contracts that could be expanded to support Hyundai Metaplant's EV battery production ramp-up.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To identify Georgia suppliers with existing Hyundai-Kia contracts that could support the ramp-up of EV battery production at Hyundai's Metaplant, we would need to consider several factors:
+1. **Supplier Expertise and Capabilities**: Suppliers should have experience in manufacturing components or materials relevant to EV batteries, such as lithium-ion cells, battery modules, or related electronics.
+2. **Existing Relationships**: The suppliers must already be part of the Hyundai-Kia supply chain, indicating a proven track record and established trust.
+3. **Geographical Proximity**: Being located in Georgia would reduce transportation costs and lead times, which is beneficial for just-in-time manufacturing processes.
+4. **Scalability**: Suppliers should have the capacity to scale up production to meet the increased demand from EV battery manufacturing.
+Without specific data on individual suppliers, it's challenging to name exact companies. However, a likely approach would involve reaching out to major automotive suppliers in Georgia that already work with Hyundai-Kia and assessing their ability to adapt to EV battery production needs.","To identify Georgia suppliers with existing Hyundai-Kia contracts that could support the ramp-up of EV battery production at Hyundai's Metaplant, we would need to consider several factors:
+
+1. **Supplier Expertise and Capabilities**: Suppliers should have experience in manufacturing components or materials relevant to EV batteries, such as lithium-ion cells, battery modules, or related electronics.
+
+2. **Existing Relationships**: The suppliers must already be part of the Hyundai-Kia supply chain, indicating a proven track record and established trust.
+
+3. **Geographical Proximity**: Being located in Georgia would reduce transportation costs and lead times, which is beneficial for just-in-time manufacturing processes.
+
+4. **Scalability**: Suppliers should have the capacity to scale up production to meet the increased demand from EV battery manufacturing.
+
+Without specific data on individual suppliers, it's challenging to name exact companies. However, a likely approach would involve reaching out to major automotive suppliers in Georgia that already work with Hyundai-Kia and assessing their ability to adapt to EV battery production needs.",True,[],success,,18.17648574290797,269,207,476,2026-04-06T14:34:58+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 18143703381, ""eval_duration"": 3296574944}"
+22,"Identify Georgia companies producing DC-to-DC converters, capacitors, or power electronics components relevant to EV drivetrains and what tier is each assigned?","There are 3 Georgia companies producing DC-to-DC converters, capacitors, or power electronics components relevant to EV drivetrains. GSC Steel Stamping LLC [Tier 2/3] Hyundai MOBIS (Georgia) [Tier 1/2] Hyundai Transys Georgia Seating Systems [Tier 1/2]",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Identify Georgia companies producing DC-to-DC converters, capacitors, or power electronics components relevant to EV drivetrains and what tier is each assigned?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, specific information about Georgia companies producing DC-to-DC converters, capacitors, or power electronics components relevant to EV drivetrains and their tier assignments is not readily available from closed-book knowledge alone. However, companies in this sector are likely to be involved in the supply chain as Tier 2 or Tier 3 suppliers, providing components that are integral but not directly visible to end consumers. These components are crucial for managing electrical power within EVs, ensuring efficient energy use and reliability of the drivetrain system.","To my knowledge, specific information about Georgia companies producing DC-to-DC converters, capacitors, or power electronics components relevant to EV drivetrains and their tier assignments is not readily available from closed-book knowledge alone. However, companies in this sector are likely to be involved in the supply chain as Tier 2 or Tier 3 suppliers, providing components that are integral but not directly visible to end consumers. These components are crucial for managing electrical power within EVs, ensuring efficient energy use and reliability of the drivetrain system.",False,[],success,,19.2744979839772,275,106,381,2026-04-06T14:35:18+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 19241324292, ""eval_duration"": 1678579724}"
+23,"Which Georgia companies provide powder coating-related products or services, and what tier are they classified under?",There is only 1 Georgia company that provides Powder coating-related products/services: Archer Aviation Inc. [Tier 2/3] | Produces: Powder coatings for automotive and other industries,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which Georgia companies provide powder coating-related products or services, and what tier are they classified under?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, specific details about which Georgia companies provide powder coating-related products or services and their classification tiers are not readily available from closed-book knowledge alone. However, powder coating suppliers in Georgia likely range from small to medium-sized businesses that serve local markets to larger companies that may be part of global supply chains for automotive parts and components. These companies could be classified as tier 1, tier 2, or lower depending on their role in the supply chain and their relationship with major automotive manufacturers.","To my knowledge, specific details about which Georgia companies provide powder coating-related products or services and their classification tiers are not readily available from closed-book knowledge alone. However, powder coating suppliers in Georgia likely range from small to medium-sized businesses that serve local markets to larger companies that may be part of global supply chains for automotive parts and components. These companies could be classified as tier 1, tier 2, or lower depending on their role in the supply chain and their relationship with major automotive manufacturers.",False,[],success,,20.121148869860917,263,100,363,2026-04-06T14:35:38+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 20093418097, ""eval_duration"": 1586759507}"
+24,"Which Georgia companies manufacture battery parts or enclosure systems and are classified as Tier 1/2, making them ready for direct OEM engagement and show which Primary OEMs they are linked to.","There are 6 Georgia companies manufacturing battery parts or enclosure systems and are classified as Tier 1/2, making them ready for direct OEM engagement. F&P Georgia Manufacturing | OEMs: Hyundai Kia Hitachi Astemo Americas Inc. | OEMs: Hyundai Kia Hollingsworth & Vose Co. | OEMs: Hyundai Kia Honda Development & Manufacturing | OEMs: Hyundai Kia Hyundai Motor Group | OEMs: Hyundai Kia IMMI | OEMs: Hyundai Kia",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which Georgia companies manufacture battery parts or enclosure systems and are classified as Tier 1/2, making them ready for direct OEM engagement and show which Primary OEMs they are linked to.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"Based on my knowledge, several companies in Georgia are involved in the automotive supply chain, particularly in battery parts and enclosure systems. However, I don't have specific information about which of these companies are classified as Tier 1 or Tier 2 suppliers ready for direct engagement with Original Equipment Manufacturers (OEMs).
+Typically, Tier 1 suppliers are those that directly supply components to OEMs, while Tier 2 suppliers provide parts or materials to Tier 1 suppliers. Companies in Georgia that might be involved in battery manufacturing or enclosure systems could include firms specializing in advanced manufacturing, electronics, and automotive parts.
+To identify specific companies and their links to primary OEMs, one would need detailed information about the supply chain structure of major automotive manufacturers operating in North America. This information is typically proprietary and not publicly available in a consolidated form.","Based on my knowledge, several companies in Georgia are involved in the automotive supply chain, particularly in battery parts and enclosure systems. However, I don't have specific information about which of these companies are classified as Tier 1 or Tier 2 suppliers ready for direct engagement with Original Equipment Manufacturers (OEMs). 
+
+Typically, Tier 1 suppliers are those that directly supply components to OEMs, while Tier 2 suppliers provide parts or materials to Tier 1 suppliers. Companies in Georgia that might be involved in battery manufacturing or enclosure systems could include firms specializing in advanced manufacturing, electronics, and automotive parts.
+
+To identify specific companies and their links to primary OEMs, one would need detailed information about the supply chain structure of major automotive manufacturers operating in North America. This information is typically proprietary and not publicly available in a consolidated form.",True,[],success,,18.202240427024662,281,168,449,2026-04-06T14:35:56+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 18174838236, ""eval_duration"": 2679768041}"
+25,Find Tier 2/3 Georgia-based suppliers with employment over 300 that are classified as General Automotive but produce components transferable to EV platforms.,There are 8 Tier 2/3 Georgia-based suppliers with employment over 300 that are classified as General Automotive but produce components transferable to EV platforms. Arising Industries Inc. | Employment: 582 Dinex Emissions Inc. | Employment: 500 ACM Georgia LLC | Employment: 400 Dongwon Autopart Technology Georgia LLC | Employment: 315 FOX Factory | Employment: 345 AVS | Employment: 310 Flambeau Inc. | Employment: 700 Grudem | Employment: 807,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Find Tier 2/3 Georgia-based suppliers with employment over 300 that are classified as General Automotive but produce components transferable to EV platforms.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To identify Tier 2/3 Georgia-based suppliers in the General Automotive category with over 300 employees that produce components transferable to EV platforms, we would need to look at specific industry data and supplier lists. Such information is typically detailed in automotive industry reports or databases maintained by industry associations or consulting firms.
+However, without access to such specific datasets, I can provide a general interpretation of what these suppliers might include:
+Tier 2/3 suppliers are companies that supply parts or materials to Tier 1 suppliers, who in turn supply directly to automakers. For EV platforms, these suppliers likely produce components such as wiring harnesses, battery enclosures, electric motors, and other electrification-related parts.
+Given the criteria of being based in Georgia and having over 300 employees, these companies would be significant players within their local automotive supply chain but might not be widely known outside specialized industry circles. They would likely have a mix of traditional automotive expertise and emerging EV technology capabilities to cater to both conventional vehicles and new electric models.
+For a precise list, one would need to consult industry directories or reports that categorize suppliers by state, size, and product type.","To identify Tier 2/3 Georgia-based suppliers in the General Automotive category with over 300 employees that produce components transferable to EV platforms, we would need to look at specific industry data and supplier lists. Such information is typically detailed in automotive industry reports or databases maintained by industry associations or consulting firms.
+
+However, without access to such specific datasets, I can provide a general interpretation of what these suppliers might include:
+
+Tier 2/3 suppliers are companies that supply parts or materials to Tier 1 suppliers, who in turn supply directly to automakers. For EV platforms, these suppliers likely produce components such as wiring harnesses, battery enclosures, electric motors, and other electrification-related parts.
+
+Given the criteria of being based in Georgia and having over 300 employees, these companies would be significant players within their local automotive supply chain but might not be widely known outside specialized industry circles. They would likely have a mix of traditional automotive expertise and emerging EV technology capabilities to cater to both conventional vehicles and new electric models.
+
+For a precise list, one would need to consult industry directories or reports that categorize suppliers by state, size, and product type.",True,[],success,,23.156171132111922,275,236,511,2026-04-06T14:36:19+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 23128388292, ""eval_duration"": 3748590581}"
+26,Identify Georgia Tier 2/3 companies in the Chemicals and Allied Products industry group and list their products.,There are 2 Georgia Tier 2/3 companies in Chemicals and Allied Products industry group. Archer Aviation Inc. | Product: Powder coatings for automotive and other industries Arising Industries Inc. | Product: Rubber powders for tires,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Identify Georgia Tier 2/3 companies in the Chemicals and Allied Products industry group and list their products.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To identify Georgia Tier 2/3 companies in the Chemicals and Allied Products industry group and list their products, we need to consider that Tier 2 and Tier 3 suppliers are typically smaller companies that provide components or materials to larger automotive manufacturers or Tier 1 suppliers. These companies often specialize in specific chemical products relevant to the automotive supply chain such as lubricants, adhesives, sealants, battery materials, and other specialty chemicals.
+Examples of general product categories for these companies might include:
+- Lubricants and greases
+- Adhesives and sealants
+- Battery electrolytes and separators
+- Paints and coatings
+- Plasticizers and additives
+Without specific data on Georgia-based companies, we can't list exact names or detailed products. However, companies in this region likely focus on these types of chemical products to support the automotive industry's needs for EV components and materials.","To identify Georgia Tier 2/3 companies in the Chemicals and Allied Products industry group and list their products, we need to consider that Tier 2 and Tier 3 suppliers are typically smaller companies that provide components or materials to larger automotive manufacturers or Tier 1 suppliers. These companies often specialize in specific chemical products relevant to the automotive supply chain such as lubricants, adhesives, sealants, battery materials, and other specialty chemicals.
+
+Examples of general product categories for these companies might include:
+
+- Lubricants and greases
+- Adhesives and sealants
+- Battery electrolytes and separators
+- Paints and coatings
+- Plasticizers and additives
+
+Without specific data on Georgia-based companies, we can't list exact names or detailed products. However, companies in this region likely focus on these types of chemical products to support the automotive industry's needs for EV components and materials.",True,[],success,,21.421719433972612,267,181,448,2026-04-06T14:36:41+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 21390792157, ""eval_duration"": 2882618715}"
+27,"Which EV Supply Chain Roles in Georgia are served by only a single company, creating a single-point-of-failure risk for the state's EV ecosystem?","There are 28 Supply Chain Roles in Georgia served by only a single company, creating a single-point-of-failure risk for the state's EV ecosystem Role: Advanced electrical architecture for EVs | Only company: Yamaha Motor Manufacturing Corp. Role: Body and chassis components for EV and ICE OEMs | Only company: Vanguard National Trailer Corp. Role: Charging Infrastructure | Only company: Morgan Corp. Role: EV and ICE component manufacturing | Only company: Vista Metals Corp. Role: EV and ICE powertrain and HVAC components | Only company: Voestalpine Automotive Body Parts Inc. Role: EV body, powertrain, and thermal components | Only company: ZF Gainesville LLC Role: EV electrical distribution and interior systems | Only company: Yachiyo Manufacturing of America LLC Role: EV sensors, braking, and control systems | Only company: YKK USA Inc. Role: EV thermal management and power electronics | Only company: ZF Gainesville LLC Role: EV thermal systems and electronics | Only company: ZF Gainesville LLC Role: EV wiring harnesses and power distribution | Only company: Woodbridge Foam Corp. Role: HV and LV wiring harnesses for EVs and ICE vehicles | Only company: WIKA USA Role: High‑voltage EV connectors and electronics | Only company: Woory Industrial Co. Role: Interior and exterior plastic parts | Only company: Wabash National Corp. Role: Interior trim and textile components | Only company: Wheelabrator Group Inc. Role: Machined components supporting EV and ICE vehicles | Only company: Trenton Pressing Inc. Role: OEM corporate and engineering footprint (electrification) | Only company: Tie Down Engineering Role: OEM corporate footprint and supplier integration | Only company: Trenton Pressing Role: OEM corporate footprint influencing EV strategy | Only company: TI Fluid Systems Role: OEM parent group footprint (EV + HD electrification) | Only company: TN Americas Holding Inc. Role: OEM parent group footprint (electric truck strategy) | Only company: Toyota Industries Group (TACG-TICA) Role: Plastic components for EV and ICE vehicles | Only company: Volvo Cars USA Role: Power Electronics | Only company: GSC Steel Stamping LLC Role: Power electronics, sensors, and EV systems | Only company: Yazaki North America Role: Stamped and welded assemblies for OEMs | Only company: Vernay Role: Stamped metal components for OEMs | Only company: Volvo Group North America Role: Tier 1 automotive components | Only company: Valeo Role: Vehicle safety systems OEM (EV + ICE) → Only company: TI Fluid Systems",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which EV Supply Chain Roles in Georgia are served by only a single company, creating a single-point-of-failure risk for the state's EV ecosystem?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, specific roles within Georgia's electric vehicle (EV) supply chain that are served by only a single company are not widely publicized or documented in a way that allows for certainty without detailed industry analysis. However, such roles could include specialized manufacturing processes, unique raw material extraction and refinement, or proprietary technology development that has not been replicated by other companies within the state. Identifying these would require an in-depth examination of the supply chain to pinpoint any monopolistic positions that could pose a single-point-of-failure risk.","To my knowledge, specific roles within Georgia's electric vehicle (EV) supply chain that are served by only a single company are not widely publicized or documented in a way that allows for certainty without detailed industry analysis. However, such roles could include specialized manufacturing processes, unique raw material extraction and refinement, or proprietary technology development that has not been replicated by other companies within the state. Identifying these would require an in-depth examination of the supply chain to pinpoint any monopolistic positions that could pose a single-point-of-failure risk.",False,[],success,,19.284962691133842,274,107,381,2026-04-06T14:37:00+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 19256638464, ""eval_duration"": 1699481966}"
+28,"Which Georgia Battery Cell or Battery Pack suppliers are sole-sourced by a specific OEM, indicating high dependency risk?","There are 6 Georgia Battery Cell or Battery Pack suppliers that are sole-sourced by a specific OEM, indicating high dependency risk. • F&P Georgia Manufacturing | Role: Battery Pack | Primary OEM: Hyundai Kia • Hitachi Astemo Americas Inc. | Role: Battery Cell | Primary OEM: Hyundai Kia • Hollingsworth & Vose Co. | Role: Battery Pack | Primary OEM: Hyundai Kia • Honda Development & Manufacturing | Role: Battery Cell | Primary OEM: Hyundai Kia • Hyundai Motor Group | Role: Battery Pack | Primary OEM: Hyundai Kia • IMMI | Role: Battery Pack | Primary OEM: Hyundai Kia",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which Georgia Battery Cell or Battery Pack suppliers are sole-sourced by a specific OEM, indicating high dependency risk?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"Based on my knowledge, identifying specific Georgia-based battery cell or pack suppliers that are sole-sourced by a particular OEM involves detailed information about individual company contracts and supply chain strategies, which is not readily available without access to proprietary data. Generally, high dependency risk in the automotive supply chain can be associated with suppliers who have exclusive agreements with one major OEM, limiting their market diversification and potentially increasing supply chain vulnerability. To determine such suppliers, one would need to analyze public financial reports, industry news, and direct statements from both suppliers and OEMs regarding their supply relationships.","Based on my knowledge, identifying specific Georgia-based battery cell or pack suppliers that are sole-sourced by a particular OEM involves detailed information about individual company contracts and supply chain strategies, which is not readily available without access to proprietary data. Generally, high dependency risk in the automotive supply chain can be associated with suppliers who have exclusive agreements with one major OEM, limiting their market diversification and potentially increasing supply chain vulnerability. To determine such suppliers, one would need to analyze public financial reports, industry news, and direct statements from both suppliers and OEMs regarding their supply relationships.",False,[],success,,15.918591070920229,266,114,380,2026-04-06T14:37:16+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 15890084956, ""eval_duration"": 1823014810}"
+29,"For Hyundai Metaplant, how many of its Georgia-based EV component suppliers have fewer than 200 employees, flagging potential capacity fragility?","For Hyundai Metaplant, there are 6 Georgia-based EV component suppliers with less than 200 employees, flagging potential capacity fragility. Enchem America Inc. | Employment: 155 F&P Georgia Manufacturing | Employment: 104 Hyundai Motor Group | Employment: 164 Hyundai Transys Georgia Powertrain | Employment: 130 IMMI | Employment: 100 Racemark International LLC | Employment: 120",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+For Hyundai Metaplant, how many of its Georgia-based EV component suppliers have fewer than 200 employees, flagging potential capacity fragility?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"The exact number of EV component suppliers for Hyundai Metaplant in Georgia with fewer than 200 employees is not directly known from my internal knowledge. However, it is common in the automotive supply chain that a significant portion of suppliers are small to medium-sized enterprises (SMEs) with less than 200 employees. These smaller suppliers can indeed face capacity fragility due to limited resources and scalability compared to larger companies.","The exact number of EV component suppliers for Hyundai Metaplant in Georgia with fewer than 200 employees is not directly known from my internal knowledge. However, it is common in the automotive supply chain that a significant portion of suppliers are small to medium-sized enterprises (SMEs) with less than 200 employees. These smaller suppliers can indeed face capacity fragility due to limited resources and scalability compared to larger companies.",False,[],success,,15.768449540017173,275,88,363,2026-04-06T14:37:32+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 15737808695, ""eval_duration"": 1405524511}"
+30,"Identify Georgia Tier 2/3 suppliers that are EV Relevant, classified as General Automotive, and provide materials to Battery Cell or Battery Pack companies, suggesting supply chain misalignment risk.","There are 2 Georgia Tier 2/3 suppliers that are EV Relevant, classified as General Automotive, and provide materials to Battery Cell or Battery Pack companies, suggesting supply chain misalignment risk. Duckyang | OEMs: Hyundai Kia Rivian Enchem America Inc. | OEMs: Hyundai Kia Rivian",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Identify Georgia Tier 2/3 suppliers that are EV Relevant, classified as General Automotive, and provide materials to Battery Cell or Battery Pack companies, suggesting supply chain misalignment risk.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To identify Georgia Tier 2/3 suppliers that are EV relevant and classified as General Automotive, providing materials to Battery Cell or Battery Pack companies, we need to consider the broader context of the automotive supply chain and the specific roles these suppliers play.
+General Automotive suppliers in this context likely provide components or materials that are not exclusively for battery systems but could be used across various automotive parts. For these suppliers to have a supply chain misalignment risk, they would need to be providing materials to battery cell or pack manufacturers without being fully aligned with the EV-specific requirements and demands of these companies.
+The exact names of such suppliers in Georgia would depend on detailed industry reports and specific company data, which I do not have access to. However, a general approach to identifying such suppliers would involve:
+1. Identifying Tier 2/3 suppliers in Georgia that are part of the automotive supply chain.
+2. Determining if these suppliers provide materials or components that could be used in battery cells or packs.
+3. Assessing whether these suppliers have adapted their operations and products to meet the specific needs of EV battery manufacturers.
+Without specific data, it's challenging to name exact companies, but the process would involve looking at suppliers that traditionally serve multiple automotive sectors and evaluating their alignment with the specialized requirements of the EV battery supply chain.","To identify Georgia Tier 2/3 suppliers that are EV relevant and classified as General Automotive, providing materials to Battery Cell or Battery Pack companies, we need to consider the broader context of the automotive supply chain and the specific roles these suppliers play.
+
+General Automotive suppliers in this context likely provide components or materials that are not exclusively for battery systems but could be used across various automotive parts. For these suppliers to have a supply chain misalignment risk, they would need to be providing materials to battery cell or pack manufacturers without being fully aligned with the EV-specific requirements and demands of these companies.
+
+The exact names of such suppliers in Georgia would depend on detailed industry reports and specific company data, which I do not have access to. However, a general approach to identifying such suppliers would involve:
+
+1. Identifying Tier 2/3 suppliers in Georgia that are part of the automotive supply chain.
+2. Determining if these suppliers provide materials or components that could be used in battery cells or packs.
+3. Assessing whether these suppliers have adapted their operations and products to meet the specific needs of EV battery manufacturers.
+
+Without specific data, it's challenging to name exact companies, but the process would involve looking at suppliers that traditionally serve multiple automotive sectors and evaluating their alignment with the specialized requirements of the EV battery supply chain.",True,[],success,,17.970585347153246,281,262,543,2026-04-06T14:37:50+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 17936656394, ""eval_duration"": 4181640933}"
+31,Identify all Georgia-based Tier 1/2 automotive suppliers that maintain a diversified customer base (serving 'Multiple OEMs').,There are 11 Georgia-based Tier 1/2 automotive suppliers that maintain a diversified customer base. Fouts Brothers Fire Equipment Hitachi Astemo Hwashin Hyundai & LG Energy Solution (LGES) IMS Gear Georgia Inc. JAC Products Inc. Hyundai Industrial Co. Hyundai MOBIS (Georgia) Hyundai Transys Georgia Seating Systems Inalfa Roof Systems Inc. Jefferson Southern Corp.,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Identify all Georgia-based Tier 1/2 automotive suppliers that maintain a diversified customer base (serving 'Multiple OEMs').
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To identify Georgia-based Tier 1/2 automotive suppliers that serve multiple Original Equipment Manufacturers (OEMs), we would need to look at a comprehensive list of automotive suppliers and their customer relationships. Without specific data, I can say that such suppliers likely include companies involved in manufacturing critical components or systems for vehicles, such as batteries, electronics, or chassis parts. These companies typically have a presence in major automotive hubs and may be part of larger multinational corporations with operations across the United States. To get an exact list, one would need to consult industry directories or reports that track supplier relationships and geographic locations.","To identify Georgia-based Tier 1/2 automotive suppliers that serve multiple Original Equipment Manufacturers (OEMs), we would need to look at a comprehensive list of automotive suppliers and their customer relationships. Without specific data, I can say that such suppliers likely include companies involved in manufacturing critical components or systems for vehicles, such as batteries, electronics, or chassis parts. These companies typically have a presence in major automotive hubs and may be part of larger multinational corporations with operations across the United States. To get an exact list, one would need to consult industry directories or reports that track supplier relationships and geographic locations.",False,[],success,,21.134632107103243,271,121,392,2026-04-06T14:38:11+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 21102883950, ""eval_duration"": 1932401516}"
+32,Identify Georgia companies in the Thermal Management or Power Electronics role with fewer than 200 employees - their small scale may limit surge production capacity.,There are 3 Georgia companies in the Thermal Management or Power Electronics role with fewer than 200 employees. Freudenberg-NOK | Employment: 160 | Role: Thermal Management Hyundai Transys Georgia Powertrain | Employment: 130 | Role: Thermal Management Peerless-Winsmith Inc. | Employment: 160 | Role: Thermal Management,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Identify Georgia companies in the Thermal Management or Power Electronics role with fewer than 200 employees - their small scale may limit surge production capacity.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To identify Georgia companies in the thermal management or power electronics role with fewer than 200 employees, we would need to look at specific industry directories, company databases, or local business listings that categorize companies by their size and industry focus. Without access to such detailed information, it's challenging to provide an exact list of companies. However, small-scale companies in these roles are likely to be involved in niche markets, specialized components, or services within the broader automotive supply chain. These companies might offer custom solutions for thermal management systems or power electronics that cater to specific needs of EV manufacturers and suppliers.","To identify Georgia companies in the thermal management or power electronics role with fewer than 200 employees, we would need to look at specific industry directories, company databases, or local business listings that categorize companies by their size and industry focus. Without access to such detailed information, it's challenging to provide an exact list of companies. However, small-scale companies in these roles are likely to be involved in niche markets, specialized components, or services within the broader automotive supply chain. These companies might offer custom solutions for thermal management systems or power electronics that cater to specific needs of EV manufacturers and suppliers.",False,[],success,,17.15443021291867,274,121,395,2026-04-06T14:38:28+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 17125035447, ""eval_duration"": 1931893962}"
+33,Identify any EV-relevant Georgia companies classified as OEM Footprint or OEM Supply Chain?,There are 24 Georgia‑based companies that are classified as OEM Footprint or OEM Supply Chain OEM Footprint TI Fluid Systems Tie Down Engineering TN Americas Holding Inc. Toyota Industries Group (TACG-TICA) Trenton Pressing Yazaki North America YKK USA Inc. ZF Gainesville LLC OEM Supply Chain: Trenton Pressing Inc. Valeo Vanguard National Trailer Corp. Vernay Vista Metals Corp. Voestalpine Automotive Body Parts Inc. Volvo Cars USA Volvo Group North America Wabash National Corp. Wheelabrator Group Inc. WIKA USA Woodbridge Foam Corp. Woory Industrial Co. Yachiyo Manufacturing of America LLC Yamaha Motor Manufacturing Corp. ZF Gainesville LLC,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Identify any EV-relevant Georgia companies classified as OEM Footprint or OEM Supply Chain?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, Georgia hosts several companies relevant to the electric vehicle (EV) industry within its OEM Footprint and OEM Supply Chain categories. However, without specific data, I cannot name exact companies or their precise classifications. Generally, major automotive manufacturers and suppliers often have facilities in states with favorable business environments for manufacturing, such as Georgia. These companies might include parts suppliers, battery manufacturers, or assembly plants that support EV production.","To my knowledge, Georgia hosts several companies relevant to the electric vehicle (EV) industry within its OEM Footprint and OEM Supply Chain categories. However, without specific data, I cannot name exact companies or their precise classifications. Generally, major automotive manufacturers and suppliers often have facilities in states with favorable business environments for manufacturing, such as Georgia. These companies might include parts suppliers, battery manufacturers, or assembly plants that support EV production.",False,[],success,,17.678101727971807,262,86,348,2026-04-06T14:38:46+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 17650990884, ""eval_duration"": 1361900276}"
+34,"Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness?",Top 10 Georgia companies based on the employment size supply both General Automotive and have some EV relevance (Yes or Indirect): JTEKT North America Corp. | Employment: 860 Kautex Inc. | Employment: 800 Lark United Manufacturing Inc. | Employment: 700 Fouts Brothers Fire Equipment | Employment: 630 Arising Industries Inc. | Employment: 582 Dinex Emissions Inc. | Employment: 500 Lund International Inc. | Employment: 500 Mack Trucks | Employment: 500 Mando America Corp. | Employment: 460 ACM Georgia LLC | Employment: 400,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"The exact top 10 Georgia companies based on employment size that supply both general automotive and EV-specific components cannot be specified without access to current and detailed employment data and supply chain information. However, companies in this category likely include major suppliers with a significant presence in Georgia who are actively investing in electric vehicle technology alongside their traditional automotive parts production. These companies would be well-positioned for the transition to EVs due to their size, resources, and strategic focus on innovation and sustainability.","The exact top 10 Georgia companies based on employment size that supply both general automotive and EV-specific components cannot be specified without access to current and detailed employment data and supply chain information. However, companies in this category likely include major suppliers with a significant presence in Georgia who are actively investing in electric vehicle technology alongside their traditional automotive parts production. These companies would be well-positioned for the transition to EVs due to their size, resources, and strategic focus on innovation and sustainability.",False,[],success,,18.90563062299043,268,97,365,2026-04-06T14:39:05+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 18878375237, ""eval_duration"": 1538529585}"
+35,"How many Georgia companies are now producing lithium-ion battery materials, cells, or electrolytes?","There are 5 Georgia‑based companies currently producing lithium‑ion battery materials, battery cells, or battery electrolytes: F&P Georgia Manufacturing [Tier 1/2] | Lithium-ion battery recycler & raw materials Hitachi Astemo Americas Inc. [Tier 1/2] | Battery cells for electric mobility Hollingsworth & Vose Co. [Tier 1/2] | Lithium-ion battery materials Honda Development & Manufacturing [Tier 1/2] | Battery cells IMMI [Tier 1/2] | Battery electrolyte",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+How many Georgia companies are now producing lithium-ion battery materials, cells, or electrolytes?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"The exact number of Georgia companies producing lithium-ion battery materials, cells, or electrolytes is not directly known to me. However, it is likely that there are several companies involved in various aspects of the lithium-ion battery supply chain in Georgia, given the state's strategic location and efforts to attract automotive and battery manufacturing investments.","The exact number of Georgia companies producing lithium-ion battery materials, cells, or electrolytes is not directly known to me. However, it is likely that there are several companies involved in various aspects of the lithium-ion battery supply chain in Georgia, given the state's strategic location and efforts to attract automotive and battery manufacturing investments.",False,[],success,,24.055965732084587,262,65,327,2026-04-06T14:39:29+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 24028134476, ""eval_duration"": 1040030049}"
+36,Which Georgia Tier 2/3 suppliers currently produce lightweight aluminum or composite materials and are growing their EV-specific customer base?,"There are 7 Tier 2/3 companies producing lightweight aluminum or composite materials and are growing their EV-specific customer base Bridgestone Bandag | Product: Composite materials and specialty polymers for automotive components | EV Relevant: Indirect Dinex Emissions Inc. | Product: Aluminum sheet for automotive bodies | EV Relevant: Indirect Down 2 Earth Trailers | Product: Standard and custom aluminum-lithium products for automotive customers | EV Relevant: Indirect Eaton Corp. | Product: Aluminum products for various markets including automotive market | EV Relevant: Indirect Ecoplastic America Corporation | Product: Aluminum sheet for automotive bodies | EV Relevant: Indirect Erdrich USA Inc. | Product: Aluminum sheet for automotive bodies | EV Relevant: Indirect Global Powertrain Systems LLC | Product: Motor vehicle brake systems and parts Fabricates metal products, including coate | EV Relevant: Indirect",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which Georgia Tier 2/3 suppliers currently produce lightweight aluminum or composite materials and are growing their EV-specific customer base?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, specific Tier 2/3 suppliers in Georgia that produce lightweight aluminum or composite materials for electric vehicles (EVs) are not readily identifiable without access to detailed industry reports or databases. However, companies in this category likely focus on innovation and sustainability to cater to the growing demand for EV components. These suppliers would be working closely with major automotive manufacturers and Tier 1 suppliers to develop lighter, more efficient materials that enhance vehicle range and performance.","To my knowledge, specific Tier 2/3 suppliers in Georgia that produce lightweight aluminum or composite materials for electric vehicles (EVs) are not readily identifiable without access to detailed industry reports or databases. However, companies in this category likely focus on innovation and sustainability to cater to the growing demand for EV components. These suppliers would be working closely with major automotive manufacturers and Tier 1 suppliers to develop lighter, more efficient materials that enhance vehicle range and performance.",False,[],success,,13.504600474145263,268,92,360,2026-04-06T14:39:42+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 13476972204, ""eval_duration"": 1466871137}"
+37,"Identify Georgia companies whose product descriptions include 'high-voltage', 'DC-to-DC', 'inverter', or 'motor controller' — these signal EV powertrain electronics growth.","There is only 1 Georgia company with 'high-voltage', 'DC-to-DC', 'inverter', or 'motor controller' product signals. GSC Steel Stamping LLC | Product: DC-to-DC converters",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Identify Georgia companies whose product descriptions include 'high-voltage', 'DC-to-DC', 'inverter', or 'motor controller' — these signal EV powertrain electronics growth.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"Based on my knowledge of the automotive supply chain and electric vehicle components, companies in Georgia that are likely to be involved in manufacturing high-voltage systems, DC-to-DC converters, inverters, or motor controllers for EVs include those with expertise in electronics and power management systems. However, without specific data on Georgia-based companies, I can't name exact firms. These types of components are typically produced by companies specializing in advanced automotive electronics, often located near major automotive manufacturing hubs or tech centers.","Based on my knowledge of the automotive supply chain and electric vehicle components, companies in Georgia that are likely to be involved in manufacturing high-voltage systems, DC-to-DC converters, inverters, or motor controllers for EVs include those with expertise in electronics and power management systems. However, without specific data on Georgia-based companies, I can't name exact firms. These types of components are typically produced by companies specializing in advanced automotive electronics, often located near major automotive manufacturing hubs or tech centers.",False,[],success,,16.06543615204282,281,100,381,2026-04-06T14:39:59+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 16037510004, ""eval_duration"": 1584772541}"
+38,"Which Georgia automotive companies employ over 1,000 workers but are currently categorized as only ""Indirectly Relevant"" to the EV sector, indicating a massive workforce pool ready for a strategic pivot?","There are 3 Georgia automotive companies employ over 1,000 workers but are currently categorized as only ""Indirectly Relevant"" to the EV sector TCI Powder Coatings | Employment: 3000 | Role: Vehicle Assembly Teklas USA | Employment: 1800 | Role: Vehicle Assembly Textron Specialized Vehicles | Employment: 1100 | Role: Vehicle Assembly",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which Georgia automotive companies employ over 1,000 workers but are currently categorized as only ""Indirectly Relevant"" to the EV sector, indicating a massive workforce pool ready for a strategic pivot?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"Based on my knowledge, identifying specific Georgia automotive companies that employ over 1,000 workers but are currently categorized as only ""Indirectly Relevant"" to the EV sector is not directly available without access to detailed industry reports or datasets. However, such companies likely include suppliers and manufacturers that focus on traditional internal combustion engine (ICE) vehicles and related parts. These companies could potentially pivot towards EV components and services as the market shifts towards electrification.","Based on my knowledge, identifying specific Georgia automotive companies that employ over 1,000 workers but are currently categorized as only ""Indirectly Relevant"" to the EV sector is not directly available without access to detailed industry reports or datasets. However, such companies likely include suppliers and manufacturers that focus on traditional internal combustion engine (ICE) vehicles and related parts. These companies could potentially pivot towards EV components and services as the market shifts towards electrification.",False,[],success,,16.618817501934245,285,92,377,2026-04-06T14:40:15+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 16591939481, ""eval_duration"": 1455271163}"
+39,"Which three Georgia companies have the largest employment in EV thermal management, and how many employees does each have?","The 4 companies with the largest thermal-management-related employment in Georgia are: ZF Gainesville LLC: 17,500 employees Novelis Inc.: 200 employees Freudenberg-NOK: 160 employees Peerless-Winsmith Inc.: 160 employees",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which three Georgia companies have the largest employment in EV thermal management, and how many employees does each have?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"The exact employment numbers for EV thermal management companies in Georgia are not readily available from my internal knowledge. However, companies like Modine Manufacturing Company, which has a significant presence in Georgia, and other local suppliers involved in automotive parts manufacturing likely have substantial operations in this field. To provide precise figures, one would need to consult specific company reports or industry data sources.","The exact employment numbers for EV thermal management companies in Georgia are not readily available from my internal knowledge. However, companies like Modine Manufacturing Company, which has a significant presence in Georgia, and other local suppliers involved in automotive parts manufacturing likely have substantial operations in this field. To provide precise figures, one would need to consult specific company reports or industry data sources.",False,[],success,,17.334928814088926,265,73,338,2026-04-06T14:40:33+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 17306758508, ""eval_duration"": 1157822859}"
+40,"Which companies are involved in thermal-related products or services, and what roles and facility types are they associated with?","There are 5 companies involved in thermal-related products or services, along with their associated EV supply chain roles and primary facility types are: Freudenberg-NOK | Role: Thermal Management | Facility Type: Manufacturing Plant Hyundai Transys Georgia Powertrain |Role: Thermal Management | Facility Type: Manufacturing Plant Novelis Inc. | Role: Thermal Management | Facility Type: Manufacturing Plant Peerless-Winsmith Inc. | Role: Thermal Management | Facility Type: Manufacturing Plant ZF Gainesville LLC | Role: EV thermal management and power electronics | Facility Type: Manufacturing",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which companies are involved in thermal-related products or services, and what roles and facility types are they associated with?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"Companies involved in thermal-related products or services for electric vehicles (EVs) include a variety of players that focus on different aspects of thermal management. These companies typically offer components such as battery cooling systems, heat exchangers, and thermal insulation materials. Some well-known companies in this space include:
+1. **Thermal Management System Manufacturers**: Companies like Modine Manufacturing Company and Acal Energy specialize in designing and manufacturing thermal management systems for EVs.
+2. **Heat Exchanger Suppliers**: Companies such as Altherm Group and Denso Corporation provide heat exchangers that are crucial for managing the temperature of batteries and other components in EVs.
+3. **Thermal Insulation Material Providers**: Companies like 3M and Armacell offer thermal insulation materials that help in maintaining optimal operating temperatures for EV components.
+4. **Battery Cooling Solutions Providers**: Companies such as Aavid Thermal Technologies and Nidec Asmo focus on developing advanced cooling solutions specifically for battery packs in electric vehicles.
+These companies operate various types of facilities including manufacturing plants, research and development centers, and testing laboratories to ensure the quality and performance of their thermal management products.","Companies involved in thermal-related products or services for electric vehicles (EVs) include a variety of players that focus on different aspects of thermal management. These companies typically offer components such as battery cooling systems, heat exchangers, and thermal insulation materials. Some well-known companies in this space include:
+
+1. **Thermal Management System Manufacturers**: Companies like Modine Manufacturing Company and Acal Energy specialize in designing and manufacturing thermal management systems for EVs.
+
+2. **Heat Exchanger Suppliers**: Companies such as Altherm Group and Denso Corporation provide heat exchangers that are crucial for managing the temperature of batteries and other components in EVs.
+
+3. **Thermal Insulation Material Providers**: Companies like 3M and Armacell offer thermal insulation materials that help in maintaining optimal operating temperatures for EV components.
+
+4. **Battery Cooling Solutions Providers**: Companies such as Aavid Thermal Technologies and Nidec Asmo focus on developing advanced cooling solutions specifically for battery packs in electric vehicles.
+
+These companies operate various types of facilities including manufacturing plants, research and development centers, and testing laboratories to ensure the quality and performance of their thermal management products.",True,[],success,,21.359989935997874,266,231,497,2026-04-06T14:40:54+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 21331077032, ""eval_duration"": 3663527524}"
+41,Which Tier 1/2 Georgia companies listed under General Automotive suggest a gradual evolution toward EV-related products or markets?,There are 6 Tier 1/2 Georgia companies listed under General Automotive: Fouts Brothers Fire Equipment [Tier 1/2] | Role: General Automotive Hyundai Industrial Co. [Tier 1/2] | Role: General Automotive Hyundai MOBIS (Georgia) [Tier 1/2] | Role: General Automotive Hyundai Transys Georgia Seating Systems [Tier 1/2] | Role: General Automotive Inalfa Roof Systems Inc. [Tier 1/2] | Role: General Automotive Jefferson Southern Corp. [Tier 1/2] | Role: General Automotive,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which Tier 1/2 Georgia companies listed under General Automotive suggest a gradual evolution toward EV-related products or markets?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"Without specific data about Georgia companies listed under General Automotive, I can't name particular Tier 1/2 suppliers. However, generally, companies showing a gradual evolution toward EV-related products might be those already involved in automotive components like batteries, electric motors, or power electronics. These firms likely invest in R&D for electrification technologies and partnerships with automakers focusing on EVs.","Without specific data about Georgia companies listed under General Automotive, I can't name particular Tier 1/2 suppliers. However, generally, companies showing a gradual evolution toward EV-related products might be those already involved in automotive components like batteries, electric motors, or power electronics. These firms likely invest in R&D for electrification technologies and partnerships with automakers focusing on EVs.",False,[],success,,19.662832749076188,267,76,343,2026-04-06T14:41:14+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 19631038876, ""eval_duration"": 1212628159}"
+42,How is demand for thermal management solutions reflected in the number and employment size of Georgia Thermal Management suppliers?,There are 4 companies for Thermal Management suppliers in Georgia Employment Size: 650 Freudenberg-NOK | Employment: 160 Hyundai Transys Georgia Powertrain | Employment: 130 Novelis Inc. | Employment: 200 Peerless-Winsmith Inc. | Employment: 160,qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+How is demand for thermal management solutions reflected in the number and employment size of Georgia Thermal Management suppliers?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"The demand for thermal management solutions in the electric vehicle (EV) industry is likely to influence the number and employment size of thermal management suppliers in Georgia. As EVs generate more heat due to battery and motor operations compared to traditional vehicles, there is an increased need for effective thermal management systems to ensure safety and performance. This trend would likely encourage more suppliers to enter the market or expand their offerings in thermal management solutions, potentially increasing both the number of suppliers and employment opportunities in this sector within Georgia. However, without specific data on Georgia's thermal management supplier landscape, I cannot provide exact numbers or rankings.","The demand for thermal management solutions in the electric vehicle (EV) industry is likely to influence the number and employment size of thermal management suppliers in Georgia. As EVs generate more heat due to battery and motor operations compared to traditional vehicles, there is an increased need for effective thermal management systems to ensure safety and performance. This trend would likely encourage more suppliers to enter the market or expand their offerings in thermal management solutions, potentially increasing both the number of suppliers and employment opportunities in this sector within Georgia. However, without specific data on Georgia's thermal management supplier landscape, I cannot provide exact numbers or rankings.",False,[],success,,18.517803932074457,264,121,385,2026-04-06T14:41:32+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 18490139039, ""eval_duration"": 1917750862}"
+43,"Which Georgia companies are involved in battery recycling or second-life battery processing, reflecting the emerging circular economy trend?","There are 3 Georgia companies involved in battery recycling or end-of-life processing: Enplas USA Inc. | Product: Recycler of lithium ion batteries EVCO Plastics | Product: Recycler of copper, precious metals, and non-ferrous materials F&P Georgia Manufacturing | Product: Lithium-ion battery recycler and raw materials provider",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which Georgia companies are involved in battery recycling or second-life battery processing, reflecting the emerging circular economy trend?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, specific companies in Georgia involved in battery recycling or second-life battery processing are not widely publicized in general information sources. However, companies involved in such activities typically include those with expertise in materials recovery, environmental sustainability, and advanced manufacturing. These firms likely collaborate with automotive manufacturers and technology companies to support the circular economy trend in the electric vehicle sector.","To my knowledge, specific companies in Georgia involved in battery recycling or second-life battery processing are not widely publicized in general information sources. However, companies involved in such activities typically include those with expertise in materials recovery, environmental sustainability, and advanced manufacturing. These firms likely collaborate with automotive manufacturers and technology companies to support the circular economy trend in the electric vehicle sector.",False,[],success,,16.137454852927476,265,73,338,2026-04-06T14:41:48+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 16110193909, ""eval_duration"": 1158045028}"
+44,"Which Georgia suppliers appear to play innovation-stage roles through research, development, or prototyping activity?","There is only 1 Georgia company that clearly appears to be an innovation-stage roles through research, development, or prototyping activity. Racemark International LLC | Product: Manufacturing and R&D engine parts for EV",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which Georgia suppliers appear to play innovation-stage roles through research, development, or prototyping activity?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, specific Georgia suppliers involved in innovation-stage roles through research, development, or prototyping activities for electric vehicles are not readily identifiable without access to detailed industry reports or databases. However, companies in Georgia that are likely to be involved in such activities include those associated with automotive parts manufacturing, battery technology, and software development for vehicle systems. These companies might collaborate with major automakers or operate independently on cutting-edge projects.","To my knowledge, specific Georgia suppliers involved in innovation-stage roles through research, development, or prototyping activities for electric vehicles are not readily identifiable without access to detailed industry reports or databases. However, companies in Georgia that are likely to be involved in such activities include those associated with automotive parts manufacturing, battery technology, and software development for vehicle systems. These companies might collaborate with major automakers or operate independently on cutting-edge projects.",False,[],success,,16.037118931068107,263,86,349,2026-04-06T14:42:04+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 16010050084, ""eval_duration"": 1364864933}"
+45,"Which Georgia suppliers currently serving traditional OEMs are also linked to EV-native OEMs, showing dual-platform supply capability?","There are 5 Georgia-based suppliers that exhibit dual-platform supply capability, as they are linked to both traditional OEMs such as Hyundai/Kia and the EV-native OEM Rivian. Duckyang GSC Steel Stamping LLC Hyundai Transys Georgia Powertrain Enchem America Inc. Racemark International LLC",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which Georgia suppliers currently serving traditional OEMs are also linked to EV-native OEMs, showing dual-platform supply capability?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, identifying specific Georgia suppliers that serve both traditional OEMs and EV-native OEMs requires detailed industry data. However, it is common for automotive suppliers to diversify their customer base to include both conventional and electric vehicle manufacturers as the market transitions towards electrification. This dual-platform supply capability allows suppliers to remain competitive and adapt to changing industry demands.","To my knowledge, identifying specific Georgia suppliers that serve both traditional OEMs and EV-native OEMs requires detailed industry data. However, it is common for automotive suppliers to diversify their customer base to include both conventional and electric vehicle manufacturers as the market transitions towards electrification. This dual-platform supply capability allows suppliers to remain competitive and adapt to changing industry demands.",False,[],success,,16.221706124953926,267,72,339,2026-04-06T14:42:21+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 16192760782, ""eval_duration"": 1143342230}"
+46,Identify Georgia areas that currently lack Battery Cell or Battery Pack suppliers but have existing Tier 1 general automotive infrastructure.,"There are 39 Georgia counties that have Tier 1 suppliers but no Battery Cell/Pack suppliers (using Updated Location). Baldwin County, Bibb County, Carroll County, Catoosa County, Chatham County, Chattahoochee County, Chattooga County, Clarke County, Clayton County, Cobb County, Dawson County, Dougherty County, Douglas County, Elbert County, Fayette County, Forsyth County, Franklin County, Fulton County, Grady County, Gwinnett County, Habersham County, Hall County, Haralson County, Henry County, Jackson County, Jones County, Lamar County, Lowndes County, Lumpkin County, Meriwether County, Morgan County, Newton County, Paulding County, Rabun County, Spalding County, Stephens County, Troup County, Walton County, Whitfield County",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Identify Georgia areas that currently lack Battery Cell or Battery Pack suppliers but have existing Tier 1 general automotive infrastructure.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To identify areas in Georgia that lack battery cell or pack suppliers but have existing Tier 1 automotive infrastructure, we need to consider the current distribution of automotive suppliers and manufacturing facilities within the state. Generally, regions with established automotive supply chains might be more attractive for new battery manufacturers due to existing logistics and workforce infrastructure.
+Without specific data on every supplier in Georgia, it's challenging to pinpoint exact locations. However, areas like Atlanta and its surrounding counties (such as Gwinnett, Cobb, and DeKalb) are likely to have a robust Tier 1 automotive infrastructure but might not yet have significant battery manufacturing presence. Other regions with strong automotive clusters could similarly lack dedicated battery suppliers.
+The exact identification would depend on detailed mapping of current supplier locations and their specialties within Georgia's automotive industry.","To identify areas in Georgia that lack battery cell or pack suppliers but have existing Tier 1 automotive infrastructure, we need to consider the current distribution of automotive suppliers and manufacturing facilities within the state. Generally, regions with established automotive supply chains might be more attractive for new battery manufacturers due to existing logistics and workforce infrastructure.
+
+Without specific data on every supplier in Georgia, it's challenging to pinpoint exact locations. However, areas like Atlanta and its surrounding counties (such as Gwinnett, Cobb, and DeKalb) are likely to have a robust Tier 1 automotive infrastructure but might not yet have significant battery manufacturing presence. Other regions with strong automotive clusters could similarly lack dedicated battery suppliers.
+
+The exact identification would depend on detailed mapping of current supplier locations and their specialties within Georgia's automotive industry.",True,[],success,,19.222683798056096,267,158,425,2026-04-06T14:42:40+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 19187336341, ""eval_duration"": 2519099282}"
+47,"For a new Tier 1 battery thermal management company looking to locate in Georgia, which areas have the highest concentration of Materials-category suppliers that could support thermal management production?","Covington, Henry County has 2 Materials‑category suppliers that could support battery thermal management production for a new Tier 1 company in Georgia.",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+For a new Tier 1 battery thermal management company looking to locate in Georgia, which areas have the highest concentration of Materials-category suppliers that could support thermal management production?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"For a Tier 1 battery thermal management company looking to locate in Georgia, areas with a high concentration of materials-category suppliers would likely be near existing automotive and EV manufacturing hubs. Atlanta and its surrounding counties, as well as the cities of Augusta and Savannah, are regions where such suppliers might be more concentrated due to the presence of automotive-related industries and infrastructure. These locations benefit from established supply chains and logistics networks that support the automotive sector.","For a Tier 1 battery thermal management company looking to locate in Georgia, areas with a high concentration of materials-category suppliers would likely be near existing automotive and EV manufacturing hubs. Atlanta and its surrounding counties, as well as the cities of Augusta and Savannah, are regions where such suppliers might be more concentrated due to the presence of automotive-related industries and infrastructure. These locations benefit from established supply chains and logistics networks that support the automotive sector.",False,[],success,,16.222562507959083,277,88,365,2026-04-06T14:42:56+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 16192514314, ""eval_duration"": 1404101909}"
+48,"How many Georgia areas have concentrated Manufacturing Plant facilities but no EV-specific production presence, indicating potential conversion-ready industrial sites?","There are 100 Georgia areas that currently host Manufacturing Plant facilities but have no EV‑specific production presence, indicating a large pool of potentially conversion‑ready industrial sites. Top concentrations include: LaGrange, Troup County | 7 plants Atlanta, Fulton County | 6 plants West Point, Troup County | 6 plants Dublin, Laurens County | 4 plants Savannah, Chatham County | 4 plants Griffin, Spalding County | 3 plants Madison, Morgan County | 3 plants Lavonia, Franklin County | 3 plants Duluth, Gwinnett County | 3 plants Jefferson, Jackson County | 3 plants",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+How many Georgia areas have concentrated Manufacturing Plant facilities but no EV-specific production presence, indicating potential conversion-ready industrial sites?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"The exact number of Georgia areas with concentrated manufacturing plant facilities but no EV-specific production presence is not directly knowable without specific data. However, such areas likely exist given that the state has a significant industrial base but the transition to electric vehicles is ongoing and not yet fully realized across all manufacturing sites. These sites could be potential candidates for conversion to support EV production as the industry continues to grow.","The exact number of Georgia areas with concentrated manufacturing plant facilities but no EV-specific production presence is not directly knowable without specific data. However, such areas likely exist given that the state has a significant industrial base but the transition to electric vehicles is ongoing and not yet fully realized across all manufacturing sites. These sites could be potential candidates for conversion to support EV production as the industry continues to grow.",False,[],success,,15.117438548011705,267,79,346,2026-04-06T14:43:11+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 15089980541, ""eval_duration"": 1256611944}"
+49,"For an international battery materials company seeking a Georgia location, which areas have existing chemical manufacturing infrastructure?","There are 2 Georgia areas with existing chemical manufacturing infrastructure: Covington, Morgan County: Archer Aviation Inc. Norcross, Gwinnett County: Arising Industries Inc.",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+For an international battery materials company seeking a Georgia location, which areas have existing chemical manufacturing infrastructure?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"For an international battery materials company looking to establish operations in Georgia, areas with existing chemical manufacturing infrastructure are likely to be around Augusta and Savannah. These regions have a history of industrial activity and are home to various chemical plants and related facilities, making them suitable for companies in the battery materials sector. The presence of established infrastructure can facilitate easier integration into the local supply chain and workforce.","For an international battery materials company looking to establish operations in Georgia, areas with existing chemical manufacturing infrastructure are likely to be around Augusta and Savannah. These regions have a history of industrial activity and are home to various chemical plants and related facilities, making them suitable for companies in the battery materials sector. The presence of established infrastructure can facilitate easier integration into the local supply chain and workforce.",False,[],success,,14.329571230104193,263,76,339,2026-04-06T14:43:26+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 14301659686, ""eval_duration"": 1213121938}"
+50,"Which Georgia areas have R&D facility types in the automotive sector, suggesting innovation infrastructure suitable for EV technology development centers?","There is only 1 Georgia area with an R&D facility type in the automotive sector: Gray, Jones County | Company: Racemark International LLC | Product: Manufacturing and R&D engine parts for EV",qwen_norag,qwen2.5:14b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
+
+Answer the question using only your internal knowledge and reasoning.
+Do not assume access to external documents, retrieval systems, or databases.
+
+Instructions:
+- Provide a best-effort answer even if some uncertainty exists.
+- Do not fabricate exact numbers, rankings, or highly specific claims unless reasonably confident.
+- Prefer general or approximate information when uncertain.
+- If needed, briefly indicate uncertainty using phrases like ""likely"" or ""to my knowledge"".
+
+Constraints:
+- Do not mention missing data, documents, context, or access limitations.
+- Do not say ""I don't have access to data"" or similar phrases.
+- Do not cite sources.
+- Keep the response concise, clear, and in plain text.
+- Do not use markdown tables.
+- Avoid unnecessary verbosity.","QUESTION:
+Which Georgia areas have R&D facility types in the automotive sector, suggesting innovation infrastructure suitable for EV technology development centers?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"To my knowledge, several areas in Georgia are known for their automotive industry presence, which likely includes research and development facilities suitable for electric vehicle technology. Cities such as Atlanta and Augusta have a significant industrial base that could support R&D activities in the automotive sector, including EV technology. However, without specific data, I cannot pinpoint exact locations or confirm the presence of EV-specific R&D facilities.","To my knowledge, several areas in Georgia are known for their automotive industry presence, which likely includes research and development facilities suitable for electric vehicle technology. Cities such as Atlanta and Augusta have a significant industrial base that could support R&D activities in the automotive sector, including EV technology. However, without specific data, I cannot pinpoint exact locations or confirm the presence of EV-specific R&D facilities.",False,[],success,,15.003451529890299,267,78,345,2026-04-06T14:43:41+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 14967703459, ""eval_duration"": 1244634678}"

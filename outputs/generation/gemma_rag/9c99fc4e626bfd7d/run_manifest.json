@@ -1,0 +1,143 @@
+{
+  "manifest_version": "1.0",
+  "pipeline_name": "gemma_rag",
+  "model_key": "gemma",
+  "model_name": "gemma3:27b",
+  "rag_enabled": true,
+  "prompt_version": "v3",
+  "run_key": "9c99fc4e626bfd7d",
+  "output_dir": "/home/sm11926/Downloads/ev_data_LLM_comparsions_sreeja/outputs/generation/gemma_rag/9c99fc4e626bfd7d",
+  "question_count_target": 50,
+  "started_at_utc": "2026-04-06T15:43:08+00:00",
+  "completed_at_utc": "2026-04-06T15:56:50+00:00",
+  "config_hash": "000bcdcc480922929e786b74b654ed022e0ef8ccd707841027f9ebc3b99a60dc",
+  "kb_hash": "4e80427412c5dec888179eb44467f0720f0d92a44e72b6e9c53a636c75bd8e54",
+  "questions_hash": "13e0c488b6c2ba862fa931ab0497ffa7355d22653d86c4aadb86265aefa568f3",
+  "corpus_hash": "55c79c1afaa2406740602b8f33ad5805e9246a45377291c3495f5da0a5b725b4",
+  "chunking_hash": "9ef17635d79a9be18df8d0ea226aef7a089955eef1177f0625700a8bb0283ed1",
+  "index_backend": "local-vectorstore",
+  "embedding_backend": "sentence-transformer::sentence-transformers/all-mpnet-base-v2",
+  "repo_commit": "3ac23d05bef743bc9768c531eac638013daba3ff",
+  "settings_snapshot": {
+    "project_name": "benchmark_v3",
+    "paths": {
+      "kb": "data/kb/GNEM - Auto Landscape Lat Long Updated.xlsx",
+      "questions": "data/Human validated 50 questions.xlsx",
+      "ontology": "config/ontology_v3.yaml",
+      "output_root": "outputs",
+      "generation": "outputs/generation",
+      "evaluation": "outputs/evaluation",
+      "accuracy_evaluation": "outputs/accuracy_evaluation",
+      "reports": "outputs/reports",
+      "manifests": "outputs/manifests",
+      "indexes": "outputs/indexes",
+      "logs": "outputs/logs",
+      "unused": "unused",
+      "regression_subset": "data/regression/v3_regression_subset.json"
+    },
+    "models": {
+      "qwen": {
+        "provider": "ollama",
+        "model_name": "qwen2.5:14b",
+        "endpoint": "http://127.0.0.1:11434/api/generate",
+        "temperature": 0.1,
+        "max_tokens": 512,
+        "timeout_seconds": 180.0,
+        "num_ctx": 4096,
+        "top_p": 0.9,
+        "repeat_penalty": 1.05
+      },
+      "gemma": {
+        "provider": "ollama",
+        "model_name": "gemma3:27b",
+        "endpoint": "http://127.0.0.1:11434/api/generate",
+        "temperature": 0.1,
+        "max_tokens": 512,
+        "timeout_seconds": 180.0,
+        "num_ctx": 4096,
+        "top_p": 0.9,
+        "repeat_penalty": 1.05
+      },
+      "gemini": {
+        "provider": "gemini",
+        "model_name": "gemini-2.5-flash",
+        "endpoint": null,
+        "temperature": 0.1,
+        "max_tokens": 512,
+        "timeout_seconds": 180.0,
+        "num_ctx": 4096,
+        "top_p": 0.9,
+        "repeat_penalty": 1.05
+      }
+    },
+    "retrieval": {
+      "embedding_model": "sentence-transformers/all-mpnet-base-v2",
+      "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "allow_remote_model_downloads": false,
+      "allow_hash_embedding_fallback": true,
+      "dense_dimension": 2048,
+      "top_k_dense": 24,
+      "top_k_sparse": 24,
+      "top_k_fused": 18,
+      "top_k_reranked": 8,
+      "max_context_tokens": 1800,
+      "rrf_k": 60,
+      "chunk_overlap": 0
+    },
+    "structured_ops": {
+      "enabled": true,
+      "top_n_default": 5,
+      "max_evidence_rows": 25,
+      "supplier_only_default": true,
+      "employment_field": "employment",
+      "ontology_match_mode": "any"
+    },
+    "prompts": {
+      "version": "v3",
+      "rag_not_found_text": "Not found in provided context.",
+      "norag_not_found_text": "I cannot determine the exact dataset-specific answer from closed-book knowledge alone.",
+      "answer_style": "plain_text"
+    },
+    "evaluation": {
+      "enabled_metrics": [
+        "faithfulness",
+        "response_relevancy",
+        "context_precision",
+        "context_recall",
+        "answer_correctness"
+      ],
+      "provider": "ollama",
+      "llm_model": "llama3.1:8b",
+      "embeddings_provider": "huggingface",
+      "embeddings_model": "sentence-transformers/all-mpnet-base-v2",
+      "endpoint": "http://127.0.0.1:11434",
+      "timeout_seconds": 180.0,
+      "retries": 2,
+      "raise_exceptions": false,
+      "batch_size": 1,
+      "allow_optional_metrics": true
+    },
+    "accuracy_evaluation": {
+      "provider": "ollama",
+      "judge_model": "llama3.1:8b",
+      "endpoint": "http://127.0.0.1:11434/api/generate",
+      "temperature": 0.0,
+      "max_tokens": 220,
+      "timeout_seconds": 180.0,
+      "retries": 3
+    },
+    "runtime": {
+      "resume": true,
+      "write_excel": true,
+      "write_csv": true,
+      "fail_fast": false,
+      "random_seed": 7
+    },
+    "api_keys": {
+      "gemini": "***redacted***"
+    },
+    "question_subsets": {
+      "regression_v3": "data/regression/v3_regression_subset.json"
+    }
+  }
+}
