@@ -134,7 +134,7 @@ def _materialize_accuracy_run(output_dir: Path, records: dict[str, AccuracyEvalu
 
 def _build_generator(model_key: str, model_config: Any, api_key: str) -> Any:
     endpoint = str(model_config.endpoint or "http://127.0.0.1:11434/api/generate")
-    if model_key == "qwen":
+    if model_config.provider == "ollama":
         from src.generators.qwen_generator import QwenGenerator
 
         return QwenGenerator(
@@ -147,20 +147,7 @@ def _build_generator(model_key: str, model_config: Any, api_key: str) -> Any:
             top_p=model_config.top_p,
             repeat_penalty=model_config.repeat_penalty,
         )
-    if model_key == "gemma":
-        from src.generators.gemma_generator import GemmaGenerator
-
-        return GemmaGenerator(
-            model_name=model_config.model_name,
-            endpoint=endpoint,
-            temperature=model_config.temperature,
-            max_tokens=model_config.max_tokens,
-            timeout_seconds=model_config.timeout_seconds,
-            num_ctx=model_config.num_ctx,
-            top_p=model_config.top_p,
-            repeat_penalty=model_config.repeat_penalty,
-        )
-    if model_key == "gemini":
+    if model_config.provider == "gemini":
         from src.generators.gemini_generator import GeminiGenerator
 
         return GeminiGenerator(
@@ -171,7 +158,7 @@ def _build_generator(model_key: str, model_config: Any, api_key: str) -> Any:
             timeout_seconds=model_config.timeout_seconds,
             top_p=model_config.top_p,
         )
-    raise RuntimeError(f"Unsupported model key: {model_key}")
+    raise RuntimeError(f"Unsupported model provider for key '{model_key}': {model_config.provider}")
 
 
 def _prepare_questions(question_frame, limit: int | None, question_ids: list[str] | None):

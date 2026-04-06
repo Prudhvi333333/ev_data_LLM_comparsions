@@ -157,4 +157,10 @@ PIPELINE_REGISTRY: dict[str, tuple[str, bool]] = {
     "gemma_norag": ("gemma", False),
     "gemini_rag": ("gemini", True),
     "gemini_norag": ("gemini", False),
+    "qwen25_32b_rag": ("qwen25_32b", True),
+    "qwen25_32b_norag": ("qwen25_32b", False),
+    "qwen35_35b_a3b_rag": ("qwen35_35b_a3b", True),
+    "qwen35_35b_a3b_norag": ("qwen35_35b_a3b", False),
+    "mistral_small32_24b_rag": ("mistral_small32_24b", True),
+    "mistral_small32_24b_norag": ("mistral_small32_24b", False),
 }

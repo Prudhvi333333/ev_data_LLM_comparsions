@@ -43,6 +43,36 @@ models:
     max_tokens: 512
     timeout_seconds: 180
     top_p: 0.9
+  qwen25_32b:
+    provider: ollama
+    model_name: qwen2.5:32b
+    endpoint: http://127.0.0.1:11434/api/generate
+    temperature: 0.1
+    max_tokens: 512
+    timeout_seconds: 180
+    num_ctx: 4096
+    top_p: 0.9
+    repeat_penalty: 1.05
+  qwen35_35b_a3b:
+    provider: ollama
+    model_name: qwen3.5:35b-a3b
+    endpoint: http://127.0.0.1:11434/api/generate
+    temperature: 0.1
+    max_tokens: 512
+    timeout_seconds: 180
+    num_ctx: 4096
+    top_p: 0.9
+    repeat_penalty: 1.05
+  mistral_small32_24b:
+    provider: ollama
+    model_name: mistral-small3.2:24b
+    endpoint: http://127.0.0.1:11434/api/generate
+    temperature: 0.1
+    max_tokens: 512
+    timeout_seconds: 180
+    num_ctx: 4096
+    top_p: 0.9
+    repeat_penalty: 1.05
 
 retrieval:
   embedding_model: sentence-transformers/all-mpnet-base-v2
