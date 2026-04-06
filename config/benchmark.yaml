@@ -1,22 +1,25 @@
-project_name: domain-qa-benchmark
+project_name: benchmark_v3
 
 paths:
   kb: data/kb/GNEM - Auto Landscape Lat Long Updated.xlsx
   questions: data/Human validated 50 questions.xlsx
+  ontology: config/ontology_v3.yaml
   output_root: outputs
   generation: outputs/generation
   evaluation: outputs/evaluation
+  accuracy_evaluation: outputs/accuracy_evaluation
   reports: outputs/reports
   manifests: outputs/manifests
   indexes: outputs/indexes
   logs: outputs/logs
   unused: unused
+  regression_subset: data/regression/v3_regression_subset.json
 
 models:
   qwen:
     provider: ollama
     model_name: qwen2.5:14b
-    endpoint: http://127.0.0.1:11435/api/generate
+    endpoint: http://127.0.0.1:11434/api/generate
     temperature: 0.1
     max_tokens: 512
     timeout_seconds: 180
@@ -26,7 +29,7 @@ models:
   gemma:
     provider: ollama
     model_name: gemma3:27b
-    endpoint: http://127.0.0.1:11435/api/generate
+    endpoint: http://127.0.0.1:11434/api/generate
     temperature: 0.1
     max_tokens: 512
     timeout_seconds: 180
@@ -61,11 +64,13 @@ structured_ops:
   max_evidence_rows: 25
   supplier_only_default: true
   employment_field: employment
+  ontology_match_mode: any
 
 prompts:
-  version: benchmark_v2
+  version: v3
   rag_not_found_text: Not found in provided context.
-  norag_not_found_text: I do not know based on the closed-book baseline and will not fabricate domain specifics.
+  norag_not_found_text: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+  answer_style: plain_text
 
 evaluation:
   enabled_metrics:
@@ -74,15 +79,25 @@ evaluation:
     - context_precision
     - context_recall
     - answer_correctness
-  provider: gemini
-  llm_model: gemini-2.5-flash
-  embeddings_provider: gemini
-  embeddings_model: models/text-embedding-004
+  provider: ollama
+  llm_model: llama3.1:8b
+  embeddings_provider: huggingface
+  embeddings_model: sentence-transformers/all-mpnet-base-v2
+  endpoint: http://127.0.0.1:11434
   timeout_seconds: 180
   retries: 2
   raise_exceptions: false
   batch_size: 1
   allow_optional_metrics: true
+
+accuracy_evaluation:
+  provider: ollama
+  judge_model: llama3.1:8b
+  endpoint: http://127.0.0.1:11434/api/generate
+  temperature: 0.0
+  max_tokens: 220
+  timeout_seconds: 180
+  retries: 3
 
 runtime:
   resume: true
@@ -93,3 +108,6 @@ runtime:
 
 api_keys:
   gemini: ${GEMINI_API_KEY}
+
+question_subsets:
+  regression_v3: data/regression/v3_regression_subset.json

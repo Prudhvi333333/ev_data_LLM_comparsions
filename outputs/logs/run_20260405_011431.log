@@ -1,4 +1,0 @@
-[2026-04-05 01:15:01] [INFO] [kb_loader] Loaded 205 KB documents from GNEM - Auto Landscape Lat Long Updated.xlsx
-[2026-04-05 01:15:01] [WARNING] [indexer] sentence-transformers unavailable; using local TF-IDF hash embeddings.
-[2026-04-05 01:15:01] [WARNING] [indexer] chromadb unavailable; using local pickle vector store.
-[2026-04-05 01:15:01] [WARNING] [retriever] CrossEncoder unavailable; using lexical rerank fallback.
