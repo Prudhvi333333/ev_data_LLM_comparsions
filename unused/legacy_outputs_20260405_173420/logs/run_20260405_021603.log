@@ -1,0 +1,39 @@
+[2026-04-05 02:16:39] [INFO] [kb_loader] Loaded 205 KB documents from data/kb/GNEM - Auto Landscape Lat Long Updated.xlsx
+[2026-04-05 02:16:39] [WARNING] [indexer] sentence-transformers unavailable; using local TF-IDF hash embeddings.
+[2026-04-05 02:16:39] [WARNING] [indexer] chromadb unavailable; using local pickle vector store.
+[2026-04-05 02:16:39] [WARNING] [retriever] CrossEncoder unavailable; using lexical rerank fallback.
+[2026-04-05 02:16:39] [INFO] [main] Running pipeline qwen_rag
+[2026-04-05 02:17:35] [WARNING] [evaluator] Judge API call failed for context_recall: Client error '401 Unauthorized' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+[2026-04-05 02:17:35] [WARNING] [evaluator] Judge API call failed for faithfulness: Client error '401 Unauthorized' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+[2026-04-05 02:17:35] [WARNING] [evaluator] Judge API call failed for answer_relevancy: Client error '401 Unauthorized' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+[2026-04-05 02:17:36] [WARNING] [evaluator] Judge API call failed for answer_correctness: Client error '401 Unauthorized' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+[2026-04-05 02:17:36] [WARNING] [evaluator] Judge API call failed for context_precision: Client error '401 Unauthorized' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+[2026-04-05 02:17:37] [WARNING] [evaluator] Judge API call failed for faithfulness: Client error '401 Unauthorized' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+[2026-04-05 02:17:37] [WARNING] [evaluator] Judge API call failed for answer_relevancy: Client error '401 Unauthorized' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+[2026-04-05 02:17:37] [WARNING] [evaluator] Judge API call failed for context_recall: Client error '401 Unauthorized' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+[2026-04-05 02:17:39] [WARNING] [evaluator] Judge API call failed for context_precision: Client error '401 Unauthorized' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+[2026-04-05 02:17:39] [WARNING] [evaluator] Judge API call failed for answer_correctness: Client error '401 Unauthorized' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+[2026-04-05 02:17:40] [WARNING] [evaluator] Judge API call failed for answer_relevancy: Client error '401 Unauthorized' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+[2026-04-05 02:17:40] [WARNING] [evaluator] Judge API call failed for faithfulness: Client error '401 Unauthorized' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+[2026-04-05 02:17:40] [WARNING] [evaluator] Judge API call failed for context_recall: Client error '401 Unauthorized' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+[2026-04-05 02:17:40] [ERROR] [main] Pipeline row failed for question 18: Kimi judge failed for metric=faithfulness: Client error '401 Unauthorized' for url 'http://localhost:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+[2026-04-05 02:17:40] [INFO] [reporter] Saved report outputs\reports\qwen_rag_report.xlsx
+[2026-04-05 02:17:40] [INFO] [main] Report saved: outputs\reports\qwen_rag_report.xlsx
+[2026-04-05 02:17:41] [INFO] [summary_reporter] Saved cross-pipeline summary outputs\reports\FINAL_COMPARISON.xlsx
+[2026-04-05 02:17:41] [INFO] [main] Final comparison saved: outputs\reports\FINAL_COMPARISON.xlsx
+[2026-04-05 02:17:41] [INFO] [main] Final pipeline summary
+[2026-04-05 02:17:41] [INFO] [main] qwen_rag | questions_answered=1 | timeouts=0 | mean_final_score=0.0000 | elapsed=61.06s

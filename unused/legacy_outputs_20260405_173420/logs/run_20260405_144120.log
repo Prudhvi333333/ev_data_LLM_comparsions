@@ -1,0 +1,149 @@
+[2026-04-05 14:41:41] [INFO] [kb_loader] Loaded 205 KB documents from data/kb/GNEM - Auto Landscape Lat Long Updated.xlsx
+[2026-04-05 14:41:41] [INFO] [indexer] Embedding docs 1-32
+[2026-04-05 14:41:42] [INFO] [indexer] Embedding docs 33-64
+[2026-04-05 14:41:42] [INFO] [indexer] Embedding docs 65-96
+[2026-04-05 14:41:43] [INFO] [indexer] Embedding docs 97-128
+[2026-04-05 14:41:43] [INFO] [indexer] Embedding docs 129-160
+[2026-04-05 14:41:44] [INFO] [indexer] Embedding docs 161-192
+[2026-04-05 14:41:45] [INFO] [indexer] Embedding docs 193-205
+[2026-04-05 14:41:45] [INFO] [indexer] Indexed 205 documents
+[2026-04-05 14:41:45] [INFO] [main] Running pipeline qwen_rag
+[2026-04-05 14:41:45] [INFO] [main] Pipeline qwen_rag running in serialized mode for local Ollama stability.
+[2026-04-05 14:41:45] [INFO] [main] Q1 retrieval complete | docs=18 | top_companies=F&P Georgia Manufacturing, Hyundai Transys Georgia Seating Systems, Hyundai Transys Georgia Powertrain, IMS Gear Georgia Inc., Hyundai MOBIS (Georgia)
+[2026-04-05 14:41:45] [INFO] [main] Q1 structured context added | chars=1963
+[2026-04-05 14:41:45] [INFO] [main] Q1 context ready | chars=1963
+[2026-04-05 14:41:51] [INFO] [main] Q1 generation complete | answer_chars=1411 | status=ok
+[2026-04-05 14:42:40] [INFO] [main] Q1 evaluation complete | final_score=0.7835
+[2026-04-05 14:42:40] [INFO] [main] Q2 retrieval complete | docs=6 | top_companies=F&P Georgia Manufacturing, IMMI, Hyundai Motor Group, Hollingsworth & Vose Co., Hitachi Astemo Americas Inc.
+[2026-04-05 14:42:40] [INFO] [main] Q2 context ready | chars=2623
+[2026-04-05 14:42:43] [INFO] [generator] Generation completeness pass triggered | listed=4/6
+[2026-04-05 14:42:45] [INFO] [main] Q2 generation complete | answer_chars=253 | status=ok
+[2026-04-05 14:43:10] [INFO] [main] Q2 evaluation complete | final_score=0.7020
+[2026-04-05 14:43:10] [INFO] [main] Q3 retrieval complete | docs=4 | top_companies=Novelis Inc., Hyundai Transys Georgia Powertrain, Freudenberg-NOK, Peerless-Winsmith Inc.
+[2026-04-05 14:43:10] [INFO] [main] Q3 context ready | chars=1826
+[2026-04-05 14:43:12] [INFO] [main] Q3 generation complete | answer_chars=268 | status=ok
+[2026-04-05 14:43:30] [INFO] [main] Q3 evaluation complete | final_score=0.8500
+[2026-04-05 14:43:30] [INFO] [main] Q4 retrieval complete | docs=4 | top_companies=Yazaki North America, GSC Steel Stamping LLC, ZF Gainesville LLC, Morgan Corp.
+[2026-04-05 14:43:30] [INFO] [main] Q4 context ready | chars=1942
+[2026-04-05 14:43:32] [INFO] [generator] Generation completeness pass triggered | listed=3/4
+[2026-04-05 14:43:33] [INFO] [main] Q4 generation complete | answer_chars=174 | status=ok
+[2026-04-05 14:43:57] [INFO] [main] Q4 evaluation complete | final_score=0.7300
+[2026-04-05 14:43:58] [INFO] [main] Q5 retrieval complete | docs=18 | top_companies=Thomson Plastics Inc., Suzuki Manufacturing of America Corp., Valeo, Superior Essex Inc., Minebea AccessSolutions USA Inc.
+[2026-04-05 14:43:58] [INFO] [main] Q5 context ready | chars=5166
+[2026-04-05 14:44:01] [INFO] [generator] Generation completeness pass triggered | listed=8/12
+[2026-04-05 14:44:03] [INFO] [main] Q5 generation complete | answer_chars=378 | status=ok
+[2026-04-05 14:44:48] [INFO] [main] Q5 evaluation complete | final_score=0.5100
+[2026-04-05 14:44:48] [INFO] [main] Q6 retrieval complete | docs=3 | top_companies=Novelis Inc., Novelis Inc., Novelis Inc.
+[2026-04-05 14:44:48] [INFO] [main] Q6 context ready | chars=1285
+[2026-04-05 14:44:49] [INFO] [generator] Generation completeness pass triggered | listed=0/1
+[2026-04-05 14:44:50] [INFO] [main] Q6 generation complete | answer_chars=141 | status=ok
+[2026-04-05 14:45:13] [INFO] [main] Q6 evaluation complete | final_score=0.9800
+[2026-04-05 14:45:13] [INFO] [main] Q7 retrieval complete | docs=22 | top_companies=Robert Bosch LLC, MAT Heavy Duty, Arising Industries Inc., Pak-Lite Inc., FOX Factory
+[2026-04-05 14:45:13] [INFO] [main] Q7 context ready | chars=4727
+[2026-04-05 14:45:15] [INFO] [main] Q7 generation complete | answer_chars=97 | status=ok
+[2026-04-05 14:45:24] [INFO] [main] Q7 evaluation complete | final_score=0.5300
+[2026-04-05 14:45:24] [INFO] [main] Q8 retrieval complete | docs=168 | top_companies=Peterson Spring, Lehigh Technologies Inc., Paccar, Rivian Automotive, RealTruck
+[2026-04-05 14:45:24] [INFO] [main] Q8 structured context added | chars=639
+[2026-04-05 14:45:24] [INFO] [main] Q8 context ready | chars=639
+[2026-04-05 14:45:26] [INFO] [main] Q8 generation complete | answer_chars=219 | status=ok
+[2026-04-05 14:46:05] [INFO] [main] Q8 evaluation complete | final_score=0.6800
+[2026-04-05 14:46:06] [INFO] [main] Q9 retrieval complete | docs=204 | top_companies=Eaton Corp., PIOLAX Corp., Duckyang, Ecoplastic America Corporation, Panduit Corp.
+[2026-04-05 14:46:06] [INFO] [main] Q9 structured context added | chars=653
+[2026-04-05 14:46:06] [INFO] [main] Q9 context ready | chars=653
+[2026-04-05 14:46:06] [INFO] [main] Q9 generation complete | answer_chars=70 | status=ok
+[2026-04-05 14:46:13] [INFO] [main] Q9 evaluation complete | final_score=0.9900
+[2026-04-05 14:46:13] [INFO] [main] Q10 retrieval complete | docs=132 | top_companies=Novelis Inc., Sejong Georgia LLC, Novelis Inc., Rivian Automotive, Joon Georgia, Inc.
+[2026-04-05 14:46:13] [INFO] [main] Q10 structured context added | chars=505
+[2026-04-05 14:46:13] [INFO] [main] Q10 context ready | chars=505
+[2026-04-05 14:46:16] [INFO] [main] Q10 generation complete | answer_chars=418 | status=ok
+[2026-04-05 14:46:19] [INFO] [main] Q10 evaluation complete | final_score=0.9900
+[2026-04-05 14:46:19] [INFO] [main] Q11 retrieval complete | docs=3 | top_companies=Sewon America Inc., Sewon America Inc., Sewon America Inc.
+[2026-04-05 14:46:19] [INFO] [main] Q11 context ready | chars=1206
+[2026-04-05 14:46:21] [INFO] [generator] Generation completeness pass triggered | listed=0/1
+[2026-04-05 14:46:23] [INFO] [main] Q11 generation complete | answer_chars=294 | status=ok
+[2026-04-05 14:46:33] [INFO] [main] Q11 evaluation complete | final_score=0.8550
+[2026-04-05 14:46:33] [INFO] [main] Q12 retrieval complete | docs=3 | top_companies=Duckyang, Enchem America Inc., GSC Steel Stamping LLC
+[2026-04-05 14:46:33] [INFO] [main] Q12 context ready | chars=1381
+[2026-04-05 14:46:36] [INFO] [main] Q12 generation complete | answer_chars=500 | status=ok
+[2026-04-05 14:46:48] [INFO] [main] Q12 evaluation complete | final_score=1.0000
+[2026-04-05 14:46:48] [INFO] [main] Q13 retrieval complete | docs=18 | top_companies=Rivian Automotive, Hyundai Transys Georgia Powertrain, Duckyang, Racemark International LLC, Enchem America Inc.
+[2026-04-05 14:46:48] [INFO] [main] Q13 context ready | chars=4704
+[2026-04-05 14:46:55] [INFO] [main] Q13 generation complete | answer_chars=1165 | status=ok
+[2026-04-05 14:47:03] [INFO] [main] Q13 evaluation complete | final_score=0.4600
+[2026-04-05 14:47:03] [INFO] [main] Q14 retrieval complete | docs=18 | top_companies=F&P Georgia Manufacturing, FREYR Battery, Duckyang, IMMI, IMS Gear Georgia Inc.
+[2026-04-05 14:47:03] [INFO] [main] Q14 context ready | chars=4877
+[2026-04-05 14:47:06] [INFO] [generator] Generation completeness pass triggered | listed=3/11
+[2026-04-05 14:47:08] [INFO] [main] Q14 generation complete | answer_chars=330 | status=ok
+[2026-04-05 14:47:13] [INFO] [main] Q14 evaluation complete | final_score=0.4300
+[2026-04-05 14:47:14] [INFO] [main] Q15 retrieval complete | docs=18 | top_companies=WIKA USA, Woodbridge Foam Corp., F&P Georgia Manufacturing, Solvay Specialty Polymers USA LLC, Yamaha Motor Manufacturing Corp.
+[2026-04-05 14:47:14] [INFO] [main] Q15 context ready | chars=4919
+[2026-04-05 14:47:15] [INFO] [generator] Generation completeness pass triggered | listed=2/11
+[2026-04-05 14:47:17] [INFO] [main] Q15 generation complete | answer_chars=117 | status=ok
+[2026-04-05 14:47:28] [INFO] [main] Q15 evaluation complete | final_score=0.7450
+[2026-04-05 14:47:29] [INFO] [main] Q16 retrieval complete | docs=18 | top_companies=F&P Georgia Manufacturing, Hollingsworth & Vose Co., IMMI, IMS Gear Georgia Inc., Hyundai Transys Georgia Seating Systems
+[2026-04-05 14:47:29] [INFO] [main] Q16 context ready | chars=7831
+[2026-04-05 14:47:34] [INFO] [main] Q16 generation complete | answer_chars=628 | status=ok
+[2026-04-05 14:47:57] [INFO] [main] Q16 evaluation complete | final_score=0.6925
+[2026-04-05 14:47:58] [INFO] [main] Q17 retrieval complete | docs=18 | top_companies=Woory Industrial Co., WIKA USA, Woodbridge Foam Corp., Yamaha Motor Manufacturing Corp., IMS Gear Georgia Inc.
+[2026-04-05 14:47:58] [INFO] [main] Q17 context ready | chars=4789
+[2026-04-05 14:48:03] [INFO] [generator] Generation completeness pass triggered | listed=4/10
+[2026-04-05 14:48:08] [INFO] [main] Q17 generation complete | answer_chars=969 | status=ok
+[2026-04-05 14:48:40] [INFO] [main] Q17 evaluation complete | final_score=0.8200
+[2026-04-05 14:48:41] [INFO] [main] Q18 retrieval complete | docs=1 | top_companies=GSC Steel Stamping LLC
+[2026-04-05 14:48:41] [INFO] [main] Q18 context ready | chars=536
+[2026-04-05 14:48:43] [INFO] [generator] Generation completeness pass triggered | listed=0/1
+[2026-04-05 14:48:45] [INFO] [main] Q18 generation complete | answer_chars=499 | status=ok
+[2026-04-05 14:48:56] [INFO] [main] Q18 evaluation complete | final_score=0.7850
+[2026-04-05 14:48:57] [INFO] [main] Q19 retrieval complete | docs=18 | top_companies=Duckyang, F&P Georgia Manufacturing, FREYR Battery, Thermal Ceramics Inc., GLOVIS Georgia LLC
+[2026-04-05 14:48:57] [INFO] [main] Q19 context ready | chars=4846
+[2026-04-05 14:49:00] [INFO] [main] Q19 generation complete | answer_chars=384 | status=ok
+[2026-04-05 14:49:17] [INFO] [main] Q19 evaluation complete | final_score=0.9500
+[2026-04-05 14:49:17] [INFO] [main] Q20 retrieval complete | docs=18 | top_companies=Bridgestone Bandag, Aurubis, Denkai America, Bosal Industries Georgia, DAEHAN Solution Georgia LLC
+[2026-04-05 14:49:17] [INFO] [main] Q20 context ready | chars=4881
+[2026-04-05 14:49:20] [INFO] [generator] Generation completeness pass triggered | listed=2/11
+[2026-04-05 14:49:23] [INFO] [main] Q20 generation complete | answer_chars=401 | status=ok
+[2026-04-05 14:49:32] [INFO] [main] Q20 evaluation complete | final_score=0.2275
+[2026-04-05 14:49:33] [INFO] [main] Q21 retrieval complete | docs=11 | top_companies=F&P Georgia Manufacturing, Hyundai Motor Group, Hyundai Transys Georgia Powertrain, Hitachi Astemo Americas Inc., IMMI
+[2026-04-05 14:49:33] [INFO] [main] Q21 context ready | chars=4851
+[2026-04-05 14:49:40] [INFO] [main] Q21 generation complete | answer_chars=1243 | status=ok
+[2026-04-05 14:50:03] [INFO] [main] Q21 evaluation complete | final_score=0.5200
+[2026-04-05 14:50:03] [INFO] [main] Q22 retrieval complete | docs=3 | top_companies=GSC Steel Stamping LLC, Yazaki North America, ZF Gainesville LLC
+[2026-04-05 14:50:03] [INFO] [main] Q22 context ready | chars=1501
+[2026-04-05 14:50:06] [INFO] [main] Q22 generation complete | answer_chars=498 | status=ok
+[2026-04-05 14:50:33] [INFO] [main] Q22 evaluation complete | final_score=0.3540
+[2026-04-05 14:50:34] [INFO] [main] Q23 retrieval complete | docs=18 | top_companies=TCI Powder Coatings, Archer Aviation Inc., FREYR Battery, Arising Industries Inc., Denso Manufacturing Georgia
+[2026-04-05 14:50:34] [INFO] [main] Q23 context ready | chars=4760
+[2026-04-05 14:50:35] [INFO] [generator] Generation completeness pass triggered | listed=2/11
+[2026-04-05 14:50:37] [INFO] [main] Q23 generation complete | answer_chars=95 | status=ok
+[2026-04-05 14:51:02] [INFO] [main] Q23 evaluation complete | final_score=0.5175
+[2026-04-05 14:51:02] [INFO] [main] Q24 retrieval complete | docs=18 | top_companies=F&P Georgia Manufacturing, Hyundai Transys Georgia Seating Systems, IMS Gear Georgia Inc., Hyundai MOBIS (Georgia), Hollingsworth & Vose Co.
+[2026-04-05 14:51:02] [INFO] [main] Q24 context ready | chars=4649
+[2026-04-05 14:51:06] [INFO] [generator] Generation completeness pass triggered | listed=5/10
+[2026-04-05 14:51:10] [INFO] [main] Q24 generation complete | answer_chars=722 | status=ok
+[2026-04-05 14:51:18] [INFO] [main] Q24 evaluation complete | final_score=0.8300
+[2026-04-05 14:51:18] [INFO] [main] Q25 retrieval complete | docs=18 | top_companies=Goodyear Tire & Rubber Co., Bosal Industries Georgia, Daesol Material Georgia, LLC, Down 2 Earth Trailers, Global Powertrain Systems LLC
+[2026-04-05 14:51:18] [INFO] [main] Q25 context ready | chars=4865
+[2026-04-05 14:51:22] [INFO] [main] Q25 generation complete | answer_chars=612 | status=ok
+[2026-04-05 14:51:29] [INFO] [main] Q25 evaluation complete | final_score=0.3560
+[2026-04-05 14:51:29] [INFO] [main] Q26 retrieval complete | docs=18 | top_companies=Archer Aviation Inc., Arising Industries Inc., DAEHAN Solution Georgia LLC, GLOVIS Georgia LLC, Bosal Industries Georgia
+[2026-04-05 14:51:29] [INFO] [main] Q26 context ready | chars=4765
+[2026-04-05 14:51:31] [INFO] [generator] Generation completeness pass triggered | listed=2/11
+[2026-04-05 14:51:33] [INFO] [main] Q26 generation complete | answer_chars=203 | status=ok
+[2026-04-05 14:51:37] [INFO] [main] Q26 evaluation complete | final_score=0.9340
+[2026-04-05 14:51:38] [INFO] [main] Q27 retrieval complete | docs=18 | top_companies=Yamaha Motor Manufacturing Corp., Ajin Georgia, F&P Georgia Manufacturing, Joon Georgia, Inc., DAEHAN Solution Georgia LLC
+[2026-04-05 14:51:38] [INFO] [main] Q27 context ready | chars=4962
+[2026-04-05 14:51:40] [INFO] [generator] Generation completeness pass triggered | listed=2/11
+[2026-04-05 14:51:42] [INFO] [main] Q27 generation complete | answer_chars=261 | status=ok
+[2026-04-05 14:51:50] [INFO] [main] Q27 evaluation complete | final_score=0.1150
+[2026-04-05 14:51:50] [INFO] [main] Q28 retrieval complete | docs=6 | top_companies=F&P Georgia Manufacturing, IMMI, Hollingsworth & Vose Co., Hitachi Astemo Americas Inc., Hyundai Motor Group
+[2026-04-05 14:51:50] [INFO] [main] Q28 context ready | chars=2623
+[2026-04-05 14:51:58] [INFO] [generator] Generation completeness pass triggered | listed=5/6
+[2026-04-05 14:52:05] [INFO] [main] Q28 generation complete | answer_chars=1266 | status=ok
+[2026-04-05 14:52:30] [INFO] [main] Q28 evaluation complete | final_score=0.7440
+[2026-04-05 14:52:30] [INFO] [main] Q29 retrieval complete | docs=11 | top_companies=Hyundai Transys Georgia Powertrain, F&P Georgia Manufacturing, Hyundai Motor Group, Enchem America Inc., Racemark International LLC
+[2026-04-05 14:52:30] [INFO] [main] Q29 context ready | chars=4851
+[2026-04-05 14:52:33] [INFO] [main] Q29 generation complete | answer_chars=396 | status=ok
+[2026-04-05 14:52:49] [INFO] [main] Q29 evaluation complete | final_score=0.6860
+[2026-04-05 14:52:49] [INFO] [main] Q30 retrieval complete | docs=2 | top_companies=Duckyang, Enchem America Inc.
+[2026-04-05 14:52:49] [INFO] [main] Q30 context ready | chars=874
+[2026-04-05 14:52:53] [INFO] [main] Q30 generation complete | answer_chars=653 | status=ok

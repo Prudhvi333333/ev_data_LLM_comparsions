@@ -1,0 +1,7 @@
+{
+  "signature": "f48aa06d4ae8d10248e9e0ab6044f225cd05f08f79c5a0cd0eb57e6bac2dd506",
+  "corpus_hash": "55c79c1afaa2406740602b8f33ad5805e9246a45377291c3495f5da0a5b725b4",
+  "chunking_hash": "d371549ab0b60b2e45453386b8e5037a8566a1e4272dcd6b5a255a0396ebac15",
+  "chunk_count": 205,
+  "embedding_backend": "sentence-transformer::sentence-transformers/all-mpnet-base-v2"
+}

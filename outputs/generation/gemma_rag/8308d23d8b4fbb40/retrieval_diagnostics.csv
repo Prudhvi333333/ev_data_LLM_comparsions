@@ -1,0 +1,16 @@
+question_id,pipeline_name,retrieved_chunk_count,structured_ops_used,filter_fallback_applied
+101,gemma_rag,4,ontology_filtered_list,False
+102,gemma_rag,0,count_ontology_companies,False
+103,gemma_rag,8,filtered_list,False
+104,gemma_rag,1,rd_facilities,False
+105,gemma_rag,3,ontology_filtered_list,False
+106,gemma_rag,8,filtered_list,False
+107,gemma_rag,8,,False
+108,gemma_rag,2,ontology_filtered_list,False
+109,gemma_rag,8,filtered_list,False
+110,gemma_rag,8,filtered_list,False
+111,gemma_rag,0,top_company_by_employment,False
+112,gemma_rag,0,count_ontology_companies,False
+113,gemma_rag,8,filtered_list,False
+114,gemma_rag,1,ontology_filtered_list,False
+115,gemma_rag,1,rd_facilities,False

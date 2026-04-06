@@ -1,0 +1,48 @@
+[2026-04-05 09:57:55] [INFO] [kb_loader] Loaded 205 KB documents from data/kb/GNEM - Auto Landscape Lat Long Updated.xlsx
+[2026-04-05 09:57:55] [WARNING] [indexer] sentence-transformers unavailable; using local TF-IDF hash embeddings.
+[2026-04-05 09:57:55] [WARNING] [indexer] chromadb unavailable; using local pickle vector store.
+[2026-04-05 09:57:55] [INFO] [indexer] Embedding docs 1-32
+[2026-04-05 09:57:55] [INFO] [indexer] Embedding docs 33-64
+[2026-04-05 09:57:55] [INFO] [indexer] Embedding docs 65-96
+[2026-04-05 09:57:55] [INFO] [indexer] Embedding docs 97-128
+[2026-04-05 09:57:55] [INFO] [indexer] Embedding docs 129-160
+[2026-04-05 09:57:55] [INFO] [indexer] Embedding docs 161-192
+[2026-04-05 09:57:55] [INFO] [indexer] Embedding docs 193-205
+[2026-04-05 09:57:55] [WARNING] [indexer] rank-bm25 unavailable; using local BM25 implementation.
+[2026-04-05 09:57:55] [INFO] [indexer] Indexed 205 documents
+[2026-04-05 09:57:55] [WARNING] [retriever] CrossEncoder unavailable; using lexical rerank fallback.
+[2026-04-05 09:57:55] [INFO] [main] Running pipeline qwen_rag
+[2026-04-05 09:57:55] [INFO] [main] Q8 retrieval complete | docs=168 | top_companies=Jefferson Southern Corporation, Kumho Tire USA Inc., Joon Georgia, Inc., JTEKT North America Corp., Kautex Inc.
+[2026-04-05 09:57:55] [INFO] [main] Q8 structured context added | chars=639
+[2026-04-05 09:57:55] [INFO] [main] Q8 context ready | chars=639
+[2026-04-05 09:57:55] [INFO] [main] Q9 retrieval complete | docs=204 | top_companies=Teklas USA, ZF Gainesville LLC, ZF Gainesville LLC, TN Americas Holding Inc., Yazaki North America
+[2026-04-05 09:57:55] [INFO] [main] Q9 structured context added | chars=653
+[2026-04-05 09:57:55] [INFO] [main] Q9 context ready | chars=653
+[2026-04-05 09:57:55] [INFO] [main] Q10 retrieval complete | docs=132 | top_companies=Kia Georgia Inc., Textron Specialized Vehicles, Hyundai Motor Group, Teklas USA, TCI Powder Coatings
+[2026-04-05 09:57:55] [INFO] [main] Q10 structured context added | chars=505
+[2026-04-05 09:57:55] [INFO] [main] Q10 context ready | chars=505
+[2026-04-05 09:58:21] [INFO] [main] Q8 generation complete | answer_chars=56 | status=ok
+[2026-04-05 09:58:31] [INFO] [main] Q9 generation complete | answer_chars=70 | status=ok
+[2026-04-05 09:59:14] [INFO] [main] Q8 evaluation complete | final_score=0.4000
+[2026-04-05 09:59:15] [WARNING] [evaluator] Judge API call failed for faithfulness: Server error '502 Bad Gateway' for url 'http://127.0.0.1:11435/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502
+[2026-04-05 09:59:16] [WARNING] [evaluator] Judge API call failed for faithfulness: Server error '502 Bad Gateway' for url 'http://127.0.0.1:11435/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502
+[2026-04-05 09:59:19] [WARNING] [evaluator] Judge API call failed for faithfulness: Server error '502 Bad Gateway' for url 'http://127.0.0.1:11435/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502
+[2026-04-05 09:59:21] [ERROR] [evaluator] Metric failed (faithfulness): Kimi judge failed for metric=faithfulness: Server error '502 Bad Gateway' for url 'http://127.0.0.1:11435/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502
+[2026-04-05 09:59:21] [WARNING] [evaluator] Judge API call failed for answer_relevancy: Server error '502 Bad Gateway' for url 'http://127.0.0.1:11435/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502
+[2026-04-05 09:59:23] [WARNING] [evaluator] Judge API call failed for answer_relevancy: Server error '502 Bad Gateway' for url 'http://127.0.0.1:11435/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502
+[2026-04-05 10:00:35] [WARNING] [generator] Ollama generation timed out for qwen2.5:14b
+[2026-04-05 10:00:35] [INFO] [main] Q10 generation complete | answer_chars=18 | status=timeout
+[2026-04-05 10:01:12] [INFO] [main] Q9 evaluation complete | final_score=0.7500
+[2026-04-05 10:01:39] [INFO] [main] Q10 evaluation complete | final_score=0.4000
+[2026-04-05 10:01:39] [INFO] [reporter] Saved report outputs\reports\qwen_rag_report_20260405_100139.xlsx
+[2026-04-05 10:01:39] [INFO] [main] Report saved: outputs\reports\qwen_rag_report_20260405_100139.xlsx
+[2026-04-05 10:01:40] [INFO] [summary_reporter] Saved cross-pipeline summary outputs\reports\FINAL_COMPARISON_20260405_100140.xlsx
+[2026-04-05 10:01:40] [INFO] [main] Final comparison saved: outputs\reports\FINAL_COMPARISON_20260405_100140.xlsx
+[2026-04-05 10:01:40] [INFO] [main] Final pipeline summary
+[2026-04-05 10:01:40] [INFO] [main] qwen_rag | questions_answered=3 | timeouts=1 | mean_final_score=0.5167 | elapsed=224.58s

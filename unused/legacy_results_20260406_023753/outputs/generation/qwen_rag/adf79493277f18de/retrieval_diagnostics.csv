@@ -1,0 +1,4 @@
+question_id,pipeline_name,retrieved_chunk_count,structured_ops_used,filter_fallback_applied
+1,qwen_rag,8,list_records,False
+8,qwen_rag,8,county_employment_totals,False
+9,qwen_rag,8,county_employment_totals,False

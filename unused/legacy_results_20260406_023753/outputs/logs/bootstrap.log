@@ -1,0 +1,33 @@
+[2026-04-05 17:54:55] [INFO] [lexical_retrieval] Built lexical index at /tmp/pytest-of-sm11926/pytest-1/test_hybrid_retriever_respects0/lexical.pkl
+[2026-04-05 17:54:55] [WARNING] [reranker] Cross-encoder unavailable, falling back to lexical reranker: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+[2026-04-05 17:55:16] [INFO] [lexical_retrieval] Built lexical index at /tmp/pytest-of-sm11926/pytest-2/test_hybrid_retriever_respects0/lexical.pkl
+[2026-04-05 17:55:16] [WARNING] [reranker] Cross-encoder unavailable, falling back to lexical reranker: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+[2026-04-05 17:58:16] [INFO] [lexical_retrieval] Built lexical index at /tmp/pytest-of-sm11926/pytest-3/test_hybrid_retriever_respects0/lexical.pkl
+[2026-04-05 17:58:16] [WARNING] [reranker] Cross-encoder unavailable, falling back to lexical reranker: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+[2026-04-05 18:01:11] [INFO] [lexical_retrieval] Built lexical index at /tmp/pytest-of-sm11926/pytest-4/test_hybrid_retriever_respects0/lexical.pkl
+[2026-04-05 18:01:11] [WARNING] [reranker] Cross-encoder unavailable, falling back to lexical reranker: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+[2026-04-05 18:01:57] [INFO] [lexical_retrieval] Built lexical index at /tmp/pytest-of-sm11926/pytest-5/test_hybrid_retriever_respects0/lexical.pkl
+[2026-04-05 18:01:57] [WARNING] [reranker] Cross-encoder unavailable, falling back to lexical reranker: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+[2026-04-05 18:02:19] [INFO] [lexical_retrieval] Built lexical index at /tmp/pytest-of-sm11926/pytest-6/test_hybrid_retriever_respects0/lexical.pkl
+[2026-04-05 18:02:19] [WARNING] [reranker] Cross-encoder unavailable, falling back to lexical reranker: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+[2026-04-05 18:13:26] [INFO] [lexical_retrieval] Built lexical index at /tmp/pytest-of-sm11926/pytest-7/test_hybrid_retriever_respects0/lexical.pkl
+[2026-04-05 18:13:26] [WARNING] [reranker] Cross-encoder unavailable, falling back to lexical reranker: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+[2026-04-05 18:13:49] [INFO] [lexical_retrieval] Built lexical index at /tmp/pytest-of-sm11926/pytest-8/test_hybrid_retriever_respects0/lexical.pkl
+[2026-04-05 18:13:49] [WARNING] [reranker] Cross-encoder unavailable, falling back to lexical reranker: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+[2026-04-05 18:30:25] [INFO] [lexical_retrieval] Built lexical index at /tmp/pytest-of-sm11926/pytest-9/test_hybrid_retriever_respects0/lexical.pkl
+[2026-04-05 18:30:25] [WARNING] [reranker] Cross-encoder unavailable, falling back to lexical reranker: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+[2026-04-05 22:35:23] [INFO] [lexical_retrieval] Built lexical index at /tmp/pytest-of-sm11926/pytest-10/test_hybrid_retriever_respects0/lexical.pkl
+[2026-04-05 22:35:23] [WARNING] [reranker] Cross-encoder unavailable, falling back to lexical reranker: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+[2026-04-05 22:37:38] [INFO] [lexical_retrieval] Built lexical index at /tmp/pytest-of-sm11926/pytest-11/test_hybrid_retriever_respects0/lexical.pkl
+[2026-04-05 22:37:38] [WARNING] [reranker] Cross-encoder unavailable, falling back to lexical reranker: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.

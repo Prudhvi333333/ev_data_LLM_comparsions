@@ -1,0 +1,65 @@
+[2026-04-05 15:35:00] [INFO] [kb_loader] Loaded 205 KB documents from data/kb/GNEM - Auto Landscape Lat Long Updated.xlsx
+[2026-04-05 15:35:00] [INFO] [indexer] Embedding docs 1-32
+[2026-04-05 15:35:04] [INFO] [indexer] Embedding docs 33-64
+[2026-04-05 15:35:07] [INFO] [indexer] Embedding docs 65-96
+[2026-04-05 15:35:09] [INFO] [indexer] Embedding docs 97-128
+[2026-04-05 15:35:11] [INFO] [indexer] Embedding docs 129-160
+[2026-04-05 15:35:13] [INFO] [indexer] Embedding docs 161-192
+[2026-04-05 15:35:16] [INFO] [indexer] Embedding docs 193-205
+[2026-04-05 15:35:17] [INFO] [indexer] Indexed 205 documents
+[2026-04-05 15:35:18] [INFO] [main] Running pipeline qwen_rag
+[2026-04-05 15:35:18] [INFO] [main] Pipeline qwen_rag running in serialized mode for local Ollama stability.
+[2026-04-05 15:35:18] [INFO] [main] Q1 retrieval complete | docs=18 | top_companies=F&P Georgia Manufacturing, Hyundai Transys Georgia Seating Systems, Hyundai Transys Georgia Powertrain, IMS Gear Georgia Inc., Hyundai MOBIS (Georgia)
+[2026-04-05 15:35:18] [INFO] [main] Q1 structured context added | chars=1963
+[2026-04-05 15:35:18] [INFO] [main] Q1 context ready | chars=1963
+[2026-04-05 15:37:09] [INFO] [main] Q1 generation complete | answer_chars=1360 | status=ok
+[2026-04-05 15:37:19] [INFO] [main] Q1 evaluation complete | final_score=0.7745
+[2026-04-05 15:37:19] [INFO] [main] Q2 retrieval complete | docs=6 | top_companies=F&P Georgia Manufacturing, IMMI, Hyundai Motor Group, Hollingsworth & Vose Co., Hitachi Astemo Americas Inc.
+[2026-04-05 15:37:19] [INFO] [main] Q2 context ready | chars=2623
+[2026-04-05 15:37:47] [INFO] [generator] Generation completeness pass triggered | listed=4/6
+[2026-04-05 15:38:16] [INFO] [main] Q2 generation complete | answer_chars=233 | status=ok
+[2026-04-05 15:38:27] [INFO] [main] Q2 evaluation complete | final_score=0.7680
+[2026-04-05 15:38:27] [INFO] [main] Q3 retrieval complete | docs=4 | top_companies=Novelis Inc., Hyundai Transys Georgia Powertrain, Freudenberg-NOK, Peerless-Winsmith Inc.
+[2026-04-05 15:38:27] [INFO] [main] Q3 context ready | chars=1826
+[2026-04-05 15:40:03] [INFO] [main] Q3 generation complete | answer_chars=919 | status=ok
+[2026-04-05 15:40:14] [INFO] [main] Q3 evaluation complete | final_score=0.7900
+[2026-04-05 15:40:17] [INFO] [main] Q4 retrieval complete | docs=30 | top_companies=Yazaki North America, IMS Gear Georgia Inc., Hyundai Transys Georgia Seating Systems, GSC Steel Stamping LLC, ZF Gainesville LLC
+[2026-04-05 15:40:17] [INFO] [main] Q4 context ready | chars=13083
+[2026-04-05 15:42:10] [INFO] [generator] Generation completeness pass triggered | listed=4/29
+[2026-04-05 15:44:08] [INFO] [main] Q4 generation complete | answer_chars=1444 | status=ok
+[2026-04-05 15:44:21] [INFO] [main] Q4 evaluation complete | final_score=0.1675
+[2026-04-05 15:44:24] [INFO] [main] Q5 retrieval complete | docs=18 | top_companies=Thomson Plastics Inc., Suzuki Manufacturing of America Corp., Valeo, Superior Essex Inc., Minebea AccessSolutions USA Inc.
+[2026-04-05 15:44:24] [INFO] [main] Q5 context ready | chars=5166
+[2026-04-05 15:45:12] [INFO] [generator] Generation completeness pass triggered | listed=8/12
+[2026-04-05 15:46:00] [INFO] [main] Q5 generation complete | answer_chars=510 | status=ok
+[2026-04-05 15:46:38] [INFO] [main] Q5 evaluation complete | final_score=0.4850
+[2026-04-05 15:46:38] [INFO] [main] Q6 retrieval complete | docs=3 | top_companies=Novelis Inc., Novelis Inc., Novelis Inc.
+[2026-04-05 15:46:38] [INFO] [main] Q6 context ready | chars=1285
+[2026-04-05 15:46:51] [INFO] [generator] Generation completeness pass triggered | listed=0/1
+[2026-04-05 15:47:04] [INFO] [main] Q6 generation complete | answer_chars=141 | status=ok
+[2026-04-05 15:47:26] [INFO] [main] Q6 evaluation complete | final_score=0.9725
+[2026-04-05 15:47:26] [INFO] [main] Q7 retrieval complete | docs=22 | top_companies=Robert Bosch LLC, MAT Heavy Duty, Arising Industries Inc., Pak-Lite Inc., FOX Factory
+[2026-04-05 15:47:26] [INFO] [main] Q7 context ready | chars=4727
+[2026-04-05 15:47:42] [INFO] [main] Q7 generation complete | answer_chars=97 | status=ok
+[2026-04-05 15:47:57] [INFO] [main] Q7 evaluation complete | final_score=0.5500
+[2026-04-05 15:47:59] [INFO] [main] Q8 retrieval complete | docs=168 | top_companies=Peterson Spring, Lehigh Technologies Inc., Paccar, Rivian Automotive, RealTruck
+[2026-04-05 15:47:59] [INFO] [main] Q8 structured context added | chars=639
+[2026-04-05 15:47:59] [INFO] [main] Q8 context ready | chars=639
+[2026-04-05 15:48:34] [INFO] [main] Q8 generation complete | answer_chars=219 | status=ok
+[2026-04-05 15:48:44] [INFO] [main] Q8 evaluation complete | final_score=0.6400
+[2026-04-05 15:48:47] [INFO] [main] Q9 retrieval complete | docs=204 | top_companies=Eaton Corp., PIOLAX Corp., Duckyang, Ecoplastic America Corporation, Panduit Corp.
+[2026-04-05 15:48:47] [INFO] [main] Q9 structured context added | chars=653
+[2026-04-05 15:48:47] [INFO] [main] Q9 context ready | chars=653
+[2026-04-05 15:48:55] [INFO] [main] Q9 generation complete | answer_chars=70 | status=ok
+[2026-04-05 15:49:05] [INFO] [main] Q9 evaluation complete | final_score=1.0000
+[2026-04-05 15:49:07] [INFO] [main] Q10 retrieval complete | docs=132 | top_companies=Novelis Inc., Sejong Georgia LLC, Novelis Inc., Rivian Automotive, Joon Georgia, Inc.
+[2026-04-05 15:49:07] [INFO] [main] Q10 structured context added | chars=505
+[2026-04-05 15:49:07] [INFO] [main] Q10 context ready | chars=505
+[2026-04-05 15:49:42] [INFO] [main] Q10 generation complete | answer_chars=418 | status=ok
+[2026-04-05 15:49:51] [INFO] [main] Q10 evaluation complete | final_score=0.9900
+[2026-04-05 15:49:51] [INFO] [reporter] Saved report outputs\reports\qwen_rag_report_20260405_154951.xlsx
+[2026-04-05 15:49:51] [INFO] [main] Report saved: outputs\reports\qwen_rag_report_20260405_154951.xlsx
+[2026-04-05 15:49:52] [INFO] [summary_reporter] Saved cross-pipeline summary outputs\reports\FINAL_COMPARISON_20260405_154951.xlsx
+[2026-04-05 15:49:52] [INFO] [main] Final comparison saved: outputs\reports\FINAL_COMPARISON_20260405_154951.xlsx
+[2026-04-05 15:49:52] [INFO] [main] Final pipeline summary
+[2026-04-05 15:49:52] [INFO] [main] qwen_rag | questions_answered=10 | timeouts=0 | mean_final_score=0.7137 | elapsed=873.83s

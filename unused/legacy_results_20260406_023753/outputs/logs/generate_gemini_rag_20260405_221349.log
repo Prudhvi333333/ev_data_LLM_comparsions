@@ -1,0 +1,9 @@
+[2026-04-05 18:13:49] [INFO] [cli] Starting generation run for gemini_rag
+[2026-04-05 18:13:49] [INFO] [embeddings] Loading embedding model sentence-transformers/all-mpnet-base-v2
+[2026-04-05 18:13:49] [INFO] [sentence_transformers.SentenceTransformer] Use pytorch device_name: cpu
+[2026-04-05 18:13:49] [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+[2026-04-05 18:13:49] [INFO] [vectorstore] Loading vector index from /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/indexes/55c79c1afaa2406740602b8f33ad5805e9246a45377291c3495f5da0a5b725b4/sentence-transformers__all-mpnet-base-v2
+[2026-04-05 18:13:49] [INFO] [lexical_retrieval] Loaded lexical index from /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/indexes/55c79c1afaa2406740602b8f33ad5805e9246a45377291c3495f5da0a5b725b4/sentence-transformers__all-mpnet-base-v2/lexical.pkl
+[2026-04-05 18:13:49] [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
+[2026-04-05 18:13:50] [INFO] [cli] Generation completed for gemini_rag. Outputs saved to /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/generation/gemini_rag/8c511891e49b69fb
+[2026-04-05 18:13:50] [INFO] [cli] Log file: /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/logs/generate_gemini_rag_20260405_221349.log

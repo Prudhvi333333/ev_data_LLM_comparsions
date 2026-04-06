@@ -1,0 +1,10 @@
+{
+  "total_questions": 50,
+  "success_rate": 1.0,
+  "status_counts": {
+    "success": 50
+  },
+  "mean_latency_seconds": 6.461889792867005,
+  "rag_enabled": true,
+  "pipeline_name": "gemma_rag"
+}

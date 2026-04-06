@@ -1,0 +1,82 @@
+[2026-04-05 17:55:30] [INFO] [cli] Starting generation run for qwen_rag
+[2026-04-05 17:55:30] [INFO] [embeddings] Loading embedding model sentence-transformers/all-mpnet-base-v2
+[2026-04-05 17:55:30] [INFO] [sentence_transformers.SentenceTransformer] Use pytorch device_name: cpu
+[2026-04-05 17:55:30] [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+[2026-04-05 17:55:30] [INFO] [vectorstore] Building vector index at /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/indexes/55c79c1afaa2406740602b8f33ad5805e9246a45377291c3495f5da0a5b725b4/sentence-transformers__all-mpnet-base-v2
+[2026-04-05 17:55:34] [INFO] [lexical_retrieval] Built lexical index at /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/indexes/55c79c1afaa2406740602b8f33ad5805e9246a45377291c3495f5da0a5b725b4/sentence-transformers__all-mpnet-base-v2/lexical.pkl
+[2026-04-05 17:55:34] [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
+[2026-04-05 17:55:34] [ERROR] [cli] Generation failed for question 1
+Traceback (most recent call last):
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/sm11926/anaconda3/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/src/cli.py", line 263, in run_generate
+    record = pipeline.run_question(question_row.to_dict(), attempt_count=attempt_count)
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/src/pipelines/rag_pipeline.py", line 55, in run_question
+    result = self.generator.generate(system_prompt=system_prompt, user_prompt=user_prompt)
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/src/generators/base.py", line 65, in generate
+    response = client.post(self.endpoint, json=payload)
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/httpx/_client.py", line 1144, in post
+    return self.request(
+           ~~~~~~~~~~~~^
+        "POST",
+        ^^^^^^^
+    ...<11 lines>...
+        extensions=extensions,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/sm11926/anaconda3/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 111] Connection refused

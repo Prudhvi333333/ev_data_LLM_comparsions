@@ -1,0 +1,19 @@
+[2026-04-05 22:46:26] [INFO] [cli] Starting generation run for qwen_rag
+[2026-04-05 22:46:26] [INFO] [embeddings] Loading embedding model sentence-transformers/all-mpnet-base-v2
+[2026-04-05 22:46:26] [INFO] [sentence_transformers.SentenceTransformer] Use pytorch device_name: cpu
+[2026-04-05 22:46:26] [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+[2026-04-05 22:46:26] [INFO] [vectorstore] Building vector index at /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/indexes/55c79c1afaa2406740602b8f33ad5805e9246a45377291c3495f5da0a5b725b4/sentence-transformers__all-mpnet-base-v2
+[2026-04-05 22:46:31] [INFO] [lexical_retrieval] Built lexical index at /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/indexes/55c79c1afaa2406740602b8f33ad5805e9246a45377291c3495f5da0a5b725b4/sentence-transformers__all-mpnet-base-v2/lexical.pkl
+[2026-04-05 22:46:31] [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
+[2026-04-05 22:46:38] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 22:46:40] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 22:46:42] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 22:46:43] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 22:46:44] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 22:46:45] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 22:46:52] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 22:46:52] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 22:46:53] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 22:46:54] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 22:46:54] [INFO] [cli] Generation completed for qwen_rag. Outputs saved to /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/generation/qwen_rag/b13688e38bb908d5
+[2026-04-05 22:46:54] [INFO] [cli] Log file: /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/logs/generate_qwen_rag_20260406_024626.log

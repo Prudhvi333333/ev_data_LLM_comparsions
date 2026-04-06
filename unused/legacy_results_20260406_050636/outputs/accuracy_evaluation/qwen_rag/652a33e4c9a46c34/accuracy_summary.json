@@ -1,0 +1,10 @@
+{
+  "pipeline_name": "qwen_rag",
+  "total_rows": 50,
+  "rows_evaluated": 50,
+  "correct_count": 14,
+  "partially_correct_count": 31,
+  "incorrect_count": 5,
+  "weighted_accuracy_mean": 0.59,
+  "failed_evaluation_rows": 0
+}

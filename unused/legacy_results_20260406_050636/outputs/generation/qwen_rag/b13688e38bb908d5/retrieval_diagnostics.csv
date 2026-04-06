@@ -1,0 +1,11 @@
+question_id,pipeline_name,retrieved_chunk_count,structured_ops_used,filter_fallback_applied
+13,qwen_rag,6,oem_supplier_network,False
+14,qwen_rag,4,ontology_filtered_list,False
+15,qwen_rag,2,ontology_filtered_list,False
+17,qwen_rag,2,ontology_filtered_list,False
+23,qwen_rag,1,ontology_filtered_list,False
+24,qwen_rag,6,ontology_filtered_list,False
+27,qwen_rag,0,sole_source_roles,False
+35,qwen_rag,0,count_ontology_companies,False
+43,qwen_rag,3,ontology_filtered_list,False
+50,qwen_rag,1,rd_facilities,False

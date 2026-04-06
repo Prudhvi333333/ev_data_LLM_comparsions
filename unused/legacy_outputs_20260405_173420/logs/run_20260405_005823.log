@@ -1,0 +1,14 @@
+[2026-04-05 00:58:53] [INFO] [kb_loader] Loaded 205 KB documents from GNEM - Auto Landscape Lat Long Updated.xlsx
+[2026-04-05 00:58:53] [WARNING] [indexer] sentence-transformers unavailable; using local TF-IDF hash embeddings.
+[2026-04-05 00:58:53] [WARNING] [indexer] chromadb unavailable; using local pickle vector store.
+[2026-04-05 00:58:53] [INFO] [indexer] Embedding docs 1-32
+[2026-04-05 00:58:53] [INFO] [indexer] Embedding docs 33-64
+[2026-04-05 00:58:53] [INFO] [indexer] Embedding docs 65-96
+[2026-04-05 00:58:53] [INFO] [indexer] Embedding docs 97-128
+[2026-04-05 00:58:53] [INFO] [indexer] Embedding docs 129-160
+[2026-04-05 00:58:53] [INFO] [indexer] Embedding docs 161-192
+[2026-04-05 00:58:53] [INFO] [indexer] Embedding docs 193-205
+[2026-04-05 00:58:53] [WARNING] [indexer] rank-bm25 unavailable; using local BM25 implementation.
+[2026-04-05 00:58:53] [INFO] [indexer] Indexed 205 documents
+[2026-04-05 00:58:53] [WARNING] [retriever] CrossEncoder unavailable; using lexical rerank fallback.
+[2026-04-05 00:58:55] [INFO] [reporter] Saved report outputs\reports\qwen_rag_report.xlsx

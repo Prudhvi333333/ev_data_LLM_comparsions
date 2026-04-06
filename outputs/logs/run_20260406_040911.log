@@ -1,0 +1,297 @@
+[2026-04-06 04:09:15] [INFO] [kb_loader] Loaded 205 KB documents from data/kb/GNEM - Auto Landscape Lat Long Updated.xlsx
+[2026-04-06 04:09:15] [WARNING] [indexer] chromadb unavailable; using local pickle vector store.
+[2026-04-06 04:09:15] [INFO] [main] Running pipeline gemma_rag
+[2026-04-06 04:09:15] [INFO] [main] Pipeline gemma_rag running in serialized mode for local Ollama stability.
+[2026-04-06 04:09:15] [INFO] [main] Q1 retrieval complete | docs=18 | top_companies=F&P Georgia Manufacturing, Hyundai MOBIS (Georgia), Hyundai Transys Georgia Powertrain, IMS Gear Georgia Inc., Hyundai Transys Georgia Seating Systems
+[2026-04-06 04:09:15] [INFO] [main] Q1 structured context added | chars=1963
+[2026-04-06 04:09:15] [INFO] [main] Q1 context ready | chars=10150
+[2026-04-06 04:09:15] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:09:15] [INFO] [main] Q1 generation complete | answer_chars=1934 | status=structured_fallback
+[2026-04-06 04:10:02] [INFO] [main] Q1 evaluation complete | final_score=1.0000
+[2026-04-06 04:10:02] [INFO] [main] Q2 retrieval complete | docs=6 | top_companies=F&P Georgia Manufacturing, Hitachi Astemo Americas Inc., IMMI, Honda Development & Manufacturing, Hyundai Motor Group
+[2026-04-06 04:10:02] [INFO] [main] Q2 context ready | chars=2623
+[2026-04-06 04:10:02] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:10:02] [INFO] [main] Q2 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:10:02] [INFO] [main] Q3 retrieval complete | docs=4 | top_companies=Hyundai Transys Georgia Powertrain, Novelis Inc., Freudenberg-NOK, Peerless-Winsmith Inc.
+[2026-04-06 04:10:02] [INFO] [main] Q3 context ready | chars=1826
+[2026-04-06 04:10:02] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:10:02] [INFO] [main] Q3 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:10:03] [INFO] [main] Q4 retrieval complete | docs=4 | top_companies=Yazaki North America, GSC Steel Stamping LLC, ZF Gainesville LLC, Morgan Corp.
+[2026-04-06 04:10:03] [INFO] [main] Q4 context ready | chars=1942
+[2026-04-06 04:10:03] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:10:03] [INFO] [main] Q4 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:10:03] [INFO] [main] Q5 retrieval complete | docs=18 | top_companies=Thomson Plastics Inc., Valeo, Superior Essex Inc., Suzuki Manufacturing of America Corp., Woory Industrial Co.
+[2026-04-06 04:10:03] [INFO] [main] Q5 context ready | chars=4767
+[2026-04-06 04:10:03] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:10:03] [INFO] [main] Q5 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:10:03] [INFO] [main] Q6 retrieval complete | docs=3 | top_companies=Novelis Inc., Novelis Inc., Novelis Inc.
+[2026-04-06 04:10:03] [INFO] [main] Q6 context ready | chars=1285
+[2026-04-06 04:10:03] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:10:03] [INFO] [main] Q6 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:10:03] [INFO] [main] Q7 retrieval complete | docs=12 | top_companies=WIKA USA, MAT Heavy Duty, Robert Bosch LLC, FOX Factory, Arising Industries Inc.
+[2026-04-06 04:10:03] [INFO] [main] Q7 context ready | chars=4884
+[2026-04-06 04:10:03] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:10:03] [INFO] [main] Q7 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:10:04] [INFO] [main] Q8 retrieval complete | docs=77 | top_companies=Lark United Manufacturing Inc., Lehigh Technologies Inc., Lund International Inc./Ventshade Division, MAT Heavy Duty, Maxxis International USA
+[2026-04-06 04:10:04] [INFO] [main] Q8 structured context added | chars=630
+[2026-04-06 04:10:04] [INFO] [main] Q8 context ready | chars=630
+[2026-04-06 04:10:04] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:10:04] [INFO] [main] Q8 generation complete | answer_chars=67 | status=structured_fallback
+[2026-04-06 04:11:08] [WARNING] [evaluator] Judge API call failed for answer_correctness: 
+[2026-04-06 04:11:13] [INFO] [main] Q8 evaluation complete | final_score=0.7775
+[2026-04-06 04:11:14] [INFO] [main] Q9 retrieval complete | docs=205 | top_companies=Yazaki North America, Woory Industrial Co., Superior Essex Inc., TN Americas Holding Inc., WIKA USA
+[2026-04-06 04:11:14] [INFO] [main] Q9 structured context added | chars=665
+[2026-04-06 04:11:14] [INFO] [main] Q9 context ready | chars=665
+[2026-04-06 04:11:14] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:11:14] [INFO] [main] Q9 generation complete | answer_chars=72 | status=structured_fallback
+[2026-04-06 04:12:25] [INFO] [main] Q9 evaluation complete | final_score=1.0000
+[2026-04-06 04:12:25] [INFO] [main] Q10 retrieval complete | docs=10 | top_companies=Kia Georgia Inc., TCI Powder Coatings, Teklas USA, TE Connectivity, Superior Essex Inc.
+[2026-04-06 04:12:25] [INFO] [main] Q10 context ready | chars=4279
+[2026-04-06 04:12:25] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:12:25] [INFO] [main] Q10 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:12:25] [INFO] [main] Q11 retrieval complete | docs=3 | top_companies=Sewon America Inc., Sewon America Inc., Sewon America Inc.
+[2026-04-06 04:12:25] [INFO] [main] Q11 context ready | chars=1206
+[2026-04-06 04:12:25] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:12:25] [INFO] [main] Q11 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:12:25] [INFO] [main] Q12 retrieval complete | docs=3 | top_companies=Enchem America Inc., Duckyang, GSC Steel Stamping LLC
+[2026-04-06 04:12:25] [INFO] [main] Q12 context ready | chars=1381
+[2026-04-06 04:12:25] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:12:25] [INFO] [main] Q12 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:12:26] [INFO] [main] Q13 retrieval complete | docs=18 | top_companies=Hyundai Transys Georgia Powertrain, Rivian Automotive, Racemark International LLC, Enchem America Inc., Duckyang
+[2026-04-06 04:12:26] [INFO] [main] Q13 context ready | chars=4763
+[2026-04-06 04:12:26] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:12:26] [INFO] [main] Q13 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:12:26] [WARNING] [retriever] No retrieval candidates for query 'Which Georgia companies produce battery materials such as anodes, cathodes, electrolytes, or copper foil, and what tier are they classified as?'; returning empty retrieval set.
+[2026-04-06 04:12:26] [INFO] [main] Q14 retrieval complete | docs=0 | top_companies=n/a
+[2026-04-06 04:12:26] [INFO] [main] Q14 context ready | chars=34
+[2026-04-06 04:12:26] [INFO] [main] Q14 generation complete | answer_chars=80 | status=empty_retrieval
+[2026-04-06 04:12:49] [INFO] [main] Q14 evaluation complete | final_score=0.0000
+[2026-04-06 04:12:50] [INFO] [main] Q15 retrieval complete | docs=18 | top_companies=WIKA USA, Woodbridge Foam Corp., F&P Georgia Manufacturing, Enchem America Inc., Yamaha Motor Manufacturing Corp.
+[2026-04-06 04:12:50] [INFO] [main] Q15 context ready | chars=4945
+[2026-04-06 04:12:50] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:12:50] [INFO] [main] Q15 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:12:50] [WARNING] [retriever] No retrieval candidates for query 'Find Georgia-based Tier 1 or Tier 1/2 suppliers capable of producing battery electrolytes or lithium-ion battery materials with existing OEM contracts.'; returning empty retrieval set.
+[2026-04-06 04:12:50] [INFO] [main] Q16 retrieval complete | docs=0 | top_companies=n/a
+[2026-04-06 04:12:50] [INFO] [main] Q16 context ready | chars=34
+[2026-04-06 04:12:50] [INFO] [main] Q16 generation complete | answer_chars=80 | status=empty_retrieval
+[2026-04-06 04:13:31] [INFO] [main] Q16 evaluation complete | final_score=0.0000
+[2026-04-06 04:13:32] [INFO] [main] Q17 retrieval complete | docs=48 | top_companies=Woodbridge Foam Corp., WIKA USA, Woory Industrial Co., Yamaha Motor Manufacturing Corp., Hyundai Transys Georgia Powertrain
+[2026-04-06 04:13:32] [INFO] [main] Q17 structured context added | chars=147
+[2026-04-06 04:13:32] [INFO] [main] Q17 context ready | chars=147
+[2026-04-06 04:13:32] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:13:32] [INFO] [main] Q17 generation complete | answer_chars=114 | status=structured_fallback
+[2026-04-06 04:14:27] [INFO] [main] Q17 evaluation complete | final_score=0.0300
+[2026-04-06 04:14:27] [WARNING] [retriever] No retrieval candidates for query 'Identify Georgia Tier 2/3 companies in the Electronic and Electrical Equipment industry group that could be upgraded to supply EV power electronics.'; returning empty retrieval set.
+[2026-04-06 04:14:27] [INFO] [main] Q18 retrieval complete | docs=0 | top_companies=n/a
+[2026-04-06 04:14:27] [INFO] [main] Q18 context ready | chars=34
+[2026-04-06 04:14:27] [INFO] [main] Q18 generation complete | answer_chars=80 | status=empty_retrieval
+[2026-04-06 04:15:00] [INFO] [main] Q18 evaluation complete | final_score=0.8000
+[2026-04-06 04:15:00] [WARNING] [retriever] No retrieval candidates for query 'Find Georgia-based companies that manufacture copper foil or electrodeposited materials suitable for EV battery current collectors.'; returning empty retrieval set.
+[2026-04-06 04:15:00] [INFO] [main] Q19 retrieval complete | docs=0 | top_companies=n/a
+[2026-04-06 04:15:00] [INFO] [main] Q19 context ready | chars=34
+[2026-04-06 04:15:00] [INFO] [main] Q19 generation complete | answer_chars=80 | status=empty_retrieval
+[2026-04-06 04:16:24] [INFO] [main] Q19 evaluation complete | final_score=0.0000
+[2026-04-06 04:16:24] [INFO] [main] Q20 retrieval complete | docs=11 | top_companies=Hyundai MOBIS (Georgia), IMS Gear Georgia Inc., Hyundai Transys Georgia Seating Systems, Jefferson Southern Corp., Hyundai & LG Energy Solution (LGES)
+[2026-04-06 04:16:24] [INFO] [main] Q20 context ready | chars=4533
+[2026-04-06 04:16:24] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:16:24] [INFO] [main] Q20 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:16:24] [INFO] [main] Q21 retrieval complete | docs=11 | top_companies=F&P Georgia Manufacturing, Hyundai Motor Group, Hyundai Transys Georgia Powertrain, IMMI, Hitachi Astemo Americas Inc.
+[2026-04-06 04:16:24] [INFO] [main] Q21 context ready | chars=4851
+[2026-04-06 04:16:24] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:16:24] [INFO] [main] Q21 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:16:24] [INFO] [main] Q22 retrieval complete | docs=3 | top_companies=GSC Steel Stamping LLC, Yazaki North America, ZF Gainesville LLC
+[2026-04-06 04:16:24] [INFO] [main] Q22 structured context added | chars=147
+[2026-04-06 04:16:24] [INFO] [main] Q22 context ready | chars=147
+[2026-04-06 04:16:24] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:16:24] [INFO] [main] Q22 generation complete | answer_chars=114 | status=structured_fallback
+[2026-04-06 04:16:49] [INFO] [main] Q22 evaluation complete | final_score=0.3300
+[2026-04-06 04:16:50] [INFO] [main] Q23 retrieval complete | docs=18 | top_companies=TCI Powder Coatings, Archer Aviation Inc., ADVICS Manufacturing Georgia LLC, GLOVIS Georgia LLC, Denso Manufacturing Georgia
+[2026-04-06 04:16:50] [INFO] [main] Q23 context ready | chars=4772
+[2026-04-06 04:16:50] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:16:50] [INFO] [main] Q23 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:16:50] [INFO] [main] Q24 retrieval complete | docs=18 | top_companies=F&P Georgia Manufacturing, Hyundai Transys Georgia Seating Systems, Hyundai Motor Group, Hollingsworth & Vose Co., IMS Gear Georgia Inc.
+[2026-04-06 04:16:50] [INFO] [main] Q24 context ready | chars=4649
+[2026-04-06 04:16:50] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:16:50] [INFO] [main] Q24 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:16:50] [INFO] [main] Q25 retrieval complete | docs=52 | top_companies=Global Powertrain Systems LLC, GLOVIS Georgia LLC, Down 2 Earth Trailers, ADVICS Manufacturing Georgia LLC, FOX Factory
+[2026-04-06 04:16:50] [INFO] [main] Q25 structured context added | chars=992
+[2026-04-06 04:16:50] [INFO] [main] Q25 context ready | chars=992
+[2026-04-06 04:16:50] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:16:50] [INFO] [main] Q25 generation complete | answer_chars=952 | status=structured_fallback
+[2026-04-06 04:17:05] [INFO] [main] Q25 evaluation complete | final_score=0.9800
+[2026-04-06 04:17:05] [INFO] [main] Q26 retrieval complete | docs=2 | top_companies=Arising Industries Inc., Archer Aviation Inc.
+[2026-04-06 04:17:05] [INFO] [main] Q26 context ready | chars=876
+[2026-04-06 04:17:05] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:17:05] [INFO] [main] Q26 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:17:06] [INFO] [main] Q27 retrieval complete | docs=205 | top_companies=Joon Georgia, Inc., Yamaha Motor Manufacturing Corp., Hyundai Transys Georgia Powertrain, F&P Georgia Manufacturing, Hyundai MOBIS (Georgia)
+[2026-04-06 04:17:06] [INFO] [main] Q27 structured context added | chars=2274
+[2026-04-06 04:17:06] [INFO] [main] Q27 context ready | chars=2274
+[2026-04-06 04:17:06] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:17:06] [INFO] [main] Q27 generation complete | answer_chars=2249 | status=structured_fallback
+[2026-04-06 04:17:25] [INFO] [main] Q27 evaluation complete | final_score=0.9700
+[2026-04-06 04:17:25] [INFO] [main] Q28 retrieval complete | docs=6 | top_companies=F&P Georgia Manufacturing, Hitachi Astemo Americas Inc., IMMI, Honda Development & Manufacturing, Hollingsworth & Vose Co.
+[2026-04-06 04:17:25] [INFO] [main] Q28 context ready | chars=2623
+[2026-04-06 04:17:25] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:17:25] [INFO] [main] Q28 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:17:25] [INFO] [main] Q29 retrieval complete | docs=11 | top_companies=Hyundai Transys Georgia Powertrain, F&P Georgia Manufacturing, Hyundai Motor Group, Enchem America Inc., IMMI
+[2026-04-06 04:17:25] [INFO] [main] Q29 context ready | chars=4851
+[2026-04-06 04:17:25] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:17:25] [INFO] [main] Q29 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:17:25] [INFO] [main] Q30 retrieval complete | docs=2 | top_companies=Enchem America Inc., Duckyang
+[2026-04-06 04:17:25] [INFO] [main] Q30 context ready | chars=874
+[2026-04-06 04:17:25] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:17:25] [INFO] [main] Q30 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:17:25] [INFO] [main] Q31 retrieval complete | docs=11 | top_companies=Hyundai MOBIS (Georgia), Hyundai Transys Georgia Seating Systems, IMS Gear Georgia Inc., Jefferson Southern Corp., Hwashin
+[2026-04-06 04:17:25] [INFO] [main] Q31 context ready | chars=4670
+[2026-04-06 04:17:25] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:17:25] [INFO] [main] Q31 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:17:25] [INFO] [main] Q32 retrieval complete | docs=7 | top_companies=Hyundai Transys Georgia Powertrain, ZF Gainesville LLC, Peerless-Winsmith Inc., Freudenberg-NOK, Yazaki North America
+[2026-04-06 04:17:25] [INFO] [main] Q32 context ready | chars=3298
+[2026-04-06 04:17:25] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:17:25] [INFO] [main] Q32 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:17:25] [INFO] [main] Q33 retrieval complete | docs=18 | top_companies=Yamaha Motor Manufacturing Corp., ZF Gainesville LLC, ZF Gainesville LLC, Voestalpine Automotive Body Parts Inc., Woory Industrial Co.
+[2026-04-06 04:17:25] [INFO] [main] Q33 context ready | chars=4779
+[2026-04-06 04:17:25] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:17:25] [INFO] [main] Q33 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:17:26] [INFO] [main] Q34 retrieval complete | docs=30 | top_companies=Enchem America Inc., Duckyang, Racemark International LLC, Hyundai MOBIS (Georgia), Hyundai Transys Georgia Seating Systems
+[2026-04-06 04:17:26] [INFO] [main] Q34 structured context added | chars=741
+[2026-04-06 04:17:26] [INFO] [main] Q34 context ready | chars=741
+[2026-04-06 04:17:26] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:17:26] [INFO] [main] Q34 generation complete | answer_chars=708 | status=structured_fallback
+[2026-04-06 04:17:45] [INFO] [main] Q34 evaluation complete | final_score=0.7850
+[2026-04-06 04:17:45] [WARNING] [retriever] No retrieval candidates for query 'How many Georgia companies are now producing lithium-ion battery materials, cells, or electrolytes?'; returning empty retrieval set.
+[2026-04-06 04:17:45] [INFO] [main] Q35 retrieval complete | docs=0 | top_companies=n/a
+[2026-04-06 04:17:45] [INFO] [main] Q35 context ready | chars=34
+[2026-04-06 04:17:45] [INFO] [main] Q35 generation complete | answer_chars=80 | status=empty_retrieval
+[2026-04-06 04:17:58] [INFO] [main] Q35 evaluation complete | final_score=0.0000
+[2026-04-06 04:17:58] [INFO] [main] Q36 retrieval complete | docs=18 | top_companies=Eaton Corp., Down 2 Earth Trailers, Erdrich USA Inc., Ecoplastic America Corporation, Global Powertrain Systems LLC
+[2026-04-06 04:17:58] [INFO] [main] Q36 structured context added | chars=977
+[2026-04-06 04:17:58] [INFO] [main] Q36 context ready | chars=977
+[2026-04-06 04:17:58] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:17:58] [INFO] [main] Q36 generation complete | answer_chars=944 | status=structured_fallback
+[2026-04-06 04:18:33] [INFO] [main] Q36 evaluation complete | final_score=1.0000
+[2026-04-06 04:18:34] [INFO] [main] Q37 retrieval complete | docs=48 | top_companies=Hyundai Transys Georgia Seating Systems, Yazaki North America, Hyundai MOBIS (Georgia), GSC Steel Stamping LLC, IMS Gear Georgia Inc.
+[2026-04-06 04:18:34] [INFO] [main] Q37 structured context added | chars=147
+[2026-04-06 04:18:34] [INFO] [main] Q37 context ready | chars=147
+[2026-04-06 04:18:34] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:18:34] [INFO] [main] Q37 generation complete | answer_chars=114 | status=structured_fallback
+[2026-04-06 04:18:50] [INFO] [main] Q37 evaluation complete | final_score=1.0000
+[2026-04-06 04:18:50] [INFO] [main] Q38 retrieval complete | docs=76 | top_companies=TCI Powder Coatings, Textron Specialized Vehicles, Teklas USA, ACM Georgia LLC, GLOVIS Georgia LLC
+[2026-04-06 04:18:50] [INFO] [main] Q38 structured context added | chars=372
+[2026-04-06 04:18:50] [INFO] [main] Q38 context ready | chars=372
+[2026-04-06 04:18:50] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:18:50] [INFO] [main] Q38 generation complete | answer_chars=337 | status=structured_fallback
+[2026-04-06 04:19:07] [INFO] [main] Q38 evaluation complete | final_score=0.9500
+[2026-04-06 04:19:07] [INFO] [main] Q39 retrieval complete | docs=5 | top_companies=Novelis Inc., Hyundai Transys Georgia Powertrain, ZF Gainesville LLC, Peerless-Winsmith Inc., Freudenberg-NOK
+[2026-04-06 04:19:07] [INFO] [main] Q39 context ready | chars=2319
+[2026-04-06 04:19:07] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:19:07] [INFO] [main] Q39 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:19:08] [INFO] [main] Q40 retrieval complete | docs=18 | top_companies=Novelis Inc., Freudenberg-NOK, Thermal Ceramics Inc., ZF Gainesville LLC, ZF Gainesville LLC
+[2026-04-06 04:19:08] [INFO] [main] Q40 context ready | chars=8200
+[2026-04-06 04:19:08] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:19:08] [INFO] [main] Q40 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:19:08] [INFO] [main] Q41 retrieval complete | docs=11 | top_companies=Hyundai MOBIS (Georgia), Hyundai Transys Georgia Seating Systems, IMS Gear Georgia Inc., JAC Products Inc., Hyundai Industrial Co.
+[2026-04-06 04:19:08] [INFO] [main] Q41 context ready | chars=4670
+[2026-04-06 04:19:08] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:19:08] [INFO] [main] Q41 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:19:08] [INFO] [main] Q42 retrieval complete | docs=4 | top_companies=Novelis Inc., Peerless-Winsmith Inc., Hyundai Transys Georgia Powertrain, Freudenberg-NOK
+[2026-04-06 04:19:08] [INFO] [main] Q42 context ready | chars=1826
+[2026-04-06 04:19:08] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:19:08] [INFO] [main] Q42 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:19:09] [INFO] [main] Q43 retrieval complete | docs=163 | top_companies=F&P Georgia Manufacturing, Enplas USA Inc., FREYR Battery, SungEel Recycling Park Georgia, GLOVIS Georgia LLC
+[2026-04-06 04:19:09] [INFO] [main] Q43 structured context added | chars=338
+[2026-04-06 04:19:09] [INFO] [main] Q43 context ready | chars=338
+[2026-04-06 04:19:09] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:19:09] [INFO] [main] Q43 generation complete | answer_chars=307 | status=structured_fallback
+[2026-04-06 04:19:17] [INFO] [main] Q43 evaluation complete | final_score=1.0000
+[2026-04-06 04:19:17] [INFO] [main] Q44 retrieval complete | docs=60 | top_companies=Racemark International LLC, F&P Georgia Manufacturing, GLOVIS Georgia LLC, ADVICS Manufacturing Georgia LLC, GEDIA Georgia LLC
+[2026-04-06 04:19:17] [INFO] [main] Q44 structured context added | chars=180
+[2026-04-06 04:19:17] [INFO] [main] Q44 context ready | chars=180
+[2026-04-06 04:19:17] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:19:17] [INFO] [main] Q44 generation complete | answer_chars=141 | status=structured_fallback
+[2026-04-06 04:19:28] [INFO] [main] Q44 evaluation complete | final_score=1.0000
+[2026-04-06 04:19:28] [INFO] [main] Q45 retrieval complete | docs=168 | top_companies=Hyundai Transys Georgia Powertrain, Racemark International LLC, Rivian Automotive, Novelis Inc., Hyundai Transys Georgia Seating Systems
+[2026-04-06 04:19:28] [INFO] [main] Q45 structured context added | chars=384
+[2026-04-06 04:19:28] [INFO] [main] Q45 context ready | chars=384
+[2026-04-06 04:19:28] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:19:28] [INFO] [main] Q45 generation complete | answer_chars=358 | status=structured_fallback
+[2026-04-06 04:19:40] [INFO] [main] Q45 evaluation complete | final_score=1.0000
+[2026-04-06 04:19:41] [INFO] [main] Q46 retrieval complete | docs=18 | top_companies=Sejong Georgia LLC, Joon Georgia, Inc., Rivian Automotive, Novelis Inc., Oneda Corp.
+[2026-04-06 04:19:41] [INFO] [main] Q46 context ready | chars=4952
+[2026-04-06 04:19:41] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:19:41] [INFO] [main] Q46 generation complete | answer_chars=181 | status=error
+[2026-04-06 04:19:41] [INFO] [main] Q47 retrieval complete | docs=26 | top_companies=Novelis Inc., Hyundai Transys Georgia Powertrain, Peerless-Winsmith Inc., Freudenberg-NOK, SK Battery America
+[2026-04-06 04:19:41] [INFO] [main] Q47 structured context added | chars=863
+[2026-04-06 04:19:41] [INFO] [main] Q47 context ready | chars=863
+[2026-04-06 04:19:41] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:19:41] [INFO] [main] Q47 generation complete | answer_chars=828 | status=structured_fallback
+[2026-04-06 04:20:07] [INFO] [main] Q47 evaluation complete | final_score=0.9400
+[2026-04-06 04:20:08] [INFO] [main] Q48 retrieval complete | docs=163 | top_companies=ADVICS Manufacturing Georgia LLC, Joon Georgia, Inc., Denso Manufacturing Georgia, Grudem, Ajin Georgia
+[2026-04-06 04:20:08] [INFO] [main] Q48 structured context added | chars=996
+[2026-04-06 04:20:08] [INFO] [main] Q48 context ready | chars=996
+[2026-04-06 04:20:08] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:20:08] [INFO] [main] Q48 generation complete | answer_chars=466 | status=structured_fallback
+[2026-04-06 04:20:53] [INFO] [main] Q48 evaluation complete | final_score=0.9265
+[2026-04-06 04:20:54] [INFO] [main] Q49 retrieval complete | docs=205 | top_companies=F&P Georgia Manufacturing, FREYR Battery, DAEHAN Solution Georgia LLC, SK Battery America, Hollingsworth & Vose Co.
+[2026-04-06 04:20:54] [INFO] [main] Q49 structured context added | chars=189
+[2026-04-06 04:20:54] [INFO] [main] Q49 context ready | chars=189
+[2026-04-06 04:20:54] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:20:54] [INFO] [main] Q49 generation complete | answer_chars=157 | status=structured_fallback
+[2026-04-06 04:21:07] [INFO] [main] Q49 evaluation complete | final_score=1.0000
+[2026-04-06 04:21:08] [INFO] [main] Q50 retrieval complete | docs=60 | top_companies=Racemark International LLC, Dongwon Autopart Technology Georgia LLC, Yamaha Motor Manufacturing Corp., Yazaki North America, GLOVIS Georgia LLC
+[2026-04-06 04:21:08] [INFO] [main] Q50 structured context added | chars=180
+[2026-04-06 04:21:08] [INFO] [main] Q50 context ready | chars=180
+[2026-04-06 04:21:08] [WARNING] [generator] Ollama generation failed for gemma3:12b: Client error '404 Not Found' for url 'http://127.0.0.1:11434/api/generate'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+[2026-04-06 04:21:08] [INFO] [main] Q50 generation complete | answer_chars=141 | status=structured_fallback
+[2026-04-06 04:21:55] [INFO] [main] Q50 evaluation complete | final_score=0.6800
+[2026-04-06 04:21:55] [INFO] [reporter] Saved report outputs/reports/gemma_rag_report_20260406_042155.xlsx
+[2026-04-06 04:21:55] [INFO] [main] Report saved: outputs/reports/gemma_rag_report_20260406_042155.xlsx
+[2026-04-06 04:21:55] [INFO] [summary_reporter] Saved cross-pipeline summary outputs/reports/FINAL_COMPARISON_20260406_042155.xlsx
+[2026-04-06 04:21:55] [INFO] [main] Final comparison saved: outputs/reports/FINAL_COMPARISON_20260406_042155.xlsx
+[2026-04-06 04:21:55] [INFO] [main] Final pipeline summary
+[2026-04-06 04:21:55] [INFO] [main] gemma_rag | questions_answered=50 | timeouts=0 | mean_final_score=0.3234 | elapsed=759.52s

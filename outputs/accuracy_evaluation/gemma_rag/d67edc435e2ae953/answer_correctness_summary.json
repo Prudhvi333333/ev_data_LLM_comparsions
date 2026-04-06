@@ -1,0 +1,10 @@
+{
+  "pipeline_name": "gemma_rag",
+  "total_rows": 50,
+  "rows_evaluated": 50,
+  "mean_answer_correctness_score": 0.7609999999999999,
+  "correct_count": 41,
+  "partially_correct_count": 4,
+  "incorrect_count": 5,
+  "failed_evaluation_rows": 0
+}

@@ -1,0 +1,11 @@
+question_id,pipeline_name,retrieved_chunk_count,structured_ops_used,filter_fallback_applied
+13,gemma_rag,6,oem_supplier_network,False
+14,gemma_rag,4,ontology_filtered_list,False
+15,gemma_rag,2,ontology_filtered_list,False
+17,gemma_rag,2,ontology_filtered_list,False
+23,gemma_rag,1,ontology_filtered_list,False
+24,gemma_rag,6,ontology_filtered_list,False
+27,gemma_rag,0,sole_source_roles,False
+35,gemma_rag,0,count_ontology_companies,False
+43,gemma_rag,3,ontology_filtered_list,False
+50,gemma_rag,1,rd_facilities,False

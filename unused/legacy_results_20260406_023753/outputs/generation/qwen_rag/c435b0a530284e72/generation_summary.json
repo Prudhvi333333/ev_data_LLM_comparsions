@@ -1,0 +1,10 @@
+{
+  "total_questions": 1,
+  "success_rate": 0.0,
+  "status_counts": {
+    "failed": 1
+  },
+  "mean_latency_seconds": 0.0,
+  "rag_enabled": true,
+  "pipeline_name": "qwen_rag"
+}

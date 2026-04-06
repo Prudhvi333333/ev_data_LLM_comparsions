@@ -1,0 +1,427 @@
+========================================================================================================================
+QID: 21
+QUESTION: Find Georgia suppliers with existing Hyundai Kia contracts that could be expanded to support Hyundai Metaplant's EV battery production ramp-up.
+GOLDEN:
+There are 12 companies with existing Hyundai Kia contracts that could be expanded to support Hyundai Metaplant's EV battery production ramp-up.  
+
+F&P Georgia Manufacturing 
+Duckyang 
+GSC Steel Stamping LLC 
+Hitachi Astemo Americas Inc. 
+Hollingsworth & Vose Co. 
+Honda Development & Manufacturing 
+Hyundai Motor Group 
+Hyundai Transys Georgia Powertrain 
+IMMI 
+Enchem America Inc. 
+Racemark International LLC 
+Superior Essex Inc.
+GENERATED:
+GENERATION_TIMEOUT
+RETRIEVED_CONTEXT_HEAD:
+RELEVANT KNOWLEDGE BASE EXCERPTS:
+Company: F&P Georgia Manufacturing | Tier: Tier 1/2 | Industry: Primary Metal Industries
+Location: Rome, Floyd County | Address: 88 Enterprise Drive SE, Rome, GA 30161
+Facility: Manufacturing Plant | EV Role: Battery Pack
+OEMs: Hyundai Kia | Affiliation: Automotive supply chain participant
+Employment: 104 | Products: Lithium-ion battery recycler and raw materials provider
+EV Relevant: Yes | Classification: Supplier
+---
+Company: Hyundai Motor Group | Tier: Tier 1/2 | Industry: Electronic and Other Electrical Equipment and Components
+Location: Ellabell, Bryan County | Address: 700 Hyundai Blvd, Ellabell, GA 31308
+Facility: Manufacturing Plant | EV Role: Battery Pack
+OEMs: Hyundai Kia | Affiliation: Automotive supply chain participant
+Employment: 164 | Products: Battery parts for electric vehicles
+EV Relevant: Yes | Classification: Supplier
+---
+Company: Hyundai Transys Georgia Powertrain | Tier: Tier 1/2 | Industry: Electronic and Other Electrical Equipment and Components
+Location: West Point, Troup County | Address: 100 Powertrain Way, West Point, GA 31833
+Facility: Manufacturing Plant | EV Role: Thermal Management
+OEMs: Hyundai Kia Rivian | Affiliation: Automotive supply chain participant
+Employment: 130 | Products: Electrical heaters, control units, and actuators
+EV Relevant: Yes | Classification: Supplier
+---
+Company: Hitachi Astemo Americas Inc. | Tier: Tier 1/2 | Industry: Electronic and Other Electrical Equipment and Components
+Location: 
+========================================================================================================================
+QID: 22
+QUESTION: Identify Georgia companies producing DC-to-DC converters, capacitors, or power electronics components relevant to EV drivetrains and what tier is each assigned?
+GOLDEN:
+There are 3 Georgia companies producing DC-to-DC converters, capacitors, or power electronics components relevant to EV drivetrains. 
+
+GSC Steel Stamping LLC [Tier 2/3] 
+Hyundai MOBIS (Georgia) [Tier 1/2] 
+Hyundai Transys Georgia Seating Systems [Tier 1/2]
+GENERATED:
+GSC Steel Stamping LLC produces DC-to-DC converters and is assigned Tier 2/3.
+Yazaki North America produces power electronics components and is assigned OEM Footprint.
+ZF Gainesville LLC produces power electronics components and is assigned OEM Supply Chain.
+RETRIEVED_CONTEXT_HEAD:
+RELEVANT KNOWLEDGE BASE EXCERPTS:
+Company: GSC Steel Stamping LLC | Tier: Tier 2/3 | Industry: Machinery Except Electrical
+Location: Adairsville, Bartow County | Address: 104 International Pkwy, Adairsville, GA 30103
+Facility: Manufacturing Plant | EV Role: Power Electronics
+OEMs: Hyundai Kia Rivian | Affiliation: Automotive supply chain participant
+Employment: 350 | Products: Deep grove ball bearings Toyota Industries Electric Systems North 255 DC-to-DC converters Jackson America, Inc.*
+EV Relevant: Yes | Classification: Supplier
+---
+Company: Hyundai Transys Georgia Seating Systems | Tier: Tier 1/2 | Industry: Electronic and Other Electrical Equipment and Components
+Location: West Point, Troup County | Address: 801 Transys Pkwy, West Point, GA 31833
+Facility: Manufacturing Plant | EV Role: General Automotive
+OEMs: Multiple OEMs | Affiliation: Automotive supply chain participant
+Employment: 110 | Products: Automotive electronics, resonators, capacitors, resistors, electronics and electronic parts
+EV Relevant: Indirect | Classification: Supplier
+---
+Company: Yazaki North America | Tier: OEM Footprint | Industry: Automotive electronics and systems
+Location: Spalding County | Address: 375 Airport Rd, Griffin, Georgia
+Facility: Engineering / Operations | EV Role: Power electronics, sensors, and EV systems
+OEMs:  | Affiliation: 
+Employment: 230000 | Products: Automotive supplier division (mobility solutions: ADAS, powertrain, electronics)
+EV Relevant: Yes | Classification: Public 
+========================================================================================================================
+QID: 23
+QUESTION: Which Georgia companies provide powder coating-related products or services, and what tier are they classified under?
+GOLDEN:
+There is only 1 company that provides powder coating-related products or services
+Archer Aviation Inc. [Tier 2/3] | Product: Powder coatings for automotive and other industries | EV Relevant: Indirect
+GENERATED:
+Company: Archer Aviation Inc. | Tier: Tier 2/3
+Company: TCI Powder Coatings | Tier: OEM
+RETRIEVED_CONTEXT_HEAD:
+RELEVANT KNOWLEDGE BASE EXCERPTS:
+Company: ADVICS Manufacturing Georgia LLC | Tier: Tier 2/3 | Industry: Textile Products
+Location: LaGrange, Troup County | Address: 1621 Lukken Industrial Dr W, LaGrange, GA 30240
+Facility: Manufacturing Plant | EV Role: General Automotive
+OEMs: Multiple OEMs | Affiliation: Automotive supply chain participant
+Employment: 150 | Products: Air bags, tire cording, performance related products
+EV Relevant: No | Classification: Supplier
+---
+Company: TCI Powder Coatings | Tier: OEM | Industry: Transportation Equipment
+Location: Ellaville, Schley County | Address: 610 Dixon Dr, Ellaville, GA 31806
+Facility: Manufacturing Plant | EV Role: Vehicle Assembly
+OEMs: Kia Georgia Inc. | Affiliation: Original Equipment Manufacturer
+Employment: 3000 | Products: Automotive assembly plant
+EV Relevant: Indirect | Classification: Direct Manufacturer
+---
+Company: Archer Aviation Inc. | Tier: Tier 2/3 | Industry: Chemicals and Allied Products
+Location: Covington, Morgan County | Address: 2151 Centennial Pkwy NE, Covington, GA 30014
+Facility: Manufacturing Plant | EV Role: General Automotive
+OEMs: Multiple OEMs | Affiliation: Automotive supply chain participant
+Employment: 200 | Products: Powder coatings for automotive and other industries
+EV Relevant: Indirect | Classification: Supplier
+---
+Company: FREYR Battery | Tier: Tier 2/3 | Industry: Fabricated Metal Products
+Location: Atlanta, Fulton County | Address: 601 10th St NW, Suite 400, Atlanta, GA 30318
+Facility: M
+========================================================================================================================
+QID: 24
+QUESTION: Which Georgia companies manufacture battery parts or enclosure systems and are classified as Tier 1/2, making them ready for direct OEM engagement and show which Primary OEMs they are linked to.
+GOLDEN:
+There are 6 Georgia companies manufacturing battery parts or enclosure systems and are classified as Tier 1/2, making them ready for direct OEM engagement. 
+
+F&P Georgia Manufacturing | OEMs: Hyundai Kia 
+Hitachi Astemo Americas Inc. | OEMs: Hyundai Kia 
+Hollingsworth & Vose Co. | OEMs: Hyundai Kia 
+Honda Development & Manufacturing | OEMs: Hyundai Kia 
+Hyundai Motor Group | OEMs: Hyundai Kia 
+IMMI | OEMs: Hyundai Kia
+GENERATED:
+F&P Georgia Manufacturing | Tier: Tier 1/2 | EV Role: Battery Pack | OEMs: Hyundai Kia | Products: Lithium-ion battery recycler and raw materials provider | EV Relevant: Yes
+Hyundai Motor Group | Tier: Tier 1/2 | EV Role: Battery Pack | OEMs: Hyundai Kia | Products: Battery parts for electric vehicles | EV Relevant: Yes
+Hitachi Astemo Americas Inc. | Tier: Tier 1/2 | EV Role: Battery Cell | OEMs: Hyundai Kia | Products: Battery cells for electric mobility | EV Relevant: Yes
+IMMI | Tier: Tier 1/2 | EV Role: Battery Pack | OEMs: Hyundai Kia | Products: Battery electrolyte | EV Relevant: Yes
+RETRIEVED_CONTEXT_HEAD:
+RELEVANT KNOWLEDGE BASE EXCERPTS:
+Company: F&P Georgia Manufacturing | Tier: Tier 1/2 | Industry: Primary Metal Industries
+Location: Rome, Floyd County | Address: 88 Enterprise Drive SE, Rome, GA 30161
+Facility: Manufacturing Plant | EV Role: Battery Pack
+OEMs: Hyundai Kia | Affiliation: Automotive supply chain participant
+Employment: 104 | Products: Lithium-ion battery recycler and raw materials provider
+EV Relevant: Yes | Classification: Supplier
+---
+Company: Hyundai Transys Georgia Seating Systems | Tier: Tier 1/2 | Industry: Electronic and Other Electrical Equipment and Components
+Location: West Point, Troup County | Address: 801 Transys Pkwy, West Point, GA 31833
+Facility: Manufacturing Plant | EV Role: General Automotive
+OEMs: Multiple OEMs | Affiliation: Automotive supply chain participant
+Employment: 110 | Products: Automotive electronics, resonators, capacitors, resistors, electronics and electronic parts
+EV Relevant: Indirect | Classification: Supplier
+---
+Company: Hyundai Motor Group | Tier: Tier 1/2 | Industry: Electronic and Other Electrical Equipment and Components
+Location: Ellabell, Bryan County | Address: 700 Hyundai Blvd, Ellabell, GA 31308
+Facility: Manufacturing Plant | EV Role: Battery Pack
+OEMs: Hyundai Kia | Affiliation: Automotive supply chain participant
+Employment: 164 | Products: Battery parts for electric vehicles
+EV Relevant: Yes | Classification: Supplier
+---
+Company: IMS Gear Georgia Inc. | Tier: Tier 1/2 | Industry: Electronic and Other Electri
+========================================================================================================================
+QID: 25
+QUESTION: Find Tier 2/3 Georgia-based suppliers with employment over 300 that are classified as General Automotive but produce components transferable to EV platforms.
+GOLDEN:
+There are 8 Tier 2/3 Georgia-based suppliers with employment over 300 that are classified as General Automotive but produce components transferable to EV platforms. 
+
+Arising Industries Inc. | Employment: 582 
+Dinex Emissions Inc. | Employment: 500 
+ACM Georgia LLC | Employment: 400 
+Dongwon Autopart Technology Georgia LLC | Employment: 315 
+FOX Factory | Employment: 345 
+AVS | Employment: 310 
+Flambeau Inc. | Employment: 700
+Grudem | Employment: 807
+GENERATED:
+Company: Down 2 Earth Trailers
+Tier: Tier 2/3
+Location: Baxley, Appling County
+Employment: 300
+Products: Standard and custom aluminum-lithium products for automotive customers
+EV Relevant: Indirect
+
+Company: Dongwon Autopart Technology Georgia LLC
+Tier: Tier 2/3
+Location: Hogansville, Meriwether County
+Employment: 315
+Products: Aluminum extrusions
+EV Relevant: No
+
+Company: FOX Factory
+Tier: Tier 2/3
+Location: Duluth, Gwinnett County
+Employment: 345
+Products: Chrome plated automotive parts
+EV Relevant: Indirect
+
+Company: ACM Georgia LLC
+Tier: Tier 2/3
+Location: Warrenton, Warren County
+Employment: 400
+Products: Automotive floor mats made of purchased wire
+EV Relevant: Indirect
+RETRIEVED_CONTEXT_HEAD:
+RELEVANT KNOWLEDGE BASE EXCERPTS:
+Company: Goodyear Tire & Rubber Co. | Tier: Tier 2/3 | Industry: Fabricated Metal Products
+Location: Atlanta, Clayton County | Address: 1420 Phoenix Blvd, Suite 300, Atlanta, GA 30349
+Facility: Manufacturing Plant | EV Role: General Automotive
+OEMs: Multiple OEMs | Affiliation: Automotive supply chain participant
+Employment: 80 | Products: Coiled and flat springs for power train, chassis and body applications
+EV Relevant: No | Classification: Supplier
+---
+Company: Bosal Industries Georgia | Tier: Tier 2/3 | Industry: Rubber and Miscellaneous Plastic Products
+Location: Lavonia, Franklin County | Address: 1 Bosal Way, Lavonia, GA 30553
+Facility: Manufacturing Plant | EV Role: General Automotive
+OEMs: Multiple OEMs | Affiliation: Automotive supply chain participant
+Employment: 250 | Products: Tires for cars, trucks and motorcycles
+EV Relevant: No | Classification: Supplier
+---
+Company: Daesol Material Georgia, LLC | Tier: Tier 2/3 | Industry: Rubber and Miscellaneous Plastic Products
+Location: Duluth, Gwinnett County | Address: 2895 Old Norcross Rd, Duluth, GA 30096
+Facility: Manufacturing Plant | EV Role: General Automotive
+OEMs: Multiple OEMs | Affiliation: Automotive supply chain participant
+Employment: 90 | Products: Tires
+EV Relevant: No | Classification: Supplier
+---
+Company: Down 2 Earth Trailers | Tier: Tier 2/3 | Industry: Primary Metal Industries
+Location: Baxley, Appling County | Address: 1605 E Parker Street, Baxley, GA 31513
+Facilit
+========================================================================================================================
+QID: 26
+QUESTION: Identify Georgia Tier 2/3 companies in the Chemicals and Allied Products industry group and list their products.
+GOLDEN:
+There are 2 Georgia Tier 2/3 companies in Chemicals and Allied Products industry group.
+
+Archer Aviation Inc. | Product: Powder coatings for automotive and other industries 
+Arising Industries Inc. | Product: Rubber powders for tires
+GENERATED:
+Archer Aviation Inc. - Powder coatings for automotive and other industries
+Arising Industries Inc. - Rubber powders for tires
+RETRIEVED_CONTEXT_HEAD:
+RELEVANT KNOWLEDGE BASE EXCERPTS:
+Company: Archer Aviation Inc. | Tier: Tier 2/3 | Industry: Chemicals and Allied Products
+Location: Covington, Morgan County | Address: 2151 Centennial Pkwy NE, Covington, GA 30014
+Facility: Manufacturing Plant | EV Role: General Automotive
+OEMs: Multiple OEMs | Affiliation: Automotive supply chain participant
+Employment: 200 | Products: Powder coatings for automotive and other industries
+EV Relevant: Indirect | Classification: Supplier
+---
+Company: Arising Industries Inc. | Tier: Tier 2/3 | Industry: Chemicals and Allied Products
+Location: Norcross, Gwinnett County | Address: 6010 Unity Dr, Norcross, GA 30071
+Facility: Manufacturing Plant | EV Role: General Automotive
+OEMs: Multiple OEMs | Affiliation: Automotive supply chain participant
+Employment: 70 | Products: Rubber powders for tires
+EV Relevant: No | Classification: Supplier
+---
+Company: Bosal Industries Georgia | Tier: Tier 2/3 | Industry: Rubber and Miscellaneous Plastic Products
+Location: Lavonia, Franklin County | Address: 1 Bosal Way, Lavonia, GA 30553
+Facility: Manufacturing Plant | EV Role: General Automotive
+OEMs: Multiple OEMs | Affiliation: Automotive supply chain participant
+Employment: 250 | Products: Tires for cars, trucks and motorcycles
+EV Relevant: No | Classification: Supplier
+---
+Company: Denso Manufacturing Georgia | Tier: Tier 2/3 | Industry: Stone, Clay, Glass and Concrete Products
+Location: Pendergrass, Jackson County | Address: 1000 Valentine Industrial Pkwy, Pend
+========================================================================================================================
+QID: 27
+QUESTION: Which EV Supply Chain Roles in Georgia are served by only a single company, creating a single-point-of-failure risk for the state's EV ecosystem?
+GOLDEN:
+There are 28 Supply Chain Roles in Georgia served by only a single company, creating a single-point-of-failure risk for the state's EV ecosystem  
+
+Role: Advanced electrical architecture for EVs | Only company: Yamaha Motor Manufacturing Corp.
+Role: Body and chassis components for EV and ICE OEMs | Only company: Vanguard National Trailer Corp.
+Role: Charging Infrastructure | Only company: Morgan Corp.
+Role: EV and ICE component manufacturing | Only company: Vista Metals Corp.
+Role: EV and ICE powertrain and HVAC components | Only company: Voestalpine Automotive Body Parts Inc.
+Role: EV body, powertrain, and thermal components | Only company: ZF Gainesville LLC
+Role: EV electrical distribution and interior systems | Only company: Yachiyo Manufacturing of America LLC
+Role: EV sensors, braking, and control systems | Only company: YKK USA Inc.
+Role: EV thermal management and power electronics | Only company: ZF Gainesville LLC
+Role: EV thermal systems and electronics | Only company: ZF Gainesville LLC
+Role: EV wiring harnesses and power distribution | Only company: Woodbridge Foam Corp.
+Role: HV and LV wiring harnesses for EVs and ICE vehicles | Only company: WIKA USA
+Role: High‑voltage EV connectors and electronics | Only company: Woory Industrial Co.
+Role: Interior and exterior plastic parts | Only company: Wabash National Corp.
+Role: Interior trim and textile components | Only company: Wheelabrator Group Inc.
+Role: Machined components supporting EV and ICE vehicles | Only company: Trenton Pressing Inc.
+Role: OEM corporate and engineering footprint (electrification) | Only company: Tie Down Engineering
+Role: OEM corporate footprint and supplier integration | Only company: Trenton Pressing
+Role: OEM corporate footprint influencing EV strategy | Only company: TI Fluid Systems
+Role: OEM parent group footprint (EV + HD electrification) | Only company: TN Americas Holding Inc.
+Role: OEM parent group footprint (electric truck strategy) | Only company: Toyota Industries Group (TACG-TICA)
+Role: Plastic components for EV and ICE vehicles | Only company: Volvo Cars USA
+Role: Power Electronics | Only company: GSC Steel Stamping LLC
+Role: Power electronics, sensors, and EV systems | Only company: Yazaki North America
+Role: Stamped and welded assemblies for OEMs | Only company: Vernay
+Role: Stamped metal components for OEMs | Only company: Volvo Group North America
+Role: Tier 1 automotive components | Only company: Valeo
+Role: Vehicle safety systems OEM (EV + ICE) → Only company: TI Fluid Systems
+GENERATED:
+The EV Supply Chain Role "Thermal Management" is served by only a single company, Hyundai Transys Georgia Powertrain, creating a single-point-of-failure risk for the state's EV ecosystem.
+RETRIEVED_CONTEXT_HEAD:
+RELEVANT KNOWLEDGE BASE EXCERPTS:
+Company: Joon Georgia, Inc. | Tier: Tier 1 | Industry: Transportation Equipment
+Location: West Point, Chattahoochee County | Address: 100 Industrial Park Rd, West Point, GA 31833
+Facility: Manufacturing Plant | EV Role: General Automotive
+OEMs: Multiple OEMs | Affiliation: Automotive supply chain participant
+Employment: 900 | Products: Seats and seat foam pads
+EV Relevant: No | Classification: Supplier
+---
+Company: Hyundai Transys Georgia Seating Systems | Tier: Tier 1/2 | Industry: Electronic and Other Electrical Equipment and Components
+Location: West Point, Troup County | Address: 801 Transys Pkwy, West Point, GA 31833
+Facility: Manufacturing Plant | EV Role: General Automotive
+OEMs: Multiple OEMs | Affiliation: Automotive supply chain participant
+Employment: 110 | Products: Automotive electronics, resonators, capacitors, resistors, electronics and electronic parts
+EV Relevant: Indirect | Classification: Supplier
+---
+Company: Hyundai Transys Georgia Powertrain | Tier: Tier 1/2 | Industry: Electronic and Other Electrical Equipment and Components
+Location: West Point, Troup County | Address: 100 Powertrain Way, West Point, GA 31833
+Facility: Manufacturing Plant | EV Role: Thermal Management
+OEMs: Hyundai Kia Rivian | Affiliation: Automotive supply chain participant
+Employment: 130 | Products: Electrical heaters, control units, and actuators
+EV Relevant: Yes | Classification: Supplier
+---
+Company: Hyundai MOBIS (Georgia) | Tier: Tier 1/2 | In
+========================================================================================================================
+QID: 28
+QUESTION: Which Georgia Battery Cell or Battery Pack suppliers are sole-sourced by a specific OEM, indicating high dependency risk?
+GOLDEN:
+There are 6 Georgia Battery Cell or Battery Pack suppliers that are sole-sourced by a specific OEM, indicating high dependency risk.
+  • F&P Georgia Manufacturing | Role: Battery Pack | Primary OEM: Hyundai Kia
+  • Hitachi Astemo Americas Inc. | Role: Battery Cell | Primary OEM: Hyundai Kia
+  • Hollingsworth & Vose Co. | Role: Battery Pack | Primary OEM: Hyundai Kia
+  • Honda Development & Manufacturing | Role: Battery Cell | Primary OEM: Hyundai Kia
+  • Hyundai Motor Group | Role: Battery Pack | Primary OEM: Hyundai Kia
+  • IMMI | Role: Battery Pack | Primary OEM: Hyundai Kia
+GENERATED:
+The context provided does not specify which companies are sole-sourced by a specific OEM, nor does it indicate the level of dependency risk. Therefore, this information is not available in the knowledge base.
+RETRIEVED_CONTEXT_HEAD:
+RELEVANT KNOWLEDGE BASE EXCERPTS:
+Company: F&P Georgia Manufacturing | Tier: Tier 1/2 | Industry: Primary Metal Industries
+Location: Rome, Floyd County | Address: 88 Enterprise Drive SE, Rome, GA 30161
+Facility: Manufacturing Plant | EV Role: Battery Pack
+OEMs: Hyundai Kia | Affiliation: Automotive supply chain participant
+Employment: 104 | Products: Lithium-ion battery recycler and raw materials provider
+EV Relevant: Yes | Classification: Supplier
+---
+Company: IMMI | Tier: Tier 1/2 | Industry: Electronic and Other Electrical Equipment and Components
+Location: Dublin, Laurens County | Address: 2002 Industrial Park Dr, Dublin, GA 31021
+Facility: Manufacturing Plant | EV Role: Battery Pack
+OEMs: Hyundai Kia | Affiliation: Automotive supply chain participant
+Employment: 100 | Products: Battery electrolyte
+EV Relevant: Yes | Classification: Supplier
+---
+Company: Hollingsworth & Vose Co. | Tier: Tier 1/2 | Industry: Electronic and Other Electrical Equipment and Components
+Location: Hawkinsville, Pulaski County | Address: 111 Hollingsworth & Vose Rd, Hawkinsville, GA 31036
+Facility: Manufacturing Plant | EV Role: Battery Pack
+OEMs: Hyundai Kia | Affiliation: Automotive supply chain participant
+Employment: 400 | Products: Lithium-ion battery materials
+EV Relevant: Yes | Classification: Supplier
+---
+Company: Hitachi Astemo Americas Inc. | Tier: Tier 1/2 | Industry: Electronic and Other Electrical Equipment and Components
+Location: Shorter, Harris County | Address: 400 Hanon Dr, Short
+========================================================================================================================
+QID: 29
+QUESTION: For Hyundai Metaplant, how many of its Georgia-based EV component suppliers have fewer than 200 employees, flagging potential capacity fragility?
+GOLDEN:
+For Hyundai Metaplant, there are 6 Georgia-based EV component suppliers with less than 200 employees, flagging potential capacity fragility.
+Enchem America Inc. | Employment: 155
+F&P Georgia Manufacturing | Employment: 104
+Hyundai Motor Group | Employment: 164
+Hyundai Transys Georgia Powertrain | Employment: 130
+IMMI | Employment: 100
+Racemark International LLC | Employment: 120
+GENERATED:
+Based on the provided context rows, there are four Georgia-based EV component suppliers for Hyundai that have fewer than 200 employees:
+
+1. F&P Georgia Manufacturing - Employment: 104
+2. Enchem America Inc. - Employment: 155
+3. Racemark International LLC - Employment: 120
+4. IMMI - Employment: 100
+
+Therefore, the count is 4 suppliers.
+RETRIEVED_CONTEXT_HEAD:
+RELEVANT KNOWLEDGE BASE EXCERPTS:
+Company: Hyundai Transys Georgia Powertrain | Tier: Tier 1/2 | Industry: Electronic and Other Electrical Equipment and Components
+Location: West Point, Troup County | Address: 100 Powertrain Way, West Point, GA 31833
+Facility: Manufacturing Plant | EV Role: Thermal Management
+OEMs: Hyundai Kia Rivian | Affiliation: Automotive supply chain participant
+Employment: 130 | Products: Electrical heaters, control units, and actuators
+EV Relevant: Yes | Classification: Supplier
+---
+Company: F&P Georgia Manufacturing | Tier: Tier 1/2 | Industry: Primary Metal Industries
+Location: Rome, Floyd County | Address: 88 Enterprise Drive SE, Rome, GA 30161
+Facility: Manufacturing Plant | EV Role: Battery Pack
+OEMs: Hyundai Kia | Affiliation: Automotive supply chain participant
+Employment: 104 | Products: Lithium-ion battery recycler and raw materials provider
+EV Relevant: Yes | Classification: Supplier
+---
+Company: Hyundai Motor Group | Tier: Tier 1/2 | Industry: Electronic and Other Electrical Equipment and Components
+Location: Ellabell, Bryan County | Address: 700 Hyundai Blvd, Ellabell, GA 31308
+Facility: Manufacturing Plant | EV Role: Battery Pack
+OEMs: Hyundai Kia | Affiliation: Automotive supply chain participant
+Employment: 164 | Products: Battery parts for electric vehicles
+EV Relevant: Yes | Classification: Supplier
+---
+Company: Enchem America Inc. | Tier: Tier 2/3 | Industry: Primary Metal Industries
+Location: Commerce, Jackson County | Address: 648 H
+========================================================================================================================
+QID: 30
+QUESTION: Identify Georgia Tier 2/3 suppliers that are EV Relevant, classified as General Automotive, and provide materials to Battery Cell or Battery Pack companies, suggesting supply chain misalignment risk.
+GOLDEN:
+There are 2 Georgia Tier 2/3 suppliers that are EV Relevant, classified as General Automotive, and provide materials to Battery Cell or Battery Pack companies, suggesting supply chain misalignment risk.
+Duckyang | OEMs: Hyundai Kia Rivian
+Enchem America Inc. | OEMs: Hyundai Kia Rivian
+GENERATED:
+This information is not available in the knowledge base.
+RETRIEVED_CONTEXT_HEAD:
+RELEVANT KNOWLEDGE BASE EXCERPTS:
+Company: Duckyang | Tier: Tier 2/3 | Industry: Primary Metal Industries
+Location: Braselton, Jackson County | Address: 984 Broadway Avenue, Braselton, GA 30517
+Facility: Manufacturing Plant | EV Role: General Automotive
+OEMs: Hyundai Kia Rivian | Affiliation: Automotive supply chain participant
+Employment: 250 | Products: High-quality electrodeposited (ED) copper foil for electric vehicles
+EV Relevant: Yes | Classification: Supplier
+---
+Company: Enchem America Inc. | Tier: Tier 2/3 | Industry: Primary Metal Industries
+Location: Commerce, Jackson County | Address: 648 Highway 334, Commerce, GA 30530
+Facility: Manufacturing Plant | EV Role: General Automotive
+OEMs: Hyundai Kia Rivian | Affiliation: Automotive supply chain participant
+Employment: 155 | Products: Electric wiring components
+EV Relevant: Yes | Classification: Supplier

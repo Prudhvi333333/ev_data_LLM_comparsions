@@ -1,0 +1,10 @@
+{
+  "pipeline_name": "gemma_norag",
+  "total_rows": 50,
+  "rows_evaluated": 50,
+  "mean_answer_correctness_score": 0.32800000000000007,
+  "correct_count": 0,
+  "partially_correct_count": 41,
+  "incorrect_count": 9,
+  "failed_evaluation_rows": 0
+}

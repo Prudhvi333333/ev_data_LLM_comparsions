@@ -1,0 +1,65 @@
+[2026-04-05 18:10:48] [INFO] [cli] Starting generation run for gemini_rag
+[2026-04-05 18:10:48] [INFO] [embeddings] Loading embedding model sentence-transformers/all-mpnet-base-v2
+[2026-04-05 18:10:48] [INFO] [sentence_transformers.SentenceTransformer] Use pytorch device_name: cpu
+[2026-04-05 18:10:48] [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+[2026-04-05 18:10:48] [INFO] [vectorstore] Loading vector index from /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/indexes/55c79c1afaa2406740602b8f33ad5805e9246a45377291c3495f5da0a5b725b4/sentence-transformers__all-mpnet-base-v2
+[2026-04-05 18:10:48] [INFO] [lexical_retrieval] Loaded lexical index from /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/indexes/55c79c1afaa2406740602b8f33ad5805e9246a45377291c3495f5da0a5b725b4/sentence-transformers__all-mpnet-base-v2/lexical.pkl
+[2026-04-05 18:10:48] [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
+[2026-04-05 18:10:49] [INFO] [google_genai.models] AFC is enabled with max remote calls: 10.
+[2026-04-05 18:10:49] [INFO] [httpx] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 400 Bad Request"
+[2026-04-05 18:10:49] [ERROR] [cli] Generation failed for question 1
+Traceback (most recent call last):
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/src/cli.py", line 273, in run_generate
+    record = pipeline.run_question(question_row.to_dict(), attempt_count=attempt_count)
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/src/pipelines/rag_pipeline.py", line 55, in run_question
+    result = self.generator.generate(system_prompt=system_prompt, user_prompt=user_prompt)
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/src/generators/gemini_generator.py", line 110, in generate
+    return self._generate_with_new_sdk(system_prompt, user_prompt)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/src/generators/gemini_generator.py", line 56, in _generate_with_new_sdk
+    response = client.models.generate_content(
+        model=self.model_name,
+    ...<6 lines>...
+        ),
+    )
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/google/genai/models.py", line 6021, in generate_content
+    response = self._generate_content(
+        model=model, contents=contents, config=parsed_config
+    )
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/google/genai/models.py", line 4683, in _generate_content
+    response = self._api_client.request(
+        'post', path, request_dict, http_options
+    )
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/google/genai/_api_client.py", line 1532, in request
+    response = self._request(http_request, http_options, stream=False)
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/google/genai/_api_client.py", line 1327, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/tenacity/__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ~~~~~~~~~~~~~~~~~^^
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/tenacity/__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/sm11926/anaconda3/lib/python3.13/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/home/sm11926/anaconda3/lib/python3.13/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/google/genai/_api_client.py", line 1304, in _request_once
+    errors.APIError.raise_for_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/google/genai/errors.py", line 155, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sm11926/Downloads/ev_data_LLM_comparsions/.venv/lib/python3.13/site-packages/google/genai/errors.py", line 184, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}
+[2026-04-05 18:10:49] [INFO] [cli] Generation completed for gemini_rag. Outputs saved to /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/generation/gemini_rag/8c511891e49b69fb
+[2026-04-05 18:10:49] [INFO] [cli] Log file: /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/logs/generate_gemini_rag_20260405_221048.log

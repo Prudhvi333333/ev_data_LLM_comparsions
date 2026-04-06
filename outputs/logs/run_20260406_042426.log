@@ -1,0 +1,7 @@
+[2026-04-06 04:24:30] [INFO] [kb_loader] Loaded 205 KB documents from data/kb/GNEM - Auto Landscape Lat Long Updated.xlsx
+[2026-04-06 04:24:30] [WARNING] [indexer] chromadb unavailable; using local pickle vector store.
+[2026-04-06 04:24:30] [INFO] [main] Running pipeline gemma_rag
+[2026-04-06 04:24:30] [INFO] [main] Pipeline gemma_rag running in serialized mode for local Ollama stability.
+[2026-04-06 04:24:31] [INFO] [main] Q1 retrieval complete | docs=18 | top_companies=F&P Georgia Manufacturing, Hyundai MOBIS (Georgia), Hyundai Transys Georgia Powertrain, IMS Gear Georgia Inc., Hyundai Transys Georgia Seating Systems
+[2026-04-06 04:24:31] [INFO] [main] Q1 structured context added | chars=1963
+[2026-04-06 04:24:31] [INFO] [main] Q1 context ready | chars=10150
