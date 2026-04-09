@@ -132,7 +132,7 @@ def _materialize_accuracy_run(output_dir: Path, records: dict[str, AccuracyEvalu
     write_json(output_dir / "answer_correctness_summary.json", summary)
 
 
-def _build_generator(model_key: str, model_config: Any, api_key: str) -> Any:
+def _build_generator(model_key: str, model_config: Any, gemini_api_key: str, chatgpt_api_key: str) -> Any:
     endpoint = str(model_config.endpoint or "http://127.0.0.1:11434/api/generate")
     if model_config.provider == "ollama":
         from src.generators.qwen_generator import QwenGenerator
@@ -146,17 +146,38 @@ def _build_generator(model_key: str, model_config: Any, api_key: str) -> Any:
             num_ctx=model_config.num_ctx,
             top_p=model_config.top_p,
             repeat_penalty=model_config.repeat_penalty,
+            retries=model_config.retries,
+            retry_backoff_seconds=model_config.retry_backoff_seconds,
+            max_retry_backoff_seconds=model_config.max_retry_backoff_seconds,
         )
     if model_config.provider == "gemini":
         from src.generators.gemini_generator import GeminiGenerator
 
         return GeminiGenerator(
             model_name=model_config.model_name,
-            api_key=api_key,
+            api_key=gemini_api_key,
             temperature=model_config.temperature,
             max_tokens=model_config.max_tokens,
             timeout_seconds=model_config.timeout_seconds,
             top_p=model_config.top_p,
+            retries=model_config.retries,
+            retry_backoff_seconds=model_config.retry_backoff_seconds,
+            max_retry_backoff_seconds=model_config.max_retry_backoff_seconds,
+        )
+    if model_config.provider == "openai":
+        from src.generators.chatgpt_generator import ChatGPTGenerator
+
+        return ChatGPTGenerator(
+            model_name=model_config.model_name,
+            api_key=chatgpt_api_key,
+            endpoint=str(model_config.endpoint or "https://api.openai.com/v1/chat/completions"),
+            temperature=model_config.temperature,
+            max_tokens=model_config.max_tokens,
+            timeout_seconds=model_config.timeout_seconds,
+            top_p=model_config.top_p,
+            retries=model_config.retries,
+            retry_backoff_seconds=model_config.retry_backoff_seconds,
+            max_retry_backoff_seconds=model_config.max_retry_backoff_seconds,
         )
     raise RuntimeError(f"Unsupported model provider for key '{model_key}': {model_config.provider}")
 
@@ -216,6 +237,7 @@ def run_generate(args: argparse.Namespace) -> None:
         }
     )
     cfg_hash = config_hash(config)
+    selected_question_ids = sorted(str(value) for value in question_frame["question_id"].astype(str).tolist())
     run_key = stable_hash_dict(
         {
             "pipeline": pipeline_name,
@@ -224,6 +246,8 @@ def run_generate(args: argparse.Namespace) -> None:
             "questions_hash": question_fingerprint.sha256,
             "prompt_version": config.prompts.version,
             "subset": args.subset or "all",
+            "limit": args.limit,
+            "selected_question_ids": selected_question_ids,
         }
     )[:16]
 
@@ -256,7 +280,7 @@ def run_generate(args: argparse.Namespace) -> None:
     responses_path = output_dir / "responses.jsonl"
     existing = _load_generation_records(responses_path) if (responses_path.exists() and args.resume) else {}
 
-    generator = _build_generator(model_key, model_config, config.api_keys.gemini)
+    generator = _build_generator(model_key, model_config, config.api_keys.gemini, config.api_keys.chatgpt)
     if rag_enabled:
         vector_store = LocalVectorStore.build_or_load(
             kb_frame=kb_frame,

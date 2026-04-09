@@ -152,6 +152,11 @@ class QueryRouter:
             if match:
                 filters.append({"field": "employment", "op": "lt", "value": float(match.group(1).replace(",", ""))})
                 route_notes.append(f"employment<{match.group(1)}")
+        if "less than" in normalized_question:
+            match = re.search(r"less than\s+([0-9,]+)", normalized_question)
+            if match:
+                filters.append({"field": "employment", "op": "lt", "value": float(match.group(1).replace(",", ""))})
+                route_notes.append(f"employment<{match.group(1)}")
 
         if "over 1 000" in normalized_question or "over 1000" in normalized_question:
             filters.append({"field": "employment", "op": "gt", "value": 1000.0})
@@ -161,6 +166,8 @@ class QueryRouter:
 
     def _target_oem(self, question: str) -> str | None:
         normalized_question = normalize_for_match(question)
+        if "hyundai metaplant" in normalized_question or "hmgma" in normalized_question:
+            return "Hyundai Kia"
         if "rivian" in normalized_question:
             return "Rivian Automotive"
         return self._find_known_value(question, self.primary_oem_lookup)
@@ -246,6 +253,50 @@ class QueryRouter:
                 use_retrieval_support=True,
                 retrieval_query=f"{target_oem} supplier network Georgia",
                 route_notes=route_notes + [f"target_oem={target_oem}"],
+            )
+
+        supplier_count_intent = (
+            target_oem
+            and "supplier" in normalized_question
+            and (
+                "how many" in normalized_question
+                or "count" in normalized_question
+                or "fewer than" in normalized_question
+                or "less than" in normalized_question
+                or "over " in normalized_question
+                or "under " in normalized_question
+            )
+        )
+        if supplier_count_intent:
+            filters = [
+                filter_spec
+                for filter_spec in filters
+                if not (
+                    filter_spec.get("field") == "company_normalized"
+                    and filter_spec.get("value") == normalize_for_match(target_oem)
+                )
+            ]
+            filters.append({"field": "primary_oem_tokens_text", "op": "contains", "value": normalize_for_match(target_oem)})
+            return StructuredQueryPlan(
+                route_name="oem_supplier_network",
+                question_type="oem_supplier_network",
+                filters=filters,
+                supplier_only=True,
+                requires_structured_context=True,
+                group_by=[],
+                aggregate=None,
+                aggregate_field=None,
+                sort_by="employment",
+                sort_desc=False,
+                top_n=None,
+                requested_fields=["company", "employment", "category", "ev_supply_chain_role", "primary_oems", "product_service"],
+                dedupe_by="company",
+                target_oem=target_oem,
+                answer_schema=["company", "employment", "category", "ev_supply_chain_role", "primary_oems"],
+                exhaustive=True,
+                use_retrieval_support=True,
+                retrieval_query=f"{target_oem} EV suppliers Georgia employment threshold",
+                route_notes=route_notes + [f"target_oem={target_oem}", "supplier_count_intent"],
             )
 
         if (

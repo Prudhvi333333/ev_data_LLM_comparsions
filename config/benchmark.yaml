@@ -23,6 +23,9 @@ models:
     temperature: 0.1
     max_tokens: 512
     timeout_seconds: 180
+    retries: 4
+    retry_backoff_seconds: 2.0
+    max_retry_backoff_seconds: 60.0
     num_ctx: 4096
     top_p: 0.9
     repeat_penalty: 1.05
@@ -42,6 +45,20 @@ models:
     temperature: 0.1
     max_tokens: 512
     timeout_seconds: 180
+    retries: 5
+    retry_backoff_seconds: 3.0
+    max_retry_backoff_seconds: 120.0
+    top_p: 0.9
+  chatgpt:
+    provider: openai
+    model_name: gpt-4o-mini
+    endpoint: https://api.openai.com/v1/chat/completions
+    temperature: 0.1
+    max_tokens: 512
+    timeout_seconds: 180
+    retries: 5
+    retry_backoff_seconds: 3.0
+    max_retry_backoff_seconds: 120.0
     top_p: 0.9
   qwen25_32b:
     provider: ollama
@@ -110,7 +127,7 @@ evaluation:
     - context_recall
     - answer_correctness
   provider: ollama
-  llm_model: llama3.1:8b
+  llm_model: kimi-k2.5:cloud
   embeddings_provider: huggingface
   embeddings_model: sentence-transformers/all-mpnet-base-v2
   endpoint: http://127.0.0.1:11434
@@ -122,12 +139,18 @@ evaluation:
 
 accuracy_evaluation:
   provider: ollama
-  judge_model: llama3.1:8b
+  judge_model: kimi-k2.5:cloud
+  fallback_judge_models:
+    - qwen2.5:14b
   endpoint: http://127.0.0.1:11434/api/generate
   temperature: 0.0
   max_tokens: 220
   timeout_seconds: 180
-  retries: 3
+  retries: 4
+  retry_backoff_seconds: 2.0
+  max_retry_backoff_seconds: 45.0
+  min_seconds_between_requests: 0.35
+  fail_open_with_zero: true
 
 runtime:
   resume: true
@@ -138,6 +161,7 @@ runtime:
 
 api_keys:
   gemini: ${GEMINI_API_KEY}
+  chatgpt: ${CHATGPT_API_KEY}
 
 question_subsets:
   regression_v3: data/regression/v3_regression_subset.json

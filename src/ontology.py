@@ -46,7 +46,7 @@ class OntologyBucket(BaseModel):
 
     @property
     def normalized_question_hints(self) -> list[str]:
-        ordered = self.question_hints or (self.aliases + self.synonyms)
+        ordered = self.question_hints + self.aliases + self.synonyms + self.exact_phrases
         unique: list[str] = []
         for term in ordered:
             normalized = normalize_for_match(term)
