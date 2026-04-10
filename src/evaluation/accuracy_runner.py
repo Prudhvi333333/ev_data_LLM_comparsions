@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import re
+import time
 from pathlib import Path
 from typing import Any
 
@@ -76,21 +77,48 @@ def label_from_score(score: float) -> str:
 
 def parse_judge_payload(raw_text: str) -> dict[str, Any]:
     cleaned = _strip_code_fences(raw_text)
+    payload: dict[str, Any] = {}
     try:
         payload = json.loads(cleaned)
     except json.JSONDecodeError:
         match = re.search(r"\{.*\}", cleaned, flags=re.DOTALL)
-        if not match:
-            raise
-        payload = json.loads(match.group(0))
+        if match:
+            payload = json.loads(match.group(0))
+
+    if not isinstance(payload, dict):
+        payload = {}
 
     score = payload.get("answer_correctness_score", payload.get("accuracy_score"))
     if score is None:
+        score_match = re.search(
+            r"(?:answer_correctness_score|accuracy_score|score)\s*[:=]\s*([01](?:\.\d+)?)",
+            cleaned,
+            flags=re.IGNORECASE,
+        )
+        if score_match:
+            score = score_match.group(1)
+
+    if score is None:
+        label_match = re.search(
+            r"(?:label)\s*[:=]\s*['\"]?([a-z_ ]+)",
+            cleaned,
+            flags=re.IGNORECASE,
+        )
         raw_label = str(payload.get("label", "")).strip().lower()
+        if not raw_label and label_match:
+            raw_label = str(label_match.group(1)).strip().lower()
         if raw_label == "partially correct":
             raw_label = "partially_correct"
         if raw_label == "partial":
             raw_label = "partially_correct"
+        if not raw_label:
+            lowered = cleaned.lower()
+            if "partially_correct" in lowered or "partially correct" in lowered:
+                raw_label = "partially_correct"
+            elif "incorrect" in lowered:
+                raw_label = "incorrect"
+            elif "correct" in lowered:
+                raw_label = "correct"
         if raw_label == "correct":
             normalized_score = 1.0
         elif raw_label == "partially_correct":
@@ -103,6 +131,10 @@ def parse_judge_payload(raw_text: str) -> dict[str, Any]:
         normalized_score = max(0.0, min(1.0, float(score)))
 
     reason = str(payload.get("reason", "")).strip()
+    if not reason:
+        reason_match = re.search(r"(?:reason)\s*[:=]\s*['\"]?(.+)", cleaned, flags=re.IGNORECASE)
+        if reason_match:
+            reason = str(reason_match.group(1)).strip(" \"'")
     if not reason:
         reason = "No reason provided by judge."
 
@@ -235,10 +267,21 @@ class AccuracyRunner:
         self.config = config
         self.endpoint = config.accuracy_evaluation.endpoint
         self.judge_model = config.accuracy_evaluation.judge_model
+        self.fallback_judge_models = list(config.accuracy_evaluation.fallback_judge_models)
         self.temperature = config.accuracy_evaluation.temperature
         self.max_tokens = config.accuracy_evaluation.max_tokens
         self.timeout_seconds = config.accuracy_evaluation.timeout_seconds
         self.retries = config.accuracy_evaluation.retries
+        self.retry_backoff_seconds = max(0.1, float(config.accuracy_evaluation.retry_backoff_seconds))
+        self.max_retry_backoff_seconds = max(1.0, float(config.accuracy_evaluation.max_retry_backoff_seconds))
+        self.min_seconds_between_requests = max(0.0, float(config.accuracy_evaluation.min_seconds_between_requests))
+        self.fail_open_with_zero = bool(config.accuracy_evaluation.fail_open_with_zero)
+        self._last_request_ts = 0.0
+        self.judge_models: list[str] = []
+        for model_name in [self.judge_model, *self.fallback_judge_models]:
+            model_name = str(model_name or "").strip()
+            if model_name and model_name not in self.judge_models:
+                self.judge_models.append(model_name)
 
     def _call_judge(self, question: str, gold_answer: str, generated_answer: str) -> str:
         user_prompt = JUDGE_USER_TEMPLATE.format(
@@ -247,21 +290,49 @@ class AccuracyRunner:
             generated_answer=generated_answer,
         )
         prompt = f"{JUDGE_SYSTEM_PROMPT}\n\n{user_prompt}"
-        payload = {
-            "model": self.judge_model,
+        base_payload = {
             "prompt": prompt,
             "stream": False,
             "format": "json",
+            "think": False,
             "options": {
                 "temperature": self.temperature,
                 "num_predict": self.max_tokens,
             },
         }
+        last_error: Exception | None = None
         with httpx.Client(timeout=self.timeout_seconds) as client:
-            response = client.post(self.endpoint, json=payload)
-            response.raise_for_status()
-            body = response.json()
-        return str(body.get("response", "") or "").strip()
+            for model_name in self.judge_models:
+                if self.min_seconds_between_requests > 0:
+                    elapsed = time.monotonic() - self._last_request_ts
+                    if elapsed < self.min_seconds_between_requests:
+                        time.sleep(self.min_seconds_between_requests - elapsed)
+                payload = dict(base_payload)
+                payload["model"] = model_name
+                self._last_request_ts = time.monotonic()
+                try:
+                    response = client.post(self.endpoint, json=payload)
+                    response.raise_for_status()
+                    body = response.json()
+                    raw = str(body.get("response", "") or "").strip()
+                    if raw:
+                        return raw
+                    last_error = RuntimeError(f"Judge model '{model_name}' returned an empty response payload.")
+                except httpx.HTTPStatusError as exc:
+                    status_code = exc.response.status_code
+                    if status_code == 404:
+                        last_error = RuntimeError(
+                            f"Judge model '{model_name}' not found at {self.endpoint}: {exc.response.text}"
+                        )
+                        continue
+                    raise RuntimeError(
+                        f"Judge API error for model '{model_name}' (status={status_code}): {exc.response.text}"
+                    ) from exc
+                except Exception as exc:
+                    last_error = exc
+        if last_error is not None:
+            raise last_error
+        raise RuntimeError("No judge model configured.")
 
     def evaluate_record(
         self,
@@ -270,6 +341,24 @@ class AccuracyRunner:
         input_path: Path,
     ) -> AccuracyEvaluationRecord:
         if record.answer_status != "success":
+            if self.fail_open_with_zero:
+                reason = f"Generation failed ({record.answer_status}); assigned score 0.0 to avoid null metrics."
+                if record.error_message:
+                    reason = f"{reason} Error: {record.error_message}"
+                return AccuracyEvaluationRecord(
+                    question_id=record.question_id,
+                    question=record.question,
+                    gold_answer=gold_answer,
+                    generated_answer=record.generated_answer,
+                    pipeline_name=record.pipeline_name,
+                    judge_model=self.judge_model,
+                    generation_output_path=str(input_path),
+                    evaluation_status="success",
+                    label="incorrect",
+                    answer_correctness_score=0.0,
+                    reason=reason,
+                    error_message=f"generation_status={record.answer_status}",
+                )
             return AccuracyEvaluationRecord(
                 question_id=record.question_id,
                 question=record.question,
@@ -283,7 +372,7 @@ class AccuracyRunner:
             )
 
         last_error: str | None = None
-        for _attempt in range(1, self.retries + 1):
+        for attempt in range(1, self.retries + 1):
             try:
                 raw_text = self._call_judge(
                     question=record.question,
@@ -306,6 +395,28 @@ class AccuracyRunner:
                 )
             except Exception as exc:
                 last_error = str(exc)
+                if attempt < self.retries:
+                    delay = min(self.max_retry_backoff_seconds, self.retry_backoff_seconds * (2 ** (attempt - 1)))
+                    time.sleep(delay)
+
+        if self.fail_open_with_zero:
+            reason = "Judge failed after retries; assigned score 0.0 to avoid null metrics."
+            if last_error:
+                reason = f"{reason} Error: {last_error}"
+            return AccuracyEvaluationRecord(
+                question_id=record.question_id,
+                question=record.question,
+                gold_answer=gold_answer,
+                generated_answer=record.generated_answer,
+                pipeline_name=record.pipeline_name,
+                judge_model=self.judge_model,
+                generation_output_path=str(input_path),
+                evaluation_status="success",
+                label="incorrect",
+                answer_correctness_score=0.0,
+                reason=reason,
+                error_message=last_error,
+            )
 
         return AccuracyEvaluationRecord(
             question_id=record.question_id,

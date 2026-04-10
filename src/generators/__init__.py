@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-__all__ = ["GeminiGenerator", "GemmaGenerator", "QwenGenerator"]
+__all__ = ["GeminiGenerator", "GemmaGenerator", "QwenGenerator", "ChatGPTGenerator"]
 
 
 def __getattr__(name: str) -> Any:
@@ -18,4 +18,8 @@ def __getattr__(name: str) -> Any:
         from src.generators.qwen_generator import QwenGenerator
 
         return QwenGenerator
+    if name == "ChatGPTGenerator":
+        from src.generators.chatgpt_generator import ChatGPTGenerator
+
+        return ChatGPTGenerator
     raise AttributeError(name)

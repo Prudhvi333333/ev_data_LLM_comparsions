@@ -23,12 +23,15 @@ class PathsConfig(BaseModel):
 
 
 class ModelConfig(BaseModel):
-    provider: Literal["ollama", "gemini"]
+    provider: Literal["ollama", "gemini", "openai"]
     model_name: str
     endpoint: str | None = None
     temperature: float = 0.1
     max_tokens: int = 512
     timeout_seconds: float = 180.0
+    retries: int = 3
+    retry_backoff_seconds: float = 2.0
+    max_retry_backoff_seconds: float = 60.0
     num_ctx: int = 4096
     top_p: float = 0.9
     repeat_penalty: float = 1.05
@@ -96,11 +99,16 @@ class EvaluationConfig(BaseModel):
 class AccuracyEvaluationConfig(BaseModel):
     provider: Literal["ollama"] = "ollama"
     judge_model: str = "llama3.1:8b"
+    fallback_judge_models: list[str] = Field(default_factory=list)
     endpoint: str = "http://127.0.0.1:11434/api/generate"
     temperature: float = 0.0
     max_tokens: int = 220
     timeout_seconds: float = 180.0
     retries: int = 3
+    retry_backoff_seconds: float = 2.0
+    max_retry_backoff_seconds: float = 45.0
+    min_seconds_between_requests: float = 0.2
+    fail_open_with_zero: bool = True
 
 
 class RuntimeConfig(BaseModel):
@@ -113,6 +121,7 @@ class RuntimeConfig(BaseModel):
 
 class ApiKeysConfig(BaseModel):
     gemini: str = ""
+    chatgpt: str = ""
 
 
 class BenchmarkConfig(BaseModel):
@@ -157,6 +166,8 @@ PIPELINE_REGISTRY: dict[str, tuple[str, bool]] = {
     "gemma_norag": ("gemma", False),
     "gemini_rag": ("gemini", True),
     "gemini_norag": ("gemini", False),
+    "chatgpt_rag": ("chatgpt", True),
+    "chatgpt_norag": ("chatgpt", False),
     "qwen25_32b_rag": ("qwen25_32b", True),
     "qwen25_32b_norag": ("qwen25_32b", False),
     "qwen35_35b_a3b_rag": ("qwen35_35b_a3b", True),
