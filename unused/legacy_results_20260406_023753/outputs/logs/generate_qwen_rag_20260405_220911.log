@@ -1,0 +1,12 @@
+[2026-04-05 18:09:11] [INFO] [cli] Starting generation run for qwen_rag
+[2026-04-05 18:09:11] [INFO] [embeddings] Loading embedding model sentence-transformers/all-mpnet-base-v2
+[2026-04-05 18:09:11] [INFO] [sentence_transformers.SentenceTransformer] Use pytorch device_name: cpu
+[2026-04-05 18:09:11] [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+[2026-04-05 18:09:12] [INFO] [vectorstore] Loading vector index from /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/indexes/55c79c1afaa2406740602b8f33ad5805e9246a45377291c3495f5da0a5b725b4/sentence-transformers__all-mpnet-base-v2
+[2026-04-05 18:09:12] [INFO] [lexical_retrieval] Loaded lexical index from /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/indexes/55c79c1afaa2406740602b8f33ad5805e9246a45377291c3495f5da0a5b725b4/sentence-transformers__all-mpnet-base-v2/lexical.pkl
+[2026-04-05 18:09:12] [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
+[2026-04-05 18:09:25] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 18:09:30] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 18:09:31] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 18:09:31] [INFO] [cli] Generation completed for qwen_rag. Outputs saved to /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/generation/qwen_rag/adf79493277f18de
+[2026-04-05 18:09:31] [INFO] [cli] Log file: /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/logs/generate_qwen_rag_20260405_220911.log

@@ -1,0 +1,10 @@
+{
+  "total_questions": 3,
+  "success_rate": 1.0,
+  "status_counts": {
+    "success": 3
+  },
+  "mean_latency_seconds": 0.5256609426190456,
+  "rag_enabled": false,
+  "pipeline_name": "qwen_norag"
+}

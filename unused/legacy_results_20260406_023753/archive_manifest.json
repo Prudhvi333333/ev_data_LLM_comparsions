@@ -1,0 +1,10 @@
+{
+  "archive_root": "/home/sm11926/Downloads/ev_data_LLM_comparsions/unused/legacy_results_20260406_023753",
+  "moved": {
+    "generation": "/home/sm11926/Downloads/ev_data_LLM_comparsions/unused/legacy_results_20260406_023753/outputs/generation",
+    "evaluation": "/home/sm11926/Downloads/ev_data_LLM_comparsions/unused/legacy_results_20260406_023753/outputs/evaluation",
+    "reports": "/home/sm11926/Downloads/ev_data_LLM_comparsions/unused/legacy_results_20260406_023753/outputs/reports",
+    "logs": "/home/sm11926/Downloads/ev_data_LLM_comparsions/unused/legacy_results_20260406_023753/outputs/logs",
+    "indexes": "/home/sm11926/Downloads/ev_data_LLM_comparsions/unused/legacy_results_20260406_023753/outputs/indexes"
+  }
+}

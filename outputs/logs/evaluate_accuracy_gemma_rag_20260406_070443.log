@@ -1,0 +1,18 @@
+[2026-04-06 03:04:43] [INFO] [cli] Starting direct accuracy evaluation for gemma_rag
+[2026-04-06 03:04:48] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-06 03:04:50] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-06 03:04:53] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-06 03:04:56] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-06 03:05:00] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-06 03:05:03] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-06 03:05:08] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-06 03:05:11] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-06 03:05:16] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-06 03:05:19] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-06 03:05:23] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-06 03:05:27] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-06 03:05:30] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-06 03:05:34] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-06 03:05:41] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-06 03:05:41] [INFO] [cli] Direct accuracy evaluation completed for gemma_rag. Outputs saved to /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/accuracy_evaluation/gemma_rag/976f970b579cddaa
+[2026-04-06 03:05:41] [INFO] [cli] Log file: /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/logs/evaluate_accuracy_gemma_rag_20260406_070443.log

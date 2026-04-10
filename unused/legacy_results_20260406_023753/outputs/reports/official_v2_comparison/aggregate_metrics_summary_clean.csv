@@ -1,0 +1,5 @@
+pipeline_name,rows,faithfulness_non_null,faithfulness_mean_skipna,response_relevancy_non_null,response_relevancy_mean_skipna,context_precision_non_null,context_precision_mean_skipna,context_recall_non_null,context_recall_mean_skipna,answer_correctness_non_null,answer_correctness_mean_skipna
+gemma_norag,50,0,,50,0.24692027145652304,0,,0,,50,0.48540455514483666
+gemma_rag,50,50,0.6148731516849164,46,0.5163020993910283,50,0.6199999999379999,50,0.5684509261659897,49,0.45626685505756376
+qwen_norag,50,0,,50,0.4520407359632198,0,,0,,50,0.4730799514613379
+qwen_rag,50,50,0.7050934065934065,46,0.6163492922849418,50,0.6199999999379999,50,0.5859357746508382,49,0.47570274886888025

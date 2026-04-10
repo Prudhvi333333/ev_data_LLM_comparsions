@@ -1,0 +1,12 @@
+{
+  "total_rows": 50,
+  "status_counts": {
+    "success": 50
+  },
+  "mean_faithfulness": null,
+  "mean_response_relevancy": 0.4520407359632198,
+  "mean_context_precision": null,
+  "mean_context_recall": null,
+  "mean_answer_correctness": 0.4730799514613379,
+  "pipeline_name": "qwen_norag"
+}

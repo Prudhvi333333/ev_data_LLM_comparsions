@@ -1,0 +1,12 @@
+{
+  "total_rows": 33,
+  "status_counts": {
+    "success": 33
+  },
+  "mean_faithfulness": 0.6936110186110186,
+  "mean_response_relevancy": NaN,
+  "mean_context_precision": 0.8181818181,
+  "mean_context_recall": 0.7575550446363843,
+  "mean_answer_correctness": 0.5103268320684125,
+  "pipeline_name": "qwen_rag"
+}

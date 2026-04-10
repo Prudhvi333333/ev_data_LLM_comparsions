@@ -1,0 +1,50 @@
+{
+  "aggregate_summary": [
+    {
+      "pipeline_name": "qwen_rag",
+      "total_rows": 50,
+      "mean_answer_correctness_score": 0.7,
+      "correct_count": 32,
+      "partially_correct_count": 12,
+      "incorrect_count": 6
+    },
+    {
+      "pipeline_name": "gemma_rag",
+      "total_rows": 50,
+      "mean_answer_correctness_score": 0.7609999999999999,
+      "correct_count": 41,
+      "partially_correct_count": 4,
+      "incorrect_count": 5
+    },
+    {
+      "pipeline_name": "qwen_norag",
+      "total_rows": 50,
+      "mean_answer_correctness_score": 0.264,
+      "correct_count": 0,
+      "partially_correct_count": 33,
+      "incorrect_count": 17
+    },
+    {
+      "pipeline_name": "gemma_norag",
+      "total_rows": 50,
+      "mean_answer_correctness_score": 0.32800000000000007,
+      "correct_count": 0,
+      "partially_correct_count": 41,
+      "incorrect_count": 9
+    }
+  ],
+  "rag_vs_norag_summary": [
+    {
+      "model_family": "gemma",
+      "rag_score": 0.7609999999999999,
+      "norag_score": 0.32800000000000007,
+      "rag_minus_norag": 0.43299999999999983
+    },
+    {
+      "model_family": "qwen",
+      "rag_score": 0.7,
+      "norag_score": 0.264,
+      "rag_minus_norag": 0.43599999999999994
+    }
+  ]
+}

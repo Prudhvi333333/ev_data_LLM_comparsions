@@ -4,7 +4,11 @@
   "status_counts": {
     "success": 50
   },
+<<<<<<< HEAD
   "mean_latency_seconds": 18.061602224083618,
+=======
+  "mean_latency_seconds": 4.329013024750165,
+>>>>>>> 62c9729c9838ef19a30d25eebbd52ab0268417f4
   "rag_enabled": false,
   "pipeline_name": "gemma_norag"
 }

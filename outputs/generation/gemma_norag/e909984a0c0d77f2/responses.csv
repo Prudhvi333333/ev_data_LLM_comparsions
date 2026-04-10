@@ -1,4 +1,5 @@
 question_id,question,reference_answer,pipeline_name,model_name,rag_enabled,prompt_version,system_prompt,user_prompt,retrieved_context_exact,retrieved_chunks,retrieved_chunk_ids,retrieved_metadata,reranked_chunk_ids,structured_ops_used,structured_ops_outputs,final_context_presented_to_model,query_route_name,ontology_buckets,generated_answer,raw_generated_answer,answer_sanitized,answer_sanitizer_notes,answer_status,error_message,latency_seconds,input_tokens,output_tokens,total_tokens,timestamp_utc,attempt_count,retrieval_diagnostics,generation_metadata
+<<<<<<< HEAD
 1,"Show all ""Tier 1/2"" suppliers in Georgia, list their EV Supply Chain Role and Product / Service.","There are 18 Tier 1/2 companies in Georgia (using Updated Location). F&P Georgia Manufacturing [Tier 1/2] | Role: Battery Pack | Product: Lithium-ion battery recycler and raw materials provider Fouts Brothers Fire Equipment [Tier 1/2] | Role: General Automotive | Product: Automotive body parts and electronics Cylinder-head and specialty gaskets, housing modules and shielding systems for engines, transmissions, exhaust systems and auxiliary units Hitachi Astemo [Tier 1/2] | Role: General Automotive | Product: Car audio systems Hitachi Astemo Americas Inc. [Tier 1/2] | Role: Battery Cell | Product: Battery cells for electric mobility Hollingsworth & Vose Co. [Tier 1/2] | Role: Battery Pack | Product: Lithium-ion battery materials Honda Development & Manufacturing [Tier 1/2] | Role: Battery Cell | Product: Battery cells for electric mobility Hwashin [Tier 1/2] | Role: General Automotive | Product: Modules and storage systems Hyundai & LG Energy Solution (LGES) [Tier 1/2] | Role: General Automotive | Product: Storage batteries Hyundai Industrial Co. [Tier 1/2] | Role: General Automotive | Product: Automotive batteries Hyundai MOBIS (Georgia) [Tier 1/2] | Role: General Automotive | Product: Capacitors, electronic automotive components Hyundai Motor Group [Tier 1/2] | Role: Battery Pack | Product: Battery parts for electric vehicles Hyundai Transys Georgia Powertrain [Tier 1/2] | Role: Thermal Management | Product: Electrical heaters, control units, and actuators Hyundai Transys Georgia Seating Systems [Tier 1/2] | Role: General Automotive | Product: Automotive electronics, resonators, capacitors, resistors, electronics and electronic parts IMMI [Tier 1/2] | Role: Battery Pack | Product: Battery electrolyte IMS Gear Georgia Inc. [Tier 1/2] | Role: General Automotive | Product: Car audio systems Inalfa Roof Systems Inc. [Tier 1/2] | Role: General Automotive | Product: Automotive electronic safety systems JAC Products Inc. [Tier 1/2] | Role: General Automotive | Product: Switches, resistors and related products Jefferson Southern Corp. [Tier 1/2] | Role: General Automotive | Product: High current switches and resistors for automotive HVAC systems",gemma_norag,gemma3:27b,False,v3,"You are an expert in the electric vehicle (EV) and automotive supply chain.
 
 Answer the question using only your internal knowledge and reasoning.
@@ -1880,3 +1881,1011 @@ Specifically, I recall significant engineering and testing capabilities existing
 Savannah, with its port and Hyundai’s manufacturing plant, likely has some related engineering and testing facilities, though probably more focused on manufacturing process improvement than fundamental R&D. 
 
 The exact distribution would depend on the specialization – battery tech R&D would likely cluster differently than, say, autonomous driving software development.",True,[],success,,14.739274420076981,268,210,478,2026-04-06T14:43:52+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 14712206136, ""eval_duration"": 6333040324}"
+=======
+1,"Show all ""Tier 1/2"" suppliers in Georgia, list their EV Supply Chain Role and Product / Service.","There are 18 Tier 1/2 companies in Georgia (using Updated Location). F&P Georgia Manufacturing [Tier 1/2] | Role: Battery Pack | Product: Lithium-ion battery recycler and raw materials provider Fouts Brothers Fire Equipment [Tier 1/2] | Role: General Automotive | Product: Automotive body parts and electronics Cylinder-head and specialty gaskets, housing modules and shielding systems for engines, transmissions, exhaust systems and auxiliary units Hitachi Astemo [Tier 1/2] | Role: General Automotive | Product: Car audio systems Hitachi Astemo Americas Inc. [Tier 1/2] | Role: Battery Cell | Product: Battery cells for electric mobility Hollingsworth & Vose Co. [Tier 1/2] | Role: Battery Pack | Product: Lithium-ion battery materials Honda Development & Manufacturing [Tier 1/2] | Role: Battery Cell | Product: Battery cells for electric mobility Hwashin [Tier 1/2] | Role: General Automotive | Product: Modules and storage systems Hyundai & LG Energy Solution (LGES) [Tier 1/2] | Role: General Automotive | Product: Storage batteries Hyundai Industrial Co. [Tier 1/2] | Role: General Automotive | Product: Automotive batteries Hyundai MOBIS (Georgia) [Tier 1/2] | Role: General Automotive | Product: Capacitors, electronic automotive components Hyundai Motor Group [Tier 1/2] | Role: Battery Pack | Product: Battery parts for electric vehicles Hyundai Transys Georgia Powertrain [Tier 1/2] | Role: Thermal Management | Product: Electrical heaters, control units, and actuators Hyundai Transys Georgia Seating Systems [Tier 1/2] | Role: General Automotive | Product: Automotive electronics, resonators, capacitors, resistors, electronics and electronic parts IMMI [Tier 1/2] | Role: Battery Pack | Product: Battery electrolyte IMS Gear Georgia Inc. [Tier 1/2] | Role: General Automotive | Product: Car audio systems Inalfa Roof Systems Inc. [Tier 1/2] | Role: General Automotive | Product: Automotive electronic safety systems JAC Products Inc. [Tier 1/2] | Role: General Automotive | Product: Switches, resistors and related products Jefferson Southern Corp. [Tier 1/2] | Role: General Automotive | Product: High current switches and resistors for automotive HVAC systems",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Show all ""Tier 1/2"" suppliers in Georgia, list their EV Supply Chain Role and Product / Service.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, Tier 1/2 suppliers in the EV supply chain would include companies involved in battery production (cell manufacturing, pack assembly, materials sourcing), electric motor manufacturing, power electronics, and potentially chassis/structural component production. Their roles could span raw material provision, component manufacturing, sub-assembly, or full system supply. In Georgia, one would expect to find suppliers serving roles like battery material processing, component assembly for EVs, or manufacturing of parts used in electric motors – though specific supplier tiers and product details require the dataset.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Generally, Tier 1/2 suppliers in the EV supply chain would include companies involved in battery production (cell manufacturing, pack assembly, materials sourcing), electric motor manufacturing, power electronics, and potentially chassis/structural component production. Their roles could span raw material provision, component manufacturing, sub-assembly, or full system supply. In Georgia, one would expect to find suppliers serving roles like battery material processing, component assembly for EVs, or manufacturing of parts used in electric motors – though specific supplier tiers and product details require the dataset.",True,[],success,,9.285548652987927,316,125,441,2026-04-06T05:16:40+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 9249093644, ""eval_duration"": 3738511314}"
+2,"Which Georgia companies are classified under Battery Cell or Battery Pack roles, and what tier is each assigned?",There are 6 companies found with Battery Cell or Battery Pack roles. F&P Georgia Manufacturing [Tier 1/2] | Role: Battery Pack Hitachi Astemo Americas Inc. [Tier 1/2] | Role: Battery Cell Hollingsworth & Vose Co. [Tier 1/2] | Role: Battery Pack Honda Development & Manufacturing [Tier 1/2] | Role: Battery Cell Hyundai Motor Group [Tier 1/2] | Role: Battery Pack IMMI [Tier 1/2] | Role: Battery Pack,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which Georgia companies are classified under Battery Cell or Battery Pack roles, and what tier is each assigned?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, companies involved in battery cell or pack roles in Georgia would likely be automotive manufacturers (electric vehicles), energy storage companies, or battery manufacturers themselves. Tier assignments would depend on the specific benchmark’s criteria – likely relating to production volume, revenue, or employment related to those battery roles within Georgia. It’s reasonable to expect companies like Kia (given their EV production) or potentially newer facilities focused on energy storage to be present, but their specific tier is unknown without the dataset.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Generally, companies involved in battery cell or pack roles in Georgia would likely be automotive manufacturers (electric vehicles), energy storage companies, or battery manufacturers themselves. Tier assignments would depend on the specific benchmark’s criteria – likely relating to production volume, revenue, or employment related to those battery roles within Georgia. It’s reasonable to expect companies like Kia (given their EV production) or potentially newer facilities focused on energy storage to be present, but their specific tier is unknown without the dataset.",True,[],success,,3.9903202529530972,312,116,428,2026-04-06T05:16:44+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3964873440, ""eval_duration"": 3477161089}"
+3,Map all Thermal Management suppliers in Georgia and show which Primary OEMs they are linked to.,There are 5 Thermal Management companies in Georgia. ZF Gainesville LLC | OEMs: Multiple OEMs Freudenberg-NOK | OEMs: Multiple OEMs Hyundai Transys Georgia Powertrain | OEMs: Hyundai Kia Rivian Novelis Inc. | OEMs: Multiple OEMs Peerless-Winsmith Inc. | OEMs: Multiple OEMs,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Map all Thermal Management suppliers in Georgia and show which Primary OEMs they are linked to.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Thermal management suppliers serve industries like automotive, aerospace, electronics, and data centers. In Georgia, manufacturing exists in all of those sectors, so thermal management suppliers would likely support them. Primary OEMs (Original Equipment Manufacturers) would depend on *which* specific Georgia manufacturing facilities require thermal management solutions – for example, a Kia plant would be a primary automotive OEM customer, while a large data center would be a different type of primary customer. The supplier relationships are also often multi-tiered; a Tier 1 supplier might source components *from* a thermal management specialist.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Thermal management suppliers serve industries like automotive, aerospace, electronics, and data centers. In Georgia, manufacturing exists in all of those sectors, so thermal management suppliers would likely support them. Primary OEMs (Original Equipment Manufacturers) would depend on *which* specific Georgia manufacturing facilities require thermal management solutions – for example, a Kia plant would be a primary automotive OEM customer, while a large data center would be a different type of primary customer. The supplier relationships are also often multi-tiered; a Tier 1 supplier might source components *from* a thermal management specialist.",True,[],success,,4.454339700983837,309,131,440,2026-04-06T05:16:49+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4427516848, ""eval_duration"": 3937585827}"
+4,"List every Georgia company classified under Power Electronics or Charging Infrastructure, along with their Employment size.","There are 4 companies strictly classified under Power Electronics or Charging Infrastructure: GSC Steel Stamping LLC | Role: Power Electronics | Employment: 350 Morgan Corp. | Role: Charging Infrastructure | Employment: 320 Yazaki North America | Role: Power electronics, sensors, and EV systems | Employment: 230000 ZF Gainesville LLC has a combined role (EV thermal management and power electronics) | Employment: 17500",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+List every Georgia company classified under Power Electronics or Charging Infrastructure, along with their Employment size.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Companies involved in power electronics or charging infrastructure in Georgia would likely include manufacturers of components (like semiconductors, transformers, or circuit boards), assembly/integration facilities, and companies installing/maintaining charging stations. Employment size would vary greatly – from small installation businesses with a handful of employees to larger manufacturing operations potentially employing hundreds or even thousands. It would depend on the specific scope of each company’s operations within those sectors.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Companies involved in power electronics or charging infrastructure in Georgia would likely include manufacturers of components (like semiconductors, transformers, or circuit boards), assembly/integration facilities, and companies installing/maintaining charging stations. Employment size would vary greatly – from small installation businesses with a handful of employees to larger manufacturing operations potentially employing hundreds or even thousands. It would depend on the specific scope of each company’s operations within those sectors.",True,[],success,,3.5600989900995046,310,102,412,2026-04-06T05:16:52+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3534703266, ""eval_duration"": 3070451023}"
+5,"Which companies are classified as Direct Manufacturer, and what EV Supply Chain Roles do they cover?",Original Equipment Manufacturer companies (11): Kia Georgia Inc. | EV Supply Chain Role: Vehicle Assembly Minebea AccessSolutions USA Inc. | EV Supply Chain Role: General Automotive Superior Essex Inc. | EV Supply Chain Role: Vehicle Assembly Suzuki Manufacturing of America Corp. | EV Supply Chain Role: Vehicle Assembly TCI Powder Coatings | EV Supply Chain Role: Vehicle Assembly TDK Components USA Inc. | EV Supply Chain Role: Vehicle Assembly TE Connectivity | EV Supply Chain Role: Vehicle Assembly Teklas USA | EV Supply Chain Role: Vehicle Assembly Textron Specialized Vehicles | EV Supply Chain Role: Vehicle Assembly Thermal Ceramics Inc. | EV Supply Chain Role: Vehicle Assembly Thomson Plastics Inc. | EV Supply Chain Role: Vehicle Assembly,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which companies are classified as Direct Manufacturer, and what EV Supply Chain Roles do they cover?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, “Direct Manufacturers” in the EV supply chain are companies that produce actual EV components – cells, modules, packs, motors, or drivetrains. Their EV Supply Chain Roles would cover things like Cell Production, Module Assembly, Pack Assembly, Motor Manufacturing, and potentially some degree of component machining or materials processing. The specific roles covered by *each* company would depend on their specialization and manufacturing capabilities.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Generally, “Direct Manufacturers” in the EV supply chain are companies that produce actual EV components – cells, modules, packs, motors, or drivetrains. Their EV Supply Chain Roles would cover things like Cell Production, Module Assembly, Pack Assembly, Motor Manufacturing, and potentially some degree of component machining or materials processing. The specific roles covered by *each* company would depend on their specialization and manufacturing capabilities.",True,[],success,,3.482526608975604,310,100,410,2026-04-06T05:16:56+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3455584793, ""eval_duration"": 3005471698}"
+6,"What locations does Novelis Inc. operate in, and what primary facility types are associated with each location?","Novelis Inc. has three operating entries in Georgia, and all three are located in Atlanta, Fulton County, with each one classified as a Manufacturing Plant as its primary facility type.",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+What locations does Novelis Inc. operate in, and what primary facility types are associated with each location?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Novelis Inc. is a major aluminum rolling and recycling company. Therefore, its locations would likely include aluminum production facilities (rolling mills, smelters if integrated), recycling plants to process aluminum scrap, and potentially research/development centers and corporate offices. Locations would be driven by access to raw materials, energy costs, transportation infrastructure, and customer base – likely including major manufacturing hubs. It’s reasonable to expect facilities in the US, Europe, and Asia given its global presence, but specific locations are uncertain without the dataset.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Novelis Inc. is a major aluminum rolling and recycling company. Therefore, its locations would likely include aluminum production facilities (rolling mills, smelters if integrated), recycling plants to process aluminum scrap, and potentially research/development centers and corporate offices. Locations would be driven by access to raw materials, energy costs, transportation infrastructure, and customer base – likely including major manufacturing hubs. It’s reasonable to expect facilities in the US, Europe, and Asia given its global presence, but specific locations are uncertain without the dataset.",True,[],success,,4.187635886948556,313,122,435,2026-04-06T05:17:00+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4162560961, ""eval_duration"": 3687867707}"
+7,"In Gwinnett County, which company has the highest Employment and what is its EV Supply Chain Role?",WIKA USA has the highest employment in Gwinnett County (Employment: 250000; Role: HV and LV wiring harnesses for EVs and ICE vehicles).,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+In Gwinnett County, which company has the highest Employment and what is its EV Supply Chain Role?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, in a county like Gwinnett, large employers are often in sectors like manufacturing, logistics, or corporate headquarters. EV Supply Chain Roles could include battery manufacturing, component production, assembly, or charging infrastructure – the company with the highest employment would likely be a major player in one of these areas, but identifying it requires specific local economic data.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Generally, in a county like Gwinnett, large employers are often in sectors like manufacturing, logistics, or corporate headquarters. EV Supply Chain Roles could include battery manufacturing, component production, assembly, or charging infrastructure – the company with the highest employment would likely be a major player in one of these areas, but identifying it requires specific local economic data.",True,[],success,,3.16581486701034,313,89,402,2026-04-06T05:17:03+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3137953891, ""eval_duration"": 2677859158}"
+8,Which county have the highest total Employment among Tier 1 suppliers only?,"Troup County has the highest total Employment among Tier 1 suppliers with a total of 2,435 employees",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which county have the highest total Employment among Tier 1 suppliers only?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, employment related to automotive Tier 1 suppliers would likely be concentrated in counties with major manufacturing facilities. These would probably be in areas with a history of automotive production, access to transportation networks, and a skilled labor force. It's reasonable to expect a county in the northern or central part of Georgia to have the highest employment, given the state's automotive industry presence, but without the dataset I cannot say which one.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Generally, employment related to automotive Tier 1 suppliers would likely be concentrated in counties with major manufacturing facilities. These would probably be in areas with a history of automotive production, access to transportation networks, and a skilled labor force. It's reasonable to expect a county in the northern or central part of Georgia to have the highest employment, given the state's automotive industry presence, but without the dataset I cannot say which one.",True,[],success,,3.6217268819455057,306,104,410,2026-04-06T05:17:07+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3596801367, ""eval_duration"": 3140532251}"
+9,"Which county has the highest total employment across all companies, and what is the combined employment in that county?",Gwinnett County has the highest total employment across all companies: 253022.,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which county has the highest total employment across all companies, and what is the combined employment in that county?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, total employment would likely be highest in a county with a major metropolitan area and a diverse economic base. Factors influencing this include population size, industry concentration (e.g., manufacturing, technology, healthcare), and the presence of large corporate headquarters or major employment centers. Without the dataset, it's impossible to say which Georgia county fits this description best or the specific employment numbers.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Generally, total employment would likely be highest in a county with a major metropolitan area and a diverse economic base. Factors influencing this include population size, industry concentration (e.g., manufacturing, technology, healthcare), and the presence of large corporate headquarters or major employment centers. Without the dataset, it's impossible to say which Georgia county fits this description best or the specific employment numbers.",True,[],success,,3.3856176470872015,313,96,409,2026-04-06T05:17:10+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3356912918, ""eval_duration"": 2895345495}"
+10,Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility.,There are 10 Vehicle Assembly OEMs along with their Primary OEMs are: Kia Georgia Inc. | Primary OEMs: Club Car LLC Superior Essex Inc. | Primary OEMs: Hyundai Motor Group Suzuki Manufacturing of America Corp. | Primary OEMs: Rivian Automotive TCI Powder Coatings | Primary OEMs: Kia Georgia Inc. TDK Components USA Inc. | Primary OEMs: Mercedes-Benz USA LLC TE Connectivity | Primary OEMs: Blue Bird Corp. Teklas USA | Primary OEMs: Yamaha Motor Manufacturing Corp. Textron Specialized Vehicles | Primary OEMs: Textron Specialized Vehicles Thermal Ceramics Inc. | Primary OEMs: SK Battery America Thomson Plastics Inc. | Primary OEMs: Archer Aviation Inc.,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, vehicle assembly facilities are associated with major automotive manufacturers (OEMs) like General Motors, Ford, Stellantis (Chrysler), Toyota, Hyundai, Kia, BMW, Mercedes-Benz, and Volkswagen. Georgia has attracted automotive manufacturing, so it is likely there are facilities operated by some of these OEMs, or their suppliers. Identifying *all* such facilities and their primary OEM would require a specific, up-to-date industry directory or database. The specific OEMs present in Georgia would depend on recent investment decisions and manufacturing partnerships.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Generally, vehicle assembly facilities are associated with major automotive manufacturers (OEMs) like General Motors, Ford, Stellantis (Chrysler), Toyota, Hyundai, Kia, BMW, Mercedes-Benz, and Volkswagen. Georgia has attracted automotive manufacturing, so it is likely there are facilities operated by some of these OEMs, or their suppliers. Identifying *all* such facilities and their primary OEM would require a specific, up-to-date industry directory or database. The specific OEMs present in Georgia would depend on recent investment decisions and manufacturing partnerships.",True,[],success,,4.308720269007608,310,125,435,2026-04-06T05:17:14+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4279459865, ""eval_duration"": 3790298862}"
+11,Identify the primary products and services associated with Sewon America Inc. across its different operational sites in Georgia.,"Sewon America Inc. has three operating entries in Georgia and all three are located in LaGrange, Troup County, Georgia. Sewon America Inc. | Product: Motor vehicle engines and parts Sewon America Inc. | Product: Fire truck bodies Sewon America Inc. | Product: Automotive aftermarket parts",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Identify the primary products and services associated with Sewon America Inc. across its different operational sites in Georgia.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Sewon America Inc. is a subsidiary of Sewon Co., Ltd., a South Korean company specializing in automotive parts. Therefore, it is highly probable that Sewon America’s Georgia operations focus on the manufacturing of automotive components – likely plastic injection molded parts, potentially including interior and exterior trim, under-the-hood components, and potentially some electrical parts. The specific products would depend on contracts with automotive manufacturers (OEMs) and the capabilities installed at each Georgia facility, but automotive parts manufacturing is the most likely primary activity.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Sewon America Inc. is a subsidiary of Sewon Co., Ltd., a South Korean company specializing in automotive parts. Therefore, it is highly probable that Sewon America’s Georgia operations focus on the manufacturing of automotive components – likely plastic injection molded parts, potentially including interior and exterior trim, under-the-hood components, and potentially some electrical parts. The specific products would depend on contracts with automotive manufacturers (OEMs) and the capabilities installed at each Georgia facility, but automotive parts manufacturing is the most likely primary activity.",True,[],success,,4.268129115924239,313,124,437,2026-04-06T05:17:19+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4242618991, ""eval_duration"": 3755906282}"
+12,List all Tier 2/3 companies in Georgia with primary involvement in the electric vehicle or battery supply chain and specify their respective roles.,There are 3 companies with primary involvement in the electric vehicle or battery supply chain. Duckyang | Role: General Automotive GSC Steel Stamping LLC | Role: Power Electronics Enchem America Inc. | Role: General Automotive,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+List all Tier 2/3 companies in Georgia with primary involvement in the electric vehicle or battery supply chain and specify their respective roles.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Identifying Tier 2/3 suppliers specifically requires detailed supply chain mapping data not available without the dataset. However, companies involved in the EV/battery supply chain in Georgia would likely include those manufacturing components like plastic parts, metals, electronics, or providing services such as logistics, tooling, or testing. Their roles would span across various stages – material sourcing, component manufacturing, assembly support, and end-of-life recycling/remanufacturing. The specific tier designation (2 or 3) depends on their directness of relationship to the EV/battery manufacturers (Tier 1 being direct suppliers).","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Identifying Tier 2/3 suppliers specifically requires detailed supply chain mapping data not available without the dataset. However, companies involved in the EV/battery supply chain in Georgia would likely include those manufacturing components like plastic parts, metals, electronics, or providing services such as logistics, tooling, or testing. Their roles would span across various stages – material sourcing, component manufacturing, assembly support, and end-of-life recycling/remanufacturing. The specific tier designation (2 or 3) depends on their directness of relationship to the EV/battery manufacturers (Tier 1 being direct suppliers).",True,[],success,,4.693920979043469,319,137,456,2026-04-06T05:17:23+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4665101343, ""eval_duration"": 4162976798}"
+13,"Show the full supplier network linked to Rivian Automotive in Georgia, broken down by tier and EV Supply Chain Role.",Rivian-linked suppliers in GA (by Primary OEMs column): Duckyang [Tier 2/3] | Role: General Automotive | Primary OEMs: Hyundai Kia Rivian Enchem America Inc. [Tier 2/3] | Role: General Automotive | Primary OEMs: Hyundai Kia Rivian GSC Steel Stamping LLC [Tier 2/3] | Role: Power Electronics | Primary OEMs: Hyundai Kia Rivian Hyundai Transys Georgia Powertrain [Tier 1/2] | Role: Thermal Management | Primary OEMs: Hyundai Kia Rivian Racemark International LLC [Tier 1] | Role: General Automotive | Primary OEMs: Hyundai Kia Rivian Suzuki Manufacturing of America Corp. [OEM] | Role: Vehicle Assembly | Primary OEMs: Rivian Automotive,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Show the full supplier network linked to Rivian Automotive in Georgia, broken down by tier and EV Supply Chain Role.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Rivian’s Georgia supplier network would likely be structured in tiers. Tier 1 suppliers are those that directly supply Rivian – likely large companies providing major components like batteries, motors, chassis parts, or complete vehicle assemblies. Tier 2 suppliers provide components *to* Tier 1 suppliers (e.g., a company making specialized steel for battery casings). Tier 3 and beyond represent further down the supply chain – raw material providers, equipment manufacturers, etc.
+EV Supply Chain Roles would include: Battery materials/production, Motor/Drive components, Electronics, Chassis/Body, Interior, and potentially specialized manufacturing equipment. The specific companies and their tiers are not publicly available to me. It would depend on Rivian’s sourcing strategy and contractual relationships.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Rivian’s Georgia supplier network would likely be structured in tiers. Tier 1 suppliers are those that directly supply Rivian – likely large companies providing major components like batteries, motors, chassis parts, or complete vehicle assemblies. Tier 2 suppliers provide components *to* Tier 1 suppliers (e.g., a company making specialized steel for battery casings). Tier 3 and beyond represent further down the supply chain – raw material providers, equipment manufacturers, etc. 
+
+EV Supply Chain Roles would include: Battery materials/production, Motor/Drive components, Electronics, Chassis/Body, Interior, and potentially specialized manufacturing equipment. The specific companies and their tiers are not publicly available to me. It would depend on Rivian’s sourcing strategy and contractual relationships.",True,[],success,,5.774857455864549,315,172,487,2026-04-06T05:17:29+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 5745537512, ""eval_duration"": 5233694387}"
+14,"Which Georgia companies produce battery materials such as anodes, cathodes, electrolytes, or copper foil, and what tier are they classified as?","There are 4 Georgia companies producing battery materials such as anodes, cathodes, electrolytes, or copper foil. Duckyang [Tier 2/3] | Produce: High-quality electrodeposited (ED) copper foil for electric vehicles F&P Georgia Manufacturing [Tier 1/2] | Produce: Lithium-ion battery recycler and raw materials provider Hollingsworth & Vose Co. [Tier 1/2] | Produce: Lithium-ion battery materials IMMI [Tier 1/2] | Produce: Battery electrolyte",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which Georgia companies produce battery materials such as anodes, cathodes, electrolytes, or copper foil, and what tier are they classified as?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, battery material production is a growing field with significant investment. Companies involved could be classified into tiers based on their role in the supply chain: Tier 1 would be raw material producers (e.g., lithium, nickel mining – less common in Georgia), Tier 2 would be those processing those materials into battery components (anodes, cathodes, electrolytes, copper foil), and Tier 3 would be battery cell/pack manufacturers and final product assembly. Georgia has attracted some battery manufacturing, so component production would likely be present to support that, but specific company details require dataset access.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Generally, battery material production is a growing field with significant investment. Companies involved could be classified into tiers based on their role in the supply chain: Tier 1 would be raw material producers (e.g., lithium, nickel mining – less common in Georgia), Tier 2 would be those processing those materials into battery components (anodes, cathodes, electrolytes, copper foil), and Tier 3 would be battery cell/pack manufacturers and final product assembly. Georgia has attracted some battery manufacturing, so component production would likely be present to support that, but specific company details require dataset access.",True,[],success,,4.642134207068011,318,136,454,2026-04-06T05:17:34+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4615270379, ""eval_duration"": 4135749038}"
+15,Identify all Georgia companies with an EV Supply Chain Role related to wiring harnesses and show their Primary OEMs.,There are 2 Georgia companies with an EV Supply Chain Role related to wiring harnesses: WIKA USA | Primary OEMs: n/a Woodbridge Foam Corp. | Primary OEMs: n/a,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Identify all Georgia companies with an EV Supply Chain Role related to wiring harnesses and show their Primary OEMs.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Companies involved in EV supply chains, specifically wiring harnesses, would likely include automotive suppliers and manufacturers with facilities in Georgia. These companies may serve multiple OEMs (Original Equipment Manufacturers) like Ford, GM, Rivian, Hyundai, Kia, and others building or planning to build EVs. Identifying the *specific* Georgia companies and their *primary* OEM relationships requires detailed supply chain data not available in closed-book knowledge. It would depend on current contracts and sourcing decisions.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Companies involved in EV supply chains, specifically wiring harnesses, would likely include automotive suppliers and manufacturers with facilities in Georgia. These companies may serve multiple OEMs (Original Equipment Manufacturers) like Ford, GM, Rivian, Hyundai, Kia, and others building or planning to build EVs. Identifying the *specific* Georgia companies and their *primary* OEM relationships requires detailed supply chain data not available in closed-book knowledge. It would depend on current contracts and sourcing decisions.",True,[],success,,3.853187495842576,312,110,422,2026-04-06T05:17:38+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3819782568, ""eval_duration"": 3350847855}"
+16,Find Georgia-based Tier 1 or Tier 1/2 suppliers capable of producing battery electrolytes or lithium-ion battery materials with existing OEM contracts.,The Georgia-based suppliers that match battery electrolytes or lithium-ion battery materials and also have existing OEM contracts are: Hollingsworth & Vose Co. [Tier 1/2] | OEMs: Hyundai Kia | Produces: Lithium-ion battery materials IMMI [Tier 1/2] | OEMs: Hyundai Kia | Produces: Battery electrolyte,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Find Georgia-based Tier 1 or Tier 1/2 suppliers capable of producing battery electrolytes or lithium-ion battery materials with existing OEM contracts.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Identifying specific Tier 1/2 suppliers in Georgia with OEM contracts requires detailed supply chain information not available without the dataset. However, generally, battery electrolyte and lithium-ion battery material production is concentrated among a relatively small number of large chemical companies and materials science firms. These companies often have direct relationships (“Tier 1”) or supply relationships through other manufacturers (“Tier 2”) with automotive and electronics OEMs. Georgia’s attractiveness for manufacturing suggests it *could* host such facilities, but confirming specific suppliers and contracts necessitates the dataset.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Identifying specific Tier 1/2 suppliers in Georgia with OEM contracts requires detailed supply chain information not available without the dataset. However, generally, battery electrolyte and lithium-ion battery material production is concentrated among a relatively small number of large chemical companies and materials science firms. These companies often have direct relationships (“Tier 1”) or supply relationships through other manufacturers (“Tier 2”) with automotive and electronics OEMs. Georgia’s attractiveness for manufacturing suggests it *could* host such facilities, but confirming specific suppliers and contracts necessitates the dataset.",True,[],success,,4.301409636856988,322,124,446,2026-04-06T05:17:42+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4273491118, ""eval_duration"": 3778820271}"
+17,Which Georgia companies manufacture high-voltage wiring harnesses or EV electrical distribution components suitable for BEV platforms?,There are 2 Georgia companies manufacturing high-voltage wiring harnesses or EV electrical distribution components suitable for BEV platforms WIKA USA | Role: HV and LV wiring harnesses for EVs and ICE vehicles | Product: Vehicle power & data solutions; wiring harnesses and connectors | Ev Relevant: Yes Woodbridge Foam Corp. | Role: EV wiring harnesses and power distribution | Product: Automotive wiring harnesses & electrical distribution systems | Ev Relevant: Yes,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which Georgia companies manufacture high-voltage wiring harnesses or EV electrical distribution components suitable for BEV platforms?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, automotive component manufacturing in Georgia would likely involve suppliers to major OEMs like Kia (West Point), and potentially those serving EV production increases across the industry. Companies involved in electrical systems – broadly, those making wiring, connectors, and power distribution units – *could* be present, but identifying those specifically focused on high-voltage EV components requires detailed supplier lists not available without the dataset. These companies might be subsidiaries of larger international automotive suppliers.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Generally, automotive component manufacturing in Georgia would likely involve suppliers to major OEMs like Kia (West Point), and potentially those serving EV production increases across the industry. Companies involved in electrical systems – broadly, those making wiring, connectors, and power distribution units – *could* be present, but identifying those specifically focused on high-voltage EV components requires detailed supplier lists not available without the dataset. These companies might be subsidiaries of larger international automotive suppliers.",True,[],success,,3.760003464994952,312,107,419,2026-04-06T05:17:46+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3728568877, ""eval_duration"": 3258038951}"
+18,Identify Georgia Tier 2/3 companies in the Electronic and Electrical Equipment industry group that could be upgraded to supply EV power electronics.,There are no Georgia Tier 2/3 companies listed under the Electronic and Other Electrical Equipment and Components industry group. So none can be upgraded to supply EV power electronics based on the provided evidence.,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Identify Georgia Tier 2/3 companies in the Electronic and Electrical Equipment industry group that could be upgraded to supply EV power electronics.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Identifying companies for upgrade potential requires knowing their current capabilities and the specific requirements of EV power electronics supply. Generally, Tier 2/3 companies in electronic/electrical equipment *could* potentially upgrade if they have experience with high-voltage systems, power conversion, thermal management, or automated assembly – all relevant to EV power electronics. The feasibility depends on their existing manufacturing processes, engineering expertise, and willingness to invest in new equipment and training. A likely upgrade path would involve expanding into component manufacturing for inverters, DC-DC converters, or onboard chargers.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Identifying companies for upgrade potential requires knowing their current capabilities and the specific requirements of EV power electronics supply. Generally, Tier 2/3 companies in electronic/electrical equipment *could* potentially upgrade if they have experience with high-voltage systems, power conversion, thermal management, or automated assembly – all relevant to EV power electronics. The feasibility depends on their existing manufacturing processes, engineering expertise, and willingness to invest in new equipment and training. A likely upgrade path would involve expanding into component manufacturing for inverters, DC-DC converters, or onboard chargers.",True,[],success,,4.404231181135401,318,128,446,2026-04-06T05:17:50+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4377108416, ""eval_duration"": 3901147176}"
+19,Find Georgia-based companies that manufacture copper foil or electrodeposited materials suitable for EV battery current collectors.,There is 1 company in Georgia specifically identified for the manufacture of materials suitable for EV battery current collectors: Duckyang | Produce: High-quality electrodeposited (ED) copper foil for electric vehicles,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Find Georgia-based companies that manufacture copper foil or electrodeposited materials suitable for EV battery current collectors.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Manufacturing of copper foil and electrodeposited materials for EV battery current collectors is a specialized field. Companies involved would likely be metal fabrication or advanced materials firms. Georgia has a manufacturing base, and automotive suppliers are present due to vehicle assembly plants (like Kia in West Point), so it’s plausible some Georgia companies support this supply chain. Identifying *which* companies specifically requires detailed industry knowledge beyond general closed-book information. The answer would depend on specific company specializations and supply chain relationships not publicly available without the dataset.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Manufacturing of copper foil and electrodeposited materials for EV battery current collectors is a specialized field. Companies involved would likely be metal fabrication or advanced materials firms. Georgia has a manufacturing base, and automotive suppliers are present due to vehicle assembly plants (like Kia in West Point), so it’s plausible some Georgia companies support this supply chain. Identifying *which* companies specifically requires detailed industry knowledge beyond general closed-book information. The answer would depend on specific company specializations and supply chain relationships not publicly available without the dataset.",True,[],success,,4.203976683085784,312,121,433,2026-04-06T05:17:54+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4177967143, ""eval_duration"": 3690735409}"
+20,"Which Georgia Tier 1/2 companies produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components?","No Georgia Tier 1/2 companies are explicitly identified as producing engineered plastics, polymers, or composite materials applicable to EV structural or thermal components.",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which Georgia Tier 1/2 companies produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, Tier 1 and Tier 2 automotive suppliers in Georgia (or elsewhere) involved with EV components would likely include companies specializing in plastics, polymers, and composites due to the need for lightweighting and thermal management in electric vehicles. These materials are used in battery housings, interior parts, and potentially structural elements. Identifying *which* specific Georgia companies fit this description requires dataset-specific knowledge of their product lines and customer base. It would depend on which companies supply directly to EV manufacturers or their Tier 1 suppliers.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Generally, Tier 1 and Tier 2 automotive suppliers in Georgia (or elsewhere) involved with EV components would likely include companies specializing in plastics, polymers, and composites due to the need for lightweighting and thermal management in electric vehicles. These materials are used in battery housings, interior parts, and potentially structural elements. Identifying *which* specific Georgia companies fit this description requires dataset-specific knowledge of their product lines and customer base. It would depend on which companies supply directly to EV manufacturers or their Tier 1 suppliers.",True,[],success,,4.217922390904278,317,122,439,2026-04-06T05:17:59+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4190174894, ""eval_duration"": 3713604922}"
+21,Find Georgia suppliers with existing Hyundai Kia contracts that could be expanded to support Hyundai Metaplant's EV battery production ramp-up.,There are 11 companies with existing Hyundai Kia contracts that could be expanded to support Hyundai Metaplant's EV battery production ramp-up. F&P Georgia Manufacturing Duckyang GSC Steel Stamping LLC Hitachi Astemo Americas Inc. Hollingsworth & Vose Co. Honda Development & Manufacturing Hyundai Motor Group Hyundai Transys Georgia Powertrain IMMI Enchem America Inc. Racemark International LLC,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Find Georgia suppliers with existing Hyundai Kia contracts that could be expanded to support Hyundai Metaplant's EV battery production ramp-up.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Identifying specific Georgia suppliers with Hyundai/Kia contracts poised for expansion would require detailed supply chain data I do not have. However, generally, automotive suppliers specializing in battery components (cells, modules, packs), thermal management systems, and electrical wiring harnesses would be key candidates. Georgia has a growing automotive sector, so suppliers already serving Hyundai and Kia in the state are logical starting points for evaluating expansion potential to support EV battery production at the Metaplant. The feasibility depends on each supplier’s current capacity, technological capabilities, and financial resources to invest in increased production.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Identifying specific Georgia suppliers with Hyundai/Kia contracts poised for expansion would require detailed supply chain data I do not have. However, generally, automotive suppliers specializing in battery components (cells, modules, packs), thermal management systems, and electrical wiring harnesses would be key candidates. Georgia has a growing automotive sector, so suppliers already serving Hyundai and Kia in the state are logical starting points for evaluating expansion potential to support EV battery production at the Metaplant. The feasibility depends on each supplier’s current capacity, technological capabilities, and financial resources to invest in increased production.",True,[],success,,4.4943967750296,319,130,449,2026-04-06T05:18:03+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4467807989, ""eval_duration"": 3974426767}"
+22,"Identify Georgia companies producing DC-to-DC converters, capacitors, or power electronics components relevant to EV drivetrains and what tier is each assigned?","There are 3 Georgia companies producing DC-to-DC converters, capacitors, or power electronics components relevant to EV drivetrains. GSC Steel Stamping LLC [Tier 2/3] Hyundai MOBIS (Georgia) [Tier 1/2] Hyundai Transys Georgia Seating Systems [Tier 1/2]",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Identify Georgia companies producing DC-to-DC converters, capacitors, or power electronics components relevant to EV drivetrains and what tier is each assigned?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, companies involved in EV drivetrain components in Georgia would likely fall into multiple tiers. Tier 1 suppliers directly provide components to EV manufacturers (like the drivetrain itself or major power inverters). Tier 2 suppliers provide components *to* Tier 1 suppliers (e.g., specialized capacitors or DC-to-DC converter modules). Tier 3 suppliers provide raw materials or basic components used by Tier 2.
+Identifying specific Georgia companies requires detailed supply chain knowledge not available without the dataset. However, large electronics manufacturers with a presence in Georgia *could* be involved at some tier, and automotive suppliers with Georgia facilities are also potential candidates. It's also possible smaller, specialized Georgia companies focus on niche power electronics for EV applications.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Generally, companies involved in EV drivetrain components in Georgia would likely fall into multiple tiers. Tier 1 suppliers directly provide components to EV manufacturers (like the drivetrain itself or major power inverters). Tier 2 suppliers provide components *to* Tier 1 suppliers (e.g., specialized capacitors or DC-to-DC converter modules). Tier 3 suppliers provide raw materials or basic components used by Tier 2. 
+
+Identifying specific Georgia companies requires detailed supply chain knowledge not available without the dataset. However, large electronics manufacturers with a presence in Georgia *could* be involved at some tier, and automotive suppliers with Georgia facilities are also potential candidates. It's also possible smaller, specialized Georgia companies focus on niche power electronics for EV applications.",True,[],success,,5.656270700972527,322,167,489,2026-04-06T05:18:09+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 5627539927, ""eval_duration"": 5101931196}"
+23,"Which Georgia companies provide powder coating-related products or services, and what tier are they classified under?",There is only 1 Georgia company that provides Powder coating-related products/services: Archer Aviation Inc. [Tier 2/3] | Produces: Powder coatings for automotive and other industries,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which Georgia companies provide powder coating-related products or services, and what tier are they classified under?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, powder coating is a finishing process applied to a wide range of manufactured goods. Companies providing these services in Georgia would likely include metal fabrication shops, automotive parts suppliers, appliance manufacturers, and companies specializing in industrial coatings. Tier classification (Tier 1, 2, 3) would depend on their direct relationship to major OEMs – Tier 1 suppliers directly supply parts/services to the OEM, Tier 2 supply to Tier 1, and Tier 3 are further removed. Identifying specific Georgia companies and their tiers requires a specialized industry database.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Generally, powder coating is a finishing process applied to a wide range of manufactured goods. Companies providing these services in Georgia would likely include metal fabrication shops, automotive parts suppliers, appliance manufacturers, and companies specializing in industrial coatings. Tier classification (Tier 1, 2, 3) would depend on their direct relationship to major OEMs – Tier 1 suppliers directly supply parts/services to the OEM, Tier 2 supply to Tier 1, and Tier 3 are further removed. Identifying specific Georgia companies and their tiers requires a specialized industry database.",True,[],success,,4.404488753993064,312,128,440,2026-04-06T05:18:13+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4377432321, ""eval_duration"": 3912443475}"
+24,"Which Georgia companies manufacture battery parts or enclosure systems and are classified as Tier 1/2, making them ready for direct OEM engagement and show which Primary OEMs they are linked to.","There are 6 Georgia companies manufacturing battery parts or enclosure systems and are classified as Tier 1/2, making them ready for direct OEM engagement. F&P Georgia Manufacturing | OEMs: Hyundai Kia Hitachi Astemo Americas Inc. | OEMs: Hyundai Kia Hollingsworth & Vose Co. | OEMs: Hyundai Kia Honda Development & Manufacturing | OEMs: Hyundai Kia Hyundai Motor Group | OEMs: Hyundai Kia IMMI | OEMs: Hyundai Kia",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which Georgia companies manufacture battery parts or enclosure systems and are classified as Tier 1/2, making them ready for direct OEM engagement and show which Primary OEMs they are linked to.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, Tier 1 and Tier 2 suppliers in the automotive or energy sectors (where battery parts/enclosures are critical) would include larger manufacturing firms capable of meeting stringent OEM quality and volume requirements. In Georgia, companies involved in automotive manufacturing – like Kia’s suppliers – or those in the growing electric vehicle battery supply chain are potential candidates. Primary OEMs would likely be automotive manufacturers (Kia, Hyundai, Rivian which is building a facility in Georgia), or battery manufacturers establishing a presence in the state. Identifying *which* specific Georgia companies meet the Tier 1/2 classification and their *exact* OEM links requires detailed supply chain data not available without the benchmark dataset.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Generally, Tier 1 and Tier 2 suppliers in the automotive or energy sectors (where battery parts/enclosures are critical) would include larger manufacturing firms capable of meeting stringent OEM quality and volume requirements. In Georgia, companies involved in automotive manufacturing – like Kia’s suppliers – or those in the growing electric vehicle battery supply chain are potential candidates. Primary OEMs would likely be automotive manufacturers (Kia, Hyundai, Rivian which is building a facility in Georgia), or battery manufacturers establishing a presence in the state. Identifying *which* specific Georgia companies meet the Tier 1/2 classification and their *exact* OEM links requires detailed supply chain data not available without the benchmark dataset.",True,[],success,,5.243574168998748,328,154,482,2026-04-06T05:18:19+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 5214604234, ""eval_duration"": 4706716247}"
+25,Find Tier 2/3 Georgia-based suppliers with employment over 300 that are classified as General Automotive but produce components transferable to EV platforms.,There are 8 Tier 2/3 Georgia-based suppliers with employment over 300 that are classified as General Automotive but produce components transferable to EV platforms. Arising Industries Inc. | Employment: 582 Dinex Emissions Inc. | Employment: 500 ACM Georgia LLC | Employment: 400 Dongwon Autopart Technology Georgia LLC | Employment: 315 FOX Factory | Employment: 345 AVS | Employment: 310 Flambeau Inc. | Employment: 700 Grudem | Employment: 807,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Find Tier 2/3 Georgia-based suppliers with employment over 300 that are classified as General Automotive but produce components transferable to EV platforms.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Identifying such suppliers would depend on a detailed supply chain map. Generally, Tier 2/3 suppliers focus on specific components – things like molded parts, electronic control units, or certain machined pieces. Many components used in traditional internal combustion engine vehicles *can* be adapted for electric vehicles (e.g., fasteners, some housings, certain sensors). However, a supplier being “General Automotive” doesn’t guarantee EV transferability; it just means they serve a broad range of vehicle manufacturers. Employment over 300 suggests a reasonably substantial operation, likely capable of some level of engineering and process control. Finding those specifically in Georgia requires a supplier database with detailed classifications.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Identifying such suppliers would depend on a detailed supply chain map. Generally, Tier 2/3 suppliers focus on specific components – things like molded parts, electronic control units, or certain machined pieces. Many components used in traditional internal combustion engine vehicles *can* be adapted for electric vehicles (e.g., fasteners, some housings, certain sensors). However, a supplier being “General Automotive” doesn’t guarantee EV transferability; it just means they serve a broad range of vehicle manufacturers. Employment over 300 suggests a reasonably substantial operation, likely capable of some level of engineering and process control. Finding those specifically in Georgia requires a supplier database with detailed classifications.",True,[],success,,5.181935074040666,323,152,475,2026-04-06T05:18:24+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 5155168382, ""eval_duration"": 4644344606}"
+26,Identify Georgia Tier 2/3 companies in the Chemicals and Allied Products industry group and list their products.,There are 2 Georgia Tier 2/3 companies in Chemicals and Allied Products industry group. Archer Aviation Inc. | Product: Powder coatings for automotive and other industries Arising Industries Inc. | Product: Rubber powders for tires,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Identify Georgia Tier 2/3 companies in the Chemicals and Allied Products industry group and list their products.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Tier 2/3 companies generally refer to suppliers to larger “Tier 1” manufacturers. In the Chemicals and Allied Products industry, this would include companies producing specialty chemicals, additives, polymers, resins, adhesives, coatings, and various formulated products used in manufacturing processes. Products would be highly variable depending on the specific company’s focus – possibilities include industrial gases, surfactants, pigments, plastic compounds, cleaning compounds, or agricultural chemicals. Identifying specific Georgia companies requires a specialized database of suppliers and their relationships to larger manufacturers, which I do not have.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Tier 2/3 companies generally refer to suppliers to larger “Tier 1” manufacturers. In the Chemicals and Allied Products industry, this would include companies producing specialty chemicals, additives, polymers, resins, adhesives, coatings, and various formulated products used in manufacturing processes. Products would be highly variable depending on the specific company’s focus – possibilities include industrial gases, surfactants, pigments, plastic compounds, cleaning compounds, or agricultural chemicals. Identifying specific Georgia companies requires a specialized database of suppliers and their relationships to larger manufacturers, which I do not have.",True,[],success,,4.400664201006293,313,128,441,2026-04-06T05:18:28+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4374322106, ""eval_duration"": 3904800768}"
+27,"Which EV Supply Chain Roles in Georgia are served by only a single company, creating a single-point-of-failure risk for the state's EV ecosystem?","There are 28 Supply Chain Roles in Georgia served by only a single company, creating a single-point-of-failure risk for the state's EV ecosystem Role: Advanced electrical architecture for EVs | Only company: Yamaha Motor Manufacturing Corp. Role: Body and chassis components for EV and ICE OEMs | Only company: Vanguard National Trailer Corp. Role: Charging Infrastructure | Only company: Morgan Corp. Role: EV and ICE component manufacturing | Only company: Vista Metals Corp. Role: EV and ICE powertrain and HVAC components | Only company: Voestalpine Automotive Body Parts Inc. Role: EV body, powertrain, and thermal components | Only company: ZF Gainesville LLC Role: EV electrical distribution and interior systems | Only company: Yachiyo Manufacturing of America LLC Role: EV sensors, braking, and control systems | Only company: YKK USA Inc. Role: EV thermal management and power electronics | Only company: ZF Gainesville LLC Role: EV thermal systems and electronics | Only company: ZF Gainesville LLC Role: EV wiring harnesses and power distribution | Only company: Woodbridge Foam Corp. Role: HV and LV wiring harnesses for EVs and ICE vehicles | Only company: WIKA USA Role: High‑voltage EV connectors and electronics | Only company: Woory Industrial Co. Role: Interior and exterior plastic parts | Only company: Wabash National Corp. Role: Interior trim and textile components | Only company: Wheelabrator Group Inc. Role: Machined components supporting EV and ICE vehicles | Only company: Trenton Pressing Inc. Role: OEM corporate and engineering footprint (electrification) | Only company: Tie Down Engineering Role: OEM corporate footprint and supplier integration | Only company: Trenton Pressing Role: OEM corporate footprint influencing EV strategy | Only company: TI Fluid Systems Role: OEM parent group footprint (EV + HD electrification) | Only company: TN Americas Holding Inc. Role: OEM parent group footprint (electric truck strategy) | Only company: Toyota Industries Group (TACG-TICA) Role: Plastic components for EV and ICE vehicles | Only company: Volvo Cars USA Role: Power Electronics | Only company: GSC Steel Stamping LLC Role: Power electronics, sensors, and EV systems | Only company: Yazaki North America Role: Stamped and welded assemblies for OEMs | Only company: Vernay Role: Stamped metal components for OEMs | Only company: Volvo Group North America Role: Tier 1 automotive components | Only company: Valeo Role: Vehicle safety systems OEM (EV + ICE) → Only company: TI Fluid Systems",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which EV Supply Chain Roles in Georgia are served by only a single company, creating a single-point-of-failure risk for the state's EV ecosystem?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Identifying single points of failure would require a detailed mapping of all EV supply chain roles (e.g., battery manufacturing, charging infrastructure installation, raw material processing) and the companies operating within Georgia for each role. It’s likely some specialized roles have limited providers statewide. The risk is higher for roles requiring significant capital investment or specialized expertise.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Identifying single points of failure would require a detailed mapping of all EV supply chain roles (e.g., battery manufacturing, charging infrastructure installation, raw material processing) and the companies operating within Georgia for each role. It’s likely some specialized roles have limited providers statewide. The risk is higher for roles requiring significant capital investment or specialized expertise.",True,[],success,,3.133628217037767,325,87,412,2026-04-06T05:18:31+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3105641033, ""eval_duration"": 2641017441}"
+28,"Which Georgia Battery Cell or Battery Pack suppliers are sole-sourced by a specific OEM, indicating high dependency risk?","There are 6 Georgia Battery Cell or Battery Pack suppliers that are sole-sourced by a specific OEM, indicating high dependency risk. • F&P Georgia Manufacturing | Role: Battery Pack | Primary OEM: Hyundai Kia • Hitachi Astemo Americas Inc. | Role: Battery Cell | Primary OEM: Hyundai Kia • Hollingsworth & Vose Co. | Role: Battery Pack | Primary OEM: Hyundai Kia • Honda Development & Manufacturing | Role: Battery Cell | Primary OEM: Hyundai Kia • Hyundai Motor Group | Role: Battery Pack | Primary OEM: Hyundai Kia • IMMI | Role: Battery Pack | Primary OEM: Hyundai Kia",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which Georgia Battery Cell or Battery Pack suppliers are sole-sourced by a specific OEM, indicating high dependency risk?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Identifying sole-sourced battery suppliers would depend on specific OEM supply chain details, which are not publicly available. Generally, automakers often diversify battery suppliers to mitigate risk, but some may initially sole-source for specific vehicle programs or technologies. High dependency risk would exist if an OEM relies on a single supplier for a critical battery component and that supplier experiences disruptions. The Georgia battery sector likely includes suppliers at various tiers – cell manufacturers, pack assemblers, and materials providers – any of which *could* be sole-sourced.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Identifying sole-sourced battery suppliers would depend on specific OEM supply chain details, which are not publicly available. Generally, automakers often diversify battery suppliers to mitigate risk, but some may initially sole-source for specific vehicle programs or technologies. High dependency risk would exist if an OEM relies on a single supplier for a critical battery component and that supplier experiences disruptions. The Georgia battery sector likely includes suppliers at various tiers – cell manufacturers, pack assemblers, and materials providers – any of which *could* be sole-sourced.",True,[],success,,4.230523681035265,314,122,436,2026-04-06T05:18:36+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4203143092, ""eval_duration"": 3727908712}"
+29,"For Hyundai Metaplant, how many of its Georgia-based EV component suppliers have fewer than 200 employees, flagging potential capacity fragility?","For Hyundai Metaplant, there are 6 Georgia-based EV component suppliers with less than 200 employees, flagging potential capacity fragility. Enchem America Inc. | Employment: 155 F&P Georgia Manufacturing | Employment: 104 Hyundai Motor Group | Employment: 164 Hyundai Transys Georgia Powertrain | Employment: 130 IMMI | Employment: 100 Racemark International LLC | Employment: 120",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+For Hyundai Metaplant, how many of its Georgia-based EV component suppliers have fewer than 200 employees, flagging potential capacity fragility?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Determining this would require a list of Hyundai Metaplant’s Georgia-based EV component suppliers *and* their employee counts – data not generally available publicly. It’s reasonable to expect that some suppliers will be smaller businesses, potentially creating supply chain vulnerability if they struggle to scale production alongside the Metaplant. The number with fewer than 200 employees would indicate the extent of this potential fragility.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Determining this would require a list of Hyundai Metaplant’s Georgia-based EV component suppliers *and* their employee counts – data not generally available publicly. It’s reasonable to expect that some suppliers will be smaller businesses, potentially creating supply chain vulnerability if they struggle to scale production alongside the Metaplant. The number with fewer than 200 employees would indicate the extent of this potential fragility.",True,[],success,,3.6061743411701173,322,102,424,2026-04-06T05:18:39+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3578411574, ""eval_duration"": 3111136795}"
+30,"Identify Georgia Tier 2/3 suppliers that are EV Relevant, classified as General Automotive, and provide materials to Battery Cell or Battery Pack companies, suggesting supply chain misalignment risk.","There are 2 Georgia Tier 2/3 suppliers that are EV Relevant, classified as General Automotive, and provide materials to Battery Cell or Battery Pack companies, suggesting supply chain misalignment risk. Duckyang | OEMs: Hyundai Kia Rivian Enchem America Inc. | OEMs: Hyundai Kia Rivian",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Identify Georgia Tier 2/3 suppliers that are EV Relevant, classified as General Automotive, and provide materials to Battery Cell or Battery Pack companies, suggesting supply chain misalignment risk.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Identifying Tier 2/3 suppliers requires detailed supply chain mapping data not available without the specific dataset. However, generally, EV-relevant suppliers in the “General Automotive” classification would likely include companies producing components like: electrical connectors, wiring harnesses, plastic housings, thermal management systems (coolant pumps, heat exchangers), and various fasteners. These components *could* be supplied to battery cell or battery pack manufacturers.
+Supply chain misalignment risk would arise if these Tier 2/3 suppliers are heavily reliant on a single source for critical materials, have limited geographic diversity in their own supply base, or lack the capacity to scale production quickly enough to meet the demands of the rapidly growing EV battery sector. The specific risk level would depend on the supplier’s individual circumstances and the resilience of their own supply chains.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Identifying Tier 2/3 suppliers requires detailed supply chain mapping data not available without the specific dataset. However, generally, EV-relevant suppliers in the “General Automotive” classification would likely include companies producing components like: electrical connectors, wiring harnesses, plastic housings, thermal management systems (coolant pumps, heat exchangers), and various fasteners. These components *could* be supplied to battery cell or battery pack manufacturers. 
+
+Supply chain misalignment risk would arise if these Tier 2/3 suppliers are heavily reliant on a single source for critical materials, have limited geographic diversity in their own supply base, or lack the capacity to scale production quickly enough to meet the demands of the rapidly growing EV battery sector. The specific risk level would depend on the supplier’s individual circumstances and the resilience of their own supply chains.",True,[],success,,6.048576650908217,327,180,507,2026-04-06T05:18:45+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 6023184548, ""eval_duration"": 5500642940}"
+31,Identify all Georgia-based Tier 1/2 automotive suppliers that maintain a diversified customer base (serving 'Multiple OEMs').,There are 11 Georgia-based Tier 1/2 automotive suppliers that maintain a diversified customer base. Fouts Brothers Fire Equipment Hitachi Astemo Hwashin Hyundai & LG Energy Solution (LGES) IMS Gear Georgia Inc. JAC Products Inc. Hyundai Industrial Co. Hyundai MOBIS (Georgia) Hyundai Transys Georgia Seating Systems Inalfa Roof Systems Inc. Jefferson Southern Corp.,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Identify all Georgia-based Tier 1/2 automotive suppliers that maintain a diversified customer base (serving 'Multiple OEMs').
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Tier 1 and Tier 2 automotive suppliers are companies that directly supply parts or systems to vehicle manufacturers (OEMs – Original Equipment Manufacturers) or to Tier 1 suppliers, respectively. A diversified customer base, meaning serving 'Multiple OEMs', would indicate a supplier isn’t overly reliant on a single automaker, which is generally a sign of financial health and resilience. Identifying Georgia-based companies fitting this description requires specific supplier-OEM relationship data not available in general knowledge. However, Georgia has a significant automotive presence, so it's reasonable to expect *some* suppliers operate with multiple OEM clients. These would likely be larger manufacturing facilities.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Tier 1 and Tier 2 automotive suppliers are companies that directly supply parts or systems to vehicle manufacturers (OEMs – Original Equipment Manufacturers) or to Tier 1 suppliers, respectively. A diversified customer base, meaning serving 'Multiple OEMs', would indicate a supplier isn’t overly reliant on a single automaker, which is generally a sign of financial health and resilience. Identifying Georgia-based companies fitting this description requires specific supplier-OEM relationship data not available in general knowledge. However, Georgia has a significant automotive presence, so it's reasonable to expect *some* suppliers operate with multiple OEM clients. These would likely be larger manufacturing facilities.",True,[],success,,4.997357004089281,316,146,462,2026-04-06T05:18:50+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4968906720, ""eval_duration"": 4471508279}"
+32,Identify Georgia companies in the Thermal Management or Power Electronics role with fewer than 200 employees - their small scale may limit surge production capacity.,There are 3 Georgia companies in the Thermal Management or Power Electronics role with fewer than 200 employees. Freudenberg-NOK | Employment: 160 | Role: Thermal Management Hyundai Transys Georgia Powertrain | Employment: 130 | Role: Thermal Management Peerless-Winsmith Inc. | Employment: 160 | Role: Thermal Management,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Identify Georgia companies in the Thermal Management or Power Electronics role with fewer than 200 employees - their small scale may limit surge production capacity.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, companies involved in thermal management or power electronics – which are specialized fields – tend to be smaller, innovative firms or divisions within larger organizations. Identifying Georgia-based companies fitting that description and under 200 employees would require a business directory or database. Their surge production capacity would depend on factors like existing inventory, supply chain robustness, and the ability to add shifts or outsource.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Generally, companies involved in thermal management or power electronics – which are specialized fields – tend to be smaller, innovative firms or divisions within larger organizations. Identifying Georgia-based companies fitting that description and under 200 employees would require a business directory or database. Their surge production capacity would depend on factors like existing inventory, supply chain robustness, and the ability to add shifts or outsource.",True,[],success,,3.38813524809666,321,95,416,2026-04-06T05:18:54+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3364868476, ""eval_duration"": 2892855842}"
+33,Identify any EV-relevant Georgia companies classified as OEM Footprint or OEM Supply Chain?,There are 24 Georgia‑based companies that are classified as OEM Footprint or OEM Supply Chain OEM Footprint TI Fluid Systems Tie Down Engineering TN Americas Holding Inc. Toyota Industries Group (TACG-TICA) Trenton Pressing Yazaki North America YKK USA Inc. ZF Gainesville LLC OEM Supply Chain: Trenton Pressing Inc. Valeo Vanguard National Trailer Corp. Vernay Vista Metals Corp. Voestalpine Automotive Body Parts Inc. Volvo Cars USA Volvo Group North America Wabash National Corp. Wheelabrator Group Inc. WIKA USA Woodbridge Foam Corp. Woory Industrial Co. Yachiyo Manufacturing of America LLC Yamaha Motor Manufacturing Corp. ZF Gainesville LLC,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Identify any EV-relevant Georgia companies classified as OEM Footprint or OEM Supply Chain?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, identifying EV-relevant Georgia companies within “OEM Footprint” or “OEM Supply Chain” would depend on which OEMs (Original Equipment Manufacturers – like Rivian, Tesla, Ford, GM, etc.) have established operations in Georgia, and then identifying the companies that directly supply them or are located near their facilities. Georgia has been actively courting EV manufacturing, so it's likely there are companies involved in battery production, component manufacturing, and assembly that fall into these categories. Determining *which* specific companies are classified this way requires the dataset itself.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Generally, identifying EV-relevant Georgia companies within “OEM Footprint” or “OEM Supply Chain” would depend on which OEMs (Original Equipment Manufacturers – like Rivian, Tesla, Ford, GM, etc.) have established operations in Georgia, and then identifying the companies that directly supply them or are located near their facilities. Georgia has been actively courting EV manufacturing, so it's likely there are companies involved in battery production, component manufacturing, and assembly that fall into these categories. Determining *which* specific companies are classified this way requires the dataset itself.",True,[],success,,4.45406485395506,309,129,438,2026-04-06T05:18:58+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4426563998, ""eval_duration"": 3940620921}"
+34,"Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness?",Top 10 Georgia companies based on the employment size supply both General Automotive and have some EV relevance (Yes or Indirect): JTEKT North America Corp. | Employment: 860 Kautex Inc. | Employment: 800 Lark United Manufacturing Inc. | Employment: 700 Fouts Brothers Fire Equipment | Employment: 630 Arising Industries Inc. | Employment: 582 Dinex Emissions Inc. | Employment: 500 Lund International Inc. | Employment: 500 Mack Trucks | Employment: 500 Mando America Corp. | Employment: 460 ACM Georgia LLC | Employment: 400,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Identifying the top 10 Georgia companies by employment supplying both traditional automotive and EV components would require specific business data I do not have. However, generally, large Tier 1 and Tier 2 automotive suppliers with a Georgia presence are most likely to be involved in both areas as they adapt to the EV transition. These companies often manufacture components like chassis parts, powertrain components (transitioning to EV drivetrains), interiors, and electrical distribution systems. Companies involved in plastics, metals, and advanced materials are also likely candidates. Determining “transition readiness” would depend on publicly announced investments in EV-specific production capacity or partnerships.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Identifying the top 10 Georgia companies by employment supplying both traditional automotive and EV components would require specific business data I do not have. However, generally, large Tier 1 and Tier 2 automotive suppliers with a Georgia presence are most likely to be involved in both areas as they adapt to the EV transition. These companies often manufacture components like chassis parts, powertrain components (transitioning to EV drivetrains), interiors, and electrical distribution systems. Companies involved in plastics, metals, and advanced materials are also likely candidates. Determining “transition readiness” would depend on publicly announced investments in EV-specific production capacity or partnerships.",True,[],success,,4.862189142033458,317,142,459,2026-04-06T05:19:03+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4834194074, ""eval_duration"": 4340368204}"
+35,"How many Georgia companies are now producing lithium-ion battery materials, cells, or electrolytes?","There are 5 Georgia‑based companies currently producing lithium‑ion battery materials, battery cells, or battery electrolytes: F&P Georgia Manufacturing [Tier 1/2] | Lithium-ion battery recycler & raw materials Hitachi Astemo Americas Inc. [Tier 1/2] | Battery cells for electric mobility Hollingsworth & Vose Co. [Tier 1/2] | Lithium-ion battery materials Honda Development & Manufacturing [Tier 1/2] | Battery cells IMMI [Tier 1/2] | Battery electrolyte",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+How many Georgia companies are now producing lithium-ion battery materials, cells, or electrolytes?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+The number of Georgia companies involved in lithium-ion battery material production is a rapidly evolving situation dependent on recent investments and supply chain developments. It would depend on how broadly ""producing"" is defined – does it include material refinement, component manufacturing, or final cell/electrolyte assembly? Recent news suggests increasing interest and investment in battery manufacturing within the US, and Georgia is likely attracting some of that due to its logistics infrastructure and incentives, but a precise count requires specific, up-to-date data.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+The number of Georgia companies involved in lithium-ion battery material production is a rapidly evolving situation dependent on recent investments and supply chain developments. It would depend on how broadly ""producing"" is defined – does it include material refinement, component manufacturing, or final cell/electrolyte assembly? Recent news suggests increasing interest and investment in battery manufacturing within the US, and Georgia is likely attracting some of that due to its logistics infrastructure and incentives, but a precise count requires specific, up-to-date data.",True,[],success,,4.1179319301154464,310,118,428,2026-04-06T05:19:07+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4090642347, ""eval_duration"": 3610427980}"
+36,Which Georgia Tier 2/3 suppliers currently produce lightweight aluminum or composite materials and are growing their EV-specific customer base?,"There are 7 Tier 2/3 companies producing lightweight aluminum or composite materials and are growing their EV-specific customer base Bridgestone Bandag | Product: Composite materials and specialty polymers for automotive components | EV Relevant: Indirect Dinex Emissions Inc. | Product: Aluminum sheet for automotive bodies | EV Relevant: Indirect Down 2 Earth Trailers | Product: Standard and custom aluminum-lithium products for automotive customers | EV Relevant: Indirect Eaton Corp. | Product: Aluminum products for various markets including automotive market | EV Relevant: Indirect Ecoplastic America Corporation | Product: Aluminum sheet for automotive bodies | EV Relevant: Indirect Erdrich USA Inc. | Product: Aluminum sheet for automotive bodies | EV Relevant: Indirect Global Powertrain Systems LLC | Product: Motor vehicle brake systems and parts Fabricates metal products, including coate | EV Relevant: Indirect",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which Georgia Tier 2/3 suppliers currently produce lightweight aluminum or composite materials and are growing their EV-specific customer base?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, Tier 2/3 suppliers focusing on lightweight materials are crucial for EV production due to the need to offset battery weight and increase range. Growth in their EV customer base would depend on contracts with major automotive manufacturers – both established OEMs and newer EV companies – and their ability to scale production to meet demand. Aluminum and composite material suppliers in Georgia would likely be located near automotive assembly plants or other Tier 1 suppliers to minimize transportation costs. Identifying *which* specific companies are growing their EV business requires detailed, current supply chain information not available without the dataset.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Generally, Tier 2/3 suppliers focusing on lightweight materials are crucial for EV production due to the need to offset battery weight and increase range. Growth in their EV customer base would depend on contracts with major automotive manufacturers – both established OEMs and newer EV companies – and their ability to scale production to meet demand. Aluminum and composite material suppliers in Georgia would likely be located near automotive assembly plants or other Tier 1 suppliers to minimize transportation costs. Identifying *which* specific companies are growing their EV business requires detailed, current supply chain information not available without the dataset.",True,[],success,,4.526991253951564,317,131,448,2026-04-06T05:19:12+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4498446536, ""eval_duration"": 4005454072}"
+37,"Identify Georgia companies whose product descriptions include 'high-voltage', 'DC-to-DC', 'inverter', or 'motor controller' — these signal EV powertrain electronics growth.","There is only 1 Georgia company with 'high-voltage', 'DC-to-DC', 'inverter', or 'motor controller' product signals. GSC Steel Stamping LLC | Product: DC-to-DC converters",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Identify Georgia companies whose product descriptions include 'high-voltage', 'DC-to-DC', 'inverter', or 'motor controller' — these signal EV powertrain electronics growth.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+However, companies involved in electrical engineering, power electronics, and automotive component manufacturing within Georgia are potential candidates. These would likely include firms designing or assembling components for electric vehicles or industrial applications requiring those technologies. Identifying them would require a specific list of Georgia-based companies and their detailed product catalogs—information not available without the dataset.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+However, companies involved in electrical engineering, power electronics, and automotive component manufacturing within Georgia are potential candidates. These would likely include firms designing or assembling components for electric vehicles or industrial applications requiring those technologies. Identifying them would require a specific list of Georgia-based companies and their detailed product catalogs—information not available without the dataset.",True,[],success,,3.0331979650072753,328,83,411,2026-04-06T05:19:15+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3005363254, ""eval_duration"": 2523410063}"
+38,"Which Georgia automotive companies employ over 1,000 workers but are currently categorized as only ""Indirectly Relevant"" to the EV sector, indicating a massive workforce pool ready for a strategic pivot?","There are 3 Georgia automotive companies employ over 1,000 workers but are currently categorized as only ""Indirectly Relevant"" to the EV sector TCI Powder Coatings | Employment: 3000 | Role: Vehicle Assembly Teklas USA | Employment: 1800 | Role: Vehicle Assembly Textron Specialized Vehicles | Employment: 1100 | Role: Vehicle Assembly",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which Georgia automotive companies employ over 1,000 workers but are currently categorized as only ""Indirectly Relevant"" to the EV sector, indicating a massive workforce pool ready for a strategic pivot?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, large automotive suppliers—those making components like seats, interiors, brake systems, or traditional engine parts—would likely fit this description. These companies often have substantial Georgia workforces but are not EV *manufacturers* themselves. Identifying them requires knowing which specific suppliers have over 1,000 employees in Georgia *and* are currently labeled as “Indirectly Relevant” within the dataset’s categorization.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Generally, large automotive suppliers—those making components like seats, interiors, brake systems, or traditional engine parts—would likely fit this description. These companies often have substantial Georgia workforces but are not EV *manufacturers* themselves. Identifying them requires knowing which specific suppliers have over 1,000 employees in Georgia *and* are currently labeled as “Indirectly Relevant” within the dataset’s categorization.",True,[],success,,3.5770333318505436,332,101,433,2026-04-06T05:19:19+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3548217589, ""eval_duration"": 3074988717}"
+39,"Which three Georgia companies have the largest employment in EV thermal management, and how many employees does each have?","The 4 companies with the largest thermal-management-related employment in Georgia are: ZF Gainesville LLC: 17,500 employees Novelis Inc.: 200 employees Freudenberg-NOK: 160 employees Peerless-Winsmith Inc.: 160 employees",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which three Georgia companies have the largest employment in EV thermal management, and how many employees does each have?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Determining the largest employers in a specific niche like “EV thermal management” requires detailed, current workforce data not available in general knowledge. However, major automotive manufacturers with Georgia facilities (like Kia) and their suppliers would likely be among the top employers. Companies specializing in HVAC or advanced materials could also be significant, but quantifying their EV-specific employment is difficult without the dataset. The answer would depend on how narrowly ""thermal management"" is defined – does it include battery cooling systems, cabin climate control, power electronics cooling, etc.?","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Determining the largest employers in a specific niche like “EV thermal management” requires detailed, current workforce data not available in general knowledge. However, major automotive manufacturers with Georgia facilities (like Kia) and their suppliers would likely be among the top employers. Companies specializing in HVAC or advanced materials could also be significant, but quantifying their EV-specific employment is difficult without the dataset. The answer would depend on how narrowly ""thermal management"" is defined – does it include battery cooling systems, cabin climate control, power electronics cooling, etc.?",True,[],success,,4.324031751137227,313,125,438,2026-04-06T05:19:23+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4295955567, ""eval_duration"": 3816224559}"
+40,"Which companies are involved in thermal-related products or services, and what roles and facility types are they associated with?","There are 5 companies involved in thermal-related products or services, along with their associated EV supply chain roles and primary facility types are: Freudenberg-NOK | Role: Thermal Management | Facility Type: Manufacturing Plant Hyundai Transys Georgia Powertrain |Role: Thermal Management | Facility Type: Manufacturing Plant Novelis Inc. | Role: Thermal Management | Facility Type: Manufacturing Plant Peerless-Winsmith Inc. | Role: Thermal Management | Facility Type: Manufacturing Plant ZF Gainesville LLC | Role: EV thermal management and power electronics | Facility Type: Manufacturing",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which companies are involved in thermal-related products or services, and what roles and facility types are they associated with?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Companies involved in thermal-related products or services could include manufacturers of HVAC systems (heating, ventilation, and air conditioning), insulation materials, boilers, furnaces, refrigeration equipment, and related components. They might also include energy service companies offering thermal efficiency audits or installations. Facility types would likely span manufacturing plants, distribution centers, service/repair locations, and potentially research & development facilities. Roles would range from manufacturing and assembly to engineering, sales, installation, and maintenance. The specific companies and their exact roles/facilities would depend on the scope of ""thermal-related"" and the geographic focus of the dataset.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Companies involved in thermal-related products or services could include manufacturers of HVAC systems (heating, ventilation, and air conditioning), insulation materials, boilers, furnaces, refrigeration equipment, and related components. They might also include energy service companies offering thermal efficiency audits or installations. Facility types would likely span manufacturing plants, distribution centers, service/repair locations, and potentially research & development facilities. Roles would range from manufacturing and assembly to engineering, sales, installation, and maintenance. The specific companies and their exact roles/facilities would depend on the scope of ""thermal-related"" and the geographic focus of the dataset.",True,[],success,,4.723072622902691,315,138,453,2026-04-06T05:19:28+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4694451547, ""eval_duration"": 4216470673}"
+41,Which Tier 1/2 Georgia companies listed under General Automotive suggest a gradual evolution toward EV-related products or markets?,There are 6 Tier 1/2 Georgia companies listed under General Automotive: Fouts Brothers Fire Equipment [Tier 1/2] | Role: General Automotive Hyundai Industrial Co. [Tier 1/2] | Role: General Automotive Hyundai MOBIS (Georgia) [Tier 1/2] | Role: General Automotive Hyundai Transys Georgia Seating Systems [Tier 1/2] | Role: General Automotive Inalfa Roof Systems Inc. [Tier 1/2] | Role: General Automotive Jefferson Southern Corp. [Tier 1/2] | Role: General Automotive,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which Tier 1/2 Georgia companies listed under General Automotive suggest a gradual evolution toward EV-related products or markets?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, automotive Tier 1 and 2 suppliers are increasingly involved in electric vehicle (EV) components – things like battery systems, power electronics, electric motors, and related software. Companies demonstrating this evolution would likely be those publicly announcing investments in these areas, forming partnerships with EV manufacturers, or shifting production from internal combustion engine (ICE) components to EV components. The dataset likely lists companies and their product lines; identifying the evolution would depend on analyzing those product lines for a move *from* ICE-related parts *to* EV-related parts.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Generally, automotive Tier 1 and 2 suppliers are increasingly involved in electric vehicle (EV) components – things like battery systems, power electronics, electric motors, and related software. Companies demonstrating this evolution would likely be those publicly announcing investments in these areas, forming partnerships with EV manufacturers, or shifting production from internal combustion engine (ICE) components to EV components. The dataset likely lists companies and their product lines; identifying the evolution would depend on analyzing those product lines for a move *from* ICE-related parts *to* EV-related parts.",True,[],success,,4.410815746989101,316,128,444,2026-04-06T05:19:32+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4383556143, ""eval_duration"": 3913342457}"
+42,How is demand for thermal management solutions reflected in the number and employment size of Georgia Thermal Management suppliers?,There are 4 companies for Thermal Management suppliers in Georgia Employment Size: 650 Freudenberg-NOK | Employment: 160 Hyundai Transys Georgia Powertrain | Employment: 130 Novelis Inc. | Employment: 200 Peerless-Winsmith Inc. | Employment: 160,gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+How is demand for thermal management solutions reflected in the number and employment size of Georgia Thermal Management suppliers?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, increased demand for thermal management solutions would likely correlate with a greater number of suppliers and larger employment sizes within that sector in a given region like Georgia. This is because higher demand necessitates increased production capacity, which in turn requires more companies and personnel. The extent of this relationship would depend on factors like Georgia’s existing manufacturing base, incentives for relevant businesses, and overall economic conditions.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Generally, increased demand for thermal management solutions would likely correlate with a greater number of suppliers and larger employment sizes within that sector in a given region like Georgia. This is because higher demand necessitates increased production capacity, which in turn requires more companies and personnel. The extent of this relationship would depend on factors like Georgia’s existing manufacturing base, incentives for relevant businesses, and overall economic conditions.",True,[],success,,3.4028396911453456,312,96,408,2026-04-06T05:19:36+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3377978541, ""eval_duration"": 2918818731}"
+43,"Which Georgia companies are involved in battery recycling or second-life battery processing, reflecting the emerging circular economy trend?","There are 3 Georgia companies involved in battery recycling or end-of-life processing: Enplas USA Inc. | Product: Recycler of lithium ion batteries EVCO Plastics | Product: Recycler of copper, precious metals, and non-ferrous materials F&P Georgia Manufacturing | Product: Lithium-ion battery recycler and raw materials provider",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which Georgia companies are involved in battery recycling or second-life battery processing, reflecting the emerging circular economy trend?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, companies involved in battery recycling or second-life processing in any state would likely include materials science firms, specialized waste management companies, and potentially automotive or energy storage manufacturers establishing closed-loop systems. In Georgia, this could involve companies near automotive manufacturing facilities (given EV battery prevalence) or those focused on renewable energy storage solutions. It’s uncertain which specific Georgia companies are currently active in this space without dataset specifics.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Generally, companies involved in battery recycling or second-life processing in any state would likely include materials science firms, specialized waste management companies, and potentially automotive or energy storage manufacturers establishing closed-loop systems. In Georgia, this could involve companies near automotive manufacturing facilities (given EV battery prevalence) or those focused on renewable energy storage solutions. It’s uncertain which specific Georgia companies are currently active in this space without dataset specifics.",True,[],success,,3.6231854730285704,314,103,417,2026-04-06T05:19:39+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3599756004, ""eval_duration"": 3134489998}"
+44,"Which Georgia suppliers appear to play innovation-stage roles through research, development, or prototyping activity?","There is only 1 Georgia company that clearly appears to be an innovation-stage roles through research, development, or prototyping activity. Racemark International LLC | Product: Manufacturing and R&D engine parts for EV",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which Georgia suppliers appear to play innovation-stage roles through research, development, or prototyping activity?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, suppliers involved in innovation stages for manufacturing would likely be those specializing in advanced materials, engineering services, or specialized component design and testing. These might be companies focusing on areas like automotive parts, aerospace components, or advanced polymers – industries where R&D is common. Identifying *Georgia* suppliers specifically would require a list of companies operating within the state and details of their activities, which I do not have.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Generally, suppliers involved in innovation stages for manufacturing would likely be those specializing in advanced materials, engineering services, or specialized component design and testing. These might be companies focusing on areas like automotive parts, aerospace components, or advanced polymers – industries where R&D is common. Identifying *Georgia* suppliers specifically would require a list of companies operating within the state and details of their activities, which I do not have.",True,[],success,,3.5761215470265597,311,101,412,2026-04-06T05:19:43+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3550754741, ""eval_duration"": 3078608902}"
+45,"Which Georgia suppliers currently serving traditional OEMs are also linked to EV-native OEMs, showing dual-platform supply capability?","There are 5 Georgia-based suppliers that exhibit dual-platform supply capability, as they are linked to both traditional OEMs such as Hyundai/Kia and the EV-native OEM Rivian. Duckyang GSC Steel Stamping LLC Hyundai Transys Georgia Powertrain Enchem America Inc. Racemark International LLC",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which Georgia suppliers currently serving traditional OEMs are also linked to EV-native OEMs, showing dual-platform supply capability?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, automotive suppliers aiming for long-term viability are actively pursuing relationships with both traditional (internal combustion engine) and EV-native OEMs. This is because the automotive industry is undergoing a transition, and suppliers want to position themselves to serve the market regardless of powertrain. A supplier demonstrating “dual-platform supply capability” would likely be involved in providing components for both types of vehicles – for example, supplying both engine components *and* battery thermal management systems, or providing chassis parts for both ICE and electric vehicles. Identifying *which* specific Georgia suppliers do this requires detailed knowledge of their customer lists, which is not publicly available. It would depend on which Georgia companies supply parts like these and to which OEMs they sell.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Generally, automotive suppliers aiming for long-term viability are actively pursuing relationships with both traditional (internal combustion engine) and EV-native OEMs. This is because the automotive industry is undergoing a transition, and suppliers want to position themselves to serve the market regardless of powertrain. A supplier demonstrating “dual-platform supply capability” would likely be involved in providing components for both types of vehicles – for example, supplying both engine components *and* battery thermal management systems, or providing chassis parts for both ICE and electric vehicles. Identifying *which* specific Georgia suppliers do this requires detailed knowledge of their customer lists, which is not publicly available. It would depend on which Georgia companies supply parts like these and to which OEMs they sell.",True,[],success,,5.478899431182072,315,162,477,2026-04-06T05:19:48+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 5455237349, ""eval_duration"": 4950092296}"
+46,Identify Georgia areas that currently lack Battery Cell or Battery Pack suppliers but have existing Tier 1 general automotive infrastructure.,"There are 39 Georgia counties that have Tier 1 suppliers but no Battery Cell/Pack suppliers (using Updated Location). Baldwin County, Bibb County, Carroll County, Catoosa County, Chatham County, Chattahoochee County, Chattooga County, Clarke County, Clayton County, Cobb County, Dawson County, Dougherty County, Douglas County, Elbert County, Fayette County, Forsyth County, Franklin County, Fulton County, Grady County, Gwinnett County, Habersham County, Hall County, Haralson County, Henry County, Jackson County, Jones County, Lamar County, Lowndes County, Lumpkin County, Meriwether County, Morgan County, Newton County, Paulding County, Rabun County, Spalding County, Stephens County, Troup County, Walton County, Whitfield County",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Identify Georgia areas that currently lack Battery Cell or Battery Pack suppliers but have existing Tier 1 general automotive infrastructure.
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, areas with established automotive assembly plants *could* be candidates. These locations often have supporting Tier 1 suppliers for components like brakes, transmissions, and interiors. The absence of battery cell/pack suppliers would then indicate a potential gap in the supply chain for EV production in those areas. Identifying specific Georgia locations would require knowing which areas have those existing Tier 1 facilities and comparing that to current battery supplier locations – information I do not have.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Generally, areas with established automotive assembly plants *could* be candidates. These locations often have supporting Tier 1 suppliers for components like brakes, transmissions, and interiors. The absence of battery cell/pack suppliers would then indicate a potential gap in the supply chain for EV production in those areas. Identifying specific Georgia locations would require knowing which areas have those existing Tier 1 facilities and comparing that to current battery supplier locations – information I do not have.",True,[],success,,3.7481250599958003,314,107,421,2026-04-06T05:19:52+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3720945797, ""eval_duration"": 3254250918}"
+47,"For a new Tier 1 battery thermal management company looking to locate in Georgia, which areas have the highest concentration of Materials-category suppliers that could support thermal management production?","Covington, Henry County has 2 Materials‑category suppliers that could support battery thermal management production for a new Tier 1 company in Georgia.",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+For a new Tier 1 battery thermal management company looking to locate in Georgia, which areas have the highest concentration of Materials-category suppliers that could support thermal management production?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, areas near major automotive manufacturing facilities would likely have a higher concentration of materials suppliers. In Georgia, that would point toward the Atlanta metropolitan area and potentially areas west of Atlanta along the I-20 corridor, given the presence of Kia’s plant in West Point. However, the specific *types* of materials needed for battery thermal management (e.g., plastics, metals, coolants, composites) would further refine where suppliers are concentrated – and that is not something I know without the dataset.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. 
+
+Generally, areas near major automotive manufacturing facilities would likely have a higher concentration of materials suppliers. In Georgia, that would point toward the Atlanta metropolitan area and potentially areas west of Atlanta along the I-20 corridor, given the presence of Kia’s plant in West Point. However, the specific *types* of materials needed for battery thermal management (e.g., plastics, metals, coolants, composites) would further refine where suppliers are concentrated – and that is not something I know without the dataset.",True,[],success,,4.21843673218973,326,121,447,2026-04-06T05:19:57+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4191351975, ""eval_duration"": 3695005623}"
+48,"How many Georgia areas have concentrated Manufacturing Plant facilities but no EV-specific production presence, indicating potential conversion-ready industrial sites?","There are 100 Georgia areas that currently host Manufacturing Plant facilities but have no EV‑specific production presence, indicating a large pool of potentially conversion‑ready industrial sites. Top concentrations include: LaGrange, Troup County | 7 plants Atlanta, Fulton County | 6 plants West Point, Troup County | 6 plants Dublin, Laurens County | 4 plants Savannah, Chatham County | 4 plants Griffin, Spalding County | 3 plants Madison, Morgan County | 3 plants Lavonia, Franklin County | 3 plants Duluth, Gwinnett County | 3 plants Jefferson, Jackson County | 3 plants",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+How many Georgia areas have concentrated Manufacturing Plant facilities but no EV-specific production presence, indicating potential conversion-ready industrial sites?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Identifying such areas would require a detailed inventory of manufacturing facilities in Georgia *and* specific knowledge of which facilities are currently involved in EV production. Generally, areas with a history of automotive parts manufacturing or broader industrial activity would be prime candidates. The number would depend on the scope of ""concentrated"" (how many facilities constitute a concentration) and the definition of ""EV-specific production"" (e.g., full vehicle assembly vs. component manufacturing). It's reasonable to expect several such areas exist given Georgia's industrial base.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Identifying such areas would require a detailed inventory of manufacturing facilities in Georgia *and* specific knowledge of which facilities are currently involved in EV production. Generally, areas with a history of automotive parts manufacturing or broader industrial activity would be prime candidates. The number would depend on the scope of ""concentrated"" (how many facilities constitute a concentration) and the definition of ""EV-specific production"" (e.g., full vehicle assembly vs. component manufacturing). It's reasonable to expect several such areas exist given Georgia's industrial base.",True,[],success,,4.32596285501495,317,125,442,2026-04-06T05:20:01+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 4298780319, ""eval_duration"": 3819813883}"
+49,"For an international battery materials company seeking a Georgia location, which areas have existing chemical manufacturing infrastructure?","There are 2 Georgia areas with existing chemical manufacturing infrastructure: Covington, Morgan County: Archer Aviation Inc. Norcross, Gwinnett County: Arising Industries Inc.",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+For an international battery materials company seeking a Georgia location, which areas have existing chemical manufacturing infrastructure?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone. However, generally, areas around major metropolitan areas and interstate corridors in Georgia would be most likely to have existing chemical manufacturing infrastructure. Specifically, look towards areas near Atlanta, Savannah, and along the I-85 and I-75 corridors. Chemical manufacturing often clusters due to shared infrastructure needs (like rail access, specialized utilities, and skilled labor) and supply chain considerations. The presence of universities with chemical engineering programs could also be a factor.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone. However, generally, areas around major metropolitan areas and interstate corridors in Georgia would be most likely to have existing chemical manufacturing infrastructure. Specifically, look towards areas near Atlanta, Savannah, and along the I-85 and I-75 corridors. Chemical manufacturing often clusters due to shared infrastructure needs (like rail access, specialized utilities, and skilled labor) and supply chain considerations. The presence of universities with chemical engineering programs could also be a factor.",False,[],success,,3.71951277484186,311,106,417,2026-04-06T05:20:05+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3693988260, ""eval_duration"": 3230140302}"
+50,"Which Georgia areas have R&D facility types in the automotive sector, suggesting innovation infrastructure suitable for EV technology development centers?","There is only 1 Georgia area with an R&D facility type in the automotive sector: Gray, Jones County | Company: Racemark International LLC | Product: Manufacturing and R&D engine parts for EV",gemma_norag,gemma3:27b,False,v3,"You are a closed-book baseline for a domain-specific QA benchmark.
+Use best-effort reasoning, but do not invent dataset-specific facts.
+
+Rules:
+- Do not fabricate Georgia-specific company names, exact counts, exact employment values, exact county rankings, exact OEM relationships, or exact facility mappings.
+- If the exact dataset answer is not knowable from closed-book knowledge alone, say what is uncertain clearly.
+- Provide cautious partial answers when possible instead of defaulting to a blanket refusal.
+- Do not respond with only the uncertainty sentence if you can add any safe partial answer, high-level explanation, or answer shape without inventing specifics.
+- When exact dataset facts are unknowable, prefer a short structure like: uncertainty first, then one brief best-effort statement.
+- Never present guesses as exact facts.
+- Respond in plain text only. Do not output JSON, YAML, or copied instructions.
+- If you truly cannot provide any safe partial answer, reply exactly: I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+- Keep answers concise and honest.","QUESTION:
+Which Georgia areas have R&D facility types in the automotive sector, suggesting innovation infrastructure suitable for EV technology development centers?
+
+Answer from closed-book knowledge only.
+If the exact dataset-specific answer is unknowable, say so briefly and then provide any safe partial answer, general interpretation, or description of what the answer would depend on, without inventing specifics.",,[],[],[],[],[],[],,,[],"I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+Generally, areas with a strong presence of automotive manufacturing or assembly plants are likely candidates for R&D facilities. In Georgia, this would likely include areas around Atlanta, given its logistical advantages and access to a skilled workforce. Also, cities or counties actively courting automotive investment would be potential locations. The presence of universities with strong engineering programs—like Georgia Tech—would further support R&D activity. However, pinpointing *specific* areas requires dataset information on facility types and locations.","I cannot determine the exact dataset-specific answer from closed-book knowledge alone.
+
+Generally, areas with a strong presence of automotive manufacturing or assembly plants are likely candidates for R&D facilities. In Georgia, this would likely include areas around Atlanta, given its logistical advantages and access to a skilled workforce. Also, cities or counties actively courting automotive investment would be potential locations. The presence of universities with strong engineering programs—like Georgia Tech—would further support R&D activity. However, pinpointing *specific* areas requires dataset information on facility types and locations.",True,[],success,,3.9803918900433928,316,114,430,2026-04-06T05:20:09+00:00,1,{},"{""done_reason"": ""stop"", ""total_duration"": 3954639130, ""eval_duration"": 3475476980}"
+>>>>>>> 62c9729c9838ef19a30d25eebbd52ab0268417f4

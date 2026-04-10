@@ -1,0 +1,5 @@
+pipeline_name,questions,success_rate,mean_latency_seconds
+gemma_norag,50,1.0,4.094246308021248
+gemma_rag,50,1.0,6.826776931183413
+qwen_norag,50,1.0,4.6048182214703415
+qwen_rag,50,1.0,4.416012035687454

@@ -1,0 +1,2 @@
+pipeline_name,run_key,question_count_target,total_rows_materialized,success_count,failed_count,not_applicable_count,mean_faithfulness,mean_response_relevancy,mean_context_precision,mean_context_recall,mean_answer_correctness,started_at_utc,completed_at_utc,output_dir
+qwen_rag,5e89de1d6dc8f5b0,3,3,3,0,0,0.8333333333333334,0.8571668701457972,0.9999999999,0.9824561403508771,0.5355796787638107,2026-04-05T22:30:27+00:00,2026-04-05T22:33:01+00:00,/home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/evaluation/qwen_rag/5e89de1d6dc8f5b0

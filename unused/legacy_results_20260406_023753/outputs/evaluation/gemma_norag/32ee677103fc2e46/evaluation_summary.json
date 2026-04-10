@@ -1,0 +1,12 @@
+{
+  "total_rows": 50,
+  "status_counts": {
+    "success": 50
+  },
+  "mean_faithfulness": null,
+  "mean_response_relevancy": 0.24692027145652304,
+  "mean_context_precision": null,
+  "mean_context_recall": null,
+  "mean_answer_correctness": 0.48540455514483666,
+  "pipeline_name": "gemma_norag"
+}

@@ -1,0 +1,2 @@
+question_id,pipeline_name,retrieved_chunk_count,structured_ops_used,filter_fallback_applied
+1,gemini_rag,8,list_records,False

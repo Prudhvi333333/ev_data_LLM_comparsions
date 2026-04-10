@@ -1,0 +1,16 @@
+[2026-04-05 22:51:46] [INFO] [cli] Starting generation run for qwen_rag
+[2026-04-05 22:51:47] [INFO] [embeddings] Loading embedding model sentence-transformers/all-mpnet-base-v2
+[2026-04-05 22:51:47] [INFO] [sentence_transformers.SentenceTransformer] Use pytorch device_name: cpu
+[2026-04-05 22:51:47] [INFO] [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+[2026-04-05 22:51:47] [INFO] [vectorstore] Loading vector index from /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/indexes/55c79c1afaa2406740602b8f33ad5805e9246a45377291c3495f5da0a5b725b4/sentence-transformers__all-mpnet-base-v2
+[2026-04-05 22:51:47] [INFO] [lexical_retrieval] Loaded lexical index from /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/indexes/55c79c1afaa2406740602b8f33ad5805e9246a45377291c3495f5da0a5b725b4/sentence-transformers__all-mpnet-base-v2/lexical.pkl
+[2026-04-05 22:51:47] [INFO] [sentence_transformers.cross_encoder.CrossEncoder] Use pytorch device: cpu
+[2026-04-05 22:51:49] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 22:51:51] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 22:51:55] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 22:51:56] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 22:52:00] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 22:52:01] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 22:52:02] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 22:52:02] [INFO] [cli] Generation completed for qwen_rag. Outputs saved to /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/generation/qwen_rag/b13688e38bb908d5
+[2026-04-05 22:52:02] [INFO] [cli] Log file: /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/logs/generate_qwen_rag_20260406_025146.log

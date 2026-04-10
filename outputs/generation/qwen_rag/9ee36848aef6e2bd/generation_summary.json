@@ -4,7 +4,11 @@
   "status_counts": {
     "success": 50
   },
+<<<<<<< HEAD
   "mean_latency_seconds": 15.99623466016259,
+=======
+  "mean_latency_seconds": 2.5178879208210856,
+>>>>>>> 62c9729c9838ef19a30d25eebbd52ab0268417f4
   "rag_enabled": true,
   "pipeline_name": "qwen_rag"
 }

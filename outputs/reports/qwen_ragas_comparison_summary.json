@@ -1,0 +1,35 @@
+{
+  "qwen_rag_output_path": "/home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/evaluation/qwen_rag/0c04d7166acb802b",
+  "qwen_norag_output_path": "/home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/evaluation/qwen_norag/9c15871b1abd457f",
+  "qwen_rag": {
+    "total_rows": 50,
+    "status_counts": {
+      "success": 50
+    },
+    "mean_faithfulness": 0.693928293928294,
+    "mean_response_relevancy": NaN,
+    "mean_context_precision": 0.6799999999319999,
+    "mean_context_recall": 0.6590815675552517,
+    "mean_answer_correctness": 0.47815933702753116,
+    "pipeline_name": "qwen_rag"
+  },
+  "qwen_norag": {
+    "total_rows": 50,
+    "status_counts": {
+      "success": 50
+    },
+    "mean_faithfulness": null,
+    "mean_response_relevancy": 0.3913768013400593,
+    "mean_context_precision": null,
+    "mean_context_recall": null,
+    "mean_answer_correctness": 0.4622276144328182,
+    "pipeline_name": "qwen_norag"
+  },
+  "metric_deltas": {
+    "faithfulness_delta": null,
+    "response_relevancy_delta": null,
+    "context_precision_delta": null,
+    "context_recall_delta": null,
+    "answer_correctness_delta": 0.015931722594712983
+  }
+}

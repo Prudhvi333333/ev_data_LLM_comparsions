@@ -1,0 +1,17 @@
+[2026-04-05 09:35:21] [INFO] [kb_loader] Loaded 205 KB documents from data/kb/GNEM - Auto Landscape Lat Long Updated.xlsx
+[2026-04-05 09:35:21] [WARNING] [indexer] sentence-transformers unavailable; using local TF-IDF hash embeddings.
+[2026-04-05 09:35:21] [WARNING] [indexer] chromadb unavailable; using local pickle vector store.
+[2026-04-05 09:35:21] [INFO] [indexer] Embedding docs 1-32
+[2026-04-05 09:35:21] [INFO] [indexer] Embedding docs 33-64
+[2026-04-05 09:35:21] [INFO] [indexer] Embedding docs 65-96
+[2026-04-05 09:35:21] [INFO] [indexer] Embedding docs 97-128
+[2026-04-05 09:35:21] [INFO] [indexer] Embedding docs 129-160
+[2026-04-05 09:35:21] [INFO] [indexer] Embedding docs 161-192
+[2026-04-05 09:35:21] [INFO] [indexer] Embedding docs 193-205
+[2026-04-05 09:35:21] [WARNING] [indexer] rank-bm25 unavailable; using local BM25 implementation.
+[2026-04-05 09:35:21] [INFO] [indexer] Indexed 205 documents
+[2026-04-05 09:35:21] [WARNING] [retriever] CrossEncoder unavailable; using lexical rerank fallback.
+[2026-04-05 09:35:21] [WARNING] [evaluator] Judge response parse failed for faithfulness (attempt 1): No JSON object found in judge response
+[2026-04-05 09:35:21] [WARNING] [evaluator] Judge response parse failed for faithfulness (attempt 2): No JSON object found in judge response
+[2026-04-05 09:35:22] [WARNING] [evaluator] Judge response parse failed for faithfulness (attempt 3): No JSON object found in judge response
+[2026-04-05 09:35:24] [INFO] [reporter] Saved report outputs\reports\qwen_rag_report_20260405_093524.xlsx

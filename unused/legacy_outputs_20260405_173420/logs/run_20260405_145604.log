@@ -1,0 +1,31 @@
+[2026-04-05 14:56:52] [INFO] [kb_loader] Loaded 205 KB documents from data/kb/GNEM - Auto Landscape Lat Long Updated.xlsx
+[2026-04-05 14:56:53] [INFO] [indexer] Embedding docs 1-32
+[2026-04-05 14:56:55] [INFO] [indexer] Embedding docs 33-64
+[2026-04-05 14:56:58] [INFO] [indexer] Embedding docs 65-96
+[2026-04-05 14:57:00] [INFO] [indexer] Embedding docs 97-128
+[2026-04-05 14:57:02] [INFO] [indexer] Embedding docs 129-160
+[2026-04-05 14:57:04] [INFO] [indexer] Embedding docs 161-192
+[2026-04-05 14:57:07] [INFO] [indexer] Embedding docs 193-205
+[2026-04-05 14:57:08] [INFO] [indexer] Indexed 205 documents
+[2026-04-05 14:57:08] [INFO] [main] Running pipeline qwen_rag
+[2026-04-05 14:57:08] [INFO] [main] Pipeline qwen_rag running in serialized mode for local Ollama stability.
+[2026-04-05 14:57:11] [INFO] [main] Q1 retrieval complete | docs=30 | top_companies=F&P Georgia Manufacturing, Hyundai Transys Georgia Seating Systems, Hyundai Transys Georgia Powertrain, Ajin Georgia, ADVICS Manufacturing Georgia LLC
+[2026-04-05 14:57:11] [INFO] [main] Q1 context ready | chars=13313
+[2026-04-05 14:59:11] [INFO] [main] Q1 generation complete | answer_chars=18 | status=timeout
+[2026-04-05 14:59:23] [INFO] [main] Q1 evaluation complete | final_score=0.1440
+[2026-04-05 14:59:26] [INFO] [main] Q3 retrieval complete | docs=30 | top_companies=Novelis Inc., Hyundai Transys Georgia Powertrain, ZF Gainesville LLC, Freudenberg-NOK, Peerless-Winsmith Inc.
+[2026-04-05 14:59:26] [INFO] [main] Q3 context ready | chars=13218
+[2026-04-05 15:00:46] [INFO] [main] Q3 generation complete | answer_chars=974 | status=ok
+[2026-04-05 15:01:05] [INFO] [main] Q3 evaluation complete | final_score=0.2150
+[2026-04-05 15:01:05] [INFO] [main] Q6 retrieval complete | docs=3 | top_companies=Novelis Inc., Novelis Inc., Novelis Inc.
+[2026-04-05 15:01:05] [INFO] [main] Q6 context ready | chars=1285
+[2026-04-05 15:01:19] [INFO] [generator] Generation completeness pass triggered | listed=0/1
+[2026-04-05 15:01:31] [INFO] [main] Q6 generation complete | answer_chars=141 | status=ok
+[2026-04-05 15:02:19] [WARNING] [evaluator] Judge API call failed for answer_relevancy: 
+[2026-04-05 15:02:41] [INFO] [main] Q6 evaluation complete | final_score=0.9525
+[2026-04-05 15:02:41] [INFO] [reporter] Saved report outputs\reports\qwen_rag_report_20260405_150241.xlsx
+[2026-04-05 15:02:41] [INFO] [main] Report saved: outputs\reports\qwen_rag_report_20260405_150241.xlsx
+[2026-04-05 15:02:41] [INFO] [summary_reporter] Saved cross-pipeline summary outputs\reports\FINAL_COMPARISON_20260405_150241.xlsx
+[2026-04-05 15:02:41] [INFO] [main] Final comparison saved: outputs\reports\FINAL_COMPARISON_20260405_150241.xlsx
+[2026-04-05 15:02:41] [INFO] [main] Final pipeline summary
+[2026-04-05 15:02:41] [INFO] [main] qwen_rag | questions_answered=3 | timeouts=1 | mean_final_score=0.4372 | elapsed=332.99s

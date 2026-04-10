@@ -1,0 +1,110 @@
+[2026-04-06 04:44:55] [INFO] [kb_loader] Loaded 205 KB documents from data/kb/GNEM - Auto Landscape Lat Long Updated.xlsx
+[2026-04-06 04:44:55] [WARNING] [indexer] chromadb unavailable; using local pickle vector store.
+[2026-04-06 04:44:55] [INFO] [main] Running pipeline gemma_norag
+[2026-04-06 04:44:55] [INFO] [main] Pipeline gemma_norag running in serialized mode for local Ollama stability.
+[2026-04-06 04:45:08] [INFO] [main] Q1 generation complete | answer_chars=1710 | status=ok
+[2026-04-06 04:45:26] [INFO] [main] Q1 evaluation complete | final_score=0.2300
+[2026-04-06 04:45:36] [INFO] [main] Q2 generation complete | answer_chars=1270 | status=ok
+[2026-04-06 04:45:59] [INFO] [main] Q2 evaluation complete | final_score=0.0600
+[2026-04-06 04:46:09] [INFO] [main] Q3 generation complete | answer_chars=1460 | status=ok
+[2026-04-06 04:46:27] [INFO] [main] Q3 evaluation complete | final_score=0.1600
+[2026-04-06 04:46:40] [INFO] [main] Q4 generation complete | answer_chars=1523 | status=ok
+[2026-04-06 04:46:49] [INFO] [main] Q4 evaluation complete | final_score=0.1125
+[2026-04-06 04:46:58] [INFO] [main] Q5 generation complete | answer_chars=1127 | status=ok
+[2026-04-06 04:47:09] [INFO] [main] Q5 evaluation complete | final_score=0.0600
+[2026-04-06 04:47:15] [INFO] [main] Q6 generation complete | answer_chars=700 | status=ok
+[2026-04-06 04:47:29] [INFO] [main] Q6 evaluation complete | final_score=0.0600
+[2026-04-06 04:47:30] [INFO] [main] Q7 generation complete | answer_chars=209 | status=ok
+[2026-04-06 04:47:43] [INFO] [main] Q7 evaluation complete | final_score=0.0000
+[2026-04-06 04:47:45] [INFO] [main] Q8 generation complete | answer_chars=291 | status=ok
+[2026-04-06 04:47:54] [INFO] [main] Q8 evaluation complete | final_score=0.0000
+[2026-04-06 04:47:56] [INFO] [main] Q9 generation complete | answer_chars=255 | status=ok
+[2026-04-06 04:48:07] [INFO] [main] Q9 evaluation complete | final_score=0.0000
+[2026-04-06 04:48:09] [INFO] [main] Q10 generation complete | answer_chars=300 | status=ok
+[2026-04-06 04:48:46] [INFO] [main] Q10 evaluation complete | final_score=0.1900
+[2026-04-06 04:48:49] [INFO] [main] Q11 generation complete | answer_chars=519 | status=ok
+[2026-04-06 04:48:58] [INFO] [main] Q11 evaluation complete | final_score=0.0600
+[2026-04-06 04:49:09] [INFO] [main] Q12 generation complete | answer_chars=1300 | status=ok
+[2026-04-06 04:49:22] [INFO] [main] Q12 evaluation complete | final_score=0.1225
+[2026-04-06 04:49:35] [INFO] [main] Q13 generation complete | answer_chars=1590 | status=ok
+[2026-04-06 04:49:59] [INFO] [main] Q13 evaluation complete | final_score=0.1250
+[2026-04-06 04:50:08] [INFO] [main] Q14 generation complete | answer_chars=1253 | status=ok
+[2026-04-06 04:50:23] [INFO] [main] Q14 evaluation complete | final_score=0.1800
+[2026-04-06 04:50:31] [INFO] [main] Q15 generation complete | answer_chars=1075 | status=ok
+[2026-04-06 04:50:39] [INFO] [main] Q15 evaluation complete | final_score=0.0600
+[2026-04-06 04:50:46] [INFO] [main] Q16 generation complete | answer_chars=869 | status=ok
+[2026-04-06 04:50:57] [INFO] [main] Q16 evaluation complete | final_score=0.3500
+[2026-04-06 04:51:00] [INFO] [main] Q17 generation complete | answer_chars=405 | status=ok
+[2026-04-06 04:51:10] [INFO] [main] Q17 evaluation complete | final_score=0.1950
+[2026-04-06 04:51:16] [INFO] [main] Q18 generation complete | answer_chars=991 | status=ok
+[2026-04-06 04:51:24] [INFO] [main] Q18 evaluation complete | final_score=0.0600
+[2026-04-06 04:51:29] [INFO] [main] Q19 generation complete | answer_chars=606 | status=ok
+[2026-04-06 04:51:37] [INFO] [main] Q19 evaluation complete | final_score=0.1825
+[2026-04-06 04:51:43] [INFO] [main] Q20 generation complete | answer_chars=876 | status=ok
+[2026-04-06 04:51:54] [INFO] [main] Q20 evaluation complete | final_score=0.1025
+[2026-04-06 04:52:00] [INFO] [main] Q21 generation complete | answer_chars=1033 | status=ok
+[2026-04-06 04:52:21] [INFO] [main] Q21 evaluation complete | final_score=0.2100
+[2026-04-06 04:52:29] [INFO] [main] Q22 generation complete | answer_chars=1150 | status=ok
+[2026-04-06 04:52:46] [INFO] [main] Q22 evaluation complete | final_score=0.1600
+[2026-04-06 04:52:57] [INFO] [main] Q23 generation complete | answer_chars=1444 | status=ok
+[2026-04-06 04:53:12] [INFO] [main] Q23 evaluation complete | final_score=0.0600
+[2026-04-06 04:53:19] [INFO] [main] Q24 generation complete | answer_chars=1016 | status=ok
+[2026-04-06 04:53:28] [INFO] [main] Q24 evaluation complete | final_score=0.2100
+[2026-04-06 04:53:35] [INFO] [main] Q25 generation complete | answer_chars=977 | status=ok
+[2026-04-06 04:53:52] [INFO] [main] Q25 evaluation complete | final_score=0.1525
+[2026-04-06 04:54:00] [INFO] [main] Q26 generation complete | answer_chars=1073 | status=ok
+[2026-04-06 04:54:10] [INFO] [main] Q26 evaluation complete | final_score=0.1025
+[2026-04-06 04:54:12] [INFO] [main] Q27 generation complete | answer_chars=405 | status=ok
+[2026-04-06 04:54:20] [INFO] [main] Q27 evaluation complete | final_score=0.1125
+[2026-04-06 04:54:24] [INFO] [main] Q28 generation complete | answer_chars=591 | status=ok
+[2026-04-06 04:54:34] [INFO] [main] Q28 evaluation complete | final_score=0.1300
+[2026-04-06 04:54:36] [INFO] [main] Q29 generation complete | answer_chars=225 | status=ok
+[2026-04-06 04:54:45] [INFO] [main] Q29 evaluation complete | final_score=0.0600
+[2026-04-06 04:54:54] [INFO] [main] Q30 generation complete | answer_chars=1487 | status=ok
+[2026-04-06 04:55:02] [INFO] [main] Q30 evaluation complete | final_score=0.1400
+[2026-04-06 04:55:09] [INFO] [main] Q31 generation complete | answer_chars=909 | status=ok
+[2026-04-06 04:55:18] [INFO] [main] Q31 evaluation complete | final_score=0.2500
+[2026-04-06 04:55:24] [INFO] [main] Q32 generation complete | answer_chars=863 | status=ok
+[2026-04-06 04:55:33] [INFO] [main] Q32 evaluation complete | final_score=0.1000
+[2026-04-06 04:55:38] [INFO] [main] Q33 generation complete | answer_chars=710 | status=ok
+[2026-04-06 04:55:49] [INFO] [main] Q33 evaluation complete | final_score=0.2100
+[2026-04-06 04:56:03] [INFO] [main] Q34 generation complete | answer_chars=1811 | status=ok
+[2026-04-06 04:56:12] [INFO] [main] Q34 evaluation complete | final_score=0.2100
+[2026-04-06 04:56:14] [INFO] [main] Q35 generation complete | answer_chars=250 | status=ok
+[2026-04-06 04:56:27] [INFO] [main] Q35 evaluation complete | final_score=0.0600
+[2026-04-06 04:56:33] [INFO] [main] Q36 generation complete | answer_chars=925 | status=ok
+[2026-04-06 04:56:44] [INFO] [main] Q36 evaluation complete | final_score=0.1225
+[2026-04-06 04:56:50] [INFO] [main] Q37 generation complete | answer_chars=839 | status=ok
+[2026-04-06 04:57:01] [INFO] [main] Q37 evaluation complete | final_score=0.1425
+[2026-04-06 04:57:04] [INFO] [main] Q38 generation complete | answer_chars=519 | status=ok
+[2026-04-06 04:57:12] [INFO] [main] Q38 evaluation complete | final_score=0.0825
+[2026-04-06 04:57:18] [INFO] [main] Q39 generation complete | answer_chars=913 | status=ok
+[2026-04-06 04:57:26] [INFO] [main] Q39 evaluation complete | final_score=0.0825
+[2026-04-06 04:57:40] [INFO] [main] Q40 generation complete | answer_chars=2022 | status=ok
+[2026-04-06 04:57:49] [INFO] [main] Q40 evaluation complete | final_score=0.0600
+[2026-04-06 04:57:53] [INFO] [main] Q41 generation complete | answer_chars=582 | status=ok
+[2026-04-06 04:58:04] [INFO] [main] Q41 evaluation complete | final_score=0.2340
+[2026-04-06 04:58:09] [INFO] [main] Q42 generation complete | answer_chars=763 | status=ok
+[2026-04-06 04:58:21] [INFO] [main] Q42 evaluation complete | final_score=0.1600
+[2026-04-06 04:58:26] [INFO] [main] Q43 generation complete | answer_chars=670 | status=ok
+[2026-04-06 04:58:38] [INFO] [main] Q43 evaluation complete | final_score=0.2000
+[2026-04-06 04:58:44] [INFO] [main] Q44 generation complete | answer_chars=868 | status=ok
+[2026-04-06 04:58:55] [INFO] [main] Q44 evaluation complete | final_score=0.2100
+[2026-04-06 04:59:00] [INFO] [main] Q45 generation complete | answer_chars=829 | status=ok
+[2026-04-06 04:59:08] [INFO] [main] Q45 evaluation complete | final_score=0.2100
+[2026-04-06 04:59:11] [INFO] [main] Q46 generation complete | answer_chars=510 | status=ok
+[2026-04-06 04:59:20] [INFO] [main] Q46 evaluation complete | final_score=0.2800
+[2026-04-06 04:59:24] [INFO] [main] Q47 generation complete | answer_chars=511 | status=ok
+[2026-04-06 04:59:31] [INFO] [main] Q47 evaluation complete | final_score=0.0925
+[2026-04-06 04:59:34] [INFO] [main] Q48 generation complete | answer_chars=372 | status=ok
+[2026-04-06 04:59:42] [INFO] [main] Q48 evaluation complete | final_score=0.3250
+[2026-04-06 04:59:45] [INFO] [main] Q49 generation complete | answer_chars=477 | status=ok
+[2026-04-06 04:59:53] [INFO] [main] Q49 evaluation complete | final_score=0.1225
+[2026-04-06 04:59:56] [INFO] [main] Q50 generation complete | answer_chars=430 | status=ok
+[2026-04-06 05:00:12] [INFO] [main] Q50 evaluation complete | final_score=0.1400
+[2026-04-06 05:00:12] [INFO] [reporter] Saved report outputs/reports/gemma_norag_report_20260406_050012.xlsx
+[2026-04-06 05:00:12] [INFO] [main] Report saved: outputs/reports/gemma_norag_report_20260406_050012.xlsx
+[2026-04-06 05:00:12] [INFO] [summary_reporter] Saved cross-pipeline summary outputs/reports/FINAL_COMPARISON_20260406_050012.xlsx
+[2026-04-06 05:00:12] [INFO] [main] Final comparison saved: outputs/reports/FINAL_COMPARISON_20260406_050012.xlsx
+[2026-04-06 05:00:12] [INFO] [main] Final pipeline summary
+[2026-04-06 05:00:12] [INFO] [main] gemma_norag | questions_answered=50 | timeouts=0 | mean_final_score=0.1388 | elapsed=917.01s

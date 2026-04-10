@@ -1,0 +1,10 @@
+{
+  "total_questions": 50,
+  "success_rate": 1.0,
+  "status_counts": {
+    "success": 50
+  },
+  "mean_latency_seconds": 4.094246308021248,
+  "rag_enabled": false,
+  "pipeline_name": "gemma_norag"
+}

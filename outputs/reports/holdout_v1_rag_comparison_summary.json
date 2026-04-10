@@ -1,0 +1,34 @@
+{
+  "aggregate_summary": [
+    {
+      "pipeline_name": "qwen_rag",
+      "total_rows": 15,
+      "mean_answer_correctness_score": 0.8233333333333334,
+      "correct_count": 13,
+      "partially_correct_count": 2,
+      "incorrect_count": 0
+    },
+    {
+      "pipeline_name": "gemma_rag",
+      "total_rows": 15,
+      "mean_answer_correctness_score": 0.83,
+      "correct_count": 13,
+      "partially_correct_count": 2,
+      "incorrect_count": 0
+    }
+  ],
+  "rag_vs_norag_summary": [
+    {
+      "model_family": "gemma",
+      "rag_score": 0.83,
+      "norag_score": null,
+      "rag_minus_norag": null
+    },
+    {
+      "model_family": "qwen",
+      "rag_score": 0.8233333333333334,
+      "norag_score": null,
+      "rag_minus_norag": null
+    }
+  ]
+}

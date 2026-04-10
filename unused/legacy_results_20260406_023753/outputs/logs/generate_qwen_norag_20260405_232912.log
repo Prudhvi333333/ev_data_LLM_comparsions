@@ -1,0 +1,8 @@
+[2026-04-05 19:29:12] [INFO] [cli] Starting generation run for qwen_norag
+[2026-04-05 19:29:13] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 19:29:15] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 19:29:17] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 19:29:19] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 19:29:20] [INFO] [httpx] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+[2026-04-05 19:29:20] [INFO] [cli] Generation completed for qwen_norag. Outputs saved to /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/generation/qwen_norag/196f13be46797fa1
+[2026-04-05 19:29:20] [INFO] [cli] Log file: /home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/logs/generate_qwen_norag_20260405_232912.log
