@@ -2,6 +2,7 @@
 venv/
 .venv/
 .vendor/
+.env
 
 # Python cache/build artifacts
 __pycache__/
@@ -18,6 +19,11 @@ __pycache__/
 Thumbs.db
 .idea/
 .vscode/
+
+# Generated benchmark artifacts
+outputs/
+unused/
+*.log
 
 # Local scratch artifacts
 RAG_Evaluation_Blueprint.extracted.txt

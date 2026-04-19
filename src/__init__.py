@@ -1,5 +1,9 @@
 """RAG evaluation framework package."""
+"""Benchmark framework for trustworthy domain QA comparisons."""
 
+__all__ = ["__version__"]
+
+__version__ = "2.0.0"
 from pathlib import Path
 import sys
 

@@ -1,0 +1,340 @@
+version: v3
+
+buckets:
+  battery_materials:
+    aliases:
+      - battery materials
+      - battery electrolyte
+      - electrolytes
+      - copper foil
+      - electrodeposited copper foil
+      - raw materials provider
+    synonyms:
+      - lithium-ion battery materials
+      - lithium ion battery materials
+      - cathode materials
+      - anode materials
+      - battery electrolyte
+    exact_phrases:
+      - high-quality electrodeposited (ED) copper foil for electric vehicles
+      - lithium-ion battery recycler and raw materials provider
+      - lithium-ion battery materials
+      - battery electrolyte
+    exclusions:
+      - battery cells for electric mobility
+    field_targets:
+      - product_service
+      - ev_supply_chain_role
+    question_hints:
+      - anodes
+      - cathodes
+      - electrolytes
+      - copper foil
+      - battery materials
+    retrieval_expansion_terms:
+      - copper foil
+      - battery electrolyte
+      - lithium-ion battery materials
+
+  battery_cells:
+    aliases:
+      - battery cell
+      - battery cells
+      - cells
+    synonyms:
+      - battery cells for electric mobility
+      - electric mobility battery cells
+    exact_phrases:
+      - battery cells for electric mobility
+    exclusions:
+      - fuel cells
+    field_targets:
+      - ev_supply_chain_role
+      - product_service
+    question_hints:
+      - battery cells
+      - cells
+      - cell suppliers
+    retrieval_expansion_terms:
+      - battery cells for electric mobility
+
+  battery_packs:
+    aliases:
+      - battery pack
+      - battery packs
+      - pack suppliers
+    synonyms:
+      - battery module
+      - battery modules
+      - energy storage pack
+    exact_phrases:
+      - battery pack
+      - battery packs
+    exclusions:
+      - battery cells for electric mobility
+    field_targets:
+      - ev_supply_chain_role
+      - product_service
+    question_hints:
+      - battery pack
+      - battery packs
+    retrieval_expansion_terms:
+      - battery pack
+
+  battery_parts:
+    aliases:
+      - battery parts
+      - battery components
+      - battery hardware
+      - battery cells
+      - battery packs
+      - battery electrolyte
+      - battery materials
+    synonyms:
+      - battery parts for electric vehicles
+      - battery cells for electric mobility
+      - lithium-ion battery materials
+    exact_phrases:
+      - battery parts for electric vehicles
+      - battery cells for electric mobility
+      - lithium-ion battery materials
+      - battery electrolyte
+      - lithium-ion battery recycler and raw materials provider
+    exclusions: []
+    field_targets:
+      - product_service
+      - ev_supply_chain_role
+    question_hints:
+      - battery parts
+      - battery components
+      - direct OEM engagement
+    retrieval_expansion_terms:
+      - battery parts for electric vehicles
+      - battery cells for electric mobility
+
+  battery_enclosures:
+    aliases:
+      - enclosure systems
+      - battery enclosure
+      - battery enclosures
+      - housing modules
+      - shielding systems
+    synonyms:
+      - enclosure modules
+      - battery housing
+    exact_phrases:
+      - housing modules
+      - shielding systems
+    exclusions:
+      - engines
+      - transmissions
+      - exhaust systems
+      - auxiliary units
+    field_targets:
+      - product_service
+    question_hints:
+      - enclosure systems
+      - battery enclosure
+    retrieval_expansion_terms:
+      - housing modules
+      - shielding systems
+
+  wiring_harness:
+    aliases:
+      - wiring harness
+      - wiring harnesses
+      - hv wiring harnesses
+      - lv wiring harnesses
+    synonyms:
+      - vehicle power and data solutions
+      - automotive wiring harnesses
+    exact_phrases:
+      - HV and LV wiring harnesses for EVs and ICE vehicles
+      - EV wiring harnesses and power distribution
+      - Automotive wiring harnesses & electrical distribution systems
+      - Vehicle power & data solutions; wiring harnesses and connectors
+    exclusions:
+      - high-voltage EV connectors and electronics
+      - connectors terminals sensors
+    field_targets:
+      - ev_supply_chain_role
+      - product_service
+    question_hints:
+      - wiring harnesses
+      - high-voltage wiring harnesses
+    retrieval_expansion_terms:
+      - wiring harnesses
+      - vehicle power and data solutions
+
+  electrical_distribution:
+    aliases:
+      - electrical distribution
+      - power distribution
+      - electrical distribution systems
+    synonyms:
+      - EV wiring harnesses and power distribution
+      - automotive wiring harnesses & electrical distribution systems
+    exact_phrases:
+      - EV wiring harnesses and power distribution
+      - Automotive wiring harnesses & electrical distribution systems
+    exclusions:
+      - interior systems
+      - seating and e systems
+      - high-voltage EV connectors and electronics
+    field_targets:
+      - ev_supply_chain_role
+      - product_service
+    question_hints:
+      - electrical distribution
+      - power distribution
+    retrieval_expansion_terms:
+      - electrical distribution systems
+      - power distribution
+
+  power_electronics:
+    aliases:
+      - power electronics
+      - dc-to-dc
+      - inverter
+      - motor controller
+      - dc to dc converters
+    synonyms:
+      - charging infrastructure
+      - powertrain electronics
+      - capacitors
+      - high-voltage EV connectors and electronics
+    exact_phrases:
+      - Power Electronics
+      - Charging Infrastructure
+      - DC-to-DC converters
+    exclusions:
+      - powder coatings
+    field_targets:
+      - ev_supply_chain_role
+      - product_service
+    question_hints:
+      - power electronics
+      - dc-to-dc
+      - inverter
+      - motor controller
+      - charging infrastructure
+    retrieval_expansion_terms:
+      - DC-to-DC converters
+      - power electronics
+
+  thermal_management:
+    aliases:
+      - thermal management
+      - thermal systems
+      - thermal components
+      - hvac components
+    synonyms:
+      - EV thermal management and power electronics
+      - EV and ICE powertrain and HVAC components
+    exact_phrases:
+      - Thermal Management
+      - EV thermal management and power electronics
+    exclusions: []
+    field_targets:
+      - ev_supply_chain_role
+      - product_service
+      - primary_facility_type
+    question_hints:
+      - thermal management
+      - thermal-related
+      - thermal solutions
+    retrieval_expansion_terms:
+      - thermal management
+      - hvac components
+
+  recycling_second_life:
+    aliases:
+      - battery recycling
+      - second-life battery processing
+      - end-of-life processing
+      - recycler
+      - recycle
+    synonyms:
+      - lithium ion batteries recycler
+      - circular economy
+      - raw materials provider
+    exact_phrases:
+      - Recycler of lithium ion batteries
+      - Lithium-ion battery recycler and raw materials provider
+      - Recycler of copper, precious metals, and non-ferrous materials
+    exclusions: []
+    field_targets:
+      - product_service
+      - ev_supply_chain_role
+    question_hints:
+      - recycling
+      - second-life
+      - circular economy
+    retrieval_expansion_terms:
+      - recycler of lithium ion batteries
+      - battery recycling
+
+  vehicle_assembly:
+    aliases:
+      - vehicle assembly
+      - electric vehicle assembly
+      - assembly plant
+    synonyms:
+      - automotive assembly plant
+      - direct manufacturer
+    exact_phrases:
+      - Vehicle Assembly
+      - Electric vehicle assembly plant
+      - Automotive assembly plant
+    exclusions: []
+    field_targets:
+      - ev_supply_chain_role
+      - product_service
+    question_hints:
+      - vehicle assembly
+      - assembly facilities
+    retrieval_expansion_terms:
+      - vehicle assembly
+
+  automotive_RnD:
+    aliases:
+      - r&d
+      - research and development
+      - prototyping
+      - engineering
+      - innovation infrastructure
+    synonyms:
+      - development centers
+      - manufacturing and r&d engine parts for EV
+    exact_phrases:
+      - R&D
+      - Manufacturing and R&D engine parts for EV
+    exclusions: []
+    field_targets:
+      - primary_facility_type
+      - product_service
+    question_hints:
+      - r&d
+      - innovation infrastructure
+      - prototyping
+    retrieval_expansion_terms:
+      - manufacturing and r&d engine parts for EV
+
+  powder_coating:
+    aliases:
+      - powder coating
+      - powder coatings
+      - coating-related products
+    synonyms:
+      - powder coating-related
+    exact_phrases:
+      - Powder coatings for automotive and other industries
+    exclusions:
+      - rubber powders for tires
+    field_targets:
+      - product_service
+    question_hints:
+      - powder coating
+      - powder coating-related
+    retrieval_expansion_terms:
+      - powder coatings for automotive and other industries

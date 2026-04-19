@@ -6,10 +6,17 @@
   "rag_enabled": false,
   "prompt_version": "v3",
   "run_key": "e909984a0c0d77f2",
+<<<<<<< HEAD
+  "output_dir": "/home/sm11926/Downloads/ev_data_LLM_comparsions_sreeja/outputs/generation/gemma_norag/e909984a0c0d77f2",
+  "question_count_target": 50,
+  "started_at_utc": "2026-04-06T14:28:47+00:00",
+  "completed_at_utc": "2026-04-06T14:43:52+00:00",
+=======
   "output_dir": "/home/sm11926/Downloads/ev_data_LLM_comparsions/outputs/generation/gemma_norag/e909984a0c0d77f2",
   "question_count_target": 50,
   "started_at_utc": "2026-04-06T05:16:31+00:00",
   "completed_at_utc": "2026-04-06T05:20:09+00:00",
+>>>>>>> 62c9729c9838ef19a30d25eebbd52ab0268417f4
   "config_hash": "000bcdcc480922929e786b74b654ed022e0ef8ccd707841027f9ebc3b99a60dc",
   "kb_hash": "4e80427412c5dec888179eb44467f0720f0d92a44e72b6e9c53a636c75bd8e54",
   "questions_hash": "13e0c488b6c2ba862fa931ab0497ffa7355d22653d86c4aadb86265aefa568f3",
@@ -17,7 +24,11 @@
   "chunking_hash": "9ef17635d79a9be18df8d0ea226aef7a089955eef1177f0625700a8bb0283ed1",
   "index_backend": "local-vectorstore",
   "embedding_backend": "not_applicable",
+<<<<<<< HEAD
+  "repo_commit": "3ac23d05bef743bc9768c531eac638013daba3ff",
+=======
   "repo_commit": "d73e60b93f4a2850065d1e6aeeb9e1c922c7ac19",
+>>>>>>> 62c9729c9838ef19a30d25eebbd52ab0268417f4
   "settings_snapshot": {
     "project_name": "benchmark_v3",
     "paths": {

@@ -1,9 +1,0 @@
-[2026-04-05 14:11:10] [INFO] [kb_loader] Loaded 205 KB documents from data/kb/GNEM - Auto Landscape Lat Long Updated.xlsx
-[2026-04-05 14:11:11] [WARNING] [indexer] Failed to load sentence-transformers/all-mpnet-base-v2 (Cannot send a request, as the client has been closed.); using local TF-IDF hash embeddings.
-[2026-04-05 14:11:12] [INFO] [indexer] Embedding docs 1-32
-[2026-04-05 14:11:12] [INFO] [indexer] Embedding docs 33-64
-[2026-04-05 14:11:12] [INFO] [indexer] Embedding docs 65-96
-[2026-04-05 14:11:12] [INFO] [indexer] Embedding docs 97-128
-[2026-04-05 14:11:12] [INFO] [indexer] Embedding docs 129-160
-[2026-04-05 14:11:12] [INFO] [indexer] Embedding docs 161-192
-[2026-04-05 14:11:12] [INFO] [indexer] Embedding docs 193-205
